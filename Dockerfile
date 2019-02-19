@@ -35,4 +35,6 @@ RUN bundle check || bundle install --jobs 20 --retry 5
 COPY . /ohana-web-search
 
 EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+
+CMD ["./start-rails.sh"]
+# CMD ["rails", "server", "-b", "0.0.0.0"]
