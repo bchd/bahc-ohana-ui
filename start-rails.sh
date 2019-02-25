@@ -37,7 +37,7 @@ function bundle-exec-rake {
 # echo "IF YOU CAN SEE THIS MIEK IS AN IDIOT"
 # sleep 99999999
 
-[ "$RAKE_ASSETS_PRECOMPILE" == "true" ] && bundle-exec-rake assets:precompile
+# [ "$RAKE_ASSETS_PRECOMPILE" == "true" ] && bundle-exec-rake assets:precompile
 # [ "$RAKE_DB_CREATE" == "true" ]         && bundle-exec-rake db:create
 # [ "$RAKE_DB_MIGRATE" == "true" ]        && bundle-exec-rake db:migrate
 # [ "$RAKE_DB_SEED" == "true" ]           && bundle-exec-rake db:seed
