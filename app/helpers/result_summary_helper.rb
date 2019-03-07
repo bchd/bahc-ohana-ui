@@ -10,7 +10,6 @@ module ResultSummaryHelper
 
   # Formats map result summary text
   # @return [String] Result summary string for display on search results view.
-  # rubocop:disable Rails/OutputSafety
   def map_summary
     total_results = @search.locations.size
     total_map_markers = @search.map_data.size
@@ -23,7 +22,6 @@ module ResultSummaryHelper
               end
     summary.html_safe
   end
-  # rubocop:enable Rails/OutputSafety
 
   def location_link_for(location)
     if location.organization.name == location.name
