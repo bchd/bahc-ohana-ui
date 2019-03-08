@@ -9,12 +9,10 @@ module SchedulesHelper
 
   # @param schedules [Array] List of hashes with weekday hours information.
   # @return [HTML] Snippet of opening hours per weekday and date.
-  # rubocop:disable Rails/OutputSafety
   def holiday_hours_for(schedules)
     schedules.map { |schedule| holiday_schedule_content_for(schedule) }.
       join(' ').html_safe
   end
-  # rubocop:enable Rails/OutputSafety
 
   private
 
@@ -28,7 +26,6 @@ module SchedulesHelper
   # @param close_time [Time] A closing hours timestamp.
   # @return [HTML] Snippet of opening hours for a single weekday
   #   or range of weekdays.
-  # rubocop:disable Rails/OutputSafety
   def regular_schedule_content_for(start_day, end_day, open_time, close_time)
     content_tag :section do
       "#{weekday_range_for(start_day, end_day)}: "\
@@ -45,7 +42,6 @@ module SchedulesHelper
       "#{weekday_content_for(end_day)}".html_safe
     end
   end
-  # rubocop:enable Rails/OutputSafety
 
   # @param day [Integer] An integer representing the weekday. 1 = Monday, etc.
   # @return [HTML] Weekday name wrapped in a span element.
@@ -63,7 +59,6 @@ module SchedulesHelper
   #   open_time, and close_time keys.
   # @return [HTML] Snippet of opening hours for a single weekday
   #   or range of weekdays.
-  # rubocop:disable Rails/OutputSafety
   def holiday_schedule_content_for(schedule)
     content_tag :section do
       "#{date_range_for(schedule.start_date, schedule.end_date)}: "\
@@ -72,7 +67,6 @@ module SchedulesHelper
       )}".html_safe
     end
   end
-  # rubocop:enable Rails/OutputSafety
 
   # @param closed [Boolean] Whether location/service is open on start_date.
   # @param start_date [Date] A datestamp.
@@ -120,14 +114,12 @@ module SchedulesHelper
   # @param open_time [Time] An opening hours timestamp.
   # @param close_time [Time] A closing hours timestamp.
   # @return [HTML] Snippet for a day's opening hours.
-  # rubocop:disable Rails/OutputSafety
   def time_range_for(open_time, close_time)
     content_tag :span, class: 'opening-hours' do
       "#{hour_content_for(open_time, 'opens-at')} - "\
       "#{hour_content_for(close_time, 'closes-at')}".html_safe
     end
   end
-  # rubocop:enable Rails/OutputSafety
 
   # @param time [Time] A timestamp.
   # @param class_name [String] The DOM class to apply to the time element.

@@ -26,7 +26,7 @@ gem 'webpacker', '~> 3.2'
 # dev and debugging tools
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', platforms: %i[mri_19 rbx]
+  gem 'binding_of_caller', platforms: %i[mri rbx]
   gem 'bummr'
   gem 'derailed'
   gem 'flamegraph'
@@ -46,12 +46,13 @@ group :test do
   gem 'haml_lint'
   gem 'poltergeist'
   gem 'rails-controller-testing'
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.52.1'
   gem 'simplecov', require: false
   gem 'vcr'
   gem 'webmock'
 end
 
 group :development, :test do
+  gem 'byebug'
   gem 'rspec-rails', '~> 3.1'
 end
