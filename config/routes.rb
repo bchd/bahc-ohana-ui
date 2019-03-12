@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # Read more about routing: http://guides.rubyonrails.org/routing.html
 
   root to: 'home#index'
-  devise_for :users #, sign_out_via: [:get]
+  devise_for :users
   resources :locations, only: [:index]
   get 'locations/*id/' => 'locations#show', as: 'location'
   get '/about' => 'about#index'
