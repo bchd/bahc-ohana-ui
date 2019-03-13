@@ -40,7 +40,6 @@
 *.rbc
 .redcar/
 /config/config.yml
-/config/database.yml
 /public/cache
 /public/stylesheets/compiled
 /public/system/*
