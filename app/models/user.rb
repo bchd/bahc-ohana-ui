@@ -6,4 +6,10 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
+
+  scope :admins, -> { where(admin: true) }
+
+  def admin?
+    admin
+  end
 end
