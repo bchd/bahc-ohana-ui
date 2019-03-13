@@ -6,8 +6,11 @@
 
     <div class="field">
       <%= f.label :email %><br />
-      <div><%= resource.email %></div>
-      <%# f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <% if current_user&.admin? %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <% else %>
+        <div><%= resource.email %></div>
+      <% end %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -32,6 +35,13 @@
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
+
+    <% if current_user&.admin? %>
+      <div class="field">
+        <%= f.label :admin %><br />
+        <%= f.check_box :admin %>
+      </div>
+    <% end %>
 
     <div class="actions">
       <%= f.submit "Update" %>
