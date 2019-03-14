@@ -1,4 +1,4 @@
-- if service.wait_time.present?
+- if user_signed_in? && service.wait_time.present?
   %section.wait-time
     %h1= t('service_fields.wait_time')
     %span

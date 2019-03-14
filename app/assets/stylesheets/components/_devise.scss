@@ -1,0 +1,45 @@
+.devise {
+  padding: 40px;
+  font-family: "Quattrocento Sans", sans-serif;
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  i {
+   color: #2da0bc;
+  }
+
+  em {
+   color: #2da0bc;
+   font-size: 0.8em;
+  }
+
+  .field {
+    margin-bottom: 15px;
+
+    input {
+      border-color: #a9ddea;
+      border-width: 1px;
+      height: 2em;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 150px;
+    }
+
+    input[type='checkbox'] {
+      width: 20px;
+    }
+  }
+  .actions input {
+    font-size: 1em;
+    border-color: #1c6678;
+    border-width: 1px;
+    height: 2em;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    // width: 100px;
+  }
+}

@@ -61,10 +61,6 @@ feature 'location service details' do
       expect(page).to have_content('Walk in or apply by phone or mail')
     end
 
-    it 'includes wait estimate' do
-      expect(page).to have_content('No wait to 2 weeks')
-    end
-
     it 'includes required documents' do
       element = '.services-box .required-documents'
       expect(first(element)).to have_content('Government-issued picture')
@@ -87,6 +83,40 @@ feature 'location service details' do
     it 'includes holiday hour schedule' do
       content = 'January 1: CLOSED'
       expect(find('.services-box .holiday-schedules')).to have_content(content)
+    end
+  end
+
+  context 'when Service Wait Estimate is available' do
+    context 'when no user is logged in' do
+      before do
+        cassette = 'location_details/when_the_details_page_is_visited_directly'
+        VCR.use_cassette(cassette) do
+          visit_test_location
+        end
+      end
+
+      it 'does not include the wait estimate' do
+        expect(page).not_to have_content('No wait to 2 weeks')
+      end
+    end
+
+    context 'when a user is logged in' do
+      let(:user) { create(:user) }
+      before do
+        login_as(user, scope: :user)
+        cassette = 'location_details/when_the_details_page_is_visited_directly'
+        VCR.use_cassette(cassette) do
+          visit_test_location
+        end
+      end
+
+      after do
+        user.destroy
+      end
+
+      it 'includes wait estimate' do
+        expect(page).to have_content('No wait to 2 weeks')
+      end
     end
   end
 

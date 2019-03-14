@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 ruby '2.5.3'
-gem 'actionmailer', '~> 5.1.6'
 gem 'compass-rails'
 gem 'dalli', '~> 2.7.1'
+gem 'devise', '~> 4.6'
 gem 'faraday-http-cache', '~> 2.0'
 gem 'figaro'
 gem 'font-awesome-rails'
@@ -14,10 +14,11 @@ gem 'kaminari-core'
 gem 'kgio'
 gem 'memcachier'
 gem 'ohanakapa', '~> 1.1.1'
+gem 'pg'
 gem 'puma'
 gem 'rack-cache', '~> 1.2'
 gem 'rack-rewrite', '~> 1.5.0'
-gem 'railties', '~> 5.1.6'
+gem 'rails', '~> 5.1.6'
 gem 'sass-rails', '~> 5.0.1'
 gem 'sprockets', '~> 3.7.1'
 gem 'uglifier'
@@ -54,5 +55,7 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails', '~> 3.1'
 end

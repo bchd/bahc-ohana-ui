@@ -2,3 +2,14 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   TargetRubyVersion: 2.5
+  Exclude:
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/**'
+
+Style/TrailingCommaInLiteral:
+  Exclude:
+    - '*/**'
