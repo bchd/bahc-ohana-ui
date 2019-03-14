@@ -9,3 +9,7 @@ AllCops:
 Style/MixinUsage:
   Exclude:
     - 'bin/**'
+
+Style/TrailingCommaInLiteral:
+  Exclude:
+    - '*/**'
