@@ -16,6 +16,8 @@ RSpec.configure do |config|
   config.include DetailFormatHelper
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
+  config.include FactoryBot::Syntax::Methods
+  config.include Warden::Test::Helpers
 
   # rspec-rails 3+ will no longer automatically infer an example group's spec
   # type from the file location. You can explicitly opt in to this feature by
