@@ -23,4 +23,8 @@ RSpec.configure do |config|
   # type from the file location. You can explicitly opt in to this feature by
   # uncommenting the setting below.
   config.infer_spec_type_from_file_location!
+
+  config.after :each do
+    Warden.test_reset!
+  end
 end
