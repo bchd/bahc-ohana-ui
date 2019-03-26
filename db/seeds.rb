@@ -8,3 +8,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Environment variables (ENV['...']) are set in the file config/application.yml.
 # See http://railsapps.github.com/rails-environment-variables.html
+User.find_or_create_by(email: 'admin@example.com') do |u|
+  u.password = 'password'
+  u.password_confirmation = 'password'
+  u.admin = true
+end

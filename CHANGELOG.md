@@ -1,5 +1,10 @@
 # Change Log
 
+## [?.?.8] - 2019-03-29
+### ahc-sprint-20
+### Added
+  - db:seed now creates default admin user
+
 ## [?.?.?] - 2019-03-08
 ### ahc-sprint-19
 ### Added
