@@ -1,5 +1,14 @@
-- if user_signed_in? && service.wait_time.present?
+- if user_signed_in?
   %section.wait-time
-    %h1= t('service_fields.wait_time')
-    %span
-      = service.wait_time
+    %h1= t('service_fields.availability.service_wait_estimate')
+    %section.inline-icon-text
+      - if service&.wait_time == 'Available Today'
+        %i.fa.fa-check-circle-o.available
+      - elsif service&.wait_time == '2-3 Day Wait'
+        %i.fa.fa-clock-o.short-wait
+      - elsif service&.wait_time == '1 Week Wait'
+        %i.fa.fa-times-circle-o.long-wait
+      - else
+        %i.fa.fa-question-circle-o.unknown
+      %span
+        = service.wait_time || t('service_fields.availability.unknown')

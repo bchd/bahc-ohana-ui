@@ -1,11 +1,14 @@
 # Change Log
 
-## [?.?.8] - 2019-03-29
+## [?.?.?] - 2019-03-29
 ### ahc-sprint-20
 ### Added
   - db:seed now creates default admin user
+### Changed
+  - AHC-1150
+    - Added icons inline with service wait time estimate values, handle unknown wait time
 
-## [?.?.?] - 2019-03-08
+## [?.?.?] - 2019-03-15
 ### ahc-sprint-19
 ### Added
  - AHC-1068
