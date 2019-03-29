@@ -29,6 +29,18 @@ RSpec.describe 'component/detail/service_wait' do
     end
   end
 
+  context "when the wait time is 'Next Day Service'" do
+    let(:service) { build(:service, wait_time: 'Next Day Service') }
+
+    before do
+      render 'component/detail/service_wait', service: service
+    end
+
+    it 'will show the correct wait time' do
+      expect(rendered).to have_content('Next Day Service')
+    end
+  end
+
   context "when the wait time is '2-3 Day Wait'" do
     let(:service) { build(:service, wait_time: '2-3 Day Wait') }
 
