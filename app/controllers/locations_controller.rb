@@ -1,5 +1,4 @@
 class LocationsController < ApplicationController
-  include CurrentLanguage
   include Cacheable
 
   def index
@@ -10,13 +9,10 @@ class LocationsController < ApplicationController
     # params[:keyword] = translator.translated_keyword
 
     locations = Location.search(params)
-
     @search = Search.new(locations, Ohanakapa.last_response, params)
-
     # Populate the keyword search field with the original term
     # as typed by the user, not the translated word.
     # params[:keyword] = translator.original_keyword
-
     cache_page(locations.max_by(&:updated_at).updated_at) if locations.present?
   end
 

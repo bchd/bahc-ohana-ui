@@ -272,6 +272,31 @@ site_title: Ohana Web Search
 # value blank or comment out the setting.
 phone_extension_delimiter: x
 
+##########################
+#
+# CATEGORY FILTERING SETTINGS
+#
+##########################
+#
+# The search area includes some categories that can be selected to filter
+# search results. The categories which can be filtered on are configured
+# below:
+#
+filter_categories:
+  - 'Age Group'
+  - 'Gender & Sexuality'
+  - 'Health Needs'
+  - 'Family Friendly'
+  - 'Insurance Accepted'
+  - 'Languages'
+  - 'Documents Needed'
+  - 'Special Hours'
+  - 'Treatment Preferences'
+  - 'Treatment Style'
+  - 'Accessibility'
+
+
+
 ###########################################
 #
 # SETTINGS FOR TESTS. PLEASE DO NOT MODIFY.

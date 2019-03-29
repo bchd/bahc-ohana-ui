@@ -1,4 +1,4 @@
 - title search_results_page_title
-= render 'component/search/aside'
+= render 'component/search/aside', filter_categories: @filter_categories
 %section#results-container{ class: ('result-map-showing' unless @search.map_data.empty?) }
   = render 'component/locations/results/body', search: @search
