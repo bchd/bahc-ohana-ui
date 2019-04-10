@@ -1,0 +1,20 @@
+<tr>
+  <td><%= user.email %></td>
+  <td><%= user.admin ? user.admin : '&nbsp;'.html_safe %></td>
+  <td>
+    <%= form_for(user, as: user.email, url: user_registration_path, html: { method: :delete }) do |f| %>
+
+      <div class="actions">
+        <%= f.submit t('users.delete_user') %>
+      </div>
+    <% end %>
+  </td>
+  <td>
+    <%= form_for(user, as: user.email, url: edit_user_registration_path, html: { method: :post }) do |f| %>
+
+      <div class="actions">
+        <%= f.submit t('users.edit') %>
+      </div>
+    <% end %>
+  </td>
+</tr>

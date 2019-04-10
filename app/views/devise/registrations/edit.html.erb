@@ -55,5 +55,18 @@
     </div>
   <% end %>
 
+  <% if current_user&.admin? %>
+    <div class="actions">
+      <%= link_to(t('users.add_user'), new_user_registration_path) %>
+    </div>
+  <% end %>
+
+  <% if current_user&.admin? %>
+    <div class="actions">
+      <%= link_to(t('users.user_list'), users_path) %>
+    </div>
+  <% end %>
+
+
   <%# link_to "Back", :back %>
 </div>

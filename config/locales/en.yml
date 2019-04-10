@@ -124,6 +124,14 @@ en:
       schedules_hours: '%l:%M%P'
       holiday_schedules_date: '%B %e'
 
+  users:
+    add_user: "Add User"
+    delete_user: "Delete User"
+    edit: "Edit"
+    edit_profile: "Edit Profile"
+    sign_out: "Sign Out"
+    user_list: "User List"
+
   views:
     pagination:
       first: "&laquo; First"

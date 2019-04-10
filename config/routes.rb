@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
+  devise_scope :user do
+    get "users" => "users/registrations#index"
+  end
   resources :locations, only: [:index]
   get 'locations/*id/' => 'locations#show', as: 'location'
   get '/about' => 'about#index'

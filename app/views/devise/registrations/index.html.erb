@@ -1,0 +1,15 @@
+<div class='devise'>
+  <h2><%= t('users.user_list') %></h2>
+
+  <table>
+    <tr>
+      <th>Email</th>
+      <th>Admin</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+    <% @users.each do |user| %>
+      <%= render partial: "user_row", locals: { user: user } %>
+    <% end %>
+  </table>
+</div>
