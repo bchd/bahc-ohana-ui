@@ -10,17 +10,20 @@
       @include box-sizing(border-box);
       line-height: #{$font_size_105 + 3};
     }
-    .short-wait {
-      color: #FFC426;
-    }
     .available{
       color: #BBCC33;
     }
-    .long-wait{
+    .next-day {
+      color: #FFC427
+    }
+    .short-wait {
       color: #FDA549;
     }
+    .long-wait{
+      color: #C1484C;
+    }
     .unknown{
-      color: #FFC426;
+      color: #06A0B8;
     }
 
     > span {
