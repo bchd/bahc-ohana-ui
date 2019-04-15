@@ -41,6 +41,21 @@ function init() {
     curr = checkboxes[l];
     $(curr).click(_linkClickedHandler);
   }
+
+  var parentFilterHeaders = document.getElementsByClassName('parent-category-label-container');
+  for (var l = 0; l < parentFilterHeaders.length; l += 1) {
+    curr = parentFilterHeaders[l];
+    curr.addEventListener('click', _handleHeaderClick, false);
+  }
+
+}
+
+function _handleHeaderClick(evt) {
+  var filters = $(evt.currentTarget).nextUntil('depth0');
+  for (var l = 0; l < filters.length; l += 1) {
+    $(filters[l].children[0]).toggleClass('hide');
+  }
+  $(evt.currentTarget.children[1].children[0]).toggleClass('fa fa-chevron-right fa fa-chevron-down');
 }
 
 function _linkClickedHandler(evt) {
@@ -80,7 +95,6 @@ function _checkState(prefix,depth,checkbox) {
   for (var l=0; l < lnks.length; l++) {
     curr = lnks[l];
     if (checkbox.checked) {
-      console.log('checked!!');
       $(curr).removeClass('hide');
     }
     else {

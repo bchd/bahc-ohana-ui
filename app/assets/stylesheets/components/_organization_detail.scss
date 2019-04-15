@@ -3,7 +3,7 @@
 .organization-detail {
   display: table;
   border-left: 20px solid $complementA;
-  font-family: $font_san_serif;
+  font-family: $font_sans_serif;
   background: $primary-lightest;
 
   .content {
@@ -42,7 +42,7 @@
     min-width: 110px;
     vertical-align: top;
     font-size: $font_size_95;
-    font-family: $font_san_serif;
+    font-family: $font_sans_serif;
     padding: 20px;
 
     > section {

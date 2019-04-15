@@ -27,7 +27,7 @@ module FilterCategoriesHelper
     categories.each do |array|
       cats.push([array, array[:children]])
     end
-    cats
+    cats.sort_by { |e| e.first[:filter_priority] }
   end
 
   def parent_filter(category)
@@ -40,15 +40,14 @@ module FilterCategoriesHelper
   end
 
   def class_name_for(category)
-    return 'depth0 checkbox' if category[:filter_parent]
+    return 'depth0 checkbox filter-category-label' if category[:filter_parent]
 
-    "hide depth#{category[:depth] - depth_offset(parent_filter(category))} checkbox"
+    "hide depth#{category[:depth] - depth_offset(parent_filter(category))} checkbox filter-category-item"
   end
 
   def checkbox_and_label(category)
     if category[:filter_parent]
-      concat(label_tag_for(category))
-      concat(checkbox_tag_for(category))
+      concat(header_div(category))
     else
       concat(checkbox_tag_for(category))
       concat(label_tag_for(category))
@@ -64,8 +63,25 @@ module FilterCategoriesHelper
     )
   end
 
+  def dropdown_button
+    content_tag(:div, class: 'filter-dropdown-closed') do
+      fa_icon "chevron-right"
+    end
+  end
+
+  def header_div(category)
+    content_tag(:div, class: "category_#{category[:taxonomy_id]} parent-category-label-container") do
+      concat(label_tag_for(category))
+      concat(dropdown_button)
+    end
+  end
+
   def label_tag_for(category)
-    label_tag "category_#{category[:taxonomy_id]}", category[:name]
+    if category[:filter_parent]
+      label_tag "category_#{category[:taxonomy_id]}", category[:name], class: 'parent-category-label'
+    else
+      label_tag "category_#{category[:taxonomy_id]}", category[:name], class: 'filter-category-label'
+    end
   end
 
 end

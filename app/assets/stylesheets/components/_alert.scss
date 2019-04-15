@@ -2,7 +2,7 @@
 .alert-container {
   width: 100%;
   min-height: 51px;
-  font-family: $font_san_serif;
+  font-family: $font_sans_serif;
   letter-spacing: 1px;
   text-align: center;
   pointer-events: none;
@@ -22,7 +22,7 @@
       text-align: center;
       padding: 10px;
       font-weight: bold;
-      font-family: $font_san_serif;
+      font-family: $font_sans_serif;
       @include inline-block();
     }
 

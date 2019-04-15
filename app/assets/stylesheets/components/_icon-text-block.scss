@@ -20,7 +20,7 @@
   > span {
     margin-left: #{$font_size_110 + 5};
     font-size: $font_size_105;
-    font-family: $font_san_serif;
+    font-family: $font_sans_serif;
     color: $black;
     @include box-sizing(border-box);
     line-height: #{$font_size_105 + 4};

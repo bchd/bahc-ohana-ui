@@ -1,6 +1,7 @@
-%strong
-  = label_tag :filters
+%div{ class: 'filter-label-container' }
+  = label_tag :filters, 'Filter by Category', class: 'filter-header-label'
 
 = hidden_field_tag 'categories', nil
-= field_set_tag nil, id: 'categories' do
-  = nested_categories(filter_tree)
+%div{ class: 'filter-categories-container' }
+  = field_set_tag nil, id: 'categories' do
+    = nested_categories(filter_tree)
