@@ -1,0 +1,11 @@
+  <div class='nav-buttons'>
+    <%= link_to(t('users.edit_profile'), edit_user_registration_path, class: 'button edit-profile') %>
+    <% if current_user.admin %>
+      <%= link_to(t('users.add_user'),     new_user_registration_path,  class: 'button add-user') %>
+      <%= link_to(t('users.user_list'),    users_path,                  class: 'button user-list') %>
+    <% end %>
+    <%= form_for(resource, as: resource_name, url: destroy_user_session_path, html: { method: :delete }) do |f| %>
+
+        <%= f.submit t('users.sign_out'), class: 'button sign-out'  %>
+    <% end %>
+  </div>

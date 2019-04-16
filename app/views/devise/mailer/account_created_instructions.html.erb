@@ -1,0 +1,12 @@
+<div class='devise'>
+  <p>Hello <%= @resource.email %>!</p>
+
+  <p>A CharmCare account has been set up for you! To get started, please click the link below to set your password.</p>
+
+  <p><%= link_to 'Change my password', edit_password_url(@resource, reset_password_token: @token) %></p>
+
+  <p>
+    If you didn't request this account, please email
+    <a href='<%= SETTINGS[:feedback_email]['to'][0] %>?subject=<%= t('users.account_not_requested_subject') %>"><%= SETTINGS[:feedback_email]['to'][0] %> </a>
+  </p>
+</div>

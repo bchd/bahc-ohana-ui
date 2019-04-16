@@ -1,9 +1,26 @@
 .devise {
   padding: 40px;
   font-family: "Quattrocento Sans", sans-serif;
+  background-color: white;
+  text-align: center;
+
+  form {
+    text-align: left;
+    display: inline;
+  }
+  .form {
+    margin: 0 auto;
+    max-width: 350px;
+  }
+  .instructions {
+    display: block;
+    margin: 20px auto;
+    max-width: 400px;
+  }
 
   h2 {
     font-size: 1.5em;
+    margin-bottom: 1.5em;
   }
 
   i {
@@ -24,7 +41,7 @@
       height: 2em;
       padding-left: 10px;
       padding-right: 10px;
-      width: 150px;
+      width: 325px;
     }
 
     input[type='checkbox'] {
@@ -41,5 +58,83 @@
     margin-top: 10px;
     margin-bottom: 10px;
     // width: 100px;
+  }
+  .nav-buttons {
+    width: 100%;
+    text-align: right;
+    .button {
+      border: 1px solid black;
+      padding: 10px;
+      text-decoration-line: none;
+      font-size: 16px;
+      font-family: "Quattrocento Sans", sans-serif
+    }
+  }
+  &.edit-profile {
+    .nav-buttons {
+      a.edit-profile {
+        color: white;
+        background-color: blue;
+      }
+    }
+  }
+  &.add-user {
+    .nav-buttons {
+      a.add-user {
+        color: white;
+        background-color: blue;
+      }
+    }
+  }
+  &.user-list {
+    .nav-buttons {
+      a.user-list {
+        color: white;
+        background-color: blue;
+      }
+    }
+  }
+  &.sign-out {
+    .nav-buttons {
+      a.sign-out {
+        color: white;
+        background-color: blue;
+      }
+    }
+  }
+  table {
+    margin: 0 auto;
+
+    tr.headings {
+      border-bottom: 2px solid gray;
+    }
+    tr.user-row {
+      border-bottom: 1px solid gray;
+    }
+  
+    .data {
+      padding-left: 10px;
+      padding-right: 30px;
+    }
+    td.button {
+      input {
+        margin-right: 10px;
+      }
+      a {
+        color: white;
+        background-color: blue;
+        line-height: 1.5em;
+      }
+    }
+    td.button.edit-user input {
+      border: none;
+      color: white;
+      background-color: blue;
+    }
+    td.button.delete-user input {
+      border: none;
+      color: darkgray;
+      background-color: lightgray;
+    }
   }
 }

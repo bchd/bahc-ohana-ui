@@ -9,6 +9,8 @@
 # Environment variables (ENV['...']) are set in the file config/application.yml.
 # See http://railsapps.github.com/rails-environment-variables.html
 User.find_or_create_by(email: 'admin@example.com') do |u|
+  u.first_name = 'Admin'
+  u.last_name = 'User'
   u.password = 'password'
   u.password_confirmation = 'password'
   u.admin = true

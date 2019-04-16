@@ -1,39 +1,45 @@
-<div class='devise'>
+<div class='devise add-user'>
   <% if current_user&.admin? %>
-    <h2><%= t('users.add_user') %></h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+    <%= render 'nav_buttons' %>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
+    <%= content_tag :i, nil, class: 'fa fa-users fa-3x' %>
+    <h2>
+      <%= t('users.add_user') %>
+    </h2>
+    <p class='instructions'>
+      After adding a users information and email address, a link will be sent to their email to create a password.
+    </p>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
+    <div class='form'>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
+        <div class="field first-name">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :admin %><br />
-        <%= f.check_box :admin %>
-      </div>
+        <div class="field last-name">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name, autocomplete: "last_name" %>
+        </div>
 
-      <div class="actions">
-        <%= f.submit "Register" %>
-      </div>
-    <% end %>
+        <div class="field email">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autocomplete: "email" %>
+        </div>
 
-    <%= render "devise/shared/links" %>
+        <div class="field admin">
+          <%= f.check_box :admin %>
+          <%= f.label :admin, t('users.check_if_admin') %><br />
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Register" %>
+        </div>
+      <% end %>
+    </div>
   <% else %>
     To obtain an account, please contact the Baltimore City Health Department.
   <% end %>
