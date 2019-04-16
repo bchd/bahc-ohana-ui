@@ -29,5 +29,12 @@
               - if location.short_desc.present?
                 %p.short-desc
                   = location.short_desc
+          - if user_signed_in? 
+            - services = Location.get(location.id)[:services]
+            - if services.size > 0
+              %section.service-availability
+                %table
+                  - services.each do |service|
+                    = render 'component/locations/results/service_wait_table_row', service: service
   %footer
     = paginate search.results

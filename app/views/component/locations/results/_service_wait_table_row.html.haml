@@ -1,0 +1,6 @@
+%tr.wait-time
+  %td.name= service.name
+  %td.availability.inline-icon-text
+    %i{ class: wait_time_icon_classes(service) }
+    %span
+      = service.wait_time || t('service_fields.availability.unknown')
