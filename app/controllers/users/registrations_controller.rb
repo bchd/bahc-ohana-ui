@@ -9,7 +9,7 @@ module Users
     # GET /users
     def index
       forbidden && return unless current_user&.admin
-      @users = User.order(:last_name)
+      @users = User.order(:last_name, :first_name)
     end
 
     # GET /resource/sign_up
@@ -52,7 +52,7 @@ module Users
         set_minimum_password_length
         # respond_with resource
       end
-      @users = User.order(:last_name)
+      @users = User.order(:last_name, :first_name)
       @user = current_user
       render :index
     end
@@ -81,7 +81,7 @@ module Users
     def update_user
       user = User.find(params[:id])
       user.update! update_user_params(params)
-      @users = User.order(:last_name)
+      @users = User.order(:last_name, :first_name)
       @user = current_user
       render :index
     end
@@ -91,7 +91,7 @@ module Users
       if params[:id].present?
         user = User.find(params[:id])
         user.destroy
-        @users = User.order(:last_name)
+        @users = User.order(:last_name, :first_name)
         render :index
       else
         super
