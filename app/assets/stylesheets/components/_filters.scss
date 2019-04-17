@@ -1,6 +1,6 @@
 .filter-label-container {
   margin-bottom: 1em;
-  //margin-left: 1em;
+  margin-left: .5em;
 }
 
 .filter-header-label {
@@ -14,7 +14,12 @@
   display: flex;
   //margin-bottom: .5em;
   padding: .25em .5em .25em .5em;
+  margin-bottom: .2em;
 }
+.selected {
+  background-color: #a9ddea;
+}
+
 .parent-category-label-container:hover{
   cursor: pointer;
   background-color: #a9ddea;
@@ -23,18 +28,25 @@
 .parent-category-label {
   font-family: $font_sans_serif;
   font-size: $font-size_105;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .parent-category-label:hover{
   cursor: pointer;
 }
 
 .filter-category-item {
-  padding-left: .5em;
+  padding: 0 .25em 0 .5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .filter-category-label {
-   font-family: $font_sans_serif;
-   font-size: $font-size_105;
+  font-family: $font_sans_serif;
+  font-size: $font-size_105;
+  max-width: 13.5em;
  }
 
 .filter-dropdown-closed {

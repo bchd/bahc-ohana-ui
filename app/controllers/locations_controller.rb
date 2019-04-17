@@ -9,6 +9,7 @@ class LocationsController < ApplicationController
     # params[:keyword] = translator.translated_keyword
 
     locations = Location.search(params)
+    @filters = params[:categories]
     @search = Search.new(locations, Ohanakapa.last_response, params)
     # Populate the keyword search field with the original term
     # as typed by the user, not the translated word.

@@ -55,6 +55,7 @@ function _handleHeaderClick(evt) {
   for (var l = 0; l < filters.length; l += 1) {
     $(filters[l].children[0]).toggleClass('hide');
   }
+  $(evt.currentTarget).toggleClass('selected');
   $(evt.currentTarget.children[1].children[0]).toggleClass('fa fa-chevron-right fa fa-chevron-down');
 }
 

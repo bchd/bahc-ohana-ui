@@ -1,9 +1,11 @@
 module FilterCategoriesHelper
 
-  @@filter_categories = Ohanakapa.categories.select(&:filter?).sort_by { |a| a[:taxonomy_id] }.map(&:to_h)
+  def filter_categories
+    @filter_categories ||= Ohanakapa.categories.select(&:filter?).sort_by { |a| a[:taxonomy_id] }.map(&:to_h)
+  end
 
   def filter_tree
-    nested_hash = Hash[@@filter_categories.map { |e| [e[:id], e.merge(children: [])] }]
+    nested_hash = Hash[filter_categories.map { |e| [e[:id], e.merge(children: [])] }]
     nested_hash.each do |id, item|
       parent = nested_hash[item[:parent_id]]
       parent[:children] << item if parent
@@ -32,7 +34,7 @@ module FilterCategoriesHelper
 
   def parent_filter(category)
     cat_family = category[:taxonomy_id].split('-').first
-    @@filter_categories.select { |c| c[:taxonomy_id].include?(cat_family) && c[:filter_parent] }.first
+    filter_categories.select { |c| c[:taxonomy_id].include?(cat_family) && c[:filter_parent] }.first
   end
 
   def depth_offset(category)
@@ -56,9 +58,9 @@ module FilterCategoriesHelper
 
   def checkbox_tag_for(category)
     check_box_tag(
-      "categories",
+      'categories[]',
       category[:id],
-      false,
+      @filters&.include?(category[:id].to_s),
       id: "category_#{category[:taxonomy_id]}"
     )
   end
