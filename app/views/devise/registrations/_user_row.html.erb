@@ -7,7 +7,7 @@
     <%= form_for(user, as: user, url: delete_user_path(user.id), html: { method: :delete }) do |f| %>
 
       <div class="actions">
-        <%= f.submit t('users.delete_user') %>
+        <%= f.submit t('users.delete_user'), class: 'button' %>
       </div>
     <% end %>
   </td>
@@ -15,7 +15,7 @@
     <%= form_for(user, as: user, url: edit_user_path(user.id), html: { method: :get }) do |f| %>
 
       <div class="actions">
-        <%= f.submit t('users.edit_user') %>
+        <%= f.submit t('users.edit_user'), class: 'button' %>
       </div>
     <% end %>
   </td>

@@ -131,6 +131,7 @@ en:
     account_sign_up_subject: 'CharmCare Account Registration'
     add_user: 'Add User'
     admin: 'Admin'
+    cancel: 'Cancel'
     check_if_admin: 'Check if user should be granted admin status'
     delete_user: 'Delete User'
     didnt_receive_confirmation_instructions: "Didn't receive confirmation instructions?"

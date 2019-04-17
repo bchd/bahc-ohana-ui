@@ -48,16 +48,17 @@
       width: 20px;
     }
   }
-  .actions input {
-    font-size: 1em;
-    border-color: #1c6678;
-    border-width: 1px;
-    height: 2em;
-    padding-left: 10px;
-    padding-right: 10px;
+  table .actions .button {
     margin-top: 10px;
     margin-bottom: 10px;
-    // width: 100px;
+  }
+  .actions .button {
+    font-size: 1em;
+    border: 1px solid #1c6678;
+    padding: 10px;
+    text-decoration-line: none;
+    font-family: "Quattrocento Sans", sans-serif;
+    cursor: pointer;
   }
   .nav-buttons {
     width: 100%;
@@ -67,7 +68,8 @@
       padding: 10px;
       text-decoration-line: none;
       font-size: 16px;
-      font-family: "Quattrocento Sans", sans-serif
+      font-family: "Quattrocento Sans", sans-serif;
+      cursor: pointer;
     }
   }
   &.edit-profile {
@@ -111,7 +113,7 @@
     tr.user-row {
       border-bottom: 1px solid gray;
     }
-  
+
     .data {
       padding-left: 10px;
       padding-right: 30px;

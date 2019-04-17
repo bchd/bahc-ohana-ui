@@ -42,7 +42,8 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit t('users.save') %>
+        <%= link_to t('users.cancel'), users_path, class: 'button' %>
+        <%= f.submit t('users.save'), class: 'button' %>
       </div>
     <% end %>
   </div>

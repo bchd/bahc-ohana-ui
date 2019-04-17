@@ -11,10 +11,20 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
+      <div class="field first-name">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+      </div>
+
+      <div class="field last-name">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, autocomplete: "last_name" %>
+      </div>
+
       <div class="field">
         <%= f.label :email %><br />
         <% if current_user&.admin? %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autocomplete: "email" %>
         <% else %>
           <div><%= resource.email %></div>
         <% end %>
@@ -51,7 +61,8 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit t('users.save') %>
+        <%= link_to t('users.cancel'), root_path, class: 'button' %>
+        <%= f.submit t('users.save'), class: 'button' %>
       </div>
     <% end %>
   </div>
