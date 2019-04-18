@@ -1,6 +1,6 @@
 %div{ class: 'filter-label-container' }
   = label_tag :filters, 'Filter by Category', class: 'filter-header-label'
 
-%div{ class: 'filter-categories-container' }
+%div
   = field_set_tag nil, id: 'categories' do
     = nested_categories(filter_tree)
