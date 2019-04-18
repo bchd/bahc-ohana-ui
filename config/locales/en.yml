@@ -110,7 +110,9 @@ en:
     status_defunct: 'This service is no longer operating!'
     status_inactive: 'This service is not currently operating!'
     urls: 'Homepage:'
-    wait_time: 'Service Wait Estimate:'
+    availability:
+      service_wait_estimate: 'Service Wait Estimate:'
+      unknown: 'Call for availability'
 
   time:
     formats:

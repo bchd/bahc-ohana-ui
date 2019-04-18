@@ -6,7 +6,22 @@
   - AHC-1075
     - Added capability to filter by service categories in the search sidebar.
 
-## [?.?.?] - 2019-03-08
+## [?.?.?] - 2019-04-12
+### ahc-sprint-21
+### Changed
+  - AHC-1280
+    - Added `Next Day Service` wait time label and icon
+    - Changed colors for existing wait time icons
+       
+## [?.?.?] - 2019-03-29
+### ahc-sprint-20
+### Added
+  - db:seed now creates default admin user
+### Changed
+  - AHC-1150
+    - Added icons inline with service wait time estimate values, handle unknown wait time
+
+## [?.?.?] - 2019-03-15
 ### ahc-sprint-19
 ### Added
  - AHC-1068
