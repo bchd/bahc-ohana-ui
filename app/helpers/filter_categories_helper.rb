@@ -1,16 +1,17 @@
 module FilterCategoriesHelper
-
   def filter_categories
     @filter_categories ||= Ohanakapa.categories.select(&:filter?).sort_by { |a| a[:taxonomy_id] }.map(&:to_h)
   end
 
   def filter_tree
     nested_hash = Hash[filter_categories.map { |e| [e[:id], e.merge(children: [])] }]
-    nested_hash.each do |id, item|
+    # rubocop:disable Performance/HashEachMethods
+    nested_hash.each do |_id, item|
       parent = nested_hash[item[:parent_id]]
       parent[:children] << item if parent
     end
-    nested_hash.select { |id, item| item[:filter_parent] }.values
+    # rubocop:enable Performance/HashEachMethods
+    nested_hash.select { |_id, item| item[:filter_parent] }.values
   end
 
   def nested_categories(categories)
@@ -38,7 +39,7 @@ module FilterCategoriesHelper
   end
 
   def depth_offset(category)
-    category ? category[:taxonomy_id].scan("-").count : 0
+    category ? category[:taxonomy_id].scan('-').count : 0
   end
 
   def class_name_for(category)
@@ -67,7 +68,7 @@ module FilterCategoriesHelper
 
   def dropdown_button
     content_tag(:div, class: 'filter-dropdown-closed') do
-      fa_icon "chevron-right"
+      fa_icon 'chevron-right'
     end
   end
 
@@ -85,5 +86,4 @@ module FilterCategoriesHelper
       label_tag "category_#{category[:taxonomy_id]}", category[:name], class: 'filter-category-label'
     end
   end
-
 end

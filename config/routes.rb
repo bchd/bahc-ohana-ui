@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
+    registrations: 'users/registrations'
   }
   resources :locations, only: [:index]
   get 'locations/*id/' => 'locations#show', as: 'location'
