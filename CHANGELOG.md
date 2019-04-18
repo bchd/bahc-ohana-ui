@@ -5,6 +5,9 @@
 ### Added
   - AHC-1075
     - Added capability to filter by service categories in the search sidebar.
+### Changed
+  - AHC-1311
+    - Show the service categories on each individual service
 
 ## [?.?.?] - 2019-04-12
 ### ahc-sprint-21
@@ -12,7 +15,7 @@
   - AHC-1280
     - Added `Next Day Service` wait time label and icon
     - Changed colors for existing wait time icons
-       
+
 ## [?.?.?] - 2019-03-29
 ### ahc-sprint-20
 ### Added
