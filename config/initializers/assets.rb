@@ -14,4 +14,6 @@ Rails.application.config.assets.precompile += %w[
   vendor.js
   ie8.js
   ie9.js
+  application.js
+  jquery.js
 ]

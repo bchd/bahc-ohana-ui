@@ -1,5 +1,11 @@
 # Change Log
 
+## [?.?.?] - 2019-04-26
+### ahc-sprint-22
+### Added
+  - AHC-1075
+    - Added capability to filter by service categories in the search sidebar.
+
 ## [?.?.?] - 2019-04-12
 ### ahc-sprint-21
 ### Changed

@@ -2,7 +2,7 @@
   background: $button-small-bg;
   border: none;
 
-  font-family: $font_san_serif;
+  font-family: $font_sans_serif;
   @include type-size(baseline);
   @include rounded-except(none);
   @include box-sizing(border-box);
@@ -40,7 +40,7 @@
 
 a.button-small,
 a.button-small:hover {
-  font-family: $font_san_serif;
+  font-family: $font_sans_serif;
   text-decoration: none;
 }
 
