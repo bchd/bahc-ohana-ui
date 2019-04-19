@@ -1,6 +1,7 @@
-%tr.wait-time
-  %td.name= service.name
-  %td.availability.inline-icon-text
-    %i{ class: wait_time_icon_classes(service) }
-    %span
-      = service.wait_time || t('service_fields.availability.unknown')
+- if service.wait_time.present?
+  %tr.wait-time
+    %td.name= service.name
+    %td.availability.inline-icon-text
+      %i{ class: wait_time_icon_classes(service) }
+      %span
+        = wait_time_text service.wait_time
