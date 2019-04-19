@@ -382,6 +382,7 @@ body {
   width: 240px;
   background-color: $search-sidebar-bg;
   //border-right: 2px solid $primary;
+  border-right: 2px solid $main-border-color;
 
   select {
     font-size: $font_size_95;
