@@ -20,12 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  _yes: 'Yes'
+  _no: 'No'
   branding:
     description: >
       Retrieve detailed information about the services available
       in %{location}.
     header: 'Find community services in %{location}'
-    location: 'San Mateo County'
+    location: 'Baltimore City'
 
   buttons:
     clear_search_fields: 'Clear search fields'
@@ -123,6 +125,33 @@ en:
     formats:
       schedules_hours: '%l:%M%P'
       holiday_schedules_date: '%B %e'
+
+  users:
+    account_not_requested_subject: 'CharmCare account not requested'
+    account_sign_up_subject: 'CharmCare Account Registration'
+    add_user: 'Add User'
+    admin: 'Admin'
+    cancel: 'Cancel'
+    check_if_admin: 'Check if user should be granted admin status'
+    delete_user: 'Delete User'
+    didnt_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
+    didnt_receive_unlock_instructions: "Didn't receive unlock instructions?"
+    edit: 'Edit'
+    edit_profile: 'Edit Profile'
+    edit_user: 'Edit User'
+    edit_your_profile: 'Edit Your Profile'
+    email: 'Email'
+    first_name: 'First'
+    forgot_your_password: 'Forgot your password?'
+    last_name: 'Last'
+    login: 'Login'
+    manage_users: 'Manage Users'
+    save: 'Save'
+    send_me_reset_password_instructions: 'Send me reset password instructions'
+    sign_in_with: 'Sign in with'
+    sign_out: 'Sign Out'
+    sign_up: 'Sign Up'
+    user_list: 'User List'
 
   views:
     pagination:

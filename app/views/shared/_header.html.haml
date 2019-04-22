@@ -5,6 +5,12 @@
   %h2= t('branding.header', location: t('branding.location'))
   %nav
     %ul
+      %li
+        %a.popup-trigger.popup-default#about-btn{ href: '/about#about-box' }
+          About
+      %li
+        %a.popup-trigger.popup-feedback#feedback-btn{ href: '/about#feedback-box', target: '_self' }
+          Feedback
       - if user_signed_in?
         %li
           %a.popup-trigger.popup-account#user-btn{ href: edit_user_registration_path }
@@ -12,13 +18,7 @@
       - else
         %li
           %a.popup-trigger.popup-account#user-btn{ href: new_user_session_path }
-            Sign In
-      %li
-        %a.popup-trigger.popup-default#about-btn{ href: '/about#about-box' }
-          About
-      %li
-        %a.popup-trigger.popup-feedback#feedback-btn{ href: '/about#feedback-box', target: '_self' }
-          Feedback
+            = t('users.login')
   .clearfix
 
 -# Hide popups on /about because they are redundant to the content on that page.
