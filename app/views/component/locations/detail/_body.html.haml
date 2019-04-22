@@ -78,7 +78,7 @@
               %span
                 = render 'component/detail/mail_address', location: location
 
-    - if @categories.present?
+    - if false && @categories.present?
       %aside.location-sidebar
         %section.location-sidebar-section.service-categories-box
           %h1 Service Categories
@@ -166,16 +166,25 @@
                   %section.phones
                     - service.phones.each do |phone|
                       = render 'component/detail/phone', phone: phone, show_phone_type_and_department: true
+
+            = render 'component/detail/service_wait', service: service
             = render 'component/detail/service_description', service: service
             = render 'component/detail/service_fees', service: service
             = render 'component/detail/service_audience', service: service
             = render 'component/detail/service_eligibility', service: service
             = render 'component/detail/service_application_process', service: service
             = render 'component/detail/service_interpretation_services', service: service
-            = render 'component/detail/service_wait', service: service
             = render 'component/detail/service_required_documents', service: service
             = render 'component/detail/service_accepted_payments', service: service
             = render 'component/detail/service_service_areas', service: service
+            - service_categories = service[:categories].select { |c| c[:type] == 'service' }
+            - if service_categories.present?
+              %section.service-categories-box
+                %h1 Service Categories
+                %section.location-sidebar-content
+                  %section.service-categories{ itemscope: '', itemtype: 'http://schema.org/Service' }
+                    %div{  itemscope: '', itemtype: 'http://schema.org/serviceType' }
+                      = service_categories.map {|c| c[:name] }.join(', ')
 
   / Detail footer content.
   - if location.updated_at.present?
