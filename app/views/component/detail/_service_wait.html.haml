@@ -2,15 +2,6 @@
   %section.wait-time
     %h1= t('service_fields.availability.service_wait_estimate')
     %section.inline-icon-text
-      - if service&.wait_time == 'Available Today'
-        %i.fa.fa-check-circle-o.available
-      - elsif service&.wait_time == 'Next Day Service'
-        %i.fa.fa-chevron-circle-right.next-day
-      - elsif service&.wait_time == '2-3 Day Wait'
-        %i.fa.fa-clock-o.short-wait
-      - elsif service&.wait_time == '1 Week Wait'
-        %i.fa.fa-times-circle-o.long-wait
-      - else
-        %i.fa.fa-question-circle-o.unknown
+      %i{ class: wait_time_icon_classes(service) }
       %span
-        = service.wait_time || t('service_fields.availability.unknown')
+        = wait_time_text service.wait_time

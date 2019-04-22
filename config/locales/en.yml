@@ -113,6 +113,11 @@ en:
     availability:
       service_wait_estimate: 'Service Wait Estimate:'
       unknown: 'Call for availability'
+      call_for_availability: 'Call for availability'
+      available_today: 'Available Today'
+      next_day_service: 'Next Day Service'
+      two_three_day_wait: '2-3 Day Wait'
+      one_week_wait: '1 Week Wait'
 
   time:
     formats:

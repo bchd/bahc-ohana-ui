@@ -5,6 +5,8 @@
 ### Added
   - AHC-1075
     - Added capability to filter by service categories in the search sidebar.
+  - AHC-1301
+    - Show the wait time in the search results if logged in
 ### Changed
   - AHC-1311
     - Show the service categories on each individual service
