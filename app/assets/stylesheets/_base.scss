@@ -391,7 +391,6 @@ body {
     border: 2px solid $primary-dark;
     padding: 10px;
     margin-top: 10px;
-    letter-spacing: 1px;
     @include border-radius(4px);
     background-repeat: no-repeat;
     background-position: 94% 50%;
@@ -432,7 +431,6 @@ body {
   // Form input field labels.
   label {
     font-size: 56px;
-    letter-spacing: 1px;
     @include inline-block();
 
     color: $white;
