@@ -11,7 +11,7 @@
           = hidden_field_tag 'location'
           = label_tag 'keyword', t('labels.homepage_location_search')
           .input-search-big
-            = search_field_tag :keyword, params[:keyword], placeholder: t('placeholders.homepage_location_search'), tabindex: 1
-        = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', title: 'Search', tabindex: 2) do
+            = search_field_tag :keyword, params[:keyword], placeholder: t('placeholders.homepage_location_search'), tabindex: 2
+        = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', title: 'Search', tabindex: 3) do
           %span
             = t('buttons.homepage_search')
