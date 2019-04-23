@@ -41,7 +41,7 @@
     padding: 10px;
     @include box-sizing(border-box);
     vertical-align: baseline;
-    font-family: $font_serif;
+    font-family: $font_sans_serif;
     font-size: $font_size_110;
     line-height: 0;
     height: 40px;
@@ -85,13 +85,13 @@
     height: 50px;
     padding: 10px;
     padding-right: 144px;
-    margin:0;
+    margin: 0 0 0 1em;
     font-size: $font_size_110;
     vertical-align:middle;
     background: $white;
     @include border-radius(4px);
     border:1px solid rgba($input-border-color, 0.4);
-    color: $black;
+    color: $greyscale_dark;
   }
 
   > .button-icon {
