@@ -5,6 +5,8 @@
 ### Added
   - AHC-1301
     - Show the wait time in the search results if logged in
+  - AHC-1259
+    - Change the front page to allow searching near a location
   - AHC-1215
     - This fleshes out the user profile/management pages for both regular and admin users. In particular:
       - `Sign up` when not logged in provides instructions on how to request an account
