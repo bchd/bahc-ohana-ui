@@ -1,0 +1,38 @@
+.search-form{
+  text-align: center;
+}
+.search-form label {
+  font-family: $font_sans_serif;
+  font-weight: bold;
+}
+
+.landing-button-icon {
+  display: inline-block;
+  z-index: $layer-8;
+  height: 50px;
+  min-width: 134px;
+  margin-top: 1em;
+  border-collapse: collapse;
+  @include box-sizing(border-box);
+  @include rounded-except(none);
+
+  border: 1.5px solid $primary;
+  background: $button-bg;
+  font-size: $font_size_115;
+  font-weight: bold;
+  vertical-align: middle;
+  font-family: $font_sans_serif;
+
+  cursor: pointer;
+
+  > span {
+    @include inline-block();
+    color: $black; // IE fallback
+    line-height: 20px; // Needed by Opera to handle vertical-align:middle properly
+    color: $button-utility-color;
+  }
+
+  &:hover {
+    background: $button-hover-bg;
+  }
+}

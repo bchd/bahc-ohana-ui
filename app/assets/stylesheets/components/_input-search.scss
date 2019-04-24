@@ -41,7 +41,7 @@
     padding: 10px;
     @include box-sizing(border-box);
     vertical-align: baseline;
-    font-family: $font_serif;
+    font-family: $font_sans_serif;
     font-size: $font_size_110;
     line-height: 0;
     height: 40px;
@@ -65,6 +65,19 @@
   }
 }
 
+@media only screen and (min-width: 1023px) {
+  .search-box label {
+    min-width: 150px;
+    text-align: right;
+  }
+
+  html:lang(es) {
+    .search-box label {
+      min-width: 210px; // "Necesito" is wider
+    }
+  }
+}
+
 .input-search-big {
   @include input-placeholder(midtone($black, 0.2), italic);
   position: relative;
@@ -84,14 +97,14 @@
 
     height: 50px;
     padding: 10px;
-    padding-right: 144px;
-    margin:0;
+    padding-right: 10px;
+    margin: 0 0 0 1em;
     font-size: $font_size_110;
     vertical-align:middle;
     background: $white;
     @include border-radius(4px);
     border:1px solid rgba($input-border-color, 0.4);
-    color: $black;
+    color: $greyscale_dark;
   }
 
   > .button-icon {
@@ -117,8 +130,6 @@
     vertical-align: baseline;
     font-family: $font_serif;
     line-height: 0;
-    letter-spacing: 1px;
-
     cursor: pointer;
 
     > span {
