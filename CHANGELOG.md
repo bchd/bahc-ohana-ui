@@ -3,6 +3,9 @@
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22
 ### Added
+  - AHC-1410
+    - Commit BHCD and CHARMcare logos and icons to assets
+    - Set CHARMcare logo and favicon in UI
   - AHC-1301
     - Show the wait time in the search results if logged in
   - AHC-1259

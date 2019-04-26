@@ -130,8 +130,10 @@ en:
       holiday_schedules_date: '%B %e'
 
   users:
-    account_not_requested_subject: 'CharmCare account not requested'
-    account_sign_up_subject: 'CharmCare Account Registration'
+    account_created_instructions: 'A CHARMcare account has been set up for you! To get started, please click the link below to set your password.'
+    account_created_instructions_alt: "If you didn't request this account, please email"
+    account_not_requested_subject: 'CHARMcare account not requested'
+    account_sign_up_subject: 'CHARMcare Account Registration'
     add_user: 'Add User'
     admin: 'Admin'
     cancel: 'Cancel'
