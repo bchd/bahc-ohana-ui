@@ -1,5 +1,11 @@
 # Change Log
 
+## [?.?.?] - 2019-05-10
+### ahc-sprint-23
+### Changed
+  - AHC-1413
+    - Sort the service categoies prior to listing them out on a service
+
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22
 ### Added
