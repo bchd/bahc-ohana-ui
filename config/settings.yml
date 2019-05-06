@@ -237,6 +237,7 @@ language_links:
 # in the 'app/assets/images' directory. The site logo is the one that appears
 # in the top left corner of the site.
 site_logo: CHARMcareLogo-01.png
+bchd_logo: BCHDlogo.png
 
 ######################
 #

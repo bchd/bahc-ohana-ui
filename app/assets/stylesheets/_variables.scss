@@ -7,6 +7,9 @@
 // COLOR PALETTE
 
 $orange: rgb(253,165,73); // #fda549
+$purple: rgb(131,94,177); // #835eb1
+$blue: rgb(0,127,170); // #007faa
+$grey: rgba(27,27,27, .6); // #1b1b1b
 
 // Greyscale.
 $black: rgb(0,0,0);
@@ -229,7 +232,7 @@ $layer-7: 7000;
 
 // Fonts
 $font_serif: 'Libre Baskerville', serif;
-$font_sans_serif: 'Quattrocento Sans', sans-serif;
+$font_sans_serif: 'Lato', sans-serif;
 
 // Font sizes. Relative numbered names (-80,-90,-100,-110...) are used
 // instead of labels (small, medium, large) to allow easy insertion
