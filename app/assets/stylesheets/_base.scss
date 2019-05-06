@@ -187,23 +187,23 @@ ul {
       }
 
       a.button-small{
-        background-image: linear-gradient(to bottom right, $blue, $purple);
+        background-image: linear-gradient(to right, $blue, $purple);
         color: $white;
         padding: .4em 2.5em .4em 2.5em;
       }
       a.button-small:hover {
-        background-image: linear-gradient(to bottom right, tint($blue, 10), tint($purple, 10));
+        background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
       }
 
       a.button-logged-in {
         font-size: $font_size_110;
         border-radius: 50%;
-        background-image: linear-gradient(to bottom right, $blue, $purple);
+        background-image: linear-gradient(to right, $blue, $purple);
         color: $white;
         padding: .4em .65em .4em .65em
       }
       a.button-logged-in:hover {
-        background-image: linear-gradient(to bottom right, tint($blue, 10), tint($purple, 10));
+        background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
       }
 
     }
