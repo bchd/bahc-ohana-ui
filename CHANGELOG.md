@@ -2,6 +2,9 @@
 
 ## [?.?.?] - 2019-05-10
 ### ahc-sprint-23
+### Added
+  - AHC-1354
+    - Added title attribute to filter labels to show full category names
 ### Changed
   - AHC-1413
     - Sort the service categoies prior to listing them out on a service
