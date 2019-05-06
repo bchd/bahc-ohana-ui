@@ -237,7 +237,6 @@ ul {
   text-align: center;
   background: $white;
   clear: both;
-  border-top: 2px solid $primary-dark;
   padding-bottom: 20px;
 
   > p,
@@ -260,6 +259,16 @@ ul {
     position: relative;
     top: -1px;
   }
+
+  img {
+    max-width: 100px;
+    float: left;
+  }
+}
+
+#footer-container{
+  width: 35%;
+  display: inline-block;
 }
 
 
@@ -344,6 +353,7 @@ ul {
 // The container for the Google Website Translator Gadget.
 #google-translate-container {
   padding-bottom: 20px;
+  float: right;
 }
 
 // Hides the Google Translate translation banner at the top of the page.
