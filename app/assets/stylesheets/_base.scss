@@ -143,7 +143,7 @@ ul {
     z-index: 9999;
 
     width: 100%;
-    background: rgba(0, 127, 170, .05);
+    background: rgba($blue, .1);
     @include box-sizing(border-box);
 
     font-size: $font_size_100;
