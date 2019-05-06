@@ -143,8 +143,7 @@ ul {
     z-index: 9999;
 
     width: 100%;
-    background: $white;
-    border-bottom: 2px solid $main-border-color;
+    background: rgba(0, 127, 170, .05);
     @include box-sizing(border-box);
 
     font-size: $font_size_100;
@@ -158,21 +157,21 @@ ul {
     }
 
     h2 {
-        color: $black;
+        color: $purple;
+        font-size: $font_size_115;
+        font-weight: 500;
         font-family: $font_sans_serif;
         @include inline-block();
         margin-left: 14px;
-        padding-bottom: 12px;
         padding-right: 15px;
-        vertical-align: bottom;
     }
 
     nav {
       @include inline-block();
       float: right;
-      padding-top: 11px;
-      padding-bottom: 10px;
-      padding-right: 15px;
+      padding-top: 1.7em;
+      padding-bottom: .6em;
+      padding-right: 1em;
 
       li {
         padding-right: 10px;
@@ -180,14 +179,33 @@ ul {
       }
 
       a {
-        //color: rgba($primary-darkest, 0.6);
-        color: $menubutton-popup-color;
+        font-family: $font_sans_serif;
+        font-weight: 550;
+        font-size: $font_size_100;
+        color: $grey;
         text-decoration: none;
       }
 
-      a:hover {
-        color: $menubutton-popup-hover-color;
+      a.button-small{
+        background-image: linear-gradient(to bottom right, $blue, $purple);
+        color: $white;
+        padding: .4em 2.5em .4em 2.5em;
       }
+      a.button-small:hover {
+        background-image: linear-gradient(to bottom right, tint($blue, 10), tint($purple, 10));
+      }
+
+      a.button-logged-in {
+        font-size: $font_size_110;
+        border-radius: 50%;
+        background-image: linear-gradient(to bottom right, $blue, $purple);
+        color: $white;
+        padding: .4em .65em .4em .65em
+      }
+      a.button-logged-in:hover {
+        background-image: linear-gradient(to bottom right, tint($blue, 10), tint($purple, 10));
+      }
+
     }
   }
 }
