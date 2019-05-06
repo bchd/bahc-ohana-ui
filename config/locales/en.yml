@@ -26,7 +26,7 @@ en:
     description: >
       Retrieve detailed information about the services available
       in %{location}.
-    header: 'Find community services in %{location}'
+    header: 'Connect with resources in %{location}'
     location: 'Baltimore City'
 
   buttons:
