@@ -189,7 +189,8 @@ ul {
       a.button-small{
         background-image: linear-gradient(to right, $blue, $purple);
         color: $white;
-        padding: .4em 2.5em .4em 2.5em;
+        padding: .5em 2.6em .5em 2.6em;
+        border: none;
       }
       a.button-small:hover {
         background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
