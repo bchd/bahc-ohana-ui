@@ -119,9 +119,6 @@
     border-collapse: collapse;
     @include box-sizing(border-box);
     @include rounded-except(left);
-
-    border: 1px solid rgba($input-border-color, 0.4);
-    border-left: 1px solid rgba($input-border-color, 0.2);
     background: $button-bg;
 
     font-size: $font_size_115;
