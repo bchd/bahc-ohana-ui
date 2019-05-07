@@ -155,6 +155,56 @@
   }
 }
 
+div.input-search-big::after {
+  position:absolute;
+  @include box-sizing(border-box);
+  @include rounded-except(right);
+  height: 50px;
+  background-color: $white;
+  border: 1px solid rgba($input-border-color, 0.4);
+  border-right: none;
+  border-collapse: collapse;
+  -webkit-appearance: none; // Remove rounding styling of input fields on iOS.
+  font-family: FontAwesome;
+  padding: .5em .7em .2em .7em;
+  margin-left: 1em;
+  color: $orange;
+  top: 0;
+}
+
+.input-search-big.location::after{
+  content: "\f041";
+  font-size: $font_size_110;
+  padding: .5em .7em .2em .7em;
+  left: 0;
+}
+.input-search-big.keyword::after{
+  content: "\f002";
+  font-size: $font_size_105;
+  padding: .7em .7em .2em .7em;
+  left: 2px;
+}
+
+input.search-input::-webkit-input-placeholder {
+  font-style: normal;
+  color: $grey;
+}
+input.search-input::-moz-placeholder { /* Firefox 19+ */
+  font-style: normal;
+  color: $grey;}
+input.search-input:-ms-input-placeholder { /* IE 10+ */
+  font-style: normal;
+  color: $grey;}
+input.search-input:-moz-placeholder { /* Firefox 18- */
+  font-style: normal;
+  color: $grey;}
+
+input.search-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: $greyscale_dark !important;
+}
+
+
 .input-search-filter {
   @include input-placeholder(rgba($white, 0.6), italic);
   position: relative;
@@ -255,55 +305,6 @@
       }
     }
   }
-}
-
-div.input-search-big::after {
-  position:absolute;
-  @include box-sizing(border-box);
-  @include rounded-except(right);
-  height: 50px;
-  background-color: $white;
-  border: 1px solid rgba($input-border-color, 0.4);
-  border-right: none;
-  border-collapse: collapse;
-  -webkit-appearance: none; // Remove rounding styling of input fields on iOS.
-  font-family: FontAwesome;
-  padding: .5em .7em .2em .7em;
-  margin-left: 1em;
-  color: $orange;
-  top: 0;
-}
-
-.input-search-big.location::after{
-  content: "\f041";
-  font-size: $font_size_110;
-  padding: .5em .7em .2em .7em;
-  left: 0;
-}
-.input-search-big.keyword::after{
-  content: "\f002";
-  font-size: $font_size_105;
-  padding: .7em .7em .2em .7em;
-  left: 2px;
-}
-
-input.search-input::-webkit-input-placeholder {
-  font-style: normal;
-  color: $grey;
-}
-input.search-input::-moz-placeholder { /* Firefox 19+ */
-  font-style: normal;
-  color: $grey;}
-input.search-input:-ms-input-placeholder { /* IE 10+ */
-  font-style: normal;
-  color: $grey;}
-input.search-input:-moz-placeholder { /* Firefox 18- */
-  font-style: normal;
-  color: $grey;}
-
-input.search-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-  -webkit-text-fill-color: $greyscale_dark !important;
 }
 
 // Clearable input fields have a (x) that can be clicked for clearing the
