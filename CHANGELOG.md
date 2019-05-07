@@ -7,7 +7,9 @@
     - Added title attribute to filter labels to show full category names
 ### Changed
   - AHC-1413
-    - Sort the service categoies prior to listing them out on a service
+    - Sort the service categories prior to listing them out on a service
+  - AHC-1262
+    - Update style on global header
 
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22

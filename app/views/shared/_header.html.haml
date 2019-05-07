@@ -13,11 +13,11 @@
           Feedback
       - if user_signed_in?
         %li
-          %a.popup-trigger.popup-account#user-btn{ href: edit_user_registration_path }
-            = current_user.email
+          %a.popup-trigger.popup-account.button-logged-in#user-btn{ href: edit_user_registration_path }
+            = current_user.first_name[0]&.upcase || current_user.email[0].upcase
       - else
         %li
-          %a.popup-trigger.popup-account#user-btn{ href: new_user_session_path }
+          %a.popup-trigger.popup-account.button-small#user-btn{ href: new_user_session_path }
             = t('users.login')
   .clearfix
 
