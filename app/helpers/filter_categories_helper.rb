@@ -81,9 +81,9 @@ module FilterCategoriesHelper
 
   def label_tag_for(category)
     if category[:filter_parent]
-      label_tag "category_#{category[:taxonomy_id]}", category[:name], class: 'parent-category-label'
+      label_tag "category_#{category[:taxonomy_id]}", category[:name], class: 'parent-category-label', title: category[:name]
     else
-      label_tag "category_#{category[:taxonomy_id]}", category[:name], class: 'filter-category-label'
+      label_tag "category_#{category[:taxonomy_id]}", category[:name], class: 'filter-category-label', title: category[:name]
     end
   end
 end
