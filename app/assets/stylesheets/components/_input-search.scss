@@ -79,7 +79,6 @@
 }
 
 .input-search-big {
-  @include input-placeholder(midtone($black, 0.2), italic);
   position: relative;
   width: 440px;
 
@@ -89,6 +88,7 @@
 
   > input {
     padding-left: 45px;
+    margin-left: 1em;
     width: 100%;
 
     border-collapse: collapse;
@@ -96,9 +96,7 @@
     @include rounded-except(none);
 
     height: 50px;
-    padding: 10px;
     padding-right: 10px;
-    margin: 0 0 0 1em;
     font-size: $font_size_110;
     vertical-align:middle;
     background: $white;
@@ -121,14 +119,11 @@
     border-collapse: collapse;
     @include box-sizing(border-box);
     @include rounded-except(left);
-
-    border: 1px solid rgba($input-border-color, 0.4);
-    border-left: 1px solid rgba($input-border-color, 0.2);
     background: $button-bg;
 
     font-size: $font_size_115;
     vertical-align: baseline;
-    font-family: $font_serif;
+    font-family: $font_sans_serif;
     line-height: 0;
     cursor: pointer;
 
@@ -159,6 +154,56 @@
     }
   }
 }
+
+div.input-search-big::after {
+  position:absolute;
+  @include box-sizing(border-box);
+  @include rounded-except(right);
+  height: 50px;
+  background-color: $white;
+  border: 1px solid rgba($input-border-color, 0.4);
+  border-right: none;
+  border-collapse: collapse;
+  -webkit-appearance: none; // Remove rounding styling of input fields on iOS.
+  font-family: FontAwesome;
+  padding: .5em .7em .2em .7em;
+  margin-left: 1em;
+  color: $orange;
+  top: 0;
+}
+
+.input-search-big.location::after{
+  content: "\f041";
+  font-size: $font_size_110;
+  padding: .5em .7em .2em .7em;
+  left: 0;
+}
+.input-search-big.keyword::after{
+  content: "\f002";
+  font-size: $font_size_105;
+  padding: .7em .7em .2em .7em;
+  left: 2px;
+}
+
+input.search-input::-webkit-input-placeholder {
+  font-style: normal;
+  color: $grey;
+}
+input.search-input::-moz-placeholder { /* Firefox 19+ */
+  font-style: normal;
+  color: $grey;}
+input.search-input:-ms-input-placeholder { /* IE 10+ */
+  font-style: normal;
+  color: $grey;}
+input.search-input:-moz-placeholder { /* Firefox 18- */
+  font-style: normal;
+  color: $grey;}
+
+input.search-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: $greyscale_dark !important;
+}
+
 
 .input-search-filter {
   @include input-placeholder(rgba($white, 0.6), italic);

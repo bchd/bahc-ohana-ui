@@ -87,7 +87,7 @@ textarea {
 html,
 body {
   height: 100%;
-  font-family: $font_serif;
+  font-family: $font_sans_serif;
 }
 
 body {
@@ -147,13 +147,12 @@ ul {
     @include box-sizing(border-box);
 
     font-size: $font_size_100;
+    padding: .2em;
 
     h1 {
         font-size: $font_size_110;
         @include inline-block();
         margin-left: 13px;
-        padding-top: 4px;
-        padding-bottom: 3px;
     }
 
     h2 {
@@ -169,9 +168,9 @@ ul {
     nav {
       @include inline-block();
       float: right;
-      padding-top: 2em;
-      padding-bottom: .6em;
       padding-right: 1em;
+      line-height: 5em;
+      text-align: center;
 
       li {
         padding-right: 10px;
@@ -195,15 +194,17 @@ ul {
       a.button-small:hover {
         background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
       }
-
-      a.button-logged-in {
+      div.button-logged-in {
         font-size: $font_size_110;
-        border-radius: 50%;
-        background-image: linear-gradient(to right, $blue, $purple);
         color: $white;
-        padding: .4em .65em .4em .65em
+        background-image: linear-gradient(to right, $blue, $purple);
+        border-radius: 50%;
+        height: 2em;
+        width: 2em;
+        text-align: center;
+        line-height: 2em;
       }
-      a.button-logged-in:hover {
+      div.button-logged-in:hover {
         background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
       }
     }
@@ -621,7 +622,7 @@ body {
     padding-bottom: 6px;
     padding-right: 20px;
     color: $black;
-    font-family: $font_serif;
+    font-family: $font_sans_serif;
     @include ellipsis();
   }
 
@@ -831,14 +832,14 @@ body {
 
     > header {
       > hgroup {
-        font-family: $font_serif;
+        font-family: $font_sans_serif;
         padding: 10px;
 
         h1.name {
           font-size: 24px;
           letter-spacing: 1px;
           display: inline;
-          font-family: $font_serif;
+          font-family: $font_sans_serif;
         }
 
         h1.name > a::after {
@@ -858,7 +859,7 @@ body {
         h2.agency {
           font-size: 14px;
           color: $greyscale_dark;
-          font-family: $font_serif;
+          font-family: $font_sans_serif;
 
           span {
             margin-top: 5px;
@@ -980,7 +981,7 @@ body {
       left: 0;
       top: -10px;
       font-size: $font_size_120;
-      font-family: $font_serif;
+      font-family: $font_sans_serif;
     }
 
     .button-close::after {
@@ -1041,7 +1042,7 @@ body {
     }
 
     > hgroup {
-      font-family: $font_serif;
+      font-family: $font_sans_serif;
       padding: 10px;
       padding-left: 20px;
 

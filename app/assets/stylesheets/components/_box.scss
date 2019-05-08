@@ -15,10 +15,9 @@
   border-collapse: collapse;
   @include box-sizing(border-box);
   @include rounded-except(none);
-
-  border: 1.5px solid $primary;
+  border: 1px;
   background: $button-bg;
-  font-size: $font_size_115;
+  font-size: $font_size_110;
   font-weight: bold;
   vertical-align: middle;
   font-family: $font_sans_serif;
@@ -30,6 +29,7 @@
     color: $black; // IE fallback
     line-height: 20px; // Needed by Opera to handle vertical-align:middle properly
     color: $button-utility-color;
+    vertical-align: unset;
   }
 
   &:hover {

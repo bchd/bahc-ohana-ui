@@ -12,6 +12,9 @@
     - Update style on global header
   - AHC-1263
     - Update style on global footer
+  - AHC-1261
+    - Update style on landing page search box
+    - Update fonts everywhere
 
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22

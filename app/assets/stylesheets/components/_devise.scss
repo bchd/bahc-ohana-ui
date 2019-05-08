@@ -1,6 +1,6 @@
 .devise {
   padding: 40px;
-  font-family: "Quattrocento Sans", sans-serif;
+  font-family: $font_sans_serif;
   background-color: white;
   text-align: center;
 
@@ -57,7 +57,7 @@
     border: 1px solid #1c6678;
     padding: 10px;
     text-decoration-line: none;
-    font-family: "Quattrocento Sans", sans-serif;
+    font-family: $font_sans_serif;
     cursor: pointer;
   }
   .nav-buttons {
@@ -68,7 +68,7 @@
       padding: 10px;
       text-decoration-line: none;
       font-size: 16px;
-      font-family: "Quattrocento Sans", sans-serif;
+      font-family: $font_sans_serif;
       cursor: pointer;
     }
   }
