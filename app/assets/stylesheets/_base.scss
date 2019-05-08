@@ -143,7 +143,7 @@ ul {
     z-index: 9999;
 
     width: 100%;
-    background: rgba($blue, .1);
+    background: rgba($blue, .05);
     @include box-sizing(border-box);
 
     font-size: $font_size_100;
@@ -189,9 +189,21 @@ ul {
       a.button-small{
         background-image: linear-gradient(to right, $blue, $purple);
         color: $white;
-        padding: .4em 2.5em .4em 2.5em;
+        padding: .5em 2.6em .5em 2.6em;
+        border: none;
       }
       a.button-small:hover {
+        background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
+      }
+
+      a.button-logged-in {
+        font-size: $font_size_110;
+        border-radius: 50%;
+        background-image: linear-gradient(to right, $blue, $purple);
+        color: $white;
+        padding: .4em .65em .4em .65em
+      }
+      a.button-logged-in:hover {
         background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
       }
 
@@ -228,7 +240,8 @@ ul {
   }
 
   img {
-    max-width: 100px;
+    max-width: 80px;
+    padding: .4em;
   }
 }
 
