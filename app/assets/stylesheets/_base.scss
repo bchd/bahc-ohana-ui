@@ -206,7 +206,6 @@ ul {
       a.button-logged-in:hover {
         background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
       }
-
     }
   }
 }
@@ -239,7 +238,6 @@ ul {
   text-align: center;
   background: $white;
   clear: both;
-  border-top: 2px solid $primary-dark;
   padding-bottom: 20px;
 
   > p,
@@ -262,6 +260,16 @@ ul {
     position: relative;
     top: -1px;
   }
+
+  img {
+    max-width: 100px;
+    float: left;
+  }
+}
+
+#footer-container{
+  width: 35%;
+  display: inline-block;
 }
 
 
@@ -346,6 +354,7 @@ ul {
 // The container for the Google Website Translator Gadget.
 #google-translate-container {
   padding-bottom: 20px;
+  float: right;
 }
 
 // Hides the Google Translate translation banner at the top of the page.
@@ -443,8 +452,7 @@ body {
   > div {
     padding: 60px;
     text-align: center;
-    background: rgba($search-bg, .8);
-    //@include background( radial-gradient( $primary-lightest 10%, $primary) );
+    background-image: linear-gradient(100deg, rgba($blue, .8), rgba($purple, .8));
     vertical-align: bottom;
 
     > * {

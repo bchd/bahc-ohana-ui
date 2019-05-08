@@ -10,6 +10,8 @@
     - Sort the service categories prior to listing them out on a service
   - AHC-1262
     - Update style on global header
+  - AHC-1263
+    - Update style on global footer
 
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22
