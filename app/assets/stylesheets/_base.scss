@@ -185,13 +185,13 @@ ul {
         text-decoration: none;
       }
 
-      a.button-small{
+      .button-small{
         background-image: linear-gradient(to right, $blue, $purple);
         color: $white;
         padding: .5em 2.6em .5em 2.6em;
         border: none;
       }
-      a.button-small:hover {
+      .button-small:hover {
         background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
       }
       div.button-logged-in {
@@ -346,7 +346,7 @@ ul {
 }
 
 .inside .main {
-  background-color: $primary-lightest;
+  background-image: $search-sidebar-bg;
 }
 
 //=================================================================================
@@ -414,9 +414,6 @@ body {
   float: left;
   vertical-align: top;
   width: 240px;
-  background-color: $search-sidebar-bg;
-  //border-right: 2px solid $primary;
-  border-right: 2px solid $main-border-color;
 
   select {
     font-size: $font_size_95;
@@ -484,10 +481,6 @@ body {
     text-align: left;
   }
 
-}
-
-.inside #keyword-search-box {
-  background: $primary;
 }
 
 #search-controls {

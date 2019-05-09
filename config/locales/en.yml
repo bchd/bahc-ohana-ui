@@ -30,11 +30,12 @@ en:
     location: 'Baltimore City'
 
   buttons:
-    clear_search_fields: 'Clear search fields'
+    clear_filters: 'Uncheck all filters'
+    collapse_all_filters: 'Collapse filters'
     during_geolocation: 'Please wait...'
     homepage_search: 'Search'
     services_near_me: 'Services near me'
-    update_search_results: 'Update search results'
+    update_search_results: 'Update Search'
 
   date:
     day_names:
@@ -66,11 +67,13 @@ en:
           <strong>%{total}</strong> %{entry_name}
 
   labels:
-    address_search: 'Address search'
-    agency_search: 'Organization name search'
+    address_search: 'Location (address or zip)'
+    agency_search: 'Organization Name'
     homepage_prompt: 'What are you looking for today?'
     homepage_search: 'I need'
     homepage_location_search: "near"
+    filters:
+      filter_by_category: "Filter by Category"
 
   location_fields:
     accessibility: 'Accessibility Options:'
@@ -95,9 +98,10 @@ en:
     licenses: 'Licenses:'
 
   placeholders:
-    address_search: 'address or ZIP code'
-    agency_search: 'full or partial name...'
-    homepage_keyword_search: 'organization or service'
+    address_search: 'address or zip code'
+    agency_search: 'full or partial name'
+    keyword_search: "service or topic"
+    homepage_keyword_search: 'service or topic'
     homepage_location_search: 'address or zip code'
     results_page_keyword_search: 'search for...'
 
