@@ -123,6 +123,15 @@ en:
       next_day_service: 'Next Day Service'
       two_three_day_wait: '2-3 Day Wait'
       one_week_wait: '1 Week Wait'
+    categories:
+      service: 'Service Categories'
+      languages: 'Languages'
+      ages_served: 'Ages Served'
+      gender_sexuality: 'Gender & Sexuality'
+      insurance_accepted: 'Insurance Accepted'
+      documents_needed: 'Documents Needed'
+      health_specialties: 'Health Specialties'
+      substance_use_treatment_preferences: 'Substance Use Treatment Preferences'
 
   time:
     formats:

@@ -5,6 +5,8 @@
 ### Added
   - AHC-1354
     - Added title attribute to filter labels to show full category names
+  - AHC-1370
+    - Show the situation categories grouped on the service
 ### Changed
   - AHC-1413
     - Sort the service categories prior to listing them out on a service
