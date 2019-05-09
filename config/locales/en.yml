@@ -160,6 +160,7 @@ en:
     last_name: 'Last'
     login: 'Login'
     manage_users: 'Manage Users'
+    organization: 'Organization'
     save: 'Save'
     send_me_reset_password_instructions: 'Send me reset password instructions'
     sign_in_with: 'Sign in with'
