@@ -21,13 +21,18 @@
         <%= f.text_field :last_name, autocomplete: "last_name" %>
       </div>
 
-      <div class="field">
+      <div class="field email">
         <%= f.label :email %><br />
         <% if current_user&.admin? %>
           <%= f.email_field :email, autocomplete: "email" %>
         <% else %>
           <div><%= resource.email %></div>
         <% end %>
+      </div>
+
+      <div class="field organization">
+        <%= f.label :organization %><br />
+        <%= f.text_field :organization, autocomplete: "organization" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

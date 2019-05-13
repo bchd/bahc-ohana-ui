@@ -30,6 +30,11 @@
         <% end %>
       </div>
 
+      <div class="field organization">
+        <%= f.label :organization %><br />
+        <%= f.text_field :organization, autocomplete: "organization" %>
+      </div>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>

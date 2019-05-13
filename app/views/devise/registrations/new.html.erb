@@ -30,6 +30,11 @@
           <%= f.email_field :email, autocomplete: "email" %>
         </div>
 
+        <div class="field organization">
+          <%= f.label :organization %><br />
+          <%= f.text_field :organization, autocomplete: "organization" %>
+        </div>
+
         <div class="field admin">
           <%= f.check_box :admin %>
           <%= f.label :admin, t('users.check_if_admin') %><br />

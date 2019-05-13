@@ -7,6 +7,8 @@
     - Added title attribute to filter labels to show full category names
   - AHC-1370
     - Show the situation categories grouped on the service
+  - AHC-1421
+    - Adds a free-text field to name the organization a user is affiliated with
 ### Changed
   - AHC-1413
     - Sort the service categories prior to listing them out on a service
