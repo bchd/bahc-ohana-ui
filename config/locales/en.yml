@@ -59,7 +59,7 @@ en:
       one_page:
         display_entries:
           zero: "No %{entry_name} found."
-          one: "Displaying <strong>1</strong> %{entry_name}"
+          one: "Displaying <strong>1</strong> result"
           other: "Displaying <strong>all %{count}</strong> %{entry_name}"
       more_pages:
         display_entries: >

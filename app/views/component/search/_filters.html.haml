@@ -6,6 +6,6 @@
     = label_tag(t('buttons.collapse_all_filters'), nil, id: 'button-collapse')
     = label_tag(t('buttons.clear_filters'), nil, id: 'button-reset')
 
-%div
+%div.filters-container
   = field_set_tag nil, id: 'categories' do
     = nested_categories(filter_tree)

@@ -404,6 +404,7 @@ body {
   background-image: image_url("map_landing.png");
   background-size: cover;
   position: relative;
+  //display: table-cell;
 
   form {
     position: static;
@@ -414,6 +415,9 @@ body {
   float: left;
   vertical-align: top;
   width: 240px;
+  //background-image: $search-sidebar-bg;
+  min-height: 1000px;
+  height: auto;
 
   select {
     font-size: $font_size_95;
@@ -588,20 +592,19 @@ body {
   z-index: 9998;
   vertical-align: top;
   margin-left: 240px;
-  border-left: 2px solid $main-border-color;
   background: $white;
+  display: table-cell;
+  width: 100%;
 }
 
 .results-header {
   position: absolute;
-  top: 0;
+  top: 400px;
   right: 0;
   z-index: 9999;
   min-height: 45px;
   font-family: $font_sans_serif;
   background: $greyscale_lightest;
-  border-bottom: 1px solid greyscale_light; // IE fallback
-  border-bottom: 1px solid midtone($black, .1);
   width: 100%;
   text-align: right;
   @include box-sizing(border-box);
@@ -684,12 +687,15 @@ body {
   }
 
   > *:last-child {
-    margin-right: 20px;
+    //margin-right: 20px;
   }
 }
 
+.detail-header {
+  top: 0;
+}
+
 #results-container.result-map-showing .results-header {
-  border-bottom: 1px solid $primary;
 }
 
 // Hide static content when header is floating.
@@ -706,13 +712,11 @@ body {
   -webkit-backface-visibility: hidden;
   width: 100%;
   @include single-box-shadow(0, 1px, 6px, 0, rgba($black, .4));
-  border-bottom: 1px solid $primary-dark !important;
+  top: 0;
 }
 
 #results-entries {
   min-height: 475px;
-  // Offset to accommodate the floating header height.
-  padding-top: 45px;
 
   > ul {
     padding: 0;
@@ -756,6 +760,9 @@ body {
   }
 }
 
+.locations-results-container {
+  display: table-row;
+}
 //=================================================================================
 // Results - terminology infobox. Certain keywords display an informational box
 // above the search results. See app/helpers/info_box_helper.rb for more info.
@@ -915,11 +922,11 @@ body {
 
 #map-view {
   background: $white;
+  padding-bottom: 45px;
 }
 
 #map-canvas {
   height: 150px;
-  border-bottom: 1px solid $primary;
 
   .infoBox {
     background-color: $white;
