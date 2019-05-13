@@ -128,7 +128,7 @@ $button-disabled-bg:          tint($greyscale_light, 60);
 $button-small-color:         tint($black, 25);
 $button-small-fa-color:      $primary-darkest;
 $button-small-hover-color:   $complementA;
-$button-small-bg:            none;
+$button-small-bg:            linear-gradient(to right, $blue, $purple);
 $button-small-bg-hover:      $primary-light;
 
 $button-utility-color:       $primary;
@@ -148,7 +148,7 @@ $input-fa-color:      $primary-darkest;
 $search-bg:                         $primary;
 
 // Sidebar.
-$search-sidebar-bg:                 $primary-lightest;
+$search-sidebar-bg:                 linear-gradient(to bottom, rgba($blue, .25), rgba($purple, .25));
 $search-border-color:               $primary;
 $search-text-color:                 tint($black, 25);
 $search-accent-color:               shade($primary, 50);

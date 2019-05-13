@@ -19,7 +19,9 @@
   - AHC-1261
     - Update style on landing page search box
     - Update fonts everywhere
-
+  - AHC-1265
+    - Update style on search results page sidebar
+    
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22
 ### Added
