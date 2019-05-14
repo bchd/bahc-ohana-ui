@@ -10,18 +10,20 @@
   - AHC-1421
     - Adds a free-text field to name the organization a user is affiliated with
 ### Changed
-  - AHC-1413
-    - Sort the service categories prior to listing them out on a service
+  - AHC-1261
+    - Update style on landing page search box
+    - Update fonts everywhere
   - AHC-1262
     - Update style on global header
   - AHC-1263
     - Update style on global footer
-  - AHC-1261
-    - Update style on landing page search box
-    - Update fonts everywhere
   - AHC-1265
     - Update style on search results page sidebar
-    
+  - AHC-1367
+    - Update style on user management pages
+  - AHC-1413
+    - Sort the service categories prior to listing them out on a service
+
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22
 ### Added

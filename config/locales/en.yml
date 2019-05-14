@@ -156,12 +156,13 @@ en:
     didnt_receive_unlock_instructions: "Didn't receive unlock instructions?"
     edit: 'Edit'
     edit_profile: 'Edit Profile'
-    edit_user: 'Edit User'
+    edit_user: 'Edit'
     edit_your_profile: 'Edit Your Profile'
     email: 'Email'
     first_name: 'First'
     forgot_your_password: 'Forgot your password?'
     last_name: 'Last'
+    lets_go: "Let's go!"
     login: 'Login'
     manage_users: 'Manage Users'
     organization: 'Organization'
