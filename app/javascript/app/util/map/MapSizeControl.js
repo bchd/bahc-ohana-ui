@@ -16,9 +16,6 @@ function MapSizeControl(selector) {
   var _events = { CLICK: 'click' };
   eventObserver.attach(this);
 
-  // The DOM element that controls the expanding/contracting of the map.
-  // var _buttonElm = document.querySelector(selector);
-
   // Whether the map is at its max size or not.
   var _atMaxSize = false;
 
@@ -27,9 +24,6 @@ function MapSizeControl(selector) {
   var SMALLER_MAP_TEXT = "<i class='fa fa-plus-square'></i> Larger map";
 
   function _init() {
-    // _buttonElm.innerHTML = SMALLER_MAP_TEXT;
-    // _buttonElm.removeAttribute('disabled');
-    // _buttonElm.addEventListener('click', _buttonElmClicked, false);
   }
 
   // Map size control was clicked. This control toggles the large & small map.

@@ -404,7 +404,6 @@ body {
   background-image: image_url("map_landing.png");
   background-size: cover;
   position: relative;
-  //display: table-cell;
 
   form {
     position: static;
@@ -415,7 +414,6 @@ body {
   float: left;
   vertical-align: top;
   width: 240px;
-  //background-image: $search-sidebar-bg;
   min-height: 1000px;
   height: auto;
 
@@ -687,7 +685,6 @@ body {
   }
 
   > *:last-child {
-    //margin-right: 20px;
   }
 }
 

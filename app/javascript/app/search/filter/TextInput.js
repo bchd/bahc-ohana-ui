@@ -27,34 +27,6 @@ function TextInput(id) {
   }
 
   function _initClearButton() {
-    // // Retrieve first and only input element.
-    // // Throw an error if it isn't found.
-    // if (!_container) _throwInitializationError();
-    // _input = _container.getElementsByTagName('input')[0];
-    // if (!_input) _throwInitializationError();
-    //
-    // // Create a clear button dynamically.
-    // _buttonClear = document.createElement('button');
-    // _buttonClear.className = 'button-clear';
-    // if (_input.value === '')
-    //   _buttonClear.className += ' hide';
-    // _container.appendChild(_buttonClear);
-    //
-    // _buttonClear.addEventListener('click', function (evt) {
-    //   evt.preventDefault();
-    //   reset();
-    //   _input.focus();
-    //   _instance.dispatchEvent(_events.CHANGE, {target:_instance});
-    // });
-    //
-    // _input.addEventListener('keyup', function () {
-    //   _setClearButtonVisibility();
-    // });
-    //
-    // _input.addEventListener('change', function () {
-    //   _setClearButtonVisibility();
-    //   _instance.dispatchEvent(_events.CHANGE, {target:_instance});
-    // });
   }
 
   // Hide the clear button if there isn't any input text,
