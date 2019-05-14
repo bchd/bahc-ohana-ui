@@ -3,15 +3,15 @@
 
     <%= render 'nav_buttons' %>
 
-    <%= content_tag :i, nil, class: 'fa fa-users fa-3x' %>
+    <%= content_tag :span, nil, class: 'fa fa-users fa-3x' %>
     <h2>
       <%= t('users.add_user') %>
     </h2>
+
+    <div class='form'>
     <p class='instructions'>
       After adding a users information and email address, a link will be sent to their email to create a password.
     </p>
-
-    <div class='form'>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -35,14 +35,16 @@
           <%= f.text_field :organization, autocomplete: "organization" %>
         </div>
 
-        <div class="field admin">
-          <%= f.check_box :admin %>
-          <%= f.label :admin, t('users.check_if_admin') %><br />
+        <div class="field">
+          <div class="checkbox">
+            <%= f.check_box :admin %>
+            <%= f.label :admin, t('users.check_if_admin') %><br />
+          </div>
         </div>
 
         <div class="actions">
           <%= link_to t('users.cancel'), users_path, class: 'button' %>
-          <%= f.submit t('users.save'), class: 'button' %>
+          <%= f.submit t('users.save'), class: 'button button-small' %>
         </div>
       <% end %>
     </div>

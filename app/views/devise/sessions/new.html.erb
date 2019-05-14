@@ -1,6 +1,6 @@
 <div class='devise'>
 
-  <%= content_tag :i, nil, class: 'fa fa-key fa-3x' %>
+  <%= content_tag :span, nil, class: 'fa fa-key fa-3x' %>
   <h2>
     <%= t('users.login') %>
   </h2>
@@ -19,13 +19,15 @@
 
       <% if devise_mapping.rememberable? %>
         <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <div class="checkbox">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
         </div>
       <% end %>
 
       <div class="actions">
-        <%= f.submit t('users.login') %>
+        <%= f.submit t('users.lets_go'), class: 'button button-small' %>
       </div>
     <% end %>
 

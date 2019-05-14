@@ -5,7 +5,10 @@
   text-align: center;
 
   .fa {
-    color: $orange;
+    background-image: linear-gradient($light-orange, $orange);
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   label {
     font-size: 0.9em;
@@ -19,15 +22,23 @@
     max-width: 350px;
   }
   .instructions {
+    font-size: 0.9em;
     display: block;
     margin: 20px auto;
-    max-width: 400px;
   }
 
   h2 {
     font-size: 1.5em;
     color: $purple;
     margin-bottom: 1.5em;
+  }
+
+  a {
+    color: $greyscale_dark;
+    text-decoration: none;
+    &:hover {
+      color: $purple;
+    }
   }
 
   i {
@@ -62,7 +73,7 @@
     margin: 0 auto;
 
     .button {
-      width: 80px;
+      min-width: 80px;
       &.button-small {
         color: white;
       }
@@ -87,11 +98,11 @@
       }
     }
 
-    .admin {
+    .checkbox {
       display: table;
       margin: 0 auto;
       label {
-        font-size: 1.1em;
+        font-size: 1em;
       }
 
       input[type='checkbox'] {
@@ -150,19 +161,24 @@
     margin: 0 auto;
 
     tr.headings {
-      border-bottom: 2px solid gray;
+      border-bottom: 2px solid $greyscale_light;
     }
     tr.user-row {
-      border-bottom: 1px solid gray;
+      border-bottom: 1px solid $greyscale_light;
+    }
+
+    th {
+      color: $grey;
     }
 
     .data {
       padding-left: 10px;
       padding-right: 30px;
     }
-    td.button {
-      input {
+    td.table-button {
+      input[type=submit] {
         margin-right: 10px;
+        width: unset;
       }
       a {
         color: white;
@@ -170,15 +186,21 @@
         line-height: 1.5em;
       }
     }
-    td.button.edit-user input {
+    td.table-button.edit-user input {
       border: none;
       color: white;
-      background-color: blue;
+      background-color: $purple;
+      min-width: 80px;
     }
-    td.button.delete-user input {
+    td.table-button.delete-user input {
       border: none;
-      color: darkgray;
-      background-color: lightgray;
+      color: $blue;
+      background-color: $purple-t;
     }
+  }
+
+  .links {
+    margin-top: 20px;
+    line-height: 1.8em;
   }
 }
