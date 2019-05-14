@@ -168,22 +168,22 @@ $listitem-search-important-border:  $accentB;
 
 // Pagination.
 //
-$pagination-color:              $complementA;
-$pagination-hover-color:        $complementA;
+$pagination-color:              $grey;
+$pagination-hover-color:        $grey;
 $pagination-bg:                 none;
-$pagination-hover-bg:           $complementB;
-$pagination-border:             $complementB;
+$pagination-hover-bg:           rgba($blue, .3);
+$pagination-border:             none;
 
-$pagination-active-color:       $white;
-$pagination-active-bg:          tint($complement-base, 25);
+$pagination-active-color:       $grey;
+$pagination-active-bg:          rgba($blue, .30);
 
 $pagination-disabled-color:     $greyscale_dark;
 $pagination-disabled-bg:        rgba($complementB, 0.1);
 
 $pagination-next-color:         $white;
 $pagination-next-hover-color:   $white;
-$pagination-next-bg:            $primary-dark;
-$pagination-next-hover-bg:      tint($complement-base, 25);
+$pagination-next-bg:            rgba($blue, .75);
+$pagination-next-hover-bg:      tint($blue, 25);
 
 $pagination-highlight:          $black;
 
