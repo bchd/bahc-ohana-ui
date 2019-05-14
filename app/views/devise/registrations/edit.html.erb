@@ -2,7 +2,7 @@
 
   <%= render 'nav_buttons' %>
 
-  <%= content_tag :i, nil, class: 'fa fa-user fa-3x' %>
+  <%= content_tag :span, nil, class: 'fa fa-user fa-3x' %>
   <h2>
     <%= t('users.edit_your_profile') %>
   </h2>
@@ -60,14 +60,16 @@
 
       <% if current_user&.admin? %>
         <div class="field">
-          <%= f.label :admin %><br />
-          <%= f.check_box :admin %>
+          <div class="admin">
+            <%= f.check_box :admin %>
+            <%= f.label :admin %><br />
+          </div>
         </div>
       <% end %>
 
       <div class="actions">
         <%= link_to t('users.cancel'), root_path, class: 'button' %>
-        <%= f.submit t('users.save'), class: 'button' %>
+        <%= f.submit t('users.save'), class: 'button button-small' %>
       </div>
     <% end %>
   </div>
