@@ -2,7 +2,7 @@
 
   <%= render 'nav_buttons' %>
 
-  <%= content_tag :i, nil, class: 'fa fa-user fa-3x' %>
+  <%= content_tag :span, nil, class: 'fa fa-user fa-3x' %>
   <h2>
     <%= t('users.edit_your_profile') %>
   </h2>
@@ -21,13 +21,18 @@
         <%= f.text_field :last_name, autocomplete: "last_name" %>
       </div>
 
-      <div class="field">
+      <div class="field email">
         <%= f.label :email %><br />
         <% if current_user&.admin? %>
           <%= f.email_field :email, autocomplete: "email" %>
         <% else %>
           <div><%= resource.email %></div>
         <% end %>
+      </div>
+
+      <div class="field organization">
+        <%= f.label :organization %><br />
+        <%= f.text_field :organization, autocomplete: "organization" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -55,14 +60,16 @@
 
       <% if current_user&.admin? %>
         <div class="field">
-          <%= f.label :admin %><br />
-          <%= f.check_box :admin %>
+          <div class="checkbox">
+            <%= f.check_box :admin %>
+            <%= f.label :admin %><br />
+          </div>
         </div>
       <% end %>
 
       <div class="actions">
         <%= link_to t('users.cancel'), root_path, class: 'button' %>
-        <%= f.submit t('users.save'), class: 'button' %>
+        <%= f.submit t('users.save'), class: 'button button-small' %>
       </div>
     <% end %>
   </div>

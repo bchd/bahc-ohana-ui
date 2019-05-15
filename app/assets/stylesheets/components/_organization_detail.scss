@@ -4,7 +4,7 @@
   display: table;
   border-left: 20px solid $complementA;
   font-family: $font_sans_serif;
-  background: $primary-lightest;
+  background: rgba($blue, .05);
 
   .content {
     display: table-cell;
@@ -16,13 +16,12 @@
       padding: 10px;
       padding-top: 20px;
       > hgroup {
-        font-family: $font_serif;
+        font-family: $font_sans_serif;
 
         .name {
           font-size: 24px;
-          letter-spacing: 1px;
           display: inline;
-          font-family: $font_serif;
+          font-family: $font_sans_serif;
         }
       }
     }

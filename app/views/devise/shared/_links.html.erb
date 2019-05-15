@@ -1,3 +1,4 @@
+<div class="links">
 <%- if controller_name != 'sessions' %>
   <%= link_to t('users.login'), new_session_path(resource_name) %><br />
 <% end %>
@@ -23,3 +24,4 @@
     <%= link_to "#{t('users.sign_in_with')} #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
   <% end %>
 <% end %>
+</div>

@@ -7,6 +7,12 @@
 // COLOR PALETTE
 
 $orange: rgb(253,165,73); // #fda549
+$light-orange: #ffd180; // #ffd180
+$purple: rgb(131,94,177); // #835eb1
+$dark-purple: rgb(131,94,177); // #r35eb1
+$purple-t: rgba(131, 94, 177, .1);
+$blue: rgb(0,127,170); // #007faa
+$grey: rgba(27,27,27, .6); // #1b1b1b
 
 // Greyscale.
 $black: rgb(0,0,0);
@@ -125,14 +131,14 @@ $button-disabled-bg:          tint($greyscale_light, 60);
 $button-small-color:         tint($black, 25);
 $button-small-fa-color:      $primary-darkest;
 $button-small-hover-color:   $complementA;
-$button-small-bg:            none;
+$button-small-bg:            linear-gradient(to right, $blue, $purple);
 $button-small-bg-hover:      $primary-light;
 
-$button-utility-color:       $primary;
-$button-utility-fa-color:    $complement-base;
-$button-utility-hover-color: shade($primary, 5);
+$button-utility-color:       $grey;
+$button-utility-fa-color:    $orange;
+$button-utility-hover-color: shade($grey, 25);
 $button-utility-bg:          none;
-$button-utility-bg-hover:    $complementB;
+$button-utility-bg-hover:    none;
 
 // Forms.
 //
@@ -145,7 +151,7 @@ $input-fa-color:      $primary-darkest;
 $search-bg:                         $primary;
 
 // Sidebar.
-$search-sidebar-bg:                 $primary-lightest;
+$search-sidebar-bg:                 linear-gradient(to bottom, rgba($blue, .25), rgba($purple, .25));
 $search-border-color:               $primary;
 $search-text-color:                 tint($black, 25);
 $search-accent-color:               shade($primary, 50);
@@ -165,22 +171,22 @@ $listitem-search-important-border:  $accentB;
 
 // Pagination.
 //
-$pagination-color:              $complementA;
-$pagination-hover-color:        $complementA;
+$pagination-color:              $grey;
+$pagination-hover-color:        $grey;
 $pagination-bg:                 none;
-$pagination-hover-bg:           $complementB;
-$pagination-border:             $complementB;
+$pagination-hover-bg:           rgba($blue, .3);
+$pagination-border:             none;
 
-$pagination-active-color:       $white;
-$pagination-active-bg:          tint($complement-base, 25);
+$pagination-active-color:       $grey;
+$pagination-active-bg:          rgba($blue, .30);
 
 $pagination-disabled-color:     $greyscale_dark;
 $pagination-disabled-bg:        rgba($complementB, 0.1);
 
 $pagination-next-color:         $white;
 $pagination-next-hover-color:   $white;
-$pagination-next-bg:            $primary-dark;
-$pagination-next-hover-bg:      tint($complement-base, 25);
+$pagination-next-bg:            rgba($blue, .75);
+$pagination-next-hover-bg:      tint($blue, 25);
 
 $pagination-highlight:          $black;
 
@@ -229,7 +235,7 @@ $layer-7: 7000;
 
 // Fonts
 $font_serif: 'Libre Baskerville', serif;
-$font_sans_serif: 'Quattrocento Sans', sans-serif;
+$font_sans_serif: 'Lato', sans-serif;
 
 // Font sizes. Relative numbered names (-80,-90,-100,-110...) are used
 // instead of labels (small, medium, large) to allow easy insertion

@@ -28,6 +28,9 @@ function init() {
   var resetButton = document.getElementById('button-reset');
   resetButton.addEventListener('click', _resetClicked, false);
 
+  var collapseButton = document.getElementById('button-collapse');
+  collapseButton.addEventListener('click', _collapseSections, false);
+
   var checkboxes = $('#categories input');
 
   var currentCheckbox;
@@ -69,6 +72,22 @@ function _openSection(element) {
   $($(element).find('i')).toggleClass('fa fa-chevron-right fa fa-chevron-down');
 }
 
+function _collapseSections() {
+  var sections = document.getElementsByClassName('parent-category-label-container');
+  for (let section of sections) {
+    _collapseSection($(section));
+  }
+}
+
+function _collapseSection(element) {
+  var filters = element.nextUntil('depth0');
+  filters.each(function() {
+    $(this).children(0).addClass('hide');
+  });
+  $(element).removeClass('selected');
+  $($(element).find('i')).removeClass('fa-chevron-down').addClass('fa-chevron-right');
+}
+
 function _handleHeaderClick(evt) {
   _openSection($(evt.currentTarget));
 }
@@ -86,7 +105,7 @@ function _geolocationClicked(address) {
   _searchForm.submit();
 }
 
-// The clear filters button was clicked.
+// The clear filters link was clicked.
 function _resetClicked(evt) {
   _keyword.reset();
   _location.reset();

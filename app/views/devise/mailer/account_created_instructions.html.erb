@@ -1,12 +1,12 @@
 <div class='devise'>
   <p>Hello <%= @resource.email %>!</p>
 
-  <p><%= t('account_created_instructions') %></p>
+  <p><%= t('users.account_created_instructions') %></p>
 
   <p><%= link_to 'Change my password', edit_password_url(@resource, reset_password_token: @token) %></p>
 
   <p>
-    <%= t('account_created_instructions_alt') %>
+    <%= t('users.account_created_instructions_alt') %>
     <a href='<%= SETTINGS[:feedback_email]['to'][0] %>?subject=<%= t('users.account_not_requested_subject') %>"><%= SETTINGS[:feedback_email]['to'][0] %> </a>
   </p>
 </div>
