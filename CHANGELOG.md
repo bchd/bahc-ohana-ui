@@ -2,10 +2,29 @@
 
 ## [?.?.?] - 2019-05-10
 ### ahc-sprint-23
+### Added
+  - AHC-1354
+    - Added title attribute to filter labels to show full category names
+  - AHC-1370
+    - Show the situation categories grouped on the service
+  - AHC-1421
+    - Adds a free-text field to name the organization a user is affiliated with
 ### Changed
+  - AHC-1261
+    - Update style on landing page search box
+    - Update fonts everywhere
+  - AHC-1262
+    - Update style on global header
+  - AHC-1263
+    - Update style on global footer
+  - AHC-1265
+    - Update style on search results page sidebar
+  - AHC-1367
+    - Update style on user management pages
   - AHC-1413
-    - Sort the service categoies prior to listing them out on a service
-
+    - Sort the service categories prior to listing them out on a service
+  - AHC-1326
+    - Update style organization page
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22
 ### Added

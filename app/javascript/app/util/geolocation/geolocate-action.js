@@ -17,14 +17,14 @@ var LOCATION_NOT_FOUND_ERROR_TEXT = 'Your location could not be determined!';
 
 function init(target, locateAction) {
   // If geolocation is supported, show geolocate button.
-  if (navigator.geolocation) {
-    _locateTarget = document.getElementById(target);
-    _locateTarget.classList.remove('hide');
-    _locateTargetTextContainer = _locateTarget.querySelector('span');
-    _locateAction = locateAction;
-
-    _locateTarget.addEventListener('click', _currLocationAction, false);
-  }
+  // if (navigator.geolocation) {
+  //   _locateTarget = document.getElementById(target);
+  //   _locateTarget.classList.remove('hide');
+  //   _locateTargetTextContainer = _locateTarget.querySelector('span');
+  //   _locateAction = locateAction;
+  //
+  //   _locateTarget.addEventListener('click', _currLocationAction, false);
+  // }
 }
 
 // Target element was clicked.

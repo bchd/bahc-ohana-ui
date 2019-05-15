@@ -87,7 +87,7 @@ textarea {
 html,
 body {
   height: 100%;
-  font-family: $font_serif;
+  font-family: $font_sans_serif;
 }
 
 body {
@@ -109,7 +109,7 @@ sup,
 sub {
   vertical-align: baseline;
   position: relative;
-  top: -0.4em;
+  top: -0.2em;
   font-size: 80%;
 }
 sub {
@@ -143,36 +143,34 @@ ul {
     z-index: 9999;
 
     width: 100%;
-    background: $white;
-    border-bottom: 2px solid $main-border-color;
+    background: rgba($blue, .05);
     @include box-sizing(border-box);
 
     font-size: $font_size_100;
+    padding: .2em;
 
     h1 {
         font-size: $font_size_110;
         @include inline-block();
         margin-left: 13px;
-        padding-top: 4px;
-        padding-bottom: 3px;
     }
 
     h2 {
-        color: $black;
+        color: $purple;
+        font-size: $font_size_115;
+        font-weight: 500;
         font-family: $font_sans_serif;
         @include inline-block();
         margin-left: 14px;
-        padding-bottom: 12px;
         padding-right: 15px;
-        vertical-align: bottom;
     }
 
     nav {
       @include inline-block();
       float: right;
-      padding-top: 11px;
-      padding-bottom: 10px;
-      padding-right: 15px;
+      padding-right: 1em;
+      line-height: 5em;
+      text-align: center;
 
       li {
         padding-right: 10px;
@@ -180,13 +178,34 @@ ul {
       }
 
       a {
-        //color: rgba($primary-darkest, 0.6);
-        color: $menubutton-popup-color;
+        font-family: $font_sans_serif;
+        font-weight: 550;
+        font-size: $font_size_100;
+        color: $grey;
         text-decoration: none;
       }
 
-      a:hover {
-        color: $menubutton-popup-hover-color;
+      .button-small{
+        background-image: linear-gradient(to right, $blue, $purple);
+        color: $white;
+        padding: .5em 2.6em .5em 2.6em;
+        border: none;
+      }
+      .button-small:hover {
+        background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
+      }
+      div.button-logged-in {
+        font-size: $font_size_110;
+        color: $white;
+        background-image: linear-gradient(to right, $blue, $purple);
+        border-radius: 50%;
+        height: 2em;
+        width: 2em;
+        text-align: center;
+        line-height: 2em;
+      }
+      div.button-logged-in:hover {
+        background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
       }
     }
   }
@@ -210,7 +229,8 @@ ul {
   }
 
   img {
-    max-width: 100px;
+    max-width: 80px;
+    padding: .4em;
   }
 }
 
@@ -219,7 +239,6 @@ ul {
   text-align: center;
   background: $white;
   clear: both;
-  border-top: 2px solid $primary-dark;
   padding-bottom: 20px;
 
   > p,
@@ -242,6 +261,16 @@ ul {
     position: relative;
     top: -1px;
   }
+
+  img {
+    max-width: 100px;
+    float: left;
+  }
+}
+
+#footer-container{
+  width: 35%;
+  display: inline-block;
 }
 
 
@@ -317,7 +346,7 @@ ul {
 }
 
 .inside .main {
-  background-color: $primary-lightest;
+  background-image: $search-sidebar-bg;
 }
 
 //=================================================================================
@@ -326,6 +355,7 @@ ul {
 // The container for the Google Website Translator Gadget.
 #google-translate-container {
   padding-bottom: 20px;
+  float: right;
 }
 
 // Hides the Google Translate translation banner at the top of the page.
@@ -384,9 +414,8 @@ body {
   float: left;
   vertical-align: top;
   width: 240px;
-  background-color: $search-sidebar-bg;
-  //border-right: 2px solid $primary;
-  border-right: 2px solid $main-border-color;
+  min-height: 1000px;
+  height: auto;
 
   select {
     font-size: $font_size_95;
@@ -423,8 +452,7 @@ body {
   > div {
     padding: 60px;
     text-align: center;
-    background: rgba($search-bg, .8);
-    //@include background( radial-gradient( $primary-lightest 10%, $primary) );
+    background-image: linear-gradient(100deg, rgba($blue, .8), rgba($purple, .8));
     vertical-align: bottom;
 
     > * {
@@ -455,10 +483,6 @@ body {
     text-align: left;
   }
 
-}
-
-.inside #keyword-search-box {
-  background: $primary;
 }
 
 #search-controls {
@@ -566,20 +590,19 @@ body {
   z-index: 9998;
   vertical-align: top;
   margin-left: 240px;
-  border-left: 2px solid $main-border-color;
   background: $white;
+  display: table-cell;
+  width: 100%;
 }
 
 .results-header {
   position: absolute;
-  top: 0;
+  top: 400px;
   right: 0;
   z-index: 9999;
   min-height: 45px;
   font-family: $font_sans_serif;
   background: $greyscale_lightest;
-  border-bottom: 1px solid greyscale_light; // IE fallback
-  border-bottom: 1px solid midtone($black, .1);
   width: 100%;
   text-align: right;
   @include box-sizing(border-box);
@@ -593,14 +616,13 @@ body {
     padding-bottom: 6px;
     padding-right: 20px;
     color: $black;
-    font-family: $font_serif;
+    font-family: $font_sans_serif;
     @include ellipsis();
   }
 
   // Print, Email, Directions, Back to search
   .utility-links {
     > span {
-      border-left: 1px dotted $greyscale_light;
       @include inline-block();
       vertical-align: baseline;
     }
@@ -662,12 +684,14 @@ body {
   }
 
   > *:last-child {
-    margin-right: 20px;
   }
 }
 
+.detail-header {
+  top: 0;
+}
+
 #results-container.result-map-showing .results-header {
-  border-bottom: 1px solid $primary;
 }
 
 // Hide static content when header is floating.
@@ -684,13 +708,11 @@ body {
   -webkit-backface-visibility: hidden;
   width: 100%;
   @include single-box-shadow(0, 1px, 6px, 0, rgba($black, .4));
-  border-bottom: 1px solid $primary-dark !important;
+  top: 0;
 }
 
 #results-entries {
   min-height: 475px;
-  // Offset to accommodate the floating header height.
-  padding-top: 45px;
 
   > ul {
     padding: 0;
@@ -734,6 +756,9 @@ body {
   }
 }
 
+.locations-results-container {
+  display: table-row;
+}
 //=================================================================================
 // Results - terminology infobox. Certain keywords display an informational box
 // above the search results. See app/helpers/info_box_helper.rb for more info.
@@ -803,22 +828,17 @@ body {
 
     > header {
       > hgroup {
-        font-family: $font_serif;
+        font-family: $font_sans_serif;
         padding: 10px;
 
         h1.name {
           font-size: 24px;
-          letter-spacing: 1px;
           display: inline;
-          font-family: $font_serif;
-        }
-
-        h1.name > a::after {
-          content: " more...";
-          font-size: $font_size_90;
           font-family: $font_sans_serif;
-          color: $greyscale_midtone; // IE fallback
-          color: rgba($black,.4);
+          color: $purple;
+          a {
+            color: $purple;
+          }
         }
 
         h1.name > a:hover::after {
@@ -830,10 +850,13 @@ body {
         h2.agency {
           font-size: 14px;
           color: $greyscale_dark;
-          font-family: $font_serif;
+          font-family: $font_sans_serif;
 
           span {
             margin-top: 5px;
+          }
+          a {
+            color: $blue;
           }
         }
       }
@@ -879,8 +902,8 @@ body {
     }
 
     .short-desc {
-      @include type-size(baseline);
-      color: $main-highlight;
+      font-size: $font_size_105;
+      color: $blue;
     }
   }
 
@@ -893,11 +916,11 @@ body {
 
 #map-view {
   background: $white;
+  padding-bottom: 45px;
 }
 
 #map-canvas {
   height: 150px;
-  border-bottom: 1px solid $primary;
 
   .infoBox {
     background-color: $white;
@@ -952,7 +975,7 @@ body {
       left: 0;
       top: -10px;
       font-size: $font_size_120;
-      font-family: $font_serif;
+      font-family: $font_sans_serif;
     }
 
     .button-close::after {
@@ -986,8 +1009,10 @@ body {
 
 //=================================================================================
 // Location details view.
+.details-content {
+  height: 0px;
+}
 #detail-info {
-  background: $greyscale_lightest;
   color: $black;
   font-family: $font_sans_serif;
   // Offset to accommodate the floating header height.
@@ -996,10 +1021,8 @@ body {
   // Location header.
   > header {
     padding: 10px;
-    border-bottom: 1px solid $greyscale_light; // IE fallback
-    border-bottom: 1px solid midtone($black, .1);
     background: $primary-lightest; // IE fallback
-    background: rgba($primary-lightest,.1);
+    background: rgba($blue, .05);
     @include border-radius(4px 4px 0 0);
 
     .kind {
@@ -1013,21 +1036,24 @@ body {
     }
 
     > hgroup {
-      font-family: $font_serif;
+      font-family: $font_sans_serif;
       padding: 10px;
       padding-left: 20px;
 
       // name
       h1 {
         @include type-size(large);
-        letter-spacing: 1px;
-        color: $black;
+        color: $purple;
       }
 
       // agency
       h2 {
         @include type-size(medium);
-        color: $greyscale_dark;
+        color: $blue;
+        a {
+          color: $blue;
+          text-decoration: none;
+        }
       }
     }
   }
@@ -1040,14 +1066,13 @@ body {
     }
 
     > h1 {
-      @include type-size(small);
+      //@include type-size(small);
+      font-size: $font_size_100;
       color: $greyscale_midtone;
       margin-top: 0;
       margin-bottom: 10px;
-      padding: 5px;
-      border-bottom: 1px solid $greyscale_light; // IE fallback
-      border-bottom: 1px solid rgba($black, .1);
-      letter-spacing: 1px;
+      padding-left: 1em;
+      border-bottom: 1px solid $greyscale_midtone;
       font-family: $font_sans_serif;
       @include inline-block();
       // Overrides compass inline-block mixin setting - needed for correct font alignment.
@@ -1065,14 +1090,14 @@ body {
       font-family: $font_sans_serif;
 
       > h1 {
-        color: $main-header-color;
+        color: $blue;
         @include type-size(baseline);
-        font-weight: bold;
-        background: $white; // IE fallback
-        background: $main-header-bg;
+        //font-weight: bold;
+        //background: $white; // IE fallback
+        //background: $main-header-bg;
         padding-left: 5px;
         padding-right: 5px;
-        @include border-radius(5px);
+        //@include border-radius(5px);
         @include inline-block();
         // Overrides compass inline-block mixin setting - needed for correct font alignment.
         vertical-align: baseline;
@@ -1099,21 +1124,17 @@ body {
   // Details view sidebar.
   > .location-sidebar-box {
     float: right;
-    width: 400px;
+    width: 350px;
     z-index: $layer-9;
     margin-left: 20px;
+    height: 2100px;
 
     > .location-sidebar:first-child {
-      @include box-shadow(0 0 1px $white, -1px 0 2px rgba($black,.2), 0 1px 2px rgba($black,.2));
     }
     > .location-sidebar {
-      margin-bottom: 20px;
-      border-left: 1px solid $white;
-      border-bottom: 1px solid $white;
-      @include border-radius(0 0 0 10px);
-      @include box-shadow(0 0 1px $white, -1px 0 2px rgba($black,.2), 0 1px 2px rgba($black,.2), 0 -1px 2px rgba($black,.2));
-      background: $white;
-
+      //margin-bottom: 20px;
+      background: rgba($purple, .1);
+      height: 2100px;
       -ms-word-break: break-all;
       word-break: break-all;
       // Non-standard for webkit.
@@ -1123,14 +1144,13 @@ body {
         margin-bottom: 20px;
 
         h1 {
-          font-size: $font_size_95;
+          font-size: $font_size_100;
           color: $greyscale_midtone;
           margin-top: 0;
           margin-bottom: 10px;
           padding: 5px;
           border-bottom: 1px solid $greyscale_light; // IE fallback
           border-bottom: 1px solid rgba($black,.1);
-          letter-spacing: 1px;
           font-family: $font_sans_serif;
           @include inline-block();
           // Overrides compass inline-block mixin setting
@@ -1179,7 +1199,7 @@ body {
   // Section specific styles. Accommodate aside width.
   .overview-box,
   .map-box {
-    margin-right: 400px;
+    margin-right: 350px;
   }
 
   .overview-box {
@@ -1189,12 +1209,11 @@ body {
 
      // Stylize services summary.
     .short-desc {
-      color: $main-highlight;
+      color: $blue;
       //background: $accentA-light;
       @include border-radius(5px);
-      text-align: center;
       font-family: $font_sans_serif;
-      font-size: 24px;
+      font-size: $font_size_105;
       padding-top: 40px;
       padding-bottom: 0;
       position: relative;
@@ -1232,11 +1251,12 @@ body {
     }
     .title-box {
       margin-top: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 25px;
       padding-bottom: 0;
       margin-left: 0;
       font-size: 24px;
-      border-left: 20px solid $main-highlight;
+      color: $purple;
+      border-left: 20px solid $blue;
     }
     .schedules-box {
       @include inline-block();
@@ -1255,7 +1275,6 @@ body {
     height: 400px;
     width: 100%;
     @include box-sizing(border-box);
-    border: 2px solid $primary-dark;
     //border-top: 1px solid $primary-dark;
 
     // Error message text if map doesn't load.
@@ -1277,7 +1296,11 @@ body {
     clear: both;
     text-align: right;
     padding: 0 20px 20px 20px;
+    margin-right: 350px;
   }
+}
+.details-footer {
+  bottom: 50px;
 }
 
 @include site-link('#general-services', $white);
@@ -1305,15 +1328,16 @@ body {
     font-family: $font_sans_serif;
     margin-left: 5px;
     line-height: normal;
+    color: $purple !important;
 
     span:first-child {
       color: $greyscale_midtone; // IE fallback
-      color: rgba($black,.4);
+      color: $purple;
     }
 
     span:last-child {
       color: $greyscale_midtone; // IE fallback
-      color: rgba($black,.4);
+      color: $purple;
     }
 
     &:hover {

@@ -1,28 +1,25 @@
 .button-small {
-  background: $button-small-bg;
+  background-image: $button-small-bg;
   border: none;
-
+  color: $white;
   font-family: $font_sans_serif;
   @include type-size(baseline);
   @include rounded-except(none);
   @include box-sizing(border-box);
-  padding: 4px 6px;
+  padding: .5em 2.6em .5em 2.6em;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0);
-  color: $button-small-color;
 
   .fa {
     color: $button-small-fa-color;
   }
-}
 
-.button-small:hover {
-  background: $button-small-bg-hover;
-  border: 1px solid rgba($primary-darkest, 0.2);
-  color: $button-small-hover-color;
+  .button-small:hover {
+    background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
 
-  .fa {
-    color: $button-small-hover-color;
+    .fa {
+      color: $button-small-hover-color;
+    }
   }
 }
 
@@ -56,7 +53,6 @@ a.translate-active {
   text-decoration: none;
   @include inline-block();
   @include type-size(baseline);
-  letter-spacing: 1px;
   color: $button-utility-color;
   @include box-sizing(border-box);
   padding: 10px;

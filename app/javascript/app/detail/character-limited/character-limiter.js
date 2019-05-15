@@ -10,8 +10,8 @@ var SHOW_CHAR = 400;
 var SOFT_LIMIT = 100;
 
 // Text for showing/hiding more text.
-var MORE_TEXT = '<span><</span>more<span>></span>';
-var LESS_TEXT = '<span><</span>less<span>></span>';
+var MORE_TEXT = '<span>(</span>more<span>)</span>';
+var LESS_TEXT = '<span>(</span>less<span>)</span>';
 var ELLIPSES_TEXT = '…';
 
 function init() {

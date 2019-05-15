@@ -37,6 +37,9 @@ function renderMapStack() {
   infoBoxManager.render(_mapDOM, InfoBox);
   _registerMapEvents();
   infoBoxManager.registerInfoBoxEvents();
+  _mapDOM.canvas.classList.add('max');
+  _updateMarkerSizes();
+  _refresh();
 }
 
 // Toggle size of map.

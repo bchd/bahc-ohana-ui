@@ -1,6 +1,11 @@
-%div{ class: 'filter-label-container' }
-  = label_tag :filters, 'Filter by Category', class: 'filter-header-label'
+%div.filter-label-container
+  = label_tag :filters, t('labels.filters.filter_by_category'), class: 'filter-header-label'
 
-%div
+
+  %div.filter-actions-container
+    = label_tag(t('buttons.collapse_all_filters'), nil, id: 'button-collapse')
+    = label_tag(t('buttons.clear_filters'), nil, id: 'button-reset')
+
+%div.filters-container
   = field_set_tag nil, id: 'categories' do
     = nested_categories(filter_tree)

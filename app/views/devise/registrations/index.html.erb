@@ -2,7 +2,7 @@
 
   <%= render 'nav_buttons' %>
 
-  <%= content_tag :i, nil, class: 'fa fa-users fa-3x' %>
+  <%= content_tag :span, nil, class: 'fa fa-users fa-3x' %>
   <h2>
     <%= t('users.manage_users') %>
   </h2>
@@ -12,9 +12,10 @@
       <th class='data last-name'><%= t('users.last_name') %></th>
       <th class='data first-name'><%= t('users.first_name') %></th>
       <th class='data email'><%= t('users.email') %></th>
+      <th class='data organization'><%= t('users.organization') %></th>
       <th class='data admin'><%= t('users.admin') %></th>
-      <th class='button delete-user'>&nbsp;</th>
-      <th class='button edit-user'>&nbsp;</th>
+      <th class='table-button delete-user'>&nbsp;</th>
+      <th class='table-button edit-user'>&nbsp;</th>
     </tr>
     <% @users.each do |user| %>
       <%= render partial: "user_row", locals: { user: user } %>

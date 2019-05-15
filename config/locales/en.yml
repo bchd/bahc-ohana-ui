@@ -26,15 +26,16 @@ en:
     description: >
       Retrieve detailed information about the services available
       in %{location}.
-    header: 'Find community services in %{location}'
+    header: 'Connect with resources in %{location}'
     location: 'Baltimore City'
 
   buttons:
-    clear_search_fields: 'Clear search fields'
+    clear_filters: 'Uncheck all filters'
+    collapse_all_filters: 'Collapse filters'
     during_geolocation: 'Please wait...'
     homepage_search: 'Search'
     services_near_me: 'Services near me'
-    update_search_results: 'Update search results'
+    update_search_results: 'Update Search'
 
   date:
     day_names:
@@ -58,7 +59,7 @@ en:
       one_page:
         display_entries:
           zero: "No %{entry_name} found."
-          one: "Displaying <strong>1</strong> %{entry_name}"
+          one: "Displaying <strong>1</strong> result"
           other: "Displaying <strong>all %{count}</strong> %{entry_name}"
       more_pages:
         display_entries: >
@@ -66,16 +67,18 @@ en:
           <strong>%{total}</strong> %{entry_name}
 
   labels:
-    address_search: 'Address search'
-    agency_search: 'Organization name search'
+    address_search: 'Location (address or zip)'
+    agency_search: 'Organization Name'
     homepage_prompt: 'What are you looking for today?'
     homepage_search: 'I need'
     homepage_location_search: "near"
+    filters:
+      filter_by_category: "Filter by Category"
 
   location_fields:
-    accessibility: 'Accessibility Options:'
+    accessibility: 'Accessibility'
     description: 'Description'
-    languages: 'Languages Spoken:'
+    languages: 'Languages'
 
   meta:
     description: >
@@ -95,9 +98,10 @@ en:
     licenses: 'Licenses:'
 
   placeholders:
-    address_search: 'address or ZIP code'
-    agency_search: 'full or partial name...'
-    homepage_keyword_search: 'organization or service'
+    address_search: 'address or zip code'
+    agency_search: 'full or partial name'
+    keyword_search: "service or topic"
+    homepage_keyword_search: 'service or topic'
     homepage_location_search: 'address or zip code'
     results_page_keyword_search: 'search for...'
 
@@ -116,13 +120,22 @@ en:
     status_inactive: 'This service is not currently operating!'
     urls: 'Homepage:'
     availability:
-      service_wait_estimate: 'Service Wait Estimate:'
+      service_wait_estimate: 'Service Wait Capacity:'
       unknown: 'Call for availability'
       call_for_availability: 'Call for availability'
       available_today: 'Available Today'
       next_day_service: 'Next Day Service'
       two_three_day_wait: '2-3 Day Wait'
       one_week_wait: '1 Week Wait'
+    categories:
+      service: 'Service Categories'
+      languages: 'Languages'
+      ages_served: 'Ages Served'
+      gender_sexuality: 'Gender & Sexuality'
+      insurance_accepted: 'Insurance Accepted'
+      documents_needed: 'Documents Needed'
+      health_specialties: 'Health Specialties'
+      substance_use_treatment_preferences: 'Substance Use Treatment Preferences'
 
   time:
     formats:
@@ -143,14 +156,16 @@ en:
     didnt_receive_unlock_instructions: "Didn't receive unlock instructions?"
     edit: 'Edit'
     edit_profile: 'Edit Profile'
-    edit_user: 'Edit User'
+    edit_user: 'Edit'
     edit_your_profile: 'Edit Your Profile'
     email: 'Email'
     first_name: 'First'
     forgot_your_password: 'Forgot your password?'
     last_name: 'Last'
+    lets_go: "Let's go!"
     login: 'Login'
     manage_users: 'Manage Users'
+    organization: 'Organization'
     save: 'Save'
     send_me_reset_password_instructions: 'Send me reset password instructions'
     sign_in_with: 'Sign in with'
