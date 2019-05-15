@@ -19,7 +19,7 @@ module PhoneFormatHelper
     return 'fa fa-print' if type == 'fax'
     return 'fa fa-tty' if type == 'tty'
     return 'fa fa-mobile' if type == 'sms'
-    return 'fa fa-phone-square' if %w[voice hotline].include?(type)
+    return 'fa fa-phone' if %w[voice hotline].include?(type)
   end
 
   # Choose either a fax or telephone schema.org-style microdata itemsprop type.

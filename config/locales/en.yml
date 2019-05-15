@@ -76,9 +76,9 @@ en:
       filter_by_category: "Filter by Category"
 
   location_fields:
-    accessibility: 'Accessibility Options:'
+    accessibility: 'Accessibility'
     description: 'Description'
-    languages: 'Languages Spoken:'
+    languages: 'Languages'
 
   meta:
     description: >
@@ -120,7 +120,7 @@ en:
     status_inactive: 'This service is not currently operating!'
     urls: 'Homepage:'
     availability:
-      service_wait_estimate: 'Service Wait Estimate:'
+      service_wait_estimate: 'Service Wait Capacity:'
       unknown: 'Call for availability'
       call_for_availability: 'Call for availability'
       available_today: 'Available Today'

@@ -4,7 +4,7 @@
   display: table;
   border-left: 20px solid $complementA;
   font-family: $font_sans_serif;
-  background: $primary-lightest;
+  background: rgba($blue, .05);
 
   .content {
     display: table-cell;
@@ -20,7 +20,6 @@
 
         .name {
           font-size: 24px;
-          letter-spacing: 1px;
           display: inline;
           font-family: $font_sans_serif;
         }

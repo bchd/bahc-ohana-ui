@@ -53,7 +53,6 @@ a.translate-active {
   text-decoration: none;
   @include inline-block();
   @include type-size(baseline);
-  letter-spacing: 1px;
   color: $button-utility-color;
   @include box-sizing(border-box);
   padding: 10px;

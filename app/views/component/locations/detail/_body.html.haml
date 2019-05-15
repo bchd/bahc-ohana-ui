@@ -16,19 +16,6 @@
   / detail sidebar content
   .location-sidebar-box
     %aside.location-sidebar
-
-      - if location.regular_schedules.present?
-        %section.schedules-box.location-sidebar-section
-          %h1 Regular Hours
-          %section.location-sidebar-content
-            = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
-
-      - if location.holiday_schedules.present?
-        %section.schedules-box.location-sidebar-section
-          %h1 Holiday Hours
-          %section.location-sidebar-content
-            = render 'component/detail/location_holiday_schedule', schedules: location.holiday_schedules
-
       - if (location.fields & location_contact_fields).any?
         %section.contact-box-general.location-sidebar-section
           %h1 General Contact Info
@@ -68,6 +55,17 @@
               %i.fa.fa-map-marker
               %span
                 = render 'component/detail/address', location: location, lines: 2
+      - if location.regular_schedules.present?
+        %section.schedules-box.location-sidebar-section
+          %h1 Regular Hours
+          %section.location-sidebar-content
+            = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
+
+      - if location.holiday_schedules.present?
+        %section.schedules-box.location-sidebar-section
+          %h1 Holiday Hours
+          %section.location-sidebar-content
+            = render 'component/detail/location_holiday_schedule', schedules: location.holiday_schedules
 
       - if location.mail_address.present?
         %section.address-box.location-sidebar-section
@@ -77,6 +75,10 @@
               %i.fa.fa-envelope
               %span
                 = render 'component/detail/mail_address', location: location
+      - if location.accessibility.present?
+        %section.address-box.location-sidebar-section
+          %h1= t('location_fields.accessibility')
+          = render 'component/detail/accessibility', location: location
 
     - if false && @categories.present?
       %aside.location-sidebar
@@ -93,8 +95,7 @@
       /= render 'component/detail/service_keywords'
 
   / Main detail content.
-  %section
-
+  %section.details-content
     %section.overview-box
       %section
         = render 'component/detail/location_short_desc', location: location
@@ -127,13 +128,6 @@
                   #detail-map-view
                     display: none
 
-    - if (location.fields & service_fields).any?
-      %section.service-opt-box
-        %h1 Service Options
-        %section
-          = render 'component/detail/languages', location: location
-          = render 'component/detail/accessibility', location: location
-
     - if location.services.present?
       %section.services-box
         %h1 Services
@@ -144,28 +138,6 @@
               = render 'component/detail/service_status', service: service
               = render 'component/detail/service_name', service: service
 
-            - if service.regular_schedules.present?
-              %section.schedules-box
-                %h1 Regular Service Hours
-                %section
-                  = render 'component/detail/location_regular_schedule', schedules: service.regular_schedules
-
-            - if service.holiday_schedules.present?
-              %section.schedules-box
-                %h1 Holiday Service Hours
-                %section
-                  = render 'component/detail/location_holiday_schedule', schedules: service.holiday_schedules
-
-            - if service.website.present? || service.email.present? || service.phones.present?
-              %section.contact-box
-                - if service.website.present?
-                  = render 'component/detail/website', website: service.website
-                - if service.email.present?
-                  = render 'component/detail/email', email: service.email
-                - if service.phones.present?
-                  %section.phones
-                    - service.phones.each do |phone|
-                      = render 'component/detail/phone', phone: phone, show_phone_type_and_department: true
 
             = render 'component/detail/service_wait', service: service
             = render 'component/detail/service_description', service: service
@@ -173,6 +145,7 @@
             = render 'component/detail/service_audience', service: service
             = render 'component/detail/service_eligibility', service: service
             = render 'component/detail/service_application_process', service: service
+            = render 'component/detail/languages', service: service
             = render 'component/detail/service_interpretation_services', service: service
             = render 'component/detail/service_required_documents', service: service
             = render 'component/detail/service_accepted_payments', service: service
@@ -180,12 +153,12 @@
             = render 'component/detail/service_situations', service: service
             = render 'component/detail/service_categories', service: service
 
-  / Detail footer content.
-  - if location.updated_at.present?
+    / Detail footer content.
+    - if location.updated_at.present?
 
-    %footer
-      %section.metadata
-        .button-edit
-          = link_to "#{SETTINGS[:admin_site]}/locations/#{location.slug}", rel: 'nofollow' do
-            %i.fa.fa-pencil
-            Edit
+      %footer.details-footer
+        %section.metadata
+          .button-edit
+            = link_to "#{SETTINGS[:admin_site]}/locations/#{location.slug}", rel: 'nofollow' do
+              %i.fa.fa-pencil
+              Edit

@@ -134,11 +134,11 @@ $button-small-hover-color:   $complementA;
 $button-small-bg:            linear-gradient(to right, $blue, $purple);
 $button-small-bg-hover:      $primary-light;
 
-$button-utility-color:       $primary;
-$button-utility-fa-color:    $complement-base;
-$button-utility-hover-color: shade($primary, 5);
+$button-utility-color:       $grey;
+$button-utility-fa-color:    $orange;
+$button-utility-hover-color: shade($grey, 25);
 $button-utility-bg:          none;
-$button-utility-bg-hover:    $complementB;
+$button-utility-bg-hover:    none;
 
 // Forms.
 //
