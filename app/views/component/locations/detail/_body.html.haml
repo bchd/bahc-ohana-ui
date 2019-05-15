@@ -16,19 +16,6 @@
   / detail sidebar content
   .location-sidebar-box
     %aside.location-sidebar
-
-      - if location.regular_schedules.present?
-        %section.schedules-box.location-sidebar-section
-          %h1 Regular Hours
-          %section.location-sidebar-content
-            = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
-
-      - if location.holiday_schedules.present?
-        %section.schedules-box.location-sidebar-section
-          %h1 Holiday Hours
-          %section.location-sidebar-content
-            = render 'component/detail/location_holiday_schedule', schedules: location.holiday_schedules
-
       - if (location.fields & location_contact_fields).any?
         %section.contact-box-general.location-sidebar-section
           %h1 General Contact Info
@@ -68,6 +55,17 @@
               %i.fa.fa-map-marker
               %span
                 = render 'component/detail/address', location: location, lines: 2
+      - if location.regular_schedules.present?
+        %section.schedules-box.location-sidebar-section
+          %h1 Regular Hours
+          %section.location-sidebar-content
+            = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
+
+      - if location.holiday_schedules.present?
+        %section.schedules-box.location-sidebar-section
+          %h1 Holiday Hours
+          %section.location-sidebar-content
+            = render 'component/detail/location_holiday_schedule', schedules: location.holiday_schedules
 
       - if location.mail_address.present?
         %section.address-box.location-sidebar-section
