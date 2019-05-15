@@ -22,8 +22,8 @@ function TextInput(id) {
   var _input;
 
   function reset() {
-    _buttonClear.classList.add('hide');
-    _input.value = '';
+    // _buttonClear.classList.add('hide');
+    // _input.value = '';
   }
 
   function _initClearButton() {
@@ -32,10 +32,10 @@ function TextInput(id) {
   // Hide the clear button if there isn't any input text,
   // otherwise show it.
   function _setClearButtonVisibility() {
-    if (_input.value === '')
-      _buttonClear.classList.add('hide');
-    else
-      _buttonClear.classList.remove('hide');
+    // if (_input.value === '')
+    //   // _buttonClear.classList.add('hide');
+    // else
+    //   // _buttonClear.classList.remove('hide');
   }
 
   function _throwInitializationError() {

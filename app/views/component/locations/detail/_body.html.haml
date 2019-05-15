@@ -97,8 +97,7 @@
       /= render 'component/detail/service_keywords'
 
   / Main detail content.
-  %section.details_content
-
+  %section.details-content
     %section.overview-box
       %section
         = render 'component/detail/location_short_desc', location: location
@@ -156,12 +155,12 @@
             = render 'component/detail/service_situations', service: service
             = render 'component/detail/service_categories', service: service
 
-  / Detail footer content.
-  - if location.updated_at.present?
+    / Detail footer content.
+    - if location.updated_at.present?
 
-    %footer
-      %section.metadata
-        .button-edit
-          = link_to "#{SETTINGS[:admin_site]}/locations/#{location.slug}", rel: 'nofollow' do
-            %i.fa.fa-pencil
-            Edit
+      %footer.details-footer
+        %section.metadata
+          .button-edit
+            = link_to "#{SETTINGS[:admin_site]}/locations/#{location.slug}", rel: 'nofollow' do
+              %i.fa.fa-pencil
+              Edit

@@ -902,8 +902,8 @@ body {
     }
 
     .short-desc {
-      @include type-size(baseline);
-      color: $main-highlight;
+      font-size: $font_size_105;
+      color: $blue;
     }
   }
 
@@ -1009,8 +1009,10 @@ body {
 
 //=================================================================================
 // Location details view.
+.details-content {
+  height: 0px;
+}
 #detail-info {
-  background: $greyscale_lightest;
   color: $black;
   font-family: $font_sans_serif;
   // Offset to accommodate the floating header height.
@@ -1122,16 +1124,17 @@ body {
   // Details view sidebar.
   > .location-sidebar-box {
     float: right;
-    width: 400px;
+    width: 350px;
     z-index: $layer-9;
     margin-left: 20px;
+    height: 2100px;
 
     > .location-sidebar:first-child {
     }
     > .location-sidebar {
-      margin-bottom: 20px;
+      //margin-bottom: 20px;
       background: rgba($purple, .1);
-
+      height: 2100px;
       -ms-word-break: break-all;
       word-break: break-all;
       // Non-standard for webkit.
@@ -1196,7 +1199,7 @@ body {
   // Section specific styles. Accommodate aside width.
   .overview-box,
   .map-box {
-    margin-right: 400px;
+    margin-right: 350px;
   }
 
   .overview-box {
@@ -1206,12 +1209,11 @@ body {
 
      // Stylize services summary.
     .short-desc {
-      color: $main-highlight;
+      color: $blue;
       //background: $accentA-light;
       @include border-radius(5px);
-      text-align: center;
       font-family: $font_sans_serif;
-      font-size: 24px;
+      font-size: $font_size_105;
       padding-top: 40px;
       padding-bottom: 0;
       position: relative;
@@ -1294,7 +1296,11 @@ body {
     clear: both;
     text-align: right;
     padding: 0 20px 20px 20px;
+    margin-right: 350px;
   }
+}
+.details-footer {
+  bottom: 50px;
 }
 
 @include site-link('#general-services', $white);
