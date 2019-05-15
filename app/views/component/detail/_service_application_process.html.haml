@@ -1,4 +1,5 @@
-%section.how-to-apply
-  %h1= t('service_fields.application_process')
-  %span
-    = service.application_process
+- if service.application_process.present?
+  %section.how-to-apply
+    %h1= t('service_fields.application_process')
+    %span
+      = service.application_process
