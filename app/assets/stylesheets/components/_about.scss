@@ -1,0 +1,77 @@
+
+.about-container {
+  text-align: center;
+}
+
+// Only used on /about route when JS is disabled.
+.about .close-button {
+  display: none;
+}
+
+.about .main {
+  display: block;
+  padding: 0 15%;
+  background: $white !important;
+
+  h1 {
+    font-size: $font_size_115;
+    //font-weight: bold;
+    color: $purple;
+  }
+
+  p {
+    margin-bottom: 10px;
+    text-align: left;
+    display: block;
+    padding-bottom: 1em;
+  }
+
+  footer {
+    border-top: 1px solid $greyscale_light; // IE fallback
+    border-top: 1px solid rgba($black, .1);
+    margin-top: 10px;
+    padding-top: 10px;
+    font-size: $font_size_95;
+  }
+
+  // feedback form styles
+  input,
+  textarea,
+  button {
+    padding: 5px;
+    width: 228px;
+    display: block;
+  }
+
+  button {
+    width: 150px;
+    color: $white;
+    cursor: pointer;
+    display: inline;
+  }
+
+  button:hover {
+    background-color: $primary-dark;
+  }
+
+  button[disabled] {
+    background-color: $greyscale_light;
+    color: $greyscale_dark;
+    cursor: default;
+  }
+}
+
+.about-summary {
+  align-content: center;
+  padding: 3em 0;
+  .logo {
+    max-width: 500px;
+    padding-bottom: 2em;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+.real-time-summary {
+  padding: 2em 0;
+}
