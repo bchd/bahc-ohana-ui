@@ -90,6 +90,19 @@ homepage_links:
       - Domestic Violence
       - Child Abuse
 
+# Topics with their corresponding font-awesome icon
+homepage_topics:
+  housing: bed
+  food: cutlery
+  transportation: bus
+  education: graduation-cap
+  work: briefcase
+  utilities: tint
+  finances: credit-card
+  mental_health_treatment: smile-o
+  substance_use_treatment: handshake-o
+  safety: flag
+
 ####################
 #
 # INFO BOX SETTINGS
@@ -241,6 +254,7 @@ language_links:
 # in the 'app/assets/images' directory. The site logo is the one that appears
 # in the top left corner of the site.
 site_logo: app_logo.png
+bchd_logo: BCHDlogo.png
 
 ######################
 #
@@ -256,7 +270,7 @@ site_logo: app_logo.png
 # to the end of the page title. For example, if you were viewing the page for
 # a location called "Health Insurance TeleCenter", the browser would display
 # "Health Insurance TeleCenter | Ohana Web Search" as the page title.
-site_title: Ohana Web Search
+site_title: CHARMcare
 
 ###########################
 #

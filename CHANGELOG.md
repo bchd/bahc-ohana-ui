@@ -10,6 +10,8 @@
   - AHC-1421
     - Adds a free-text field to name the organization a user is affiliated with
 ### Changed
+  - AHC-1260
+    - Replace the original links with orange topic bubbles
   - AHC-1261
     - Update style on landing page search box
     - Update fonts everywhere

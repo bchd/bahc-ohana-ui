@@ -74,6 +74,7 @@ en:
     homepage_location_search: "near"
     filters:
       filter_by_category: "Filter by Category"
+    topic_prompt: 'Choose a topic below to begin a search'
 
   location_fields:
     accessibility: 'Accessibility'
