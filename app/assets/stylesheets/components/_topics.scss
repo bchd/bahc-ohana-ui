@@ -20,6 +20,7 @@
     width: 105px;
     margin: 20px;
     text-align: center;
+    vertical-align: top;
 
     span {
       background-image: linear-gradient($light-orange, $orange);
@@ -29,6 +30,9 @@
       line-height: 2em;
       width: 80px;
       height: 80px;
+    }
+    p {
+      margin-top: .5em;
     }
 
     a {
