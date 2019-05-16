@@ -90,7 +90,7 @@ en:
     secondary: "If you have trouble finding what you're looking for, try:"
     options:
       one: 'Searching with a single keyword.'
-      two: 'Scrolling down and clicking one of the links.'
+      two: 'Reducing the amount of filters selected.'
       browse_all: 'Browsing all locations.'
 
   organization_fields:
