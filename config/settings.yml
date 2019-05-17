@@ -253,7 +253,7 @@ language_links:
 # This setting defines the filename for the site logo, which should be placed
 # in the 'app/assets/images' directory. The site logo is the one that appears
 # in the top left corner of the site.
-site_logo: app_logo.png
+site_logo: CHARMcareLogo-01.png
 bchd_logo: BCHDlogo.png
 
 ######################
