@@ -206,8 +206,16 @@ en:
                                      <p>The Real-Time Capacity Tool is a service of the Baltimore City Health Department (BCHD) and Behavioral Health Systems Baltimore (BHSB). It is made possible through funding from the Open Society Institute and BCHD’s Accountable Health Communities project.</p>'
       project_link: 'Visit project on GitHub'
       project_link_url: 'https://github.com/codeforamerica/Ohana-Web-Search'
+      contact:
+        connect_with_us: 'Connect with Us'
+        connect_html: '<p>If you are a community based organization who would like to be listed on the tool, change any information listed on your entry, or provide feedback, please complete the following contact form. </p>'
+        organization_name: 'Organization Name*'
+        your_name: 'Your Name*'
+        your_email: 'Your Email*'
+        message: 'Message*'
     feedback:
       issue_link: 'File an issue on GitHub'
       issue_link_url: 'https://github.com/codeforamerica/Ohana-Web-Search/issues'
       submit_comment_label: 'Submit comments to the development team:'
+
 

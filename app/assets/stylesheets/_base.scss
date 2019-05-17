@@ -169,7 +169,6 @@ ul {
       @include inline-block();
       float: right;
       padding-right: 1em;
-      line-height: 5em;
       text-align: center;
 
       li {
@@ -183,6 +182,7 @@ ul {
         font-size: $font_size_100;
         color: $grey;
         text-decoration: none;
+        margin-right: 1em;
       }
 
       .button-small{

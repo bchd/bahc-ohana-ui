@@ -11,16 +11,16 @@
       line-height: #{$font_size_105 + 3};
     }
     .available{
-      color: #BBCC33;
+      color: $green;
     }
     .next-day {
-      color: #FFC427
+      color: $yellow;
     }
     .short-wait {
       color: #FDA549;
     }
     .long-wait{
-      color: #C1484C;
+      color: $red;
     }
     .unknown{
       color: #06A0B8;
