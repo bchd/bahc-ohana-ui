@@ -8,7 +8,9 @@ class FeedbackMailer < ActionMailer::Base
     @message    = params[:message] || '[no message entered]'
     from        = params[:from].presence || 'anonymous@none.com'
     @user_agent = params[:agent] || '[no user agent recorded]'
+    @name       = params[:name] || '[no name entered]'
+    @organization_name = params[:organization_name] || '[no organization name entered]'
 
-    mail(from: from, subject: "[#{SETTINGS[:site_title]} Feedback] #{from}")
+    mail(from: from, subject: "#{SETTINGS[:site_title]} Feedback")
   end
 end

@@ -169,7 +169,6 @@ ul {
       @include inline-block();
       float: right;
       padding-right: 1em;
-      line-height: 5em;
       text-align: center;
 
       li {
@@ -183,6 +182,7 @@ ul {
         font-size: $font_size_100;
         color: $grey;
         text-decoration: none;
+        margin-right: 1em;
       }
 
       .button-small{
@@ -284,64 +284,6 @@ ul {
   * {
     // Prevent popup overlap.
     position: relative;
-  }
-}
-
-
-// Only used on /about route when JS is disabled.
-.about .close-button {
-  display: none;
-}
-
-.about .main > * > * {
-  display: block;
-  padding: 30px;
-  border-bottom: 1px solid $greyscale_midtone; // IE fallback
-  border-bottom: 1px solid rgba($black, .1);
-  background: $white;
-
-  h1 {
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  p {
-    margin-bottom: 10px;
-  }
-
-  footer {
-    border-top: 1px solid $greyscale_light; // IE fallback
-    border-top: 1px solid rgba($black, .1);
-    margin-top: 10px;
-    padding-top: 10px;
-    font-size: $font_size_95;
-  }
-
-  // feedback form styles
-  input,
-  textarea,
-  button {
-    padding: 5px;
-    width: 228px;
-    display: block;
-    border: 1px solid $accentA-dark;
-  }
-
-  button {
-    width: 240px;
-    background-color: $accentA-dark;
-    color: $accentA-light;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: $primary-dark;
-  }
-
-  button[disabled] {
-    background-color: $greyscale_light;
-    color: $greyscale_dark;
-    cursor: default;
   }
 }
 
