@@ -1,6 +1,12 @@
 # Change Log
 
-## [?.?.?] - 2019-05-10
+## [?.?.?] - 2019-05-31
+### ahc-sprint-24
+### Added
+  - AHC-1382
+    - Pop up a confirmation dialog when deleting users, and disallow deleting self.
+
+## [?.?.?] - 2019-05-17
 ### ahc-sprint-23
 ### Added
   - AHC-1354
