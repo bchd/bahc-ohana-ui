@@ -9,6 +9,8 @@
     - Show the situation categories grouped on the service
   - AHC-1421
     - Adds a free-text field to name the organization a user is affiliated with
+  - AHC-1466
+    - Adds timestamps to the service wait-time capacity labels on search results and organization pages
 ### Changed
   - AHC-1260
     - Replace the original links with orange topic bubbles

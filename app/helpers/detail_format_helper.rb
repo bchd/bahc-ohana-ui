@@ -77,7 +77,7 @@ module DetailFormatHelper
   # the tags is controlled by us.
   def superscript_ordinals(string)
     string = html_escape(string).to_str
-    string.gsub(/(?<=[0-9])(?:st|nd|rd|th)/) { content_tag(:sup, $&) }.html_safe
+    string.gsub(/(?<=[0-9])(?:st|nd|rd|th)/i) { content_tag(:sup, $&.downcase) }.html_safe
   end
 
   # @param date [String] A date string, such as '1970-01-01'
