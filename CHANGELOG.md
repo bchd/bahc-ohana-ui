@@ -27,6 +27,9 @@
     - Sort the service categories prior to listing them out on a service
   - AHC-1326
     - Update style organization page
+  - AHC-1432
+    - Update 'no results' search results language
+    
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22
 ### Added
