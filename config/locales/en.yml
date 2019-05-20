@@ -217,5 +217,7 @@ en:
       issue_link: 'File an issue on GitHub'
       issue_link_url: 'https://github.com/codeforamerica/Ohana-Web-Search/issues'
       submit_comment_label: 'Submit comments to the development team:'
+      message_header_1: "A message from "
+      message_header_2: " regarding "
 
 
