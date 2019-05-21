@@ -5,6 +5,8 @@
 ### Added
   - AHC-1382
     - Pop up a confirmation dialog when deleting users, and disallow deleting self.
+  - AHC-1463
+    - Protect against user enumeration by not revealing non-existent emails
 
 ## [?.?.?] - 2019-05-17
 ### ahc-sprint-23
@@ -35,7 +37,7 @@
     - Update style organization page
   - AHC-1432
     - Update 'no results' search results language
-    
+
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22
 ### Added
