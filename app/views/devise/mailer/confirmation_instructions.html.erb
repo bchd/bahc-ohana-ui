@@ -1,7 +1,178 @@
-<div class='devise'>
-  <p>Welcome <%= @email %>!</p>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <!-- [ if !mso]> <!-->
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <!-- <![endif] -->
+  <meta content="telephone=no" name="format-detection" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+</head>
+<body style="margin:0; padding:0; background-color: #f2eef7;" bgcolor="#f2eef7">
+<!--[if mso]>
+<style type="text/css">
+  body, table, td {font-family: 'Lato', Calibri, sans-serif !important;}
+</style>
+<![endif]-->
+<!-- START EMAIL -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f2eef7">
 
-  <p>You can confirm your account email through the link below:</p>
+  <!-- START LOGO -->
+  <tr>
+    <td width="100%" valign="top" align="center" style="padding: 18px 0px 18px 0px!important; mso-padding-alt: 18px 0px 18px 0px;">
+      <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
+        <tr>
+          <td align="center">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td width="100%" valign="top" align="center">
+                  <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f2eef7">
+                    <tr>
+                      <td align="center">
+                        <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
+                          <!-- START HEADER IMAGE -->
+                          <tr>
+                            <td align="center" width="600">
+                              <%= image_tag("#{SETTINGS[:site_logo_prod_asset_url]}", width: '100', alt: 'CHARMcare logo', style: 'max-width: 100px; padding: 3px;') %>
+                              <%= image_tag("#{SETTINGS[:bchd_logo_prod_asset_url]}", width: '100', alt: 'CHARMcare logo', style: 'max-width: 100px; padding: 3px;') %>
+                            </td>
+                          </tr>
+                          <!-- END HEADER IMAGE -->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!-- END LOGO -->
 
-  <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+  <!-- START CARD -->
+  <tr>
+    <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+      <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td width="100%" valign="top" align="center">
+                  <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff">
+                    <tr>
+                      <td align="center">
+                        <table width="600" cellpadding="0" cellspacing="0" border="0">
+                          <!-- START BODY COPY -->
+                          <tr>
+                            <td align="center" style="font-family: 'Lato', Calibri, sans-serif; color: #007faa; !important; font-size: 24px; line-height: 30px; padding-top: 58px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 13px;">
+                              Welcome to CHARMcare!
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center" style="font-family: 'Lato', Calibri, sans-serif; color: #212121!important; font-size: 14px; line-height: 24px; padding-top: 38px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                               You can confirm your account email through the link below:
+                            </td>
+                          </tr>
+                          <!-- END BODY COPY -->
+                          <!-- BUTTON -->
+                          <tr>
+                            <td align="center" style="padding: 38px 18px 58px 18px; mso-alt-padding: 38px 18px 58px 18px!important;">
+                              <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td>
+                                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr>
+                                        <td align="center">
+                                          <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), style: "font-size: 17px; line-height: 14px; font-weight: 500; font-family: 'Lato', Calibri, sans-serif; color: #ffffff; text-decoration: none; padding: 15px 20px; background-image: linear-gradient(to right, #007faa, #835eb1); display: inline-block;" %>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <!-- END BUTTON -->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!-- END CARD -->
+
+  <!-- SPACER -->
+  <!--[if gte mso 9]>
+  <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+    <tr>
+      <td align="center" valign="top" width="600" height="18">
+  <![endif]-->
+  <tr><td height="18px"></td></tr>
+  <!--[if gte mso 9]>
+  </td>
+  </tr>
+  </table>
+  <![endif]-->
+  <!-- END SPACER -->
+
+  <!-- FOOTER -->
+  <tr>
+    <td width="100%" valign="top" align="center">
+      <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
+        <tr>
+          <td width="100%" valign="top" align="center">
+            <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f2eef7">
+              <tr>
+                <td align="center">
+                  <table width="600" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                    </tr>
+                    <tr>
+                      <td align="center" style="font-family: 'Lato', Calibri, sans-serif; color: #777777!important; font-size: 12px; line-height: 14px; padding-top: 0px; padding-left: 0px!important; padding-right: 0px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 0px 0px 0px 0px;">
+                        &copy; CHARMcare
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!-- FOOTER -->
+
+  <!-- SPACER -->
+  <!--[if gte mso 9]>
+  <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+    <tr>
+      <td align="center" valign="top" width="600" height="36">
+  <![endif]-->
+  <tr><td height="36px"></td></tr>
+  <!--[if gte mso 9]>
+  </td>
+  </tr>
+  </table>
+  <![endif]-->
+  <!-- END SPACER -->
+
+</table>
+<!-- END EMAIL -->
+<div style="display:none; white-space:nowrap; font:15px courier; line-height:0;">
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 </div>
+</body>
+</html>
