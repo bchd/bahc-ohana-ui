@@ -1,6 +1,14 @@
 # Change Log
 
-## [?.?.?] - 2019-05-10
+## [?.?.?] - 2019-05-31
+### ahc-sprint-24
+### Added
+  - AHC-1382
+    - Pop up a confirmation dialog when deleting users, and disallow deleting self.
+  - AHC-1463
+    - Protect against user enumeration by not revealing non-existent emails
+
+## [?.?.?] - 2019-05-17
 ### ahc-sprint-23
 ### Added
   - AHC-1354
@@ -9,6 +17,8 @@
     - Show the situation categories grouped on the service
   - AHC-1421
     - Adds a free-text field to name the organization a user is affiliated with
+  - AHC-1466
+    - Adds timestamps to the service wait-time capacity labels on search results and organization pages
 ### Changed
   - AHC-1260
     - Replace the original links with orange topic bubbles
@@ -27,6 +37,9 @@
     - Sort the service categories prior to listing them out on a service
   - AHC-1326
     - Update style organization page
+  - AHC-1432
+    - Update 'no results' search results language
+
 ## [?.?.?] - 2019-04-26
 ### ahc-sprint-22
 ### Added

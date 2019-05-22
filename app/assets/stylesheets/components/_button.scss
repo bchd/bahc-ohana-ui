@@ -83,3 +83,20 @@ a.translate-active {
     color: lightest($black);
   }
 }
+
+.button-plain {
+  background-color: $blue;
+  border: none;
+  color: $white;
+  font-family: $font_sans_serif;
+  @include type-size(baseline);
+  @include rounded-except(none);
+  @include box-sizing(border-box);
+  padding: .5em 2.6em .5em 2.6em;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0);
+
+  .button-plain:hover {
+    background-image: tint($blue, 10);
+  }
+}
