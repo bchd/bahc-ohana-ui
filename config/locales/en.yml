@@ -124,10 +124,11 @@ en:
       service_wait_estimate: 'Service Wait Capacity:'
       unknown: 'Call for availability'
       call_for_availability: 'Call for availability'
-      available_today: 'Available Today'
+      available_today: 'Available Today (during posted hours)'
       next_day_service: 'Next Day Service'
       two_three_day_wait: '2-3 Day Wait'
       one_week_wait: '1 Week Wait'
+      last_updated: 'Last updated: '
     categories:
       service: 'Service Categories'
       languages: 'Languages'
