@@ -7,6 +7,6 @@ class FeedbackController < ApplicationController
   private
 
   def feedback_params
-    params.permit(:agent, :from, :message)
+    params.permit(:agent, :from, :message, :organization_name, :name)
   end
 end

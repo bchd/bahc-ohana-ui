@@ -5,7 +5,9 @@
   <td class='data organization'><%= user.organization %></td>
   <td class='data admin'><%= user.admin ? t('_yes') : '&nbsp;'.html_safe %></td>
   <td class='table-button delete-user'>
-    <%= form_for(user, as: user, url: delete_user_path(user.id), html: { method: :delete }) do |f| %>
+    <%= form_for(user, as: user, url: delete_user_path(user.id),
+                 html: { onsubmit: delete_confirmation(user),
+                         method: :delete }) do |f| %>
 
       <div class="actions">
         <%= f.submit t('users.delete_user'), class: 'button' %>
