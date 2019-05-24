@@ -7,6 +7,9 @@
     - Pop up a confirmation dialog when deleting users, and disallow deleting self.
   - AHC-1463
     - Protect against user enumeration by not revealing non-existent emails
+### Fixed
+  - AHC-1466
+    - Protect against nil wait_time_updated_at timestamp
 
 ## [?.?.?] - 2019-05-17
 ### ahc-sprint-23
