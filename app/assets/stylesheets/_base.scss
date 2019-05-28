@@ -749,7 +749,7 @@ body {
 
     > li:hover {
       background: $primary-lightest; // IE fallback
-      background: rgba($primary-lightest, .5);
+      background: rgba($blue, .25);
       h1 {
         padding-bottom: 5px;
         a {

@@ -33,11 +33,9 @@
             - services = Location.get(location.id)[:services]
             - if services.size > 0
               %section.service-availability
-                - services.each do |service|
-                  - if service.wait_time.present?
-                    %h2.service-capacity
-                      = t('service_fields.availability.service_capacity')
-                    - break
+                - if services.any? { |service| service.wait_time.present? }
+                  %h2.service-capacity
+                    = t('service_fields.availability.service_capacity')
                 %table
                   - services.each do |service|
                     = render 'component/locations/results/service_wait_table_row', service: service
