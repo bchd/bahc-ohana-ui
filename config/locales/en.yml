@@ -121,6 +121,7 @@ en:
     status_inactive: 'This service is not currently operating!'
     urls: 'Homepage:'
     availability:
+      service_capacity: 'Service Capacity:'
       service_wait_estimate: 'Service Wait Capacity:'
       unknown: 'Call for availability'
       call_for_availability: 'Call for availability'

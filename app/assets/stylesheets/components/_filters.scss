@@ -70,12 +70,6 @@
   max-width: 15em;
  }
 
-@media only screen and (max-width: 767px) {
-  .filter-category-label {
-    max-width: unset;
-  }
-}
-
 .filter-dropdown-closed {
   display: inline-block;
   //text-align: right;

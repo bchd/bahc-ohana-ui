@@ -620,6 +620,12 @@ body {
       margin-left: 20px;
     }
 
+    @media only screen and (max-width: 902px) {
+      .map-summary {
+        display: none;
+      }
+    }
+
     .fa-map-marker {
       color: $greyscale_midtone;
     }
@@ -719,8 +725,6 @@ body {
     > li {
       position: relative;
       background: $white;
-      border-top: 1px solid $greyscale_light; // IE fallback
-      border-top: 1px solid rgba($black,.1);
       background: $greyscale_lightest;
 
       > a {
@@ -765,6 +769,12 @@ body {
     }
   }
 
+  .search-result-blue {
+    background: tint($blue, 90)
+  }
+  .search-result-white {
+    background: $white;
+  }
   .results-entry {
     cursor: pointer;
 
@@ -790,7 +800,7 @@ body {
         }
 
         h2.agency {
-          font-size: 14px;
+          font-size: $font_size_105;
           color: $greyscale_dark;
           font-family: $font_sans_serif;
 
@@ -802,6 +812,11 @@ body {
           }
         }
       }
+    }
+    h2.service-capacity {
+      font-size: #{$font_size_95 + 3};
+      padding-bottom: .5em;
+      color: $blue;
     }
 
     /*
@@ -846,6 +861,11 @@ body {
     .short-desc {
       font-size: $font_size_105;
       color: $blue;
+    }
+
+    .short-desc-list-view {
+      font-size: $font_size_100;
+      padding: 5px 0 10px 28px;
     }
   }
 
@@ -955,7 +975,6 @@ body {
   height: 0px;
 }
 #detail-info {
-  color: $black;
   font-family: $font_sans_serif;
   // Offset to accommodate the floating header height.
   padding-top: 45px;
@@ -1026,7 +1045,7 @@ body {
       @include type-size(baseline);
       margin-left: 20px;
       margin-right: 20px;
-      color: $greyscale_dark;
+      color: shade($grey, 70) ;
       padding: 20px;
       padding-top: 0;
       font-family: $font_sans_serif;
@@ -1056,9 +1075,8 @@ body {
     list-style-type: square;
     li {
       color: $main-list-mark-color; // IE fallback
-      color: rgba($main-list-mark-color, .4);
       > span {
-        color: $black;
+        color: shade($grey, 70);
       }
     }
   }
@@ -1106,12 +1124,6 @@ body {
           > section {
             margin-bottom: 20px;
             margin-right: 20px;
-          }
-
-          .location-sidebar-content-group {
-            > section {
-              margin-bottom: 20px;
-            }
           }
         }
       }
