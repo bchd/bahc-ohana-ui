@@ -87,7 +87,7 @@
                                         <table border="0" cellspacing="0" cellpadding="0" align="center">
                                           <tr>
                                             <td align="center">
-                                              <a href="" target="_blank" style="font-size: 17px; line-height: 14px; font-weight: 500; font-family: 'Lato', Calibri, sans-serif; color: #ffffff; text-decoration: none; padding: 15px 20px; background-image: linear-gradient(to right, #007faa, #835eb1); display: inline-block;">Create password</a>
+                                              <%= link_to 'Create password', edit_password_url(@resource, reset_password_token: @token), style: "font-size: 17px; line-height: 14px; font-weight: 500; font-family: 'Lato', Calibri, sans-serif; color: #ffffff; text-decoration: none; padding: 15px 20px; background-image: linear-gradient(to right, #007faa, #835eb1); display: inline-block;" %>
                                             </td>
                                           </tr>
                                         </table>
