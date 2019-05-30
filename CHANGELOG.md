@@ -9,6 +9,9 @@
 ### Changed
   - AHC-1347
     - Updated error page styling
+  - AHC-1269
+    - Updated styles on search results list view
+    - Small related updates to organization page view
 ### Fixed
   - AHC-1466
     - Protect against nil wait_time_updated_at timestamp

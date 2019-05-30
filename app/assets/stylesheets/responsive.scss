@@ -85,7 +85,7 @@
 }
 
 // All Mobile Sizes (devices and browser)
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 784px) {
   #content > header {
     font-size: $font_size_95;
 
@@ -318,8 +318,6 @@
     }
 
     #map-canvas {
-      border-left: 20px solid $greyscale_lightest;
-      border-right: 20px solid $greyscale_lightest;
       border-bottom: 0;
       border-top: 0;
     }
