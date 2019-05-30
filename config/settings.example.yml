@@ -248,6 +248,11 @@ site_logo: CHARMcareLogo-01.png
 site_logo_alt: CHARMcareLogo-02.png
 bchd_logo: BCHDlogo.png
 
+#TODO: Move these assets to S3 so that we aren't depending on the URL fingerprint staying the same
+
+bchd_logo_prod_asset_url: https://www.charmcare.org/assets/BCHDlogo-a040b787b7eec90f47d43aa493b015a6d3e4bd9b3c6369c3c966ab38922bea58.png
+site_logo_prod_asset_url: http://www.charmcare.org/assets/CHARMcareLogo-01-87192b97b20c669d728a1cfdb8f376f5e485e7c4c4b02a229b70479e54abbea3.png
+
 ######################
 #
 # SITE TITLE SETTINGS
