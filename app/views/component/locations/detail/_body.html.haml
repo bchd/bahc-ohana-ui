@@ -158,6 +158,6 @@
       %footer.details-footer
         %section.metadata
           .button-edit
-            = link_to "#{SETTINGS[:admin_site]}/locations/#{location.slug}", rel: 'nofollow' do
+            = link_to "#{ENV['OHANA_ADMIN_ENDPOINT']}/locations/#{location.slug}", rel: 'nofollow' do
               %i.fa.fa-pencil
               Edit

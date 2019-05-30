@@ -12,6 +12,9 @@
   - AHC-1269
     - Updated styles on search results list view
     - Small related updates to organization page view
+  - AHC-1471
+    - Add admin API endpoint to application.example.yml and change production endpoints.
+    - Change edit link on location page to link to admin API
 ### Fixed
   - AHC-1466
     - Protect against nil wait_time_updated_at timestamp
