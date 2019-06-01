@@ -971,9 +971,6 @@ body {
 
 //=================================================================================
 // Location details view.
-.details-content {
-  height: 0px;
-}
 #detail-info {
   font-family: $font_sans_serif;
   // Offset to accommodate the floating header height.
@@ -1125,6 +1122,11 @@ body {
             margin-bottom: 20px;
             margin-right: 20px;
           }
+          .location-sidebar-content-group {
+            > section {
+              margin-bottom: 20px;
+            }
+          }
         }
       }
 
@@ -1183,6 +1185,7 @@ body {
   }
 
   .services-box {
+    margin-right: 350px;
     .status {
       font-size: $font_size_95;
       color: $alert-error-base;
@@ -1250,10 +1253,10 @@ body {
     clear: both;
     text-align: right;
     padding: 0 20px 20px 20px;
-    margin-right: 350px;
   }
 }
 .details-footer {
+  margin-right: 350px;
   bottom: 50px;
 }
 

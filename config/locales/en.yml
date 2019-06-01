@@ -31,7 +31,9 @@ en:
 
   buttons:
     clear_filters: 'Uncheck all filters'
-    collapse_all_filters: 'Collapse filters'
+    collapse_filters: 'Collapse filters'
+    hide_filters: 'Hide filters'
+    show_filters: 'Show filters'
     during_geolocation: 'Please wait...'
     homepage_search: 'Search'
     services_near_me: 'Services near me'
