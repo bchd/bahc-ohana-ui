@@ -31,7 +31,9 @@ en:
 
   buttons:
     clear_filters: 'Uncheck all filters'
-    collapse_all_filters: 'Collapse filters'
+    collapse_filters: 'Collapse filters'
+    hide_filters: 'Hide filters'
+    show_filters: 'Show filters'
     during_geolocation: 'Please wait...'
     homepage_search: 'Search'
     services_near_me: 'Services near me'
@@ -121,6 +123,7 @@ en:
     status_inactive: 'This service is not currently operating!'
     urls: 'Homepage:'
     availability:
+      service_capacity: 'Service Capacity:'
       service_wait_estimate: 'Service Wait Capacity:'
       unknown: 'Call for availability'
       call_for_availability: 'Call for availability'

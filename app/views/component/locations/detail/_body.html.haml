@@ -52,7 +52,6 @@
           %h1 Physical Address
           %section.location-sidebar-content
             %section.address.icon-text-block
-              %i.fa.fa-map-marker
               %span
                 = render 'component/detail/address', location: location, lines: 2
       - if location.regular_schedules.present?
@@ -73,7 +72,7 @@
           %section.location-sidebar-content
             %section.mail-address.icon-text-block
               %i.fa.fa-envelope
-              %span
+              %span.annotated-text-block
                 = render 'component/detail/mail_address', location: location
       - if location.accessibility.present?
         %section.address-box.location-sidebar-section
@@ -153,12 +152,13 @@
             = render 'component/detail/service_situations', service: service
             = render 'component/detail/service_categories', service: service
 
+
     / Detail footer content.
     - if location.updated_at.present?
 
       %footer.details-footer
         %section.metadata
           .button-edit
-            = link_to "#{SETTINGS[:admin_site]}/locations/#{location.slug}", rel: 'nofollow' do
+            = link_to "#{ENV['OHANA_ADMIN_ENDPOINT']}/locations/#{location.slug}", rel: 'nofollow' do
               %i.fa.fa-pencil
               Edit
