@@ -1,12 +1,24 @@
 # Change Log
 
 ## [?.?.?] - 2019-05-31
-### ahc-sprint-24
 ### Added
   - AHC-1382
     - Pop up a confirmation dialog when deleting users, and disallow deleting self.
   - AHC-1463
     - Protect against user enumeration by not revealing non-existent emails
+### Changed
+  - HOTFIX
+    - Updated the css for responsive behavior
+  - AHC-1347
+    - Updated error page styling
+  - AHC-1269
+    - Updated styles on search results list view
+    - Small related updates to organization page view
+  - AHC-1471
+    - Add admin API endpoint to application.example.yml and change production endpoints.
+    - Change edit link on location page to link to admin API
+  - AHC-1368
+    - Added styled email templates
 ### Fixed
   - AHC-1466
     - Protect against nil wait_time_updated_at timestamp

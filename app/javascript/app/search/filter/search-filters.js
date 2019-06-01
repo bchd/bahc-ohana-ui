@@ -31,6 +31,12 @@ function init() {
   var collapseButton = document.getElementById('button-collapse');
   collapseButton.addEventListener('click', _collapseSections, false);
 
+  var hideFiltersButton = document.getElementById('button-hide-filters');
+  hideFiltersButton.addEventListener('click', _hideFilters, false);
+
+  var showFiltersButton = document.getElementById('button-show-filters');
+  showFiltersButton.addEventListener('click', _showFilters, false);
+
   var checkboxes = $('#categories input');
 
   var currentCheckbox;
@@ -117,6 +123,22 @@ function _resetClicked(evt) {
 
   evt.preventDefault();
   evt.target.blur();
+}
+
+function _hideFilters() {
+  $('.filters-container').hide();
+  $('#button-hide-filters').hide();
+  $('#button-show-filters').css('display', 'block');
+  $('#button-collapse').hide();
+  $('#button-reset').hide();
+}
+
+function _showFilters() {
+  $('.filters-container').show();
+  $('#button-hide-filters').css('display', 'block');
+  $('#button-show-filters').hide();
+  $('#button-collapse').css('display', 'block');
+  $('#button-reset').css('display', 'block');
 }
 
 function _checkState(prefix,depth,checkbox) {
