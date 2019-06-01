@@ -7,6 +7,8 @@
   - AHC-1463
     - Protect against user enumeration by not revealing non-existent emails
 ### Changed
+  - HOTFIX
+    - Updated the css for responsive behavior
   - AHC-1347
     - Updated error page styling
   - AHC-1269
@@ -20,7 +22,7 @@
 ### Fixed
   - AHC-1466
     - Protect against nil wait_time_updated_at timestamp
-    
+
 ## [?.?.?] - 2019-05-17
 ### ahc-sprint-23
 ### Added
