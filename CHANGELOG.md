@@ -1,5 +1,9 @@
 # Change Log
 
+## [?.?.?] - 2019-06-04
+### Fixed
+  - Upgrade sshpk to "~> 1.13.2" as a security patch
+
 ## [?.?.?] - 2019-05-31
 ### Added
   - AHC-1382
