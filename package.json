@@ -10,7 +10,8 @@
     "fstream": "^1.0.12",
     "google-maps-infobox": "^2.0.0",
     "jquery": "^3.4.0",
-    "rails-erb-loader": "^5.2.1"
+    "rails-erb-loader": "^5.2.1",
+    "sshpk": "~> 1.13.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
