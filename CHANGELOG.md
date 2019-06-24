@@ -1,5 +1,13 @@
 # Change Log
 
+
+## [?.?.?] - 2019-06-24
+### Fixed
+  - Upgrade stringstream to "^0.0.6" as a security patch
+  - Upgrade eslint to "^4.18.2" as a security patch
+  - Upgrade macaddress to "^0.2.9" as a security patch
+  - Upgrade js-yaml to "^3.13.1" as a security patch
+
 ## [?.?.?] - 2019-06-04
 ### Fixed
   - Upgrade sshpk to "~> 1.13.2" as a security patch
