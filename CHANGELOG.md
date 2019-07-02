@@ -1,6 +1,10 @@
 # Change Log
 
 
+## [?.?.?] - 2019-07-02
+### Fixed
+  - Upgrade yard gem as a security patch
+
 ## [?.?.?] - 2019-06-24
 ### Fixed
   - Upgrade stringstream to "^0.0.6" as a security patch
