@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Search summary' do
+feature 'Search summary', debt: true do
   scenario 'when visiting search results page that has results', :vcr do
     search_for_example
     # Expect only floating search results summary,

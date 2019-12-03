@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Site Pages' do
+feature 'Site Pages', debt: true do
   scenario 'when visiting about page directly' do
     visit('/about')
     expect(page).to have_title 'About | Ohana Web Search'

@@ -10,6 +10,7 @@ require 'email_spec'
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
+  config.filter_run_excluding(debt: true)
   # Helper methods for use with Capybara feature specs.
   config.include Features::SessionHelpers, type: :feature
 
@@ -18,6 +19,7 @@ RSpec.configure do |config|
   config.include EmailSpec::Matchers
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   # rspec-rails 3+ will no longer automatically infer an example group's spec
   # type from the file location. You can explicitly opt in to this feature by

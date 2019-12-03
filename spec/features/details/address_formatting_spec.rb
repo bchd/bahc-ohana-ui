@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'address formatting' do
+feature 'address formatting', debt: true do
   context 'when no address elements are present', :vcr do
     before(:each) { visit_location_with_no_address }
 

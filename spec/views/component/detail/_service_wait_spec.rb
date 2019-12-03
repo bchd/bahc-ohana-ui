@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'component/detail/service_wait' do
+RSpec.describe 'component/detail/service_wait', debt: true do
   let(:service) { build(:service) }
   let(:user) { build(:user) }
 

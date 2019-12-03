@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'page translation', :js do
+feature 'page translation', :js, debt: true do
   background do
     page.driver.remove_cookie('googtrans')
   end
