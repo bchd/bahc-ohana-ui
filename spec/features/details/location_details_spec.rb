@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'location details' do
+feature 'location details', debt: true do
   context 'when the details page is visited via search results', :vcr do
     it 'includes address elements' do
       search_for_example
