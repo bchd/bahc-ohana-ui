@@ -20,7 +20,7 @@
 # otherwise you won't receive any feedback emails.
 feedback_email:
   to:
-    - support-charmcare@baltimorecity.gov
+    - support.charmcare@baltimorecity.gov
     - charmcare.info@gmail.com
 
 ##########################
