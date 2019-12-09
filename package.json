@@ -3,7 +3,7 @@
   "description": "Find community services in your city",
   "engines": {
     "yarn": "1.x",
-    "node": "11.x"
+    "node": "13.x"
   },
   "dependencies": {
     "@rails/webpacker": "^3.5.5",
@@ -11,6 +11,7 @@
     "google-maps-infobox": "^2.0.0",
     "jquery": "^3.4.0",
     "js-yaml": "^3.13.1",
+    "lint": "^0.7.0",
     "macaddress": "^0.2.9",
     "rails-erb-loader": "^5.2.1",
     "sshpk": "~> 1.13.2",
