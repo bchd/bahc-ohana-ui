@@ -33,24 +33,13 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
-  # ## ActionMailer Config
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  # config.action_mailer.delivery_method = :smtp
-
-  # ## change to true to allow email to be sent during development
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.default :charset => "utf-8"
-
-  #  config.action_mailer.smtp_settings = {
-  #   :port =>           '587',
-  #   :address =>        'smtp.sendgrid.net',
-  #   :user_name =>      ENV['SENDGRID_USERNAME'],
-  #   :password =>       ENV['SENDGRID_APIKEY'],
-  #   :domain =>         'heroku.com',
-  #   :authentication => :plain
-  #  }
-  config.action_mailer.delivery_method = :letter_opener # use gem for mocking mail
+  # Action Mailer settings
+  config.action_mailer.asset_host = Rails.application.secrets.public_host
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port =>           '1025',
+    :address =>        '127.0.0.1'
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
