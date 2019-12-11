@@ -6,9 +6,20 @@ platform:
   os: linux
   arch: amd64
 
+services:
+  - name: database
+    image: bradrydzewski/postgres:9.1
+    environment:
+      POSTGRES_DB: ohana_ui_test
+      POSTGRES_USER: postgres
+    ports:
+        - 5432
+
 steps:
   - name: tests
     image: ruby:2.5.3
+    env:
+       - RAILS_ENV=test
     commands:
       - apt-get update && apt-get install apt-transport-https
       - curl -sL https://deb.nodesource.com/setup_13.x | bash -
@@ -22,8 +33,10 @@ steps:
       - ln -s ../phantomjs/bin/phantomjs /usr/local/bin/
       - gem install bundler --conservative
       - bundle check || bundle install --jobs 20 --retry 5
-      - export RAILS_ENV=test
-      - bin/rails rspec spec
+      - cp config/drone.database.yml config/database.yml
+      - sleep 15
+      - RAILS_ENV=test bundle exec rake db:create db:schema:load
+      - bundle exec rspec spec
 
 trigger:
   event:
