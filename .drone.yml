@@ -18,8 +18,9 @@ services:
 steps:
   - name: tests
     image: ruby:2.5.3
-    env:
-       - RAILS_ENV=test
+    environment:
+      RAILS_ENV: test
+      OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
     commands:
       - apt-get update && apt-get install apt-transport-https
       - curl -sL https://deb.nodesource.com/setup_13.x | bash -
