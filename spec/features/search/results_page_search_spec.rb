@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'searching from results page', :vcr do
+feature 'searching from results page', :vcr, debt: true do
   before { visit('/locations') }
 
   context 'when search returns results' do

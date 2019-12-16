@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'search results map' do
+feature 'search results map', debt: true do
   context 'results have entries that have coordinates', :vcr do
     it 'displays a results list map' do
       visit('/locations/')
@@ -16,7 +16,7 @@ feature 'search results map' do
   end
 end
 
-feature 'detail view map' do
+feature 'detail view map', debt: true do
   context 'location has coordinates', :vcr do
     it 'displays a map' do
       visit_test_location

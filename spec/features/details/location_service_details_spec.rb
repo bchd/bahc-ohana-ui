@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'location service details' do
+feature 'location service details', debt: true do
   context 'when service elements are present' do
     before(:each) do
       cassette = 'location_details/when_the_details_page_is_visited_directly'
