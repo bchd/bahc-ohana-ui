@@ -31,4 +31,10 @@
   .annotated-text-block {
     margin-left: 1.5em;
   }
+
+  &.regular-schedules, &.holiday-schedules {
+    span > section:first-child {
+      margin-left: 1.5em;
+    }
+  }
 }
