@@ -122,6 +122,9 @@ en:
     status_defunct: 'This service is no longer operating!'
     status_inactive: 'This service is not currently operating!'
     urls: 'Homepage:'
+    phone: 'Phone Numbers'
+    regular_schedule: 'Regular Schedule'
+    holiday_schedule: 'Holiday Schedule'
     availability:
       service_capacity: 'Service Capacity:'
       service_wait_estimate: 'Service Wait Capacity:'
