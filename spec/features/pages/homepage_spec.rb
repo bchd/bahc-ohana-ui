@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Home page header elements' do
+describe 'Home page header elements', debt: true do
   before(:each) do
     visit '/'
   end
@@ -15,7 +15,7 @@ describe 'Home page header elements' do
   end
 end
 
-describe 'Home page content elements' do
+describe 'Home page content elements', debt: true do
   before(:each) do
     visit '/'
   end
@@ -52,19 +52,5 @@ end
 describe 'Home page footer elements' do
   before(:each) do
     visit '/'
-  end
-
-  it 'includes a link to codeforamerica.org' do
-    within('#app-footer') do
-      expect(find_link('Code for America')[:href]).
-        to eq('http://codeforamerica.org')
-    end
-  end
-
-  it 'includes a link to the ohana-web-search GitHub repo' do
-    within('#app-footer') do
-      expect(find_link('Get this app')[:href]).
-        to eq('https://github.com/codeforamerica/ohana-web-search')
-    end
   end
 end

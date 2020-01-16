@@ -2,7 +2,7 @@
 
 ## Clone the repo to your local machine
 
-    git clone git@github.com:codeforamerica/ohana-web-search.git && cd ohana-web-search
+    git clone git@github.com:bchd/bahc-ohana-ui.git && cd ohana-web-search
 
 
 ## Docker Setup (recommended, especially for Windows users)
@@ -34,7 +34,7 @@ packages installed on your computer:
 - RVM (or other Ruby version manager)
 - PhantomJS
 - Yarn 0.25.2+
-- Node.js 6.0.0+
+- Node.js 11.0.0+
 
 If you already have all of the prerequisites installed, you can skip to the
 next step. Otherwise, there are two ways you can install the tools:
@@ -56,6 +56,8 @@ next step. Otherwise, there are two ways you can install the tools:
     bin/setup
 
 ### Run the app
+Note: Requires webpack-cli
+
 In one terminal window or tab, run the webpack dev server:
 
     ./bin/webpack-dev-server

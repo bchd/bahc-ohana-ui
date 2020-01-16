@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'tabindex for homepage elements' do
+feature 'tabindex for homepage elements', debt: true do
   before { visit '/' }
 
   it 'gives the keyword field a tabindex of 1' do
@@ -16,7 +16,7 @@ feature 'tabindex for homepage elements' do
   end
 end
 
-feature 'tabindex for search results', :vcr do
+feature 'tabindex for search results', :vcr, debt: true do
   before { visit '/locations' }
 
   it 'gives the keyword field a tabindex of 1' do

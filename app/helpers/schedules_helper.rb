@@ -2,9 +2,28 @@ module SchedulesHelper
   # @param schedules [Array] List of hashes with weekday hours information.
   # @return [HTML] Snippet of opening hours per weekday.
   def regular_hours_for(schedules)
-    safe_join(schedules.group_by { |sch| [sch.opens_at, sch.closes_at] }.map do |k, v|
-      regular_schedule_content_for(v[0].weekday, v[-1].weekday, k[0], k[1])
-    end)
+    sorted_schedules = schedules.sort{|a, b| a.weekday <=> b.weekday}
+    schedule_components = []
+    current_index = 0
+
+    while current_index <= sorted_schedules.length - 1
+      current_schedule = sorted_schedules[current_index]
+
+      start_day = current_schedule.weekday
+      open_time = current_schedule.opens_at
+      close_time = current_schedule.closes_at
+
+      while current_index <= sorted_schedules.length - 1 &&
+        (sorted_schedules[current_index].opens_at === open_time) &&
+        (sorted_schedules[current_index].closes_at === close_time) do
+        end_day = sorted_schedules[current_index].weekday
+        current_index = current_index + 1
+      end
+
+      schedule_components.push(regular_schedule_content_for(start_day, end_day, open_time, close_time))
+    end
+
+    safe_join(schedule_components)
   end
 
   # @param schedules [Array] List of hashes with weekday hours information.

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe FeedbackMailer do
+describe FeedbackMailer, debt: true do
   context 'with an email address filled out' do
     before(:all) do
       @params = {

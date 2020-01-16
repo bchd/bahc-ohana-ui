@@ -66,14 +66,6 @@
           %section.location-sidebar-content
             = render 'component/detail/location_holiday_schedule', schedules: location.holiday_schedules
 
-      - if location.mail_address.present?
-        %section.address-box.location-sidebar-section
-          %h1 Mailing Address
-          %section.location-sidebar-content
-            %section.mail-address.icon-text-block
-              %i.fa.fa-envelope
-              %span.annotated-text-block
-                = render 'component/detail/mail_address', location: location
       - if location.accessibility.present?
         %section.address-box.location-sidebar-section
           %h1= t('location_fields.accessibility')
@@ -139,6 +131,8 @@
 
 
             = render 'component/detail/service_wait', service: service
+            = render 'component/detail/service_phone', service: service
+            = render 'component/detail/service_hours', service: service
             = render 'component/detail/service_description', service: service
             = render 'component/detail/service_fees', service: service
             = render 'component/detail/service_audience', service: service

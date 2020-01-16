@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'component/locations/results/list_view' do
+RSpec.describe 'component/locations/results/list_view', debt: true do
   let(:first_test_phone) do
     OpenStruct.new(
       id: 1001,
