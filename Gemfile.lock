@@ -40,8 +40,14 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    ahoy_matey (3.0.1)
+      activesupport (>= 5)
+      device_detector
+      geocoder (>= 1.4.5)
+      safely_block (>= 0.2.1)
     arel (8.0.0)
     ast (2.4.0)
+    awesome_print (1.8.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -110,6 +116,7 @@ GEM
       thor (~> 0.19)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
+    device_detector (1.0.3)
     devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -123,6 +130,7 @@ GEM
       launchy (~> 2.1)
       mail (~> 2.7)
     equalizer (0.0.11)
+    errbase (0.2.0)
     erubi (1.8.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -143,6 +151,7 @@ GEM
     flamegraph (0.9.5)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
+    geocoder (1.6.1)
     get_process_mem (0.2.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -241,6 +250,9 @@ GEM
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
     powerpack (0.1.2)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     psych (3.1.0)
     public_suffix (3.0.3)
     puma (3.12.1)
@@ -330,6 +342,8 @@ GEM
     ruby_parser (3.13.1)
       sexp_processor (~> 4.9)
     safe_yaml (1.0.5)
+    safely_block (0.3.0)
+      errbase (>= 0.1.1)
     sass (3.4.25)
     sass-rails (5.0.7)
       railties (>= 4.0.0, < 6)
@@ -404,6 +418,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ahoy_matey
+  awesome_print
   better_errors
   binding_of_caller
   bummr
@@ -432,6 +448,7 @@ DEPENDENCIES
   ohanakapa (~> 1.1.1)
   pg
   poltergeist
+  pry
   puma
   rack-cache (~> 1.2)
   rack-mini-profiler
@@ -458,4 +475,4 @@ RUBY VERSION
    ruby 2.5.3p105
 
 BUNDLED WITH
-   2.0.1
+   2.0.2

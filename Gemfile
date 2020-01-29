@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.5.3'
+gem 'ahoy_matey'
 gem 'compass-rails'
 gem 'dalli', '~> 2.7.1'
 gem 'devise', '~> 4.7'
@@ -27,12 +28,14 @@ gem 'webpacker', '~> 3.2'
 
 # dev and debugging tools
 group :development do
+  gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller', platforms: %i[mri rbx]
   gem 'bummr'
   gem 'derailed'
   gem 'flamegraph'
   gem 'letter_opener'
+  gem 'pry'
   gem 'rack-mini-profiler'
   gem 'reek'
   gem 'spring'

@@ -8,7 +8,7 @@ platform:
 
 services:
   - name: database
-    image: bradrydzewski/postgres:9.1
+    image: mdillon/postgis:10
     environment:
       POSTGRES_DB: ohana_ui_test
       POSTGRES_USER: postgres
