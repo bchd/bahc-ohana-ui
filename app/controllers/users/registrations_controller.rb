@@ -14,10 +14,11 @@ module Users
 
     # GET /resource/sign_up
     def new
+      @user = User.new
       if current_user&.admin
         super
       else
-        render 'how_to_sign_up'
+        render 'new'
       end
     end
 
@@ -54,7 +55,13 @@ module Users
       end
       @users = User.order(:last_name, :first_name)
       @user = current_user
-      render :index
+
+      if @user.nil?
+        set_flash_message! :notice, :signed_up
+        redirect_to :root
+      else
+        render :index
+      end
     end
     # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
