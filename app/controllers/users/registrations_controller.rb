@@ -57,8 +57,7 @@ module Users
       @user = current_user
 
       if @user.nil?
-        set_flash_message! :notice, :signed_up
-        redirect_to :root
+        redirect_to :root, notice: "You have been signed up. Please check your email to set a password and complete your registration."
       else
         render :index
       end

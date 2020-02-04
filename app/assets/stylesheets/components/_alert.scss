@@ -89,3 +89,22 @@
     @include rounded-except(top);
   }
 }
+
+#search-container {
+  .alert {
+    position: fixed;
+    z-index: 9;
+    background-color: whitesmoke;
+    width: 100%;
+    display: flex;
+    padding: 1em;
+
+    .alert-message {
+      width: 100%
+    }
+
+    .alert-close {
+      padding-right: 2em;
+    }
+  }
+}
