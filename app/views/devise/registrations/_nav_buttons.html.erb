@@ -1,6 +1,6 @@
   <div class='nav-buttons'>
     <%= link_to(t('users.edit_profile'), edit_user_registration_path, class: 'button edit-profile') %>
-    <% if current_user.admin %>
+    <% if current_user.try(:admin) %>
       <%= link_to(t('users.add_user'),     new_user_registration_path,  class: 'button add-user') %>
       <%= link_to(t('users.user_list'),    users_path,                  class: 'button user-list') %>
     <% end %>

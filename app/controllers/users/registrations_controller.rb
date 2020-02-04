@@ -14,10 +14,11 @@ module Users
 
     # GET /resource/sign_up
     def new
+      @user = User.new
       if current_user&.admin
         super
       else
-        render 'how_to_sign_up'
+        render 'new'
       end
     end
 
@@ -54,7 +55,12 @@ module Users
       end
       @users = User.order(:last_name, :first_name)
       @user = current_user
-      render :index
+
+      if @user.nil?
+        redirect_to :root, notice: "You have been signed up. Please check your email to set a password and complete your registration."
+      else
+        render :index
+      end
     end
     # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
