@@ -21,6 +21,13 @@ class LocationsController < ApplicationController
     id = params[:id].split('/').last
     @location = Location.get(id)
 
+    if current_user.present?
+      @current_user = current_user
+      @favorite = current_user.favorites.any? do |f|
+        f.resource_id == @location.id && f.resource_type == 'location'
+      end
+    end
+
     # @keywords = @location.services.map { |s| s[:keywords] }.flatten.compact.uniq
     @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
 

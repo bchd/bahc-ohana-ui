@@ -16,6 +16,7 @@
   / detail sidebar content
   .location-sidebar-box
     %aside.location-sidebar
+      %button.button-plain.favorite-toggle
       - if (location.fields & location_contact_fields).any?
         %section.contact-box-general.location-sidebar-section
           %h1 General Contact Info
@@ -156,3 +157,77 @@
             = link_to "#{ENV['OHANA_ADMIN_ENDPOINT']}/locations/#{location.slug}", rel: 'nofollow' do
               %i.fa.fa-pencil
               Edit
+:javascript
+  $(document).ready(function(){
+    var favorite = #{@favorite};
+    console.log(favorite);
+    var userId = #{@current_user.id};
+    var locationId = #{@location.id};
+    var locationName = "#{@location.name}";
+    var locationUrl = "#{@location.url}";
+    var favoriteText = "favorite";
+    var unfavoriteText = "unfavorite";
+    var favoriteURL = '/api/favorite.json';
+    var favoriteToggle = $('.favorite-toggle');
+
+    // set favorite button to favorite or unfavorite
+    function favoriteButton () {
+      $('.favorite-toggle').html('').html('Favorite').removeClass(unfavoriteText).addClass(favoriteText).data('favorite', false);
+    };
+
+    function unfavoriteButton() {
+      $('.favorite-toggle').html('').html('Unfavorite').removeClass(favoriteText).addClass(unfavoriteText).data('favorite', true);
+    };
+
+    if(favorite){
+      unfavoriteButton();
+    } else {
+      favoriteButton();
+    }
+
+    $('.favorite-toggle').on('click', function(e){
+      e.preventDefault();
+
+      if ($(e.target).data('favorite')) {
+        // Location already favorited
+        // Send ajax call
+        $.ajax({
+          type: "DELETE",
+          url: favoriteURL,
+          data: {
+            favorite: {
+              resource_id: locationId,
+              resource_type: "location",
+              user_id: userId,
+              name: locationName,
+              url: locationUrl
+            }
+          },
+          success: function(data){
+            console.log('data')
+            console.log(data)
+            // if success
+            // change button to "favorite"
+            favoriteButton();
+          }
+        });
+      } else {
+        $.ajax({
+          type: "POST",
+          url: favoriteURL,
+          data: {
+            favorite: {
+              resource_id: locationId,
+              resource_type: "location",
+              user_id: userId,
+              name: locationName,
+              url: locationUrl
+            }
+          },
+          success: function(data){
+            unfavoriteButton();
+          }
+        });
+      }
+    });
+  });
