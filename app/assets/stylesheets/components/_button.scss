@@ -100,3 +100,9 @@ a.translate-active {
     background-image: tint($blue, 10);
   }
 }
+
+.unfavorite {
+  background-color: rgba(0,0,0,0);
+  border-color: $blue;
+  color: $blue;
+}

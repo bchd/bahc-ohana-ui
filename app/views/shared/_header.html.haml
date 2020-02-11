@@ -10,6 +10,9 @@
           About
       - if user_signed_in?
         %li
+          %a.popup-trigger.popup-default#about-btn{ href: '/favorites' }
+            Favorites
+        %li
           %a.popup-trigger.popup-account#user-btn{ href: edit_user_registration_path }
             %div.button-logged-in
               = current_user.first_name[0]&.upcase || current_user.email[0].upcase
