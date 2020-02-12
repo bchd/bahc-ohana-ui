@@ -23,9 +23,13 @@ class LocationsController < ApplicationController
 
     if current_user.present?
       @current_user = current_user
+      @current_user_id = current_user.id
       @favorite = current_user.favorites.any? do |f|
         f.resource_id == @location.id && f.resource_type == 'location'
       end
+    else
+      @favorite = false
+      @current_user_id = 0
     end
 
     # @keywords = @location.services.map { |s| s[:keywords] }.flatten.compact.uniq
