@@ -159,16 +159,6 @@
               Edit
 :javascript
   $(document).ready(function(){
-    var favorite = #{@favorite};
-    console.log(favorite);
-    var userId = #{@current_user.id};
-    var locationId = #{@location.id};
-    var locationName = "#{@location.name}";
-    var locationUrl = "#{@location.url}";
-    var favoriteText = "favorite";
-    var unfavoriteText = "unfavorite";
-    var favoriteURL = '/api/favorite.json';
-    var favoriteToggle = $('.favorite-toggle');
 
     // set favorite button to favorite or unfavorite
     function favoriteButton () {
@@ -179,14 +169,30 @@
       $('.favorite-toggle').html('').html('Unfavorite').removeClass(favoriteText).addClass(unfavoriteText).data('favorite', true);
     };
 
+    var favorite = #{@favorite};
+
     if(favorite){
       unfavoriteButton();
     } else {
       favoriteButton();
     }
 
+    var userId = #{@current_user_id};
+    var locationId = #{@location.id};
+    var locationName = "#{@location.name}";
+    var locationUrl = "#{@location.url}";
+    var favoriteText = "favorite";
+    var unfavoriteText = "unfavorite";
+    var favoriteURL = '/api/favorite.json';
+    var favoriteToggle = $('.favorite-toggle');
+
     $('.favorite-toggle').on('click', function(e){
       e.preventDefault();
+
+      if(userId === 0){
+        alert("Please login or signup to favorite this location");
+        return;
+      }
 
       if ($(e.target).data('favorite')) {
         // Location already favorited
