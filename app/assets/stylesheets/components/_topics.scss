@@ -60,7 +60,7 @@
       vertical-align: top;
 
       .critical {
-        background-image: linear-gradient(to bottom right, $light-red, $red);
+        background-image: linear-gradient(to bottom right, $light-green, $green);
         border-radius: 50%;
         color: $white;
         font-size: 2.5em;
@@ -80,7 +80,7 @@
 
       a:hover span {
         background-image: none;
-        background-color: $light-red;
+        background-color: $light-green;
       }
 
       a:hover {
