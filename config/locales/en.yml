@@ -69,7 +69,7 @@ en:
           <strong>%{total}</strong> %{entry_name}
 
   labels:
-    address_search: 'Location (address or zip)'
+    address_search: 'Zipcode'
     agency_search: 'Organization Name'
     homepage_prompt: 'What are you looking for today?'
     homepage_search: 'I need'
@@ -101,11 +101,11 @@ en:
     licenses: 'Licenses:'
 
   placeholders:
-    address_search: 'address or zip code'
+    address_search: 'zip code'
     agency_search: 'full or partial name'
     keyword_search: "service or topic"
     homepage_keyword_search: 'service or topic'
-    homepage_location_search: 'address or zip code'
+    homepage_location_search: 'zip code'
     results_page_keyword_search: 'search for...'
 
   service_fields:
