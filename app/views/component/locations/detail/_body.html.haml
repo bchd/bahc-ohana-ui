@@ -12,6 +12,8 @@
           = link_to(locations_path(org_name: location.organization.name)) do
             %span
               = superscript_ordinals(location.organization.name)
+      %p
+        Last Updated: #{@location.updated_at.strftime("%B %d, %Y at %I:%M %p") }
 
   / detail sidebar content
   .location-sidebar-box
