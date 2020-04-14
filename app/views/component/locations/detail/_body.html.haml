@@ -6,12 +6,12 @@
     %hgroup
       %h1.name
         = superscript_ordinals(full_name_content_for(location))
-
       - if location.organization.name && location.organization.name != location.name
         %h2.agency
           = link_to(locations_path(org_name: location.organization.name)) do
             %span
               = superscript_ordinals(location.organization.name)
+      = render 'shared/covid_disclaimer'
 
 
   / detail sidebar content
@@ -58,7 +58,7 @@
                 = render 'component/detail/address', location: location, lines: 2
       - if location.regular_schedules.present?
         %section.schedules-box.location-sidebar-section
-          %h1 Regular Hours
+          %h1
           %section.location-sidebar-content
             = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
 
