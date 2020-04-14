@@ -38,6 +38,9 @@ module ApplicationHelper
   end
 
   # Render Markdown
+  # Returns html from markdown string
+  # @params {string} content - a block of markdown or string to format
+  # @return {string} html
   def render_markdown(content)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
                                        no_intra_emphasis: true,
@@ -46,8 +49,9 @@ module ApplicationHelper
                                        autolink: true,
                                        tables: true,
                                        underline: true,
-                                       highlight: true
+                                       highlight: true,
+                                       hard_warp: true
                                       )
-    return markdown.render("This is *bongos*, indeed.").html_safe
+    return markdown.render(content).html_safe
   end
 end
