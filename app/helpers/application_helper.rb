@@ -36,4 +36,22 @@ module ApplicationHelper
   def cache_key_for(hash)
     Digest::MD5.hexdigest(hash.to_s)
   end
+
+  # Render Markdown
+  # Returns html from markdown string
+  # @params {string} content - a block of markdown or string to format
+  # @return {string} html
+  def render_markdown(content)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+                                       no_intra_emphasis: true,
+                                       fenced_code_blocks: true,
+                                       disable_indented_code_blocks: true,
+                                       autolink: true,
+                                       tables: true,
+                                       underline: true,
+                                       highlight: true,
+                                       hard_warp: true
+                                      )
+    return markdown.render(content).html_safe
+  end
 end
