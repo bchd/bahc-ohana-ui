@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
     # Populate the keyword search field with the original term
     # as typed by the user, not the translated word.
     # params[:keyword] = translator.original_keyword
-    cache_page(locations.max_by(&:updated_at).updated_at) if locations.present?
+    cache_page(locations) if locations.present?
   end
 
   def show
