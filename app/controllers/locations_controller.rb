@@ -20,8 +20,6 @@ class LocationsController < ApplicationController
   def show
     id = params[:id].split('/').last
     @location = Location.get(id)
-    flash[:alert] = 'Covid'
-    puts flash
     if current_user.present?
       @current_user = current_user
       @current_user_id = current_user.id
