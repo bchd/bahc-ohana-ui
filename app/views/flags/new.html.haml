@@ -1,20 +1,20 @@
 - title 'Report an issue'
 
 .about
-  %div.about-container
-    .contact
-      %h1 Reporting an issue on #{@resource.name}
-      .flag-form
-        %section.feedback-form
-          = form_for :flag, url: flag_path  do |f|
-            = hidden_field(:flag, :resource_type, value: @resource_type)
-            = hidden_field(:flag, :resource_id, value: @resource_id)
-            %p
-              = f.label(:email)
-              = f.email_field(:email)
-            %p
-              = f.label(:description)
-              = f.text_area(:description)
-            %p
-              = f.submit 'Send!', class: 'button-feedback-send'
+  %main.main
+    %div.about-container
+      .contact
+        %h1 Reporting an issue on #{@resource.name}
+        .flag-form
+          %section.feedback-form
+            = form_for :flag, url: flag_path  do |f|
+              = hidden_field(:flag, :resource_type, value: @resource_type)
+              = hidden_field(:flag, :resource_id, value: @resource_id)
+              %p
+                = f.label(:email)
+                = f.email_field(:email)
+              %p
+                = f.label(:description)
+                = f.text_area(:description)
+              = f.button 'Send!', class: 'button-plain', type:"submit"
 
