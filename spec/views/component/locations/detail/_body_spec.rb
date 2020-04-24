@@ -82,7 +82,7 @@ RSpec.describe 'component/locations/results/list_view' do
       short_description: '[NOTE THIS IS NOT A REAL ORGANIZATION]',
       slug: 'example-location',
       website: 'http://www.example.org',
-      updated_at: '2018-02-14 18:02:36 -0800',
+      updated_at: Date.parse('2018-02-14 18:02:36 -0800'),
       url: 'http://lvh.me:8080/api/locations/example-location',
       address: test_address,
       organization: test_organization,
