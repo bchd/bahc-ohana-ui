@@ -13,7 +13,7 @@
               = superscript_ordinals(location.organization.name)
       = render 'shared/covid_disclaimer'
       %p
-        Last Updated: #{@location.updated_at.strftime("%B %d, %Y at %I:%M %p") }
+        Last Updated: #{Date.parse(@location.updated_at).strftime("%B %d, %Y at %I:%M %p") }
 
   / detail sidebar content
   .location-sidebar-box
