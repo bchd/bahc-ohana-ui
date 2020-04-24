@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   post '/api/favorite' => 'favorites#create'
   delete '/api/favorite' => 'favorites#destroy'
   get 'favorites' => 'favorites#index'
+  resource :flag, only: [:new, :create]
 end

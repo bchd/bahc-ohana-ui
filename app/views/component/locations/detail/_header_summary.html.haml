@@ -7,6 +7,10 @@
           Top
     %span.utility-links
       %span><
+        %a.button-utility.button-flag-resource{ href: new_flag_path(resource_type: 'Location', resource_id: location.id) }
+          %i.fa.fa-flag
+          Report an issue
+      %span><
         %a.button-utility.button-share-email{ href: mailto_url }
           %i.fa.fa-share
           Email
