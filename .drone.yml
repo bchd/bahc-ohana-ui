@@ -37,7 +37,7 @@ steps:
       - cp config/drone.database.yml config/database.yml
       - sleep 15
       - RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - bundle exec rspec spec
+      - RAILS_ENV=test bundle exec rspec spec/ --tag '~skip_ci' 
 
 trigger:
   event:

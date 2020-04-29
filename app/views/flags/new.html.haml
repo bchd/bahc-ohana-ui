@@ -13,7 +13,7 @@
               = hidden_field(:flag, :resource_id, value: @resource_id)
               %p
                 = f.label(:email)
-                = f.email_field(:email)
+                = f.email_field(:email, value: current_user&.email)
               %p
                 = f.label(:description)
                 = f.text_area(:description)
