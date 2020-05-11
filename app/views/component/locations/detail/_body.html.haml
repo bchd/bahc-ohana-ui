@@ -14,6 +14,8 @@
       = render 'shared/covid_disclaimer'
       %p
         Last Updated: #{@location.updated_at.strftime("%B %d, %Y at %I:%M %p") }
+      %p
+        Tags: #{location.tags.map{|tag| tag.name}.join(', ')}
 
   / detail sidebar content
   .location-sidebar-box
