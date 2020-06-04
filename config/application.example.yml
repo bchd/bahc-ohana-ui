@@ -128,8 +128,8 @@ development:
   DOMAIN_NAME: lvh.me
   # GOOGLE_MAPS_API_KEY:
   # GOOGLE_TRANSLATE_API_KEY: Your_API_Key
-  OHANA_API_ENDPOINT: https://localhost:8080/api
-  OHANA_ADMIN_ENDPOINT: https://localhost:8080/admin
+  OHANA_API_ENDPOINT: http://localhost:8080/api
+  OHANA_ADMIN_ENDPOINT: http://localhost:8080/admin
   # OHANA_API_TOKEN: changeme
 
 ###############################################################################
