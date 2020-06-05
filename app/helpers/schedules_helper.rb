@@ -12,7 +12,7 @@ module SchedulesHelper
       end_day = sorted_schedules.last.weekday
       regular_schedule_content_for(start_day, end_day, open_time, close_time, valid_range)
     end
-    
+
     safe_join(formated_schedules)
   end
 
@@ -46,7 +46,7 @@ module SchedulesHelper
         "#{time_range_for(open_time, close_time)}".html_safe
       end
     end
-    content_tag :section do 
+    content_tag :section do
       "#{weekday_content_for(start_day)}: "\
       "#{time_range_for(open_time, close_time)}".html_safe
     end
