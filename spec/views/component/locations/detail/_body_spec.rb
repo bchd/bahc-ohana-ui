@@ -81,6 +81,7 @@ RSpec.describe 'component/locations/results/list_view' do
       name: 'Example Location',
       short_description: '[NOTE THIS IS NOT A REAL ORGANIZATION]',
       slug: 'example-location',
+      tags: [OpenStruct.new(name: "Test Tag"), OpenStruct.new(name: "Test Tag")],
       website: 'http://www.example.org',
       updated_at: Date.parse('2018-02-14 18:02:36 -0800'),
       url: 'http://lvh.me:8080/api/locations/example-location',
