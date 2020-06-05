@@ -3,27 +3,17 @@ module SchedulesHelper
   # @return [HTML] Snippet of opening hours per weekday.
   def regular_hours_for(schedules)
     sorted_schedules = schedules.sort{|a, b| a.weekday <=> b.weekday}
-    schedule_components = []
-    current_index = 0
+    valid_range = valid_weekday_range_schedule?(schedules)
 
-    while current_index <= sorted_schedules.length - 1
-      current_schedule = sorted_schedules[current_index]
-
-      start_day = current_schedule.weekday
-      open_time = current_schedule.opens_at
-      close_time = current_schedule.closes_at
-
-      while current_index <= sorted_schedules.length - 1 &&
-        (sorted_schedules[current_index].opens_at === open_time) &&
-        (sorted_schedules[current_index].closes_at === close_time) do
-        end_day = sorted_schedules[current_index].weekday
-        current_index = current_index + 1
-      end
-
-      schedule_components.push(regular_schedule_content_for(start_day, end_day, open_time, close_time))
+    formated_schedules = sorted_schedules.map do |schedule|
+      start_day = schedule.weekday
+      open_time = schedule.opens_at
+      close_time = schedule.closes_at
+      end_day = sorted_schedules.last.weekday
+      regular_schedule_content_for(start_day, end_day, open_time, close_time, valid_range)
     end
-
-    safe_join(schedule_components)
+    
+    safe_join(formated_schedules)
   end
 
   # @param schedules [Array] List of hashes with weekday hours information.
@@ -35,6 +25,10 @@ module SchedulesHelper
 
   private
 
+  def valid_weekday_range_schedule?(schedules)
+    schedules.each_cons(2).all? {|a, b| a.weekday + 1 == b.weekday}
+  end
+
   # REGULAR SCHEDULE HELPERS
   # Private helper methods used for regular schedules.
 
@@ -45,9 +39,15 @@ module SchedulesHelper
   # @param close_time [Time] A closing hours timestamp.
   # @return [HTML] Snippet of opening hours for a single weekday
   #   or range of weekdays.
-  def regular_schedule_content_for(start_day, end_day, open_time, close_time)
-    content_tag :section do
-      "#{weekday_range_for(start_day, end_day)}: "\
+  def regular_schedule_content_for(start_day, end_day, open_time, close_time, valid_range)
+    if valid_range
+      return content_tag :section do
+        "#{weekday_range_for(start_day, end_day)}: "\
+        "#{time_range_for(open_time, close_time)}".html_safe
+      end
+    end
+    content_tag :section do 
+      "#{weekday_content_for(start_day)}: "\
       "#{time_range_for(open_time, close_time)}".html_safe
     end
   end
