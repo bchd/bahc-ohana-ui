@@ -14,8 +14,9 @@
       = render 'shared/covid_disclaimer'
       %p
         Last Updated: #{@location.updated_at.strftime("%B %d, %Y at %I:%M %p") }
-      %p
-        Tags: #{location.tags.map{|tag| tag.name}.join(', ')}
+      - if location.tags.present?
+        %p
+          Tags: #{location.tags.map{|tag| tag.name}.join(', ')}
 
   / detail sidebar content
   .location-sidebar-box
@@ -64,7 +65,6 @@
           %h1
           %section.location-sidebar-content
             = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
-
       - if location.holiday_schedules.present?
         %section.schedules-box.location-sidebar-section
           %h1 Holiday Hours

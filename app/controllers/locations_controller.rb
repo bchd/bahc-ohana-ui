@@ -7,7 +7,6 @@ class LocationsController < ApplicationController
     # GOOGLE_TRANSLATE_API_KEY in config/application.example.yml.
     # translator = KeywordTranslator.new(params[:keyword], current_language, 'en')
     # params[:keyword] = translator.translated_keyword
-
     locations = Location.search(params).compact
     @filters = params[:categories]
     @search = Search.new(locations, Ohanakapa.last_response, params)
