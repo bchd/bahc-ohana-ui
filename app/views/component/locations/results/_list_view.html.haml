@@ -2,7 +2,7 @@
   %ul
     - search.locations.each do |location|
 
-      %li{class: cycle('search-result-blue', 'search-result-white')}
+      %li{class: location.featured ? "search-result-highligth" : cycle('search-result-blue', 'search-result-white')}
         %a{ href: location_link_for(location), title: location.name, name: location.id }
           &nbsp;
         %section.results-entry{ itemscope: '', itemtype: 'http://schema.org/Organization' }
