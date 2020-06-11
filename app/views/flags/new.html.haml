@@ -8,9 +8,36 @@
         %h1 Reporting an issue on #{@resource.name}
         .flag-form
           %section.feedback-form
+            Thank you for sending feedback about this resource.
+            %br
+            Please tell us more about the issue you identified.
             = form_for :flag, url: flag_path  do |f|
               = hidden_field(:flag, :resource_type, value: @resource_type)
               = hidden_field(:flag, :resource_id, value: @resource_id)
+              = f.fields_for :report, OpenStruct.new({hours: ""}) do |rf|
+                %p
+                  .row
+                    .col-sm-6
+                      .input-group.input-group-sm
+                        = rf.check_box :hours_location_contact_info_incorrect
+                        = rf.label "Hours, Location, Contact info incorrect"
+                    = rf.text_area :hours_location_contact_info_incorrect
+                %p
+                  = rf.check_box :the_service_listed_are_incorrect
+                  = rf.label "The services listed are incorrect"
+                  = rf.text_area :the_service_listed_are_incorrect
+                %p
+                  = rf.check_box :the_eligibility_how_to_access_or_waht_to_bring_is_incorrect
+                  = rf.label "The services listed are incorrect"
+                  = rf.text_area :the_eligibility_how_to_access_or_waht_to_bring_is_incorrect
+                %p
+                  = rf.check_box :the_eligibility_how_to_access_or_waht_to_bring_is_incorrect
+                  = rf.label "The services listed are incorrect"
+                  = rf.text_area :the_eligibility_how_to_access_or_waht_to_bring_is_incorrect
+                %p
+                  = rf.check_box :other
+                  = rf.label "Other"
+                  = rf.text_area :other
               %p
                 = f.label(:email)
                 = f.email_field(:email, value: current_user&.email)
