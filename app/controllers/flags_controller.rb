@@ -5,7 +5,6 @@ class FlagsController < ApplicationController
 
   def create
     flag_post_url = ENV['OHANA_API_ENDPOINT'] + '/flag'
-
     response = Faraday.post(flag_post_url, {flag: flag_params.to_json})
 
     if response.status == 200

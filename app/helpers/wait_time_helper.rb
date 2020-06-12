@@ -2,7 +2,7 @@ module WaitTimeHelper
   def wait_time_text(wait_time)
     return translate('service_fields.availability.unknown') unless wait_time
 
-    # translate("service_fields.availability.#{wait_time}")
+    translate("service_fields.availability.#{wait_time}")
   end
 
   # rubocop:disable Metrics/MethodLength
