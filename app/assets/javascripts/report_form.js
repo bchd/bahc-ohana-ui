@@ -1,5 +1,4 @@
 const ReportForm = (function() {
-
   const init = function() {
     $(".flag-form input[type='checkbox']").on('click', function() {
       const $this = $(this);
@@ -23,10 +22,9 @@ const ReportForm = (function() {
   };
 
   return { init: init };
-
 }());
 
 // jQuery
-$(document).ready( function () {
+$(document).ready(function () {
   ReportForm.init();
 });
