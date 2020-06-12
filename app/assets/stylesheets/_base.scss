@@ -769,6 +769,10 @@ body {
     }
   }
 
+  .search-result-highligth {
+    background: #ffffd2;
+    border-bottom: 1px solid #e6f2f7;
+  }
   .search-result-blue {
     background: tint($blue, 90)
   }
