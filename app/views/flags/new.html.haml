@@ -17,23 +17,23 @@
               = f.fields_for :report_attributes do |rf|
                 %br
                 %p
-                  = rf.check_box :hours_location_contact_info_incorrect, style: "width: 3%; float:left"
-                  = rf.label "Hours, Location, Contact info incorrect", style: "width: 97%;"
+                  = rf.check_box :hours_location_contact_info_incorrect, class: "report-input-checkbox"
+                  = rf.label "Hours, Location, Contact info incorrect", class: "report-label"
                   = rf.text_area :hours_location_contact_info_incorrect, placeholder: "Please share your correction", disabled: true, class: "js-input-field"
                 %p
-                  = rf.check_box :the_service_listed_are_incorrect, style: "width: 3%; float:left"
-                  = rf.label "The services listed are incorrect", style: "width: 97%;"
+                  = rf.check_box :the_service_listed_are_incorrect, class: "report-input-checkbox"
+                  = rf.label "The services listed are incorrect", class: "report-label"
                   = rf.text_area :the_service_listed_are_incorrect, placeholder: "Please share your correction", disabled: true, class: "js-input-field"
                 %p
-                  = rf.check_box :the_eligibility_how_to_access_or_waht_to_bring_is_incorrect, style: "width: 3%; float:left"
-                  = rf.label "The eligibility, how to access, or what to bring is incorrect", style: "width: 97%;"
+                  = rf.check_box :the_eligibility_how_to_access_or_waht_to_bring_is_incorrect, class: "report-input-checkbox"
+                  = rf.label "The eligibility, how to access, or what to bring is incorrect", class: "report-label"
                   = rf.text_area :the_eligibility_how_to_access_or_waht_to_bring_is_incorrect, placeholder: "Please share your correction", disabled: true, class: "js-input-field"
                 %p
-                  = rf.check_box :other, style: "width: 3%; float:left"
-                  = rf.label "Other", style: "width: 97%;"
+                  = rf.check_box :other, class: "report-input-checkbox"
+                  = rf.label "Other", class: "report-label"
                   = rf.text_area :other, placeholder: "Please share your correction", disabled: true, class: "js-input-field"
               %p
-                = f.check_box :email, style: "width: 3%; float:left"
+                = f.check_box :email, class: "report-input-checkbox"
                 = f.label "I am employee of the org"
                 = f.email_field :email, value: current_user&.email, class: "js-input-field", style: "display:none"
               -# %p
