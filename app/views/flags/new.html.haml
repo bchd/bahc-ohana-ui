@@ -8,6 +8,7 @@
         %h1 Reporting an issue on #{@resource.name}
         .flag-form
           %section.feedback-form
+            %br
             Thank you for sending feedback about this resource.
             %br
             Please tell us more about the issue you identified.
@@ -16,22 +17,11 @@
               = hidden_field(:flag, :resource_id, value: @resource_id)
               = f.fields_for :report_attributes do |rf|
                 %br
-                %p
-                  = rf.check_box :hours_location_contact_info_incorrect, class: "report-input-checkbox"
-                  = rf.label "Hours, Location, Contact info incorrect", class: "report-label"
-                  = rf.text_area :hours_location_contact_info_incorrect, placeholder: "Please share your correction", disabled: true, class: "js-input-field"
-                %p
-                  = rf.check_box :the_service_listed_are_incorrect, class: "report-input-checkbox"
-                  = rf.label "The services listed are incorrect", class: "report-label"
-                  = rf.text_area :the_service_listed_are_incorrect, placeholder: "Please share your correction", disabled: true, class: "js-input-field"
-                %p
-                  = rf.check_box :the_eligibility_how_to_access_or_waht_to_bring_is_incorrect, class: "report-input-checkbox"
-                  = rf.label "The eligibility, how to access, or what to bring is incorrect", class: "report-label"
-                  = rf.text_area :the_eligibility_how_to_access_or_waht_to_bring_is_incorrect, placeholder: "Please share your correction", disabled: true, class: "js-input-field"
-                %p
-                  = rf.check_box :other, class: "report-input-checkbox"
-                  = rf.label "Other", class: "report-label"
-                  = rf.text_area :other, placeholder: "Please share your correction", disabled: true, class: "js-input-field"
+                - Flag.report_attributes_schema.each do |attribute|
+                  %p
+                    = rf.check_box attribute[:name], class: "report-input-checkbox"
+                    = rf.label attribute[:label], class: "report-label"
+                    = rf.text_area attribute[:name], placeholder: "Please share your correction", disabled: true, class: "js-input-field"
               %p
                 = f.check_box :email, class: "report-input-checkbox"
                 = f.label "I am employee of the org"
