@@ -21,13 +21,10 @@
                   %p
                     = rf.check_box attribute[:name], class: "report-input-checkbox"
                     = rf.label attribute[:label], class: "report-label"
-                    = rf.text_area attribute[:name], placeholder: "Please share your correction", disabled: true, class: "js-input-field"
+                    - if attribute[:name] != :employee_of_the_org
+                      = rf.text_area attribute[:name], placeholder: "Please share your correction", class: "js-input-field hidden"
               %p
-                = f.check_box :email, class: "report-input-checkbox"
-                = f.label "I am employee of the org"
-                = f.email_field :email, value: current_user&.email, class: "js-input-field", style: "display:none"
-              -# %p
-              -#   = f.label(:description)
-              -#   = f.text_area(:description)
+                = f.label :email
+                = f.email_field :email, value: current_user&.email, class: "js-input-field"
               = f.button 'Send!', class: 'button-plain', type:"submit"
 

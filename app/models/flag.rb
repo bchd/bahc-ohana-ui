@@ -7,6 +7,7 @@ class Flag
   attr_accessor :description
   attr_accessor :report_attributes
 
+  # Keep this method consistent with API app too (in Flag model)
   def self.report_attributes_schema
     [
       {
@@ -25,7 +26,10 @@ class Flag
         name: :other,
         label: "Other"
       },
+      {
+        name: :employee_of_the_org,
+        label: "I am employee of the org"
+      }
     ]
-
   end
 end

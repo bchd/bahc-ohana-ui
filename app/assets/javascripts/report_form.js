@@ -5,18 +5,14 @@ const ReportForm = (function() {
       const checkboxID = $(this).attr('id');
       const $inputElement = $(`.js-input-field:input[id='${checkboxID}']`);
 
+      // This will update the value as we use same input name for checkbox
+      // and text field.
+      $inputElement.val('');
+
       if ($this.is(':checked')) {
-        if ($inputElement.attr('type') === 'email') {
-          $inputElement.show();
-        } else {
-          $inputElement.attr('disabled', false);
-        }
+        $inputElement.removeClass('hidden');
       } else {
-        if ($inputElement.attr('type') === 'email') {
-          $inputElement.hide();
-        } else {
-          $inputElement.attr('disabled', true);
-        }
+        $inputElement.addClass('hidden');
       }
     });
   };
