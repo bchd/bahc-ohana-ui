@@ -5,4 +5,5 @@ class Flag
 
   attr_accessor :email
   attr_accessor :description
+  attr_accessor :report_attributes
 end
