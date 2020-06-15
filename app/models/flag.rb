@@ -32,4 +32,17 @@ class Flag
       }
     ]
   end
+
+  def self.report_attributes_in_order
+    Flag.report_attributes_schema.collect(&:values).transpose[0]
+  end
+  
+  def self.get_report_attribute_label_for(attr)
+    attribute = report_attributes_schema.find do |ar|
+      ar[:name] == attr
+    end
+
+    attribute ? attribute[:label] : attr[0]
+  end
+
 end
