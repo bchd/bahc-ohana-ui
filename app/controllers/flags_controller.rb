@@ -7,7 +7,6 @@ class FlagsController < ApplicationController
     flag_post_url = ENV['OHANA_API_ENDPOINT'] + '/flag'
 
     report_attributes = ReportSerializer.new(flag_params[:report_attributes].to_h).serialize
-    flag_params.merge!(report_attributes: report_attributes)
     updated_flag_params = flag_params.merge(report_attributes: report_attributes)
 
     response = Faraday.post(flag_post_url, {flag: updated_flag_params.to_json})
