@@ -5,7 +5,11 @@ class FlagsController < ApplicationController
 
   def create
     flag_post_url = ENV['OHANA_API_ENDPOINT'] + '/flag'
-    response = Faraday.post(flag_post_url, {flag: flag_params.to_json})
+
+    report_attributes = ReportSerializer.new(flag_params[:report_attributes].to_h).serialize
+    updated_flag_params = flag_params.merge(report_attributes: report_attributes)
+
+    response = Faraday.post(flag_post_url, {flag: updated_flag_params.to_json})
 
     if response.status == 200
       flash[:success] = 'Thank you for reporting this issue! We will reach out to you shortly.'
@@ -20,7 +24,7 @@ class FlagsController < ApplicationController
   private
 
   def flag_params
-    params.require(:flag).permit(:resource_type, :resource_id, :description, :email)
+    params.require(:flag).permit(:resource_type, :resource_id, :description, :email, report_attributes: {})
   end
 
   def build_required_resources
@@ -30,7 +34,8 @@ class FlagsController < ApplicationController
 
     @flag = Flag.new(
       email: params.dig(:flag, :email) || "",
-      description: params.dig(:flag, :description) || ""
+      description: params.dig(:flag, :description) || "",
+      report_attributes: params.dig(:flag, :report_attributes) || {}
     )
   end
 end
