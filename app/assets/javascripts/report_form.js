@@ -1,17 +1,22 @@
 const ReportForm = (function() {
   const init = function() {
-    $(".flag-form input[type='checkbox']").on('click', function() {
-      const $this = $(this);
-      const checkboxID = $(this).attr('id');
-      const $inputElement = $(`.js-input-field:input[id='${checkboxID}']`);
+    const $allCheckboxes = $(".flag-form input[type='checkbox']");
 
-      // This will update the value as we use same input name for checkbox
-      // and text field.
-      $inputElement.val('');
+    $allCheckboxes.val('false');
+
+    $allCheckboxes.on('click', function() {
+      const $this = $(this);
+      const textFieldTargetID = $(this).data('target-id');
+      const $inputElement = $(`.js-input-field:input[id='${textFieldTargetID}']`);
 
       if ($this.is(':checked')) {
-        $inputElement.removeClass('hidden');
+        $this.val('true');
+
+        if ($this.prop('id') !== 'employee_of_the_org_selected') {
+          $inputElement.removeClass('hidden');
+        }
       } else {
+        $this.val('false');
         $inputElement.addClass('hidden');
       }
     });

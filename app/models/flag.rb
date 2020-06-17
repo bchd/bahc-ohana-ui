@@ -7,7 +7,6 @@ class Flag
   attr_accessor :description
   attr_accessor :report_attributes
 
-  # Keep this method consistent with API app too (in Flag model)
   def self.report_attributes_schema
     [
       {
@@ -39,7 +38,7 @@ class Flag
   
   def self.get_report_attribute_label_for(attr)
     attribute = report_attributes_schema.find do |ar|
-      ar[:name] == attr
+      ar[:name].to_s.include?(attr)
     end
 
     attribute ? attribute[:label] : attr[0]
