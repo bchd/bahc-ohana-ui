@@ -3,12 +3,13 @@
     - search.locations.each do |location|
 
       %li{class: location.featured ? "search-result-highlight" : cycle('search-result-blue', 'search-result-white')}
-        %a{ href: location_link_for(location), title: location.name, name: location.id }
-          &nbsp;
         %section.results-entry{ itemscope: '', itemtype: 'http://schema.org/Organization' }
           %header
             %hgroup
               %h1.name
+                - if location.featured
+                  .featured_location_tag
+                    Featured Location </br>
                 %a{ href: location_link_for(location), name: location.id }
                   = superscript_ordinals(full_name_content_for(location))
 
