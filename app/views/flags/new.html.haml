@@ -21,7 +21,8 @@
                   %p
                     = rf.check_box checkbox_name(attribute[:name]), class: "report-input-checkbox", id: checkbox_name(attribute[:name]), data: { "target-id" => attribute[:name] }
                     = rf.label attribute[:label], class: "report-label", for: checkbox_name(attribute[:name])
-                    = rf.text_area attribute[:name], placeholder: "Please share your correction", class: "js-input-field hidden", id: attribute[:name]
+                    - if attribute[:details_required] != false
+                      = rf.text_area attribute[:name], placeholder: "Please share your correction", class: "js-input-field hidden", id: attribute[:name]
               %p
                 = f.label :email
                 = f.email_field :email, value: current_user&.email, class: "js-input-field"

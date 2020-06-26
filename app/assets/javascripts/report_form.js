@@ -11,10 +11,7 @@ const ReportForm = (function() {
 
       if ($this.is(':checked')) {
         $this.val('true');
-
-        if ($this.prop('id') !== 'employee_of_the_org_selected') {
-          $inputElement.removeClass('hidden');
-        }
+        $inputElement.removeClass('hidden');
       } else {
         $this.val('false');
         $inputElement.addClass('hidden');
