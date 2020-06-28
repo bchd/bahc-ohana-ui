@@ -10,7 +10,7 @@
     "ahoy.js": "^0.3.4",
     "fstream": "^1.0.12",
     "google-maps-infobox": "^2.0.0",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "js-yaml": "^3.13.1",
     "lint": "^0.7.0",
     "macaddress": "^0.2.9",
