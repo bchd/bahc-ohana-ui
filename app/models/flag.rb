@@ -23,7 +23,7 @@ class Flag
       },
       {
         name: :employee_of_the_org,
-        label: "I am employee of the org",
+        label: "I am employee of this organization.",
         details_required: false
       },
       {
