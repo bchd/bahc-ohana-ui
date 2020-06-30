@@ -20,7 +20,7 @@
                 - Flag.report_attributes_schema.each do |attribute|
                   %p
                     = rf.check_box checkbox_name(attribute[:name]), class: "report-input-checkbox", id: checkbox_name(attribute[:name]), data: { "target-id" => attribute[:name] }
-                    = rf.label attribute[:label], class: "report-label", for: checkbox_name(attribute[:name])
+                    = rf.label attribute[:name], attribute[:label], class: "report-label", for: checkbox_name(attribute[:name])
                     - if attribute[:details_required] != false
                       = rf.text_area attribute[:name], placeholder: "Please describe.", class: "js-input-field hidden", id: attribute[:name]
               %p
