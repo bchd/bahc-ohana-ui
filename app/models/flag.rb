@@ -23,12 +23,12 @@ class Flag
       },
       {
         name: :employee_of_the_org,
-        label: "I am employee of this organization.",
+        label: "I am an employee of this organization.",
         details_required: false
       },
       {
         name: :contact_me,
-        label: "I'd like to be contacted by a CHARMcare team member to update this resource information.",
+        label: "Yes, I agree to have a CHARMcare representative contact me regarding this resource.",
         details_required: false
       }
     ]
