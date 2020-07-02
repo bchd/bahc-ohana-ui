@@ -7,20 +7,30 @@ class ReportSerializer
   def serialize
     serialized_attributes = {}
 
-    @report_attributes.each_slice(2).with_index(1) do |sliced_attributes, index|
-      selected_attribute = sliced_attributes[0]
-      input_attribute = sliced_attributes[1]
+    Flag.report_attributes_schema.each_with_index do |attribute, index|
+      attr_name = attribute[:name]
+      attr_label = attribute[:label]
 
-      selected_attribute_key = selected_attribute[0]
-      selected_attribute_value = selected_attribute[1]
+      selection_input = @report_attributes.find do |input_name, input_value|
+        input_name.include?(attr_name.to_s + '_selected')
+      end
 
-      input_attribute_key = input_attribute[0]
-      input_attribute_value = input_attribute[1]
+      selected = selection_input[1] == "true"
+
+      value_input = @report_attributes.find do |input_name, input_value|
+        input_name == attr_name.to_s
+      end
+
+      if Flag.details_required?(attr_name)
+        value = value_input[1]
+      else
+        value = "No details required"
+      end
 
       serialized_attributes[index] = {
-        prompt: Flag.get_report_attribute_label_for(input_attribute_key),
-        selected: selected_attribute_value,
-        value: input_attribute_value
+        prompt: attr_label,
+        selected: selected,
+        value: value
       }
     end
 

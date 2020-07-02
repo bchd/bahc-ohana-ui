@@ -770,7 +770,7 @@ body {
   }
 
   .search-result-highlight {
-    background: #ffffd2;
+    background: #FFD919;
     border-bottom: 1px solid #e6f2f7;
   }
   .search-result-blue {
@@ -786,6 +786,14 @@ body {
       > hgroup {
         font-family: $font_sans_serif;
         padding: 10px;
+
+        .featured_location_tag {
+          font-size: 12px;
+          display: inline;
+          font-family: $font_sans_serif;
+          color: $purple;
+          text-decoration: underline;
+        }
 
         h1.name {
           font-size: 24px;
