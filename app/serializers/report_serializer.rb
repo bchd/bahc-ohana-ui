@@ -5,6 +5,7 @@ class ReportSerializer
   end
 
   def serialize
+    return {} if @report_attributes.empty?
     serialized_attributes = {}
 
     Flag.report_attributes_schema.each_with_index do |attribute, index|
