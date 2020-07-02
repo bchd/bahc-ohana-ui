@@ -2,4 +2,4 @@
   %section.description
     %h1= t('service_fields.description')
     %span.character-limited
-      = service.description
+      %span.markdown= render_markdown(service.description)
