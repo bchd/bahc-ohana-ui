@@ -1,4 +1,3 @@
 - if location.short_desc.present?
   %section.short-desc
-    %span
-      = location.short_desc
+    %span.markdown= render_markdown(location.short_desc)
