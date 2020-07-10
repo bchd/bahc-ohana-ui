@@ -54,4 +54,9 @@ module ApplicationHelper
                                       )
     return markdown.render(content).html_safe
   end
+
+  ## Decode JSON
+  def decode_json(value)
+    ActiveSupport::JSON.decode(value)
+  end
 end
