@@ -23,7 +23,7 @@ describe FlagsController do
       DummyLocation.new
     end
 
-    it 'creats a flag issue' do
+    it 'creates a flag issue' do
       stubbed_response = double("response", status: 200, body: "some data")
       allow(Faraday).to receive(:post).and_return(stubbed_response)
 
