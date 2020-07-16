@@ -29,7 +29,7 @@
 
               - if location.short_desc.present?
                 %p.short-desc-list-view
-                  = location.short_desc
+                  = render_markdown(location.short_desc)
           - if user_signed_in?
             - services = Location.get(location.id)[:services]
             - if services.size > 0
