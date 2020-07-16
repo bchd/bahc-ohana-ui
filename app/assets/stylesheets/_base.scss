@@ -826,27 +826,10 @@ body {
       }
     }
     h2.service-capacity {
+      color: $blue;
       font-size: #{$font_size_95 + 3};
       padding-bottom: .5em;
-      color: $blue;
     }
-
-    /*
-    ul.category {
-      float: right;
-
-      li {
-        margin-bottom: 0;
-        background: $white; // IE fallback
-        background: rgba($white,.8);
-        @include box-shadow(none);
-        @include border-radius(4px);
-        padding: 5px;
-        @include inline-block();
-        font-family: $font_sans_serif;
-      }
-    }
-    */
 
     .content {
       margin-left: 20px;
