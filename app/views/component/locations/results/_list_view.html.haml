@@ -28,7 +28,7 @@
                   = render 'component/detail/address', location: location, lines: 1
 
               - if location.short_desc.present?
-                %p.short-desc-list-view
+                .short-desc-list-view
                   = render_markdown(location.short_desc)
           - if user_signed_in?
             - services = Location.get(location.id)[:services]

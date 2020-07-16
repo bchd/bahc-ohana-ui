@@ -878,6 +878,9 @@ body {
     .short-desc-list-view {
       font-size: $font_size_100;
       padding: 5px 0 10px 28px;
+      text-align: left;
+      strong { font-weight: bold; }
+      em { font-style: italic; }
     }
   }
 
