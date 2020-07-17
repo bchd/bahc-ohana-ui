@@ -112,6 +112,7 @@ en:
     accepted_payments: 'Payment Methods Accepted:'
     audience: 'Audience:'
     description: 'Service Description:'
+    address_details: 'Address Details:'
     eligibility: 'Eligibility:'
     fees: 'Fees:'
     application_process: 'How to Apply:'
