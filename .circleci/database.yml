@@ -3,5 +3,6 @@ test:
   template: template0
   host: localhost
   database: ohana_ui_test
-  username: postgres
+  username: root
+  password: password
   port: 5432

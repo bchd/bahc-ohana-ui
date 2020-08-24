@@ -22,11 +22,11 @@ jobs:
     resource_class: medium
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
-      - image: mdillon/postgis:10
+      - image: circleci/postgres:10-postgis
         environment:
           POSTGRES_DB: ohana_api_test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
+          POSTGRES_USER: root
+          POSTGRES_HOST_AUTH_METHOD: trust
     environment:
       RAILS_ENV: test
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
@@ -45,7 +45,7 @@ jobs:
           key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: RAILS_ENV=test bundle exec rspec spec/ --tag '~skip_ci' 
+      - run: RAILS_ENV=test bundle exec rspec spec/ --tag '~skip_ci'
 
 workflows:
   setup-and-test:
