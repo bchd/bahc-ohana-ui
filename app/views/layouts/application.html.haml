@@ -6,8 +6,9 @@
 %html.no-js{ lang: 'en' }
   <!--<![endif]-->
   %head
-    = render 'shared/google_analytics/_tag_manager'
+    = render 'shared/google_analytics/tag_manager'
     = render 'shared/google_analytics/page_tracking'
+    = render 'shared/hotjar'
     = render 'shared/head'
     = javascript_include_tag 'application', 'jquery', 'data-turbolinks-track': true
 
