@@ -6,16 +6,16 @@
 %html.no-js{ lang: 'en' }
   <!--<![endif]-->
   %head
+    = render 'shared/google_analytics/_tag_manager'
+    = render 'shared/google_analytics/page_tracking'
     = render 'shared/head'
-    = render 'layouts/google_analytics'
-    = render 'layouts/google_tag_manager_script'
     = javascript_include_tag 'application', 'jquery', 'data-turbolinks-track': true
 
   %body{ class: "#{controller_name == 'home' ? '' : 'inside '}#{controller_name} #{action_name}" }
+    = render 'shared/google_analytics/tag_manager_iframe'
     %section#content
       = render 'shared/alert'
       = render 'shared/header', user_agent: @user_agent
-      = render 'layouts/google_tag_manager_noscript'
       %main.main= yield
       = render 'shared/footer'
 
