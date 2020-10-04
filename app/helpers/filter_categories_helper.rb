@@ -1,8 +1,10 @@
 module FilterCategoriesHelper
   def filter_categories
-    @filter_categories ||= Ohanakapa.categories.select(&:filter?).sort_by { |a| a[:taxonomy_id] }.map(&:to_h)
+    categories ||= Ohanakapa.categories.select(&:filter?).sort_by { |a| a[:taxonomy_id] }.map(&:to_h)
+    filters = categories << accessibility_filters
+    @filter_categories = filters.flatten
   end
-
+  
   def filter_tree
     nested_hash = Hash[filter_categories.map { |e| [e[:id], e.merge(children: [])] }]
     # rubocop:disable Performance/HashEachMethods
@@ -58,6 +60,14 @@ module FilterCategoriesHelper
   end
 
   def checkbox_tag_for(category)
+    if category[:type] == 'accessibility'
+      return check_box_tag(
+        'accessibility[]',
+        category[:query],
+        @filters&.include?(category[:id].to_s),
+        id: "category_#{category[:taxonomy_id]}"
+      )
+    end
     check_box_tag(
       'categories[]',
       category[:id],
@@ -86,4 +96,80 @@ module FilterCategoriesHelper
       label_tag "category_#{category[:taxonomy_id]}", category[:name], class: 'filter-category-label', title: category[:name]
     end
   end
+
+  def accessibility_filters 
+    [
+      {
+        :id=>518,
+        :depth=>1,
+        :taxonomy_id=>"99",
+        :name=>"Accessibility",
+        :parent_id=>nil,
+        :type=>"accessibility",
+        :filter=>true,
+        :filter_parent=>true,
+        :filter_priority=>90
+      },
+      {
+        :id=>519,
+        :depth=>2,
+        :taxonomy_id=>"99-01",
+        :name=>"Interpreter For The Deaf Or TTY",
+        :parent_id=>518,
+        :type=>"accessibility",
+        :filter=>true,
+        :filter_parent=>false,
+        :filter_priority=>0,
+        :query => 'deaf_interpreter'
+      },
+      {
+        :id=>520,
+        :depth=>2,
+        :taxonomy_id=>"99-02",
+        :name=>"Disabled Parking Available",
+        :parent_id=>518,
+        :type=>"accessibility",
+        :filter=>true,
+        :filter_parent=>false,
+        :filter_priority=>0,
+        :query=> 'disabled_parking'
+      },
+      {
+        :id=>521,
+        :depth=>2,
+        :taxonomy_id=>"99-03",
+        :name=>"Ramp Available",
+        :parent_id=>518,
+        :type=>"accessibility",
+        :filter=>true,
+        :filter_parent=>false,
+        :filter_priority=>0,
+         :query=> 'ramp'
+      },
+      {
+        :id=>522,
+        :depth=>2,
+        :taxonomy_id=>"99-04",
+        :name=>"Information In Braille Or Audio Format",
+        :parent_id=>518,
+        :type=>"accessibility",
+        :filter=>true,
+        :filter_parent=>false,
+        :filter_priority=>0,
+        :query=> 'tape_braille'
+      },
+      {
+        :id=>523,
+        :depth=>2,
+        :taxonomy_id=>"99-05",
+        :name=>"Wheelchair Accessible",
+        :parent_id=>518,
+        :type=>"accessibility",
+        :filter=>true,
+        :filter_parent=>false,
+        :filter_priority=>0,
+        :query=> 'wheelchair'
+      }]
+  end
 end
+
