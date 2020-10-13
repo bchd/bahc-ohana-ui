@@ -4,9 +4,10 @@ module FilterCategoriesHelper
     filters = categories << accessibility_filters
     @filter_categories = filters.flatten
   end
-  
+
   def filter_tree
-    nested_hash = Hash[filter_categories.map { |e| [e[:id], e.merge(children: [])] }]
+    filter_categories if @filter_categories.nil?
+    nested_hash = Hash[@filter_categories.map { |e| [e[:id], e.merge(children: [])] }]
     # rubocop:disable Performance/HashEachMethods
     nested_hash.each do |_id, item|
       parent = nested_hash[item[:parent_id]]
@@ -37,7 +38,7 @@ module FilterCategoriesHelper
 
   def parent_filter(category)
     cat_family = category[:taxonomy_id].split('-').first
-    filter_categories.select { |c| c[:taxonomy_id].include?(cat_family) && c[:filter_parent] }.first
+    @filter_categories.select { |c| c[:taxonomy_id].include?(cat_family) && c[:filter_parent] }.first
   end
 
   def depth_offset(category)
@@ -97,7 +98,7 @@ module FilterCategoriesHelper
     end
   end
 
-  def accessibility_filters 
+  def accessibility_filters
     [
       {
         :id=>518,
