@@ -65,7 +65,7 @@ module FilterCategoriesHelper
       return check_box_tag(
         'accessibility[]',
         category[:query],
-        @filters&.include?(category[:id].to_s),
+        @filters&.include?(category[:query]),
         id: "category_#{category[:taxonomy_id]}"
       )
     end
