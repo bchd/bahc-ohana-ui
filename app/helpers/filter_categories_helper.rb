@@ -69,7 +69,6 @@ module FilterCategoriesHelper
         id: "category_#{category[:taxonomy_id]}"
       )
     end
-    # binding.pry
     check_box_tag(
       'categories[]',
       category[:id],
