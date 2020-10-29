@@ -19,6 +19,7 @@ class LocationsController < ApplicationController
   def show
     id = params[:id].split('/').last
     @location = Location.get(id)
+
     if current_user.present?
       @current_user = current_user
       @current_user_id = current_user.id
@@ -32,7 +33,5 @@ class LocationsController < ApplicationController
 
     # @keywords = @location.services.map { |s| s[:keywords] }.flatten.compact.uniq
     @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
-
-    cache_page(@location.updated_at) if @location.present?
   end
 end
