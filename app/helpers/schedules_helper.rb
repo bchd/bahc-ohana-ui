@@ -3,14 +3,12 @@ module SchedulesHelper
   # @return [HTML] Snippet of opening hours per weekday.
   def regular_hours_for(schedules)
     sorted_schedules = schedules.sort{|a, b| a.weekday <=> b.weekday}
-    valid_range = valid_weekday_range_schedule?(schedules)
 
     formated_schedules = sorted_schedules.map do |schedule|
-      start_day = schedule.weekday
+      day = schedule.weekday
       open_time = schedule.opens_at
       close_time = schedule.closes_at
-      end_day = sorted_schedules.last.weekday
-      regular_schedule_content_for(start_day, end_day, open_time, close_time, valid_range)
+      regular_schedule_content_for(day, open_time, close_time)
     end
 
     safe_join(formated_schedules)
@@ -33,22 +31,15 @@ module SchedulesHelper
   # Private helper methods used for regular schedules.
 
   # Used by the `regular_hours_for` helper.
-  # @param start_day [Integer] An integer representing a weekday.
-  # @param end_day [Integer] An integer representing a weekday.
+  # @param day [Integer] An integer representing a weekday.
   # @param open_time [Time] An opening hours timestamp.
   # @param close_time [Time] A closing hours timestamp.
   # @return [HTML] Snippet of opening hours for a single weekday
   #   or range of weekdays.
-  def regular_schedule_content_for(start_day, end_day, open_time, close_time, valid_range)
-    if valid_range
-      return content_tag :section do
-        "#{weekday_range_for(start_day, end_day)}: "\
+  def regular_schedule_content_for(day, open_time, close_time)
+    return content_tag :section do
+      "#{weekday_content_for(day)}: "\
         "#{time_range_for(open_time, close_time)}".html_safe
-      end
-    end
-    content_tag :section do
-      "#{weekday_content_for(start_day)}: "\
-      "#{time_range_for(open_time, close_time)}".html_safe
     end
   end
 
