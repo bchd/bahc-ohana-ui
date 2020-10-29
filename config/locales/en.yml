@@ -81,7 +81,7 @@ en:
   location_fields:
     accessibility: 'Accessibility'
     description: 'Description'
-    file_uploads: 'PDF Resources'
+    file_uploads: 'Documents'
     languages: 'Languages'
 
   meta:
