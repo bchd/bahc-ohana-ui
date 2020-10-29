@@ -76,6 +76,11 @@
           %h1= t('location_fields.accessibility')
           = render 'component/detail/accessibility', location: location
 
+      - if location.file_uploads.present?
+        %section.address-box.location-sidebar-section
+          %h1= t('location_fields.file_uploads')
+          = render 'component/detail/file_uploads', location: location
+
     - if false && @categories.present?
       %aside.location-sidebar
         %section.location-sidebar-section.service-categories-box

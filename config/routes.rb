@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/about' => 'about#index'
   post '/feedback' => 'feedback#create'
   get '.well-known/status' => 'status#check_status'
+
   get '/api/analytics' => 'analytics#all'
   post '/api/favorite' => 'favorites#create'
   delete '/api/favorite' => 'favorites#destroy'

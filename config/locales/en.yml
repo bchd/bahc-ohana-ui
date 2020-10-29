@@ -60,9 +60,9 @@ en:
     page_entries_info:
       one_page:
         display_entries:
-          zero: "No %{entry_name} found."
-          one: "Displaying <strong>1</strong> result"
-          other: "Displaying <strong>all %{count}</strong> %{entry_name}"
+          zero: 'No %{entry_name} found.'
+          one: 'Displaying <strong>1</strong> result'
+          other: 'Displaying <strong>all %{count}</strong> %{entry_name}'
       more_pages:
         display_entries: >
           Displaying <strong>%{first} - %{last}</strong> of
@@ -73,14 +73,15 @@ en:
     agency_search: 'Organization Name'
     homepage_prompt: 'What are you looking for today?'
     homepage_search: 'I need'
-    homepage_location_search: "near"
+    homepage_location_search: 'near'
     filters:
-      filter_by_category: "Filter by Category"
+      filter_by_category: 'Filter by Category'
     topic_prompt: 'Choose a topic below to begin a search'
 
   location_fields:
     accessibility: 'Accessibility'
     description: 'Description'
+    file_uploads: 'PDF Resources'
     languages: 'Languages'
 
   meta:
@@ -103,7 +104,7 @@ en:
   placeholders:
     address_search: 'zip code'
     agency_search: 'full or partial name'
-    keyword_search: "service or topic"
+    keyword_search: 'service or topic'
     homepage_keyword_search: 'service or topic'
     homepage_location_search: 'zip code'
     results_page_keyword_search: 'search for...'
@@ -185,14 +186,14 @@ en:
 
   views:
     pagination:
-      first: "&laquo; First"
-      last: "Last &raquo;"
+      first: '&laquo; First'
+      last: 'Last &raquo;'
       previous: "<i class='fa fa-chevron-left'></i>"
       next: "<i class='fa fa-chevron-right'></i>"
-      truncate: "&hellip;"
+      truncate: '&hellip;'
     share:
       email:
-        subject: "%{location_name} found on %{site_title}"
+        subject: '%{location_name} found on %{site_title}'
         # Note that the code %0D%0A designates url-encoded line breaks
         # that will appear as carriage returns in the email's body.
         body: |
@@ -204,15 +205,17 @@ en:
           %0D%0A%0D%0A
           %{location_url}.
     about:
-      charmcare_summary_html: '<p>CHARMCare is a free online resource guide that you can use to search for free or reduced-cost programs and services in Baltimore City to help meet your needs. The directory has information for resources that can help with needs like food, housing, transportation, utilities, employment, education, mental healthcare, and substance use care.</p>
-                               <p>On this directory, you can find resources closest to you and filter your search results by things like language needs, child-friendly facilities, and insurances accepted. Each resource will also list helpful information about their facility like what documents you’ll need to bring with you or what the walk-in hours are. If any information is missing or incorrect, please just flag it using the link on the page. We will do our best to keep all of the information accurate and updated.</p>
-                               <p>This resource guide is a service of the Baltimore City Health Department (BCHD) and its partners. It was developed through BCHD’s Accountable Health Communities project, which is a city-wide program that aims to connect patients to resources for social needs.</p>'
+      charmcare_summary_html:
+        '<p>CHARMCare is a free online resource guide that you can use to search for free or reduced-cost programs and services in Baltimore City to help meet your needs. The directory has information for resources that can help with needs like food, housing, transportation, utilities, employment, education, mental healthcare, and substance use care.</p>
+        <p>On this directory, you can find resources closest to you and filter your search results by things like language needs, child-friendly facilities, and insurances accepted. Each resource will also list helpful information about their facility like what documents you’ll need to bring with you or what the walk-in hours are. If any information is missing or incorrect, please just flag it using the link on the page. We will do our best to keep all of the information accurate and updated.</p>
+        <p>This resource guide is a service of the Baltimore City Health Department (BCHD) and its partners. It was developed through BCHD’s Accountable Health Communities project, which is a city-wide program that aims to connect patients to resources for social needs.</p>'
       learn_more: 'Learn More'
       real_time_capacity_header: 'Real-time Capacity'
       real_time_capacity_html: '<p> An important and exciting part of the CHARMCare platform is the Real-Time Capacity Tool (RTCT) tool. The Real-Time Capacity function is designed to help clinical providers, peer advocates, referral agencies, and hospitals find accessible and available treatment options for individuals with substance use needs. In the resource directory, substance use facilities will update their “capacity”, or available beds or slots, for different treatment services that they provide. That “capacity” will then show up on the entry for that facility when you search for it. The following are the levels of capacity you may see on facility’s entry.</p>'
-      real_time_capacity_cont_html: '<p>RTCT also allows users to filter by different treatment preferences and eligibility criteria. These filters include things like type of insurance accepted, different levels of care offered, or specialty services available. If any information is missing or incorrect, please just flag it using the link on the page. We will do our best to keep all of the information accurate and updated.</p>
-                                     <p>RTCT is a treatment locator search tool, not a clinical assessment tool. Individuals should always seek professional support first to find the type of behavioral health treatment that is best for them. If you think you may be suffering from substance use disorder or are considering seeking treatment, you can call the HCAM Crisis Information and Referral line to get help. When you call, a professional counselor can talk to you more about your concerns and connect you to treatment.</p>
-                                     <p>The Real-Time Capacity Tool is a service of the Baltimore City Health Department (BCHD) and Behavioral Health Systems Baltimore (BHSB). It is made possible through funding from the Open Society Institute and BCHD’s Accountable Health Communities project.</p>'
+      real_time_capacity_cont_html:
+        '<p>RTCT also allows users to filter by different treatment preferences and eligibility criteria. These filters include things like type of insurance accepted, different levels of care offered, or specialty services available. If any information is missing or incorrect, please just flag it using the link on the page. We will do our best to keep all of the information accurate and updated.</p>
+        <p>RTCT is a treatment locator search tool, not a clinical assessment tool. Individuals should always seek professional support first to find the type of behavioral health treatment that is best for them. If you think you may be suffering from substance use disorder or are considering seeking treatment, you can call the HCAM Crisis Information and Referral line to get help. When you call, a professional counselor can talk to you more about your concerns and connect you to treatment.</p>
+        <p>The Real-Time Capacity Tool is a service of the Baltimore City Health Department (BCHD) and Behavioral Health Systems Baltimore (BHSB). It is made possible through funding from the Open Society Institute and BCHD’s Accountable Health Communities project.</p>'
       project_link: 'Visit project on GitHub'
       project_link_url: 'https://github.com/codeforamerica/Ohana-Web-Search'
       contact:
@@ -226,7 +229,5 @@ en:
       issue_link: 'File an issue on GitHub'
       issue_link_url: 'https://github.com/codeforamerica/Ohana-Web-Search/issues'
       submit_comment_label: 'Submit comments to the development team:'
-      message_header_1: "A message from "
-      message_header_2: " regarding "
-
-
+      message_header_1: 'A message from '
+      message_header_2: ' regarding '
