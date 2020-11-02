@@ -13,36 +13,6 @@ Rails.application.configure do
   end
 
   # --------------------------------------------------------------------------
-  # CACHING SETUP FOR RACK:CACHE AND MEMCACHIER ON HEROKU
-  # https://devcenter.heroku.com/articles/rack-cache-memcached-rails31
-  # ------------------------------------------------------------------
-
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'] == 'true'
-  config.public_file_server.headers = {
-    'Cache-Control' => 'public, max-age=2592000'
-  }
-
-  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
-  # yet still be able to expire them through the digest params.
-  config.assets.digest = true
-
-  config.action_controller.perform_caching = true
-
-  config.cache_store = :dalli_store
-  client = Dalli::Client.new((ENV['MEMCACHIER_SERVERS'] || '').split(','),
-                             username: ENV['MEMCACHIER_USERNAME'],
-                             password: ENV['MEMCACHIER_PASSWORD'],
-                             failover: true,
-                             socket_timeout: 1.5,
-                             socket_failure_delay: 0.2,
-                             value_max_bytes: 10_485_760)
-  config.action_dispatch.rack_cache = {
-    metastore:   client,
-    entitystore: client
-  }
-  # --------------------------------------------------------------------------
-
-  # --------------------------------------------------------------------------
   # EMAIL DELIVERY SETUP WITH SENDGRID ON HEROKU
   # https://devcenter.heroku.com/articles/sendgrid
   # ----------------------------------------------
