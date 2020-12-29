@@ -197,6 +197,27 @@ input.search-input:-webkit-autofill {
   -webkit-text-fill-color: $greyscale_dark !important;
 }
 
+.home-page-search-container {
+  display: flex;                  /* establish flex container */
+  flex-direction: row;            /* default value; can be omitted */
+  flex-wrap: nowrap;              /* default value; can be omitted */
+  justify-content: space-between; /* switched from default (flex-start, see below) */
+}
+
+.category_search_select{
+  font-style: normal;
+  color: $grey;
+  width: 100%;
+  max-width: 180px;
+  height: 50px;
+  vertical-align: middle;
+  font-family: $font_sans_serif;
+  font-size: $font_size_110;
+  border-collapse: collapse;
+  @include box-sizing(border-box);
+  @include rounded-except(none);
+}
+
 
 .input-search-filter {
   @include input-placeholder(rgba($grey, 0.6), regular);
