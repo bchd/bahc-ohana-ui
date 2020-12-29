@@ -72,7 +72,6 @@ en:
     address_search: 'Zipcode'
     agency_search: 'Organization Name'
     homepage_prompt: 'What are you looking for today?'
-    homepage_search: 'I need'
     filters:
       filter_by_category: 'Filter by Category'
     topic_prompt: 'Choose a topic below to begin a search'

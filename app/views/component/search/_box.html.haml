@@ -4,7 +4,6 @@
       %div.search-form
         = label_tag 'prompt', t('labels.homepage_prompt')
         %section#keyword-search-box.search-box
-          = label_tag 'keyword', t('labels.homepage_search')
           .input-search-big.keyword
             = search_field_tag :keyword, params[:keyword], placeholder: t('placeholders.homepage_keyword_search'), tabindex: 1, class: 'search-input'
         = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', title: 'Search', tabindex: 3) do
