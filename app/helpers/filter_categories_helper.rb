@@ -36,6 +36,10 @@ module FilterCategoriesHelper
     cats.sort_by { |e| e.first[:filter_priority] }
   end
 
+  def categories_for_select
+    categories ||= Ohanakapa.categories.select { |cat| cat[:depth] == 0  and cat[:type] == "service" }.flatten.uniq.map(&:name)
+  end
+
   def parent_filter(category)
     cat_family = category[:taxonomy_id].split('-').first
     @filter_categories.select { |c| c[:taxonomy_id].include?(cat_family) && c[:filter_parent] }.first
