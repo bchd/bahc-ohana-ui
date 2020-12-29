@@ -37,7 +37,7 @@ module FilterCategoriesHelper
   end
 
   def categories_for_select
-    categories ||= Ohanakapa.categories.select { |cat| cat[:depth] == 0  and cat[:type] == "service" }.flatten.uniq.map(&:name)
+    categories ||= Ohanakapa.categories.select { |cat| cat[:depth] == 0  and cat[:type] == "service" }.flatten.uniq.map{ |cat| [cat.name, cat.id]}
   end
 
   def parent_filter(category)
