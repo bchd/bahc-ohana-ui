@@ -214,6 +214,7 @@ input.search-input:-webkit-autofill {
   font-family: $font_sans_serif;
   font-size: $font_size_110;
   border-collapse: collapse;
+  padding-left: 10px;
   @include box-sizing(border-box);
   @include rounded-except(none);
 }
