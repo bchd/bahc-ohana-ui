@@ -3,15 +3,13 @@
     %div
       %div.search-form
         = label_tag 'prompt', t('labels.homepage_prompt')
-        %section#keyword-search-box.search-box
-          = label_tag 'keyword', t('labels.homepage_search')
-          .input-search-big.keyword
-            = search_field_tag :keyword, params[:keyword], placeholder: t('placeholders.homepage_keyword_search'), tabindex: 1, class: 'search-input'
-        %section#location-search-box.search-box
-          = hidden_field_tag 'location'
-          = label_tag 'keyword', t('labels.homepage_location_search')
-          .input-search-big.location
-            = search_field_tag :location, params[:location], placeholder: t('placeholders.homepage_location_search'), tabindex: 2, class: 'search-input'
-        = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', title: 'Search', tabindex: 3) do
-          %span
-            = t('buttons.homepage_search')
+        %section#keyword-search-box.search-box.home-page-search-container
+          %div
+            = select_tag :categories, options_for_select(categories_for_select), include_blank: 'All', class: "category_search_select"
+          %div
+            .input-search-big.keyword
+              = search_field_tag :keyword, params[:keyword], placeholder: t('placeholders.homepage_keyword_search'), tabindex: 1, class: 'search-input'
+          %div  
+            = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', title: 'Search', tabindex: 3) do
+              %span
+                = t('buttons.homepage_search')

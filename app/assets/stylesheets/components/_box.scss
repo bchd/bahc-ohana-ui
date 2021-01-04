@@ -11,7 +11,6 @@
   z-index: $layer-8;
   height: 50px;
   min-width: 134px;
-  margin-top: 1em;
   border-collapse: collapse;
   @include box-sizing(border-box);
   @include rounded-except(none);
@@ -21,6 +20,7 @@
   font-weight: bold;
   vertical-align: middle;
   font-family: $font_sans_serif;
+  margin-left: 45px;
 
   cursor: pointer;
 
