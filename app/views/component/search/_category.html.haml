@@ -1,6 +1,6 @@
 = field_set_tag nil, id: 'location-options', class: 'input-search-filter input-search-filter-option' do
-  = label_tag 'location', t('labels.address_search')
+  = label_tag 'location', t('labels.category_search')
   = content_tag :div, '', class: 'filter-input-group' do
     = content_tag(:div, class: 'button-icon') do
       = content_tag :i, '', class: 'fa fa-map-marker'
-    = search_field_tag :location, params[:location], placeholder: t('placeholders.address_search'), tabindex: 2, class: 'search-input'
+    = search_field_tag :location, params[:location], tabindex: 2, class: 'search-input'
