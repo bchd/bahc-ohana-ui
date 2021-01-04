@@ -37,7 +37,7 @@ en:
     during_geolocation: 'Please wait...'
     homepage_search: 'Search'
     services_near_me: 'Services near me'
-    update_search_results: 'Update Search'
+    update_search_results: 'Search'
 
   date:
     day_names:

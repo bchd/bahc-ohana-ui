@@ -359,29 +359,6 @@ body {
   min-height: 1000px;
   height: auto;
 
-  select {
-    font-size: $font_size_95;
-    margin: 0;
-    color: $black;
-    border: 2px solid $primary-dark;
-    padding: 10px;
-    margin-top: 10px;
-    @include border-radius(4px);
-    background-repeat: no-repeat;
-    background-position: 94% 50%;
-
-    background-color: $white;
-    width: 100%;
-    -webkit-box-shadow: 0 0 0 #ccc, 0 0 #fff inset;
-    -webkit-appearance: none;
-
-    > span {
-      font-size: 18px;
-      position: relative;
-      top: 2px;
-      left: 2px;
-    }
-  }
 }
 
 .home #search-box {
