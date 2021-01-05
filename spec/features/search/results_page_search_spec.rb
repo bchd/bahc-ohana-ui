@@ -171,14 +171,6 @@ feature 'searching from results page', :vcr, debt: true do
     end
   end
 
-  context 'when clicking the clear button for location', :js do
-    it 'clears the contents of the location field' do
-      search(location: '94403')
-      find('#location-options').find('.button-clear').click
-      expect(find_field('location').value).to eq ''
-    end
-  end
-
   context 'when clicking the clear button for agency', :js do
     it 'clears the contents of the agency field' do
       search(org_name: 'samaritan')
