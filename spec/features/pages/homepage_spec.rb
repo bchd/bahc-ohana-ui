@@ -47,6 +47,12 @@ describe 'Home page content elements', debt: true do
       expect(page).to have_link 'Domestic Violence'
     end
   end
+
+  it 'displays category dropdown menu' do
+    within('#keyword-search-box') do
+      expect(page).to have_selector(:id, "categories")
+    end
+  end
 end
 
 describe 'Home page footer elements' do

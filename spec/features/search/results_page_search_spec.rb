@@ -178,4 +178,11 @@ feature 'searching from results page', :vcr, debt: true do
       expect(find_field('org_name').value).to eq ''
     end
   end
+
+  context 'Category filter on search page', :js do
+    it 'It displays category dropdown menu' do
+      visit('/locations?utf8=✓&categories=17&keyword=')
+      expect(find_field('categories').value).to eq 'Food'
+    end
+  end
 end
