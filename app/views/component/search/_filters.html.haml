@@ -4,7 +4,7 @@
 %div.filters-container
   %div
     %span
-      = "#{category_name_by_id(params[:categories])} Services Provided"
+      = "#{category_name_by_id(params[:categories])} #{t('labels.filters.category_filter_title')}"
 
   %ul
     - subcategories_by_category(params[:categories]).each do |category|

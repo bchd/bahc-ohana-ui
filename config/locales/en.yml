@@ -73,6 +73,7 @@ en:
     agency_search: 'Organization Name'
     homepage_prompt: 'What are you looking for today?'
     filters:
+      category_filter_title: 'Services Provided'
       filters_menu_title: 'Filters'
     topic_prompt: 'Choose a topic below to begin a search'
 

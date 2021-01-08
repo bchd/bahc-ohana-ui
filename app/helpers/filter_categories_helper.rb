@@ -51,8 +51,6 @@ module FilterCategoriesHelper
   end
 
   def subcategories_by_category(category_id)
-    puts "========"
-    puts category_id.inspect
     fetch_categories if @categories.nil?
     @categories.select { |cat| cat[:depth] == 1  and cat[:type] == "service" and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| [cat.name, cat.id] }
   end 
