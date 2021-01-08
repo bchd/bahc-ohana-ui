@@ -37,7 +37,7 @@ en:
     during_geolocation: 'Please wait...'
     homepage_search: 'Search'
     services_near_me: 'Services near me'
-    update_search_results: 'Update Search'
+    update_search_results: 'Search'
 
   date:
     day_names:
@@ -69,7 +69,7 @@ en:
           <strong>%{total}</strong> %{entry_name}
 
   labels:
-    address_search: 'Zipcode'
+    category_search: 'Category'
     agency_search: 'Organization Name'
     homepage_prompt: 'What are you looking for today?'
     filters:
@@ -100,7 +100,6 @@ en:
     licenses: 'Licenses:'
 
   placeholders:
-    address_search: 'zip code'
     agency_search: 'full or partial name'
     keyword_search: 'service or topic'
     homepage_keyword_search: 'service or topic'

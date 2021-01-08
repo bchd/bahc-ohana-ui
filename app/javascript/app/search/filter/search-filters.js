@@ -4,7 +4,6 @@ import geo from 'app/util/geolocation/geolocate-action';
 
 // The search filters.
 var _keyword;
-var _location;
 var _agency;
 
 // The form to submit.
@@ -18,7 +17,6 @@ function init() {
 
   // Set up text input filters
   _keyword = TextInput.create('keyword-search-box');
-  _location = TextInput.create('location-options');
   _agency = TextInput.create('org-name-options');
 
   // Capture form submission.
@@ -114,7 +112,6 @@ function _geolocationClicked(address) {
 // The clear filters link was clicked.
 function _resetClicked(evt) {
   _keyword.reset();
-  _location.reset();
   _agency.reset();
 
   $('input:checkbox:checked').each(function() {
