@@ -1,4 +1,9 @@
 module FilterCategoriesHelper
+
+  def fetch_categories
+    @categories ||= Ohanakapa.categories
+  end
+
   def filter_categories
     categories ||= Ohanakapa.categories.select(&:filter?).sort_by { |a| a[:taxonomy_id] }.map(&:to_h)
     filters = categories << accessibility_filters
@@ -37,8 +42,20 @@ module FilterCategoriesHelper
   end
 
   def categories_for_select
-    categories ||= Ohanakapa.categories.select { |cat| cat[:depth] == 0  and cat[:type] == "service" }.flatten.uniq.map{ |cat| [cat.name, cat.id]}
+    fetch_categories if @categories.nil?
+    @categories.select { |cat| cat[:depth] == 0  and cat[:type] == "service" }.flatten.uniq.map{ |cat| [cat.name, cat.id]}
   end
+
+  def category_name_by_id(category_id)
+    categories_for_select.select{ |x| x[1] == category_id.to_i }.first.first
+  end
+
+  def subcategories_by_category(category_id)
+    puts "========"
+    puts category_id.inspect
+    fetch_categories if @categories.nil?
+    @categories.select { |cat| cat[:depth] == 1  and cat[:type] == "service" and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| [cat.name, cat.id] }
+  end 
 
   def parent_filter(category)
     cat_family = category[:taxonomy_id].split('-').first
