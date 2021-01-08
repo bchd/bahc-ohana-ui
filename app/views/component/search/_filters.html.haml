@@ -1,10 +1,12 @@
 %div.filter-label-container
   = label_tag :filters, t('labels.filters.filters_menu_title'), class: 'filter-header-label'
   
-%div.filters-container
+%div.category-filters-container
   %div
+    %span#subcategoriesFilterTitle
+      = "#{category_name_by_id(params[:categories])}"
     %span
-      = "#{category_name_by_id(params[:categories])} #{t('labels.filters.category_filter_title')}"
+      = "#{t('labels.filters.category_filter_title')}"
 
   %ul
     - subcategories_by_category(params[:categories]).each do |category|

@@ -74,7 +74,14 @@ function _updateSubCategories(){
       category_id : selectedCategoryId,
     },
     success: function(data) {
-      alert(data);
+      
+      var subCategoriesFilterTitleElement = document.getElementById('subcategoriesFilterTitle');
+      subCategoriesFilterTitleElement.textContent = data.category_name;
+
+      data.sub_cat_array.forEach(element => {
+        console.log("name: "+element[0]+"  id: "+element[1]);
+      });
+      
     }
   });
 }
