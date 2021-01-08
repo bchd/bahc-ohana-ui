@@ -8,7 +8,7 @@
     %span
       = "#{t('labels.filters.category_filter_title')}"
 
-  %ul
+  %ul#subcategoriesListContainer
     - subcategories_by_category(params[:categories]).each do |category|
       %li
         = check_box_tag category[1]

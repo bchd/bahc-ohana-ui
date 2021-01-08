@@ -78,8 +78,25 @@ function _updateSubCategories(){
       var subCategoriesFilterTitleElement = document.getElementById('subcategoriesFilterTitle');
       subCategoriesFilterTitleElement.textContent = data.category_name;
 
+      var subcategoriesListContainerElement = document.getElementById('subcategoriesListContainer');
+      subcategoriesListContainerElement.innerHTML = "";
+    
       data.sub_cat_array.forEach(element => {
         console.log("name: "+element[0]+"  id: "+element[1]);
+
+        var li = document.createElement("li");
+
+        var checkbox = document.createElement('input'); 
+        checkbox.type = "checkbox";  
+        checkbox.id = element[1];
+
+        var subcategoryLabel = document.createElement('label');
+        subcategoryLabel.appendChild(document.createTextNode(element[0]));
+
+        li.appendChild(checkbox);
+        li.appendChild(subcategoryLabel);
+
+        subcategoriesListContainerElement.appendChild(li);
       });
       
     }
