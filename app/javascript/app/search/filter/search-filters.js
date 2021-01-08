@@ -9,6 +9,8 @@ var _agency;
 // The form to submit.
 var _searchForm;
 
+var _categorySelect;
+
 // Main module initialization.
 function init() {
 
@@ -21,6 +23,10 @@ function init() {
 
   // Capture form submission.
   _searchForm = document.getElementById('form-search');
+
+  // Add on change funciton for category dropdown menu
+  _categorySelect = document.getElementById('categories');
+  _categorySelect.addEventListener('change', _updateSubCategories, false);
 
   // Hook reset button on the page and listen for a click event.
   var resetButton = document.getElementById('button-reset');
@@ -56,6 +62,21 @@ function init() {
   }
 
   _openCheckedSections();
+}
+
+function _updateSubCategories(){
+  var selectedCategoryId = _categorySelect.value;
+  $.ajax({
+    type: 'POST',
+    url: '/locations/get_subcategories_by_category',
+    dataType: 'json',
+    data: {
+      category_id : selectedCategoryId,
+    },
+    success: function(data) {
+      alert(data);
+    }
+  });
 }
 
 function _openCheckedSections() {

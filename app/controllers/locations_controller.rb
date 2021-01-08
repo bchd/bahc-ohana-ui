@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   include Cacheable
+  
 
   def index
     # To enable Google Translation of keywords,
@@ -34,4 +35,17 @@ class LocationsController < ApplicationController
     # @keywords = @location.services.map { |s| s[:keywords] }.flatten.compact.uniq
     @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
   end
+
+  def get_subcategories_by_category
+    permited = params.permit(:category_id)
+    category_id = permited["category_id"]
+
+    sub_cat_array = []
+    sub_cat_array = helpers.subcategories_by_category(category_id)
+
+    respond_to do |format|
+      format.js { render :json => {sub_cat_array: sub_cat_array}.to_json }
+    end
+  end
+
 end
