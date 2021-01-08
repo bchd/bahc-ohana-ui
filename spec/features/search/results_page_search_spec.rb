@@ -171,19 +171,18 @@ feature 'searching from results page', :vcr, debt: true do
     end
   end
 
-  context 'when clicking the clear button for location', :js do
-    it 'clears the contents of the location field' do
-      search(location: '94403')
-      find('#location-options').find('.button-clear').click
-      expect(find_field('location').value).to eq ''
-    end
-  end
-
   context 'when clicking the clear button for agency', :js do
     it 'clears the contents of the agency field' do
       search(org_name: 'samaritan')
       find('#org-name-options').find('.button-clear').click
       expect(find_field('org_name').value).to eq ''
+    end
+  end
+
+  context 'Category filter on search page', :js do
+    it 'It displays category dropdown menu' do
+      visit('/locations?utf8=✓&categories=17&keyword=')
+      expect(find_field('categories').value).to eq 'Food'
     end
   end
 end

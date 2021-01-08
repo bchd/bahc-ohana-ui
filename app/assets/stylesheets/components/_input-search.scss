@@ -219,11 +219,28 @@ input.search-input:-webkit-autofill {
   font-family: $font_sans_serif;
   font-size: $font_size_110;
   border-collapse: collapse;
+  border: 1px solid rgba(0, 95, 128, 0.4);
   padding-left: 10px;
   @include box-sizing(border-box);
   @include rounded-except(none);
 }
 
+.category-search-select-left-menu{
+  font-style: normal;
+  color: $grey;
+  width: 100%;
+  min-width: 180px;
+  height: 40px;
+  vertical-align: middle;
+  font-family: $font_sans_serif;
+  font-size: 15px;
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 95, 128, 0.4);
+  padding-left: 10px;
+  padding-right: 5px;
+  @include box-sizing(border-box);
+  @include rounded-except(none);
+}
 
 .input-search-filter {
   @include input-placeholder(rgba($grey, 0.6), regular);
