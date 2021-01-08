@@ -35,3 +35,9 @@
     background: $button-hover-bg;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .landing-button-icon {
+    margin-left: 0;
+  }
+}

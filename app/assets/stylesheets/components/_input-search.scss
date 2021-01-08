@@ -203,6 +203,11 @@ input.search-input:-webkit-autofill {
   flex-wrap: nowrap;              /* default value; can be omitted */
   justify-content: space-between; /* switched from default (flex-start, see below) */
 }
+@media only screen and (max-width: 768px) {
+  .home-page-search-container {
+    flex-direction: column;
+  }
+}
 
 .category_search_select{
   font-style: normal;

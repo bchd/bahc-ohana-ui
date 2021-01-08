@@ -540,7 +540,7 @@ body {
 
 .results-header {
   position: absolute;
-  top: 400px;
+  top: none;
   right: 0;
   z-index: 9999;
   min-height: 45px;
@@ -721,6 +721,7 @@ body {
 //=================================================================================
 // Results - list view
 #list-view {
+  top: 42px;  
   font-family: $font_sans_serif;
   > ul {
     > li {
@@ -877,7 +878,7 @@ body {
 
 #map-view {
   background: $white;
-  padding-bottom: 45px;
+  padding-bottom: 0px;
 }
 
 #map-canvas {
@@ -954,7 +955,7 @@ body {
   }
 }
 #map-canvas.max {
-  height: 400px !important;
+  height: 300px !important;
 }
 
 #map-size-control {
