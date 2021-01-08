@@ -380,7 +380,7 @@ body {
       position: relative;
       top: 2px;
       left: 2px;
-    }
+    } 
   }
 }
 
@@ -404,8 +404,9 @@ body {
 
   // Form input field labels.
   label {
-    font-size: 56px;
+    font-size: 50px;
     @include inline-block();
+    padding: 3%;
 
     color: $white;
   }
