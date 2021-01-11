@@ -6,12 +6,11 @@
     = label_tag "", "#{category_name_by_id(params[:categories])} #{t('labels.filters.category_filter_title')}", class: 'parent-category-label'
     %div.filter-dropdown-closed
       %i.fa.fa-chevron-right
-  %div#subcategoriesListcontainer.filter-dropdown-closed
-    %ul#subcategoriesList
-      - subcategories_by_category(params[:categories]).each do |category|
-        %li.filter-category-item
-          = check_box_tag category[1]
-          = label_tag category[0]
+  %ul#subcategoriesList
+    - subcategories_by_category(params[:categories]).each do |category|
+      %li.filter-category-item.hide
+        = check_box_tag category[1]
+        = label_tag category[0]
 
 
 %div.filter-actions-container
