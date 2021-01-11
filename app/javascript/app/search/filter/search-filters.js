@@ -78,6 +78,14 @@ function _updateSubCategories(){
       var subCategoriesFilterTitleElement = document.getElementById('subcategoriesFilterTitle');
       subCategoriesFilterTitleElement.textContent = data.category_name;
 
+      var iconContainer = document.getElementById('iconContainer');
+      iconContainer.classList.add("fa");
+      iconContainer.classList.remove("fa-chevron-down");
+      iconContainer.classList.add("fa-chevron-right");
+
+      var filterDropdownContainer = document.getElementById('filterDropdownContainer');
+      filterDropdownContainer.classList.add("filter-dropdown-closed");
+
       var subcategoriesListContainerElement = document.getElementById('subcategoriesList');
       subcategoriesListContainerElement.innerHTML = "";
     
@@ -85,6 +93,8 @@ function _updateSubCategories(){
         console.log("name: "+element[0]+"  id: "+element[1]);
 
         var li = document.createElement("li");
+        li.classList.add("filter-category-item");
+        li.classList.add("hide");
 
         var checkbox = document.createElement('input'); 
         checkbox.type = "checkbox";  
