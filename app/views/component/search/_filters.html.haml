@@ -7,13 +7,12 @@
       = "#{category_name_by_id(params[:categories])}"
     %span
       = "#{t('labels.filters.category_filter_title')}"
-
-  %ul#subcategoriesListContainer
-    - subcategories_by_category(params[:categories]).each do |category|
-      %li
-        = check_box_tag category[1]
-        %span 
-          = category[0]
+  %div#subcategoriesListcontainer
+    %ul#subcategoriesList
+      - subcategories_by_category(params[:categories]).each do |category|
+        %li
+          = check_box_tag category[1]
+          = label_tag category[0]
 
 
 %div.filter-actions-container

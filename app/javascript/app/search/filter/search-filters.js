@@ -78,7 +78,7 @@ function _updateSubCategories(){
       var subCategoriesFilterTitleElement = document.getElementById('subcategoriesFilterTitle');
       subCategoriesFilterTitleElement.textContent = data.category_name;
 
-      var subcategoriesListContainerElement = document.getElementById('subcategoriesListContainer');
+      var subcategoriesListContainerElement = document.getElementById('subcategoriesList');
       subcategoriesListContainerElement.innerHTML = "";
     
       data.sub_cat_array.forEach(element => {
