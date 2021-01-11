@@ -43,10 +43,8 @@ class LocationsController < ApplicationController
     sub_cat_array = []
     sub_cat_array = helpers.subcategories_by_category(category_id)
 
-    category_name = ""
-    category_name = helpers.category_name_by_id(category_id)
     respond_to do |format|
-      format.js { render :json => {sub_cat_array: sub_cat_array, category_name: category_name}.to_json }
+      format.js { render :json => {sub_cat_array: sub_cat_array, category_title: helpers.category_filters_title(category_id)}.to_json }
     end
   end
 

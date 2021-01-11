@@ -19,6 +19,11 @@ module FilterCategoriesHelper
     categories_for_select.select{ |x| x[1] == category_id.to_i }.first.first
   end
 
+  def category_filters_title(category_id)
+    category_name = category_name_by_id(category_id)
+    "#{category_name} #{t('labels.filters.category_filter_title')}"
+  end
+
   def subcategories_by_category(category_id)
     fetch_categories if @categories.nil?
     @categories.select { |cat| cat[:depth] == 1  and cat[:type] == "service" and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| [cat.name, cat.id] }

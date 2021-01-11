@@ -66,51 +66,63 @@ function init() {
 
 function _updateSubCategories(){
   var selectedCategoryId = _categorySelect.value;
-  $.ajax({
-    type: 'POST',
-    url: '/locations/get_subcategories_by_category',
-    dataType: 'json',
-    data: {
-      category_id : selectedCategoryId,
-    },
-    success: function(data) {
+  var subCategoriesFilterTitleElement = document.getElementById('subcategoriesFilterTitle');
+  var iconContainer = document.getElementById('iconContainer');
+  var filterDropdownContainer = document.getElementById('filterDropdownContainer');
+  var subcategoriesListContainerElement = document.getElementById('subcategoriesList');
+
+  if (selectedCategoryId == ""){
+
+
+
+  }else{
+
+    $.ajax({
+      type: 'POST',
+      url: '/locations/get_subcategories_by_category',
+      dataType: 'json',
+      data: {
+        category_id : selectedCategoryId,
+      },
+      success: function(data) {
+        
+        subCategoriesFilterTitleElement.textContent = data.category_title;
+  
+        iconContainer.classList.add("fa");
+        iconContainer.classList.remove("fa-chevron-down");
+        iconContainer.classList.add("fa-chevron-right");
+  
+        filterDropdownContainer.classList.add("filter-dropdown-closed");
+  
+        subcategoriesListContainerElement.innerHTML = "";
       
-      var subCategoriesFilterTitleElement = document.getElementById('subcategoriesFilterTitle');
-      subCategoriesFilterTitleElement.textContent = data.category_name;
+        data.sub_cat_array.forEach(element => {
+          console.log("name: "+element[0]+"  id: "+element[1]);
+  
+          var li = document.createElement("li");
+          li.classList.add("filter-category-item");
+          li.classList.add("hide");
+  
+          var checkbox = document.createElement('input'); 
+          checkbox.type = "checkbox";  
+          checkbox.id = element[1];
+  
+          var subcategoryLabel = document.createElement('label');
+          subcategoryLabel.appendChild(document.createTextNode(element[0]));
+  
+          li.appendChild(checkbox);
+          li.appendChild(subcategoryLabel);
+  
+          subcategoriesListContainerElement.appendChild(li);
+        });
+        
+      }
+    });
 
-      var iconContainer = document.getElementById('iconContainer');
-      iconContainer.classList.add("fa");
-      iconContainer.classList.remove("fa-chevron-down");
-      iconContainer.classList.add("fa-chevron-right");
+  }
 
-      var filterDropdownContainer = document.getElementById('filterDropdownContainer');
-      filterDropdownContainer.classList.add("filter-dropdown-closed");
 
-      var subcategoriesListContainerElement = document.getElementById('subcategoriesList');
-      subcategoriesListContainerElement.innerHTML = "";
-    
-      data.sub_cat_array.forEach(element => {
-        console.log("name: "+element[0]+"  id: "+element[1]);
-
-        var li = document.createElement("li");
-        li.classList.add("filter-category-item");
-        li.classList.add("hide");
-
-        var checkbox = document.createElement('input'); 
-        checkbox.type = "checkbox";  
-        checkbox.id = element[1];
-
-        var subcategoryLabel = document.createElement('label');
-        subcategoryLabel.appendChild(document.createTextNode(element[0]));
-
-        li.appendChild(checkbox);
-        li.appendChild(subcategoryLabel);
-
-        subcategoriesListContainerElement.appendChild(li);
-      });
-      
-    }
-  });
+  
 }
 
 function _openCheckedSections() {
