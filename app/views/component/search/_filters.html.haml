@@ -3,7 +3,7 @@
   
 %div.category-filters-container
   %div.parent-category-label-container
-    = label_tag "", "#{category_name_by_id(params[:categories])} #{t('labels.filters.category_filter_title')}", class: 'parent-category-label'
+    = label_tag "", "<span id='subcategoriesFilterTitle'>#{category_name_by_id(params[:categories])}</span> #{t('labels.filters.category_filter_title')}".html_safe, class: 'parent-category-label'
     %div.filter-dropdown-closed
       %i.fa.fa-chevron-right
   %ul#subcategoriesList
