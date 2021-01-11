@@ -70,10 +70,17 @@ function _updateSubCategories(){
   var iconContainer = document.getElementById('iconContainer');
   var filterDropdownContainer = document.getElementById('filterDropdownContainer');
   var subcategoriesListContainerElement = document.getElementById('subcategoriesList');
-
+  var categoriesFiltersContainer = document.getElementById('categoryFiltersContainerDiv');
+  
   if (selectedCategoryId == ""){
 
+    subCategoriesFilterTitleElement.textContent = "";
+    subcategoriesListContainerElement.innerHTML = "";
+    iconContainer.classList.remove("fa");
+    iconContainer.classList.remove("fa-chevron-down");
+    iconContainer.classList.remove("fa-chevron-right");
 
+    categoriesFiltersContainer.classList.add('hidden');
 
   }else{
 
@@ -86,6 +93,7 @@ function _updateSubCategories(){
       },
       success: function(data) {
         
+        categoriesFiltersContainer.classList.remove("hidden");
         subCategoriesFilterTitleElement.textContent = data.category_title;
   
         iconContainer.classList.add("fa");
@@ -115,14 +123,9 @@ function _updateSubCategories(){
   
           subcategoriesListContainerElement.appendChild(li);
         });
-        
       }
     });
-
   }
-
-
-  
 }
 
 function _openCheckedSections() {
