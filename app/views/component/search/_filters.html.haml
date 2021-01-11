@@ -2,15 +2,14 @@
   = label_tag :filters, t('labels.filters.filters_menu_title'), class: 'filter-header-label'
   
 %div.category-filters-container
-  %div
-    %span#subcategoriesFilterTitle
-      = "#{category_name_by_id(params[:categories])}"
-    %span
-      = "#{t('labels.filters.category_filter_title')}"
-  %div#subcategoriesListcontainer
+  %div.parent-category-label-container
+    = label_tag "", "#{category_name_by_id(params[:categories])} #{t('labels.filters.category_filter_title')}", class: 'parent-category-label'
+    %div.filter-dropdown-closed
+      %i.fa.fa-chevron-right
+  %div#subcategoriesListcontainer.filter-dropdown-closed
     %ul#subcategoriesList
       - subcategories_by_category(params[:categories]).each do |category|
-        %li
+        %li.filter-category-item
           = check_box_tag category[1]
           = label_tag category[0]
 

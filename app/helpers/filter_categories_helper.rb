@@ -10,6 +10,20 @@ module FilterCategoriesHelper
     @filter_categories = filters.flatten
   end
 
+  def categories_for_select
+    fetch_categories if @categories.nil?
+    @categories.select { |cat| cat[:depth] == 0  and cat[:type] == "service" }.flatten.uniq.map{ |cat| [cat.name, cat.id]}
+  end
+
+  def category_name_by_id(category_id)
+    categories_for_select.select{ |x| x[1] == category_id.to_i }.first.first
+  end
+
+  def subcategories_by_category(category_id)
+    fetch_categories if @categories.nil?
+    @categories.select { |cat| cat[:depth] == 1  and cat[:type] == "service" and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| [cat.name, cat.id] }
+  end 
+
   def filter_tree
     filter_categories if @filter_categories.nil?
     nested_hash = Hash[@filter_categories.map { |e| [e[:id], e.merge(children: [])] }]
@@ -40,20 +54,6 @@ module FilterCategoriesHelper
     end
     cats.sort_by { |e| e.first[:filter_priority] }
   end
-
-  def categories_for_select
-    fetch_categories if @categories.nil?
-    @categories.select { |cat| cat[:depth] == 0  and cat[:type] == "service" }.flatten.uniq.map{ |cat| [cat.name, cat.id]}
-  end
-
-  def category_name_by_id(category_id)
-    categories_for_select.select{ |x| x[1] == category_id.to_i }.first.first
-  end
-
-  def subcategories_by_category(category_id)
-    fetch_categories if @categories.nil?
-    @categories.select { |cat| cat[:depth] == 1  and cat[:type] == "service" and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| [cat.name, cat.id] }
-  end 
 
   def parent_filter(category)
     cat_family = category[:taxonomy_id].split('-').first
