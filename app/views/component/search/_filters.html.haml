@@ -1,16 +1,25 @@
 %div.filter-label-container
   = label_tag :filters, t('labels.filters.filters_menu_title'), class: 'filter-header-label'
+
+- if params[:categories] == ""
+  %div#categoryFiltersContainerDiv.category-filters-container.hidden
+    %div.parent-category-label-container
+      = label_tag "", "<span id='subcategoriesFilterTitle'></span>".html_safe, class: 'parent-category-label'
+      %div#filterDropdownContainer.filter-dropdown-closed
+        %i#iconContainer.fa.fa-chevron-right
+    %ul#subcategoriesList
   
-%div#categoryFiltersContainerDiv.category-filters-container
-  %div.parent-category-label-container
-    = label_tag "", "<span id='subcategoriesFilterTitle'>#{category_filters_title(params[:categories])}</span>".html_safe, class: 'parent-category-label'
-    %div#filterDropdownContainer.filter-dropdown-closed
-      %i#iconContainer.fa.fa-chevron-right
-  %ul#subcategoriesList
-    - subcategories_by_category(params[:categories]).each do |category|
-      %li.filter-category-item.hide
-        = check_box_tag( 'categories[]', category[1], false, id: "category_#{category[1]}")
-        = label_tag category[0]
+- else
+  %div#categoryFiltersContainerDiv.category-filters-container
+    %div.parent-category-label-container
+      = label_tag "", "<span id='subcategoriesFilterTitle'>#{category_filters_title(params[:categories])}</span>".html_safe, class: 'parent-category-label'
+      %div#filterDropdownContainer.filter-dropdown-closed
+        %i#iconContainer.fa.fa-chevron-right
+    %ul#subcategoriesList
+      - subcategories_by_category(params[:categories]).each do |category|
+        %li.filter-category-item.hide
+          = check_box_tag( 'categories[]', category[1], false, id: "category_#{category[1]}")
+          = label_tag category[0]
 
 
 %div.filter-actions-container
