@@ -24,8 +24,8 @@ function init() {
   // Capture form submission.
   _searchForm = document.getElementById('form-search');
 
-  // Add on change funciton for category dropdown menu
-  _categorySelect = document.getElementById('categories');
+  // Add on change function for category dropdown menu
+  _categorySelect = document.getElementById('main_category');
   _categorySelect.addEventListener('change', _updateSubCategories, false);
 
   // Hook reset button on the page and listen for a click event.
@@ -105,7 +105,9 @@ function _updateSubCategories(){
         subcategoriesListContainerElement.innerHTML = "";
       
         data.sub_cat_array.forEach(element => {
-          console.log("name: "+element[0]+"  id: "+element[1]);
+
+          var subCategoryName = element[0];
+          var subCategoryID = element[1];
   
           var li = document.createElement("li");
           li.classList.add("filter-category-item");
@@ -113,10 +115,13 @@ function _updateSubCategories(){
   
           var checkbox = document.createElement('input'); 
           checkbox.type = "checkbox";  
-          checkbox.id = element[1];
+          checkbox.id = subCategoryID;
+          checkbox.name = "categories[]";
+          checkbox.value = subCategoryID;
+
   
           var subcategoryLabel = document.createElement('label');
-          subcategoryLabel.appendChild(document.createTextNode(element[0]));
+          subcategoryLabel.appendChild(document.createTextNode(subCategoryName));
   
           li.appendChild(checkbox);
           li.appendChild(subcategoryLabel);
