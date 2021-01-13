@@ -65,14 +65,14 @@ function init() {
 }
 
 function _updateSubCategories(){
-  var selectedCategoryId = _categorySelect.value;
+  var selectedCategoryName = _categorySelect.value;
   var subCategoriesFilterTitleElement = document.getElementById('subcategoriesFilterTitle');
   var iconContainer = document.getElementById('iconContainer');
   var filterDropdownContainer = document.getElementById('filterDropdownContainer');
   var subcategoriesListContainerElement = document.getElementById('subcategoriesList');
   var categoriesFiltersContainer = document.getElementById('categoryFiltersContainerDiv');
   
-  if (selectedCategoryId == ""){
+  if (selectedCategoryName == ""){
 
     subCategoriesFilterTitleElement.textContent = "";
     subcategoriesListContainerElement.innerHTML = "";
@@ -89,7 +89,7 @@ function _updateSubCategories(){
       url: '/locations/get_subcategories_by_category',
       dataType: 'json',
       data: {
-        category_id : selectedCategoryId,
+        category_name : selectedCategoryName,
       },
       success: function(data) {
         
