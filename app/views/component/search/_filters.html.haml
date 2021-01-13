@@ -18,7 +18,10 @@
     %ul#subcategoriesList
       - subcategories_by_category(params[:main_category]).each do |category|
         %li.filter-category-item.hide
-          = check_box_tag( 'categories[]', category[1], params[:categories].include?(category[1].to_s) , id: "category_#{category[1]}")
+          - if params[:categories]
+            = check_box_tag( 'categories[]', category[1], params[:categories].include?(category[1].to_s) , id: "category_#{category[1]}")
+          - else
+            = check_box_tag( 'categories[]', category[1], false , id: "category_#{category[1]}")
           = label_tag category[0]
 
 

@@ -4,9 +4,7 @@ class Location
   # @param params [Hash] Search options.
   # @return [Array] Array of locations.
   def self.search(params = {})
-    if params["categories"]
-      params["categories"].push(params["main_category"]) 
-    else
+    if !params["categories"]
       params["categories"] = params["main_category"]
     end
     Ohanakapa.search('search', params)
