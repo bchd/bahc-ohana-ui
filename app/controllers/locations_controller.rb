@@ -11,6 +11,10 @@ class LocationsController < ApplicationController
     @main_category_selected_name = params[:main_category]
     @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
     params[:main_category_id] = @main_category_selected_id
+    if params["categories"]
+      params["categories_ids"] = helpers.get_subcategories_ids(params["categories"])
+      puts params.inspect
+    end
     locations = Location.search(params).compact
     @search = Search.new(locations, Ohanakapa.last_response, params)
     @keyword = params[:keyword]
@@ -40,6 +44,7 @@ class LocationsController < ApplicationController
     @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
   end
 
+  # Ajax response to update the exanded div listing subcategories
   def get_subcategories_by_category
     permitted = params.permit(:category_name)
     category_name = permitted["category_name"]

@@ -7,6 +7,8 @@ class Location
     search_params = params.dup
     if !params["categories"]
       search_params["categories"] = params["main_category_id"]
+    else
+      search_params["categories"] = params["categories_ids"]
     end
     Ohanakapa.search('search', search_params)
   end
