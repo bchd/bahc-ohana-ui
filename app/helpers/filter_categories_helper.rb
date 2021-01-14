@@ -31,15 +31,15 @@ module FilterCategoriesHelper
     @categories.select { |cat| cat[:depth] == 1  and cat[:type] == "service" and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| cat.name }
   end 
 
-  def subcategrory_id_by_name(subcategory_name)
+  def subcategrory_id_by_name(subcategory_name, main_category_id)
     fetch_categories if @categories.nil?
-    @categories.select { |sub_cat| sub_cat.name == subcategory_name and }.first.id
+    @categories.select { |sub_cat| sub_cat.name == subcategory_name and sub_cat.parent_id == main_category_id }.first.id
   end
 
-  def get_subcategories_ids(sub_cat_array)
+  def get_subcategories_ids(sub_cat_array, main_category_id)
     arr = []
     sub_cat_array.each do |sub_cat|
-      arr << subcategrory_id_by_name(sub_cat)
+      arr << subcategrory_id_by_name(sub_cat, main_category_id)
     end
     arr
   end

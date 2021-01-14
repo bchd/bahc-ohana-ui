@@ -12,8 +12,7 @@ class LocationsController < ApplicationController
     @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
     params[:main_category_id] = @main_category_selected_id
     if params["categories"]
-      params["categories_ids"] = helpers.get_subcategories_ids(params["categories"])
-      puts params.inspect
+      params["categories_ids"] = helpers.get_subcategories_ids(params["categories"], @main_category_selected_id)
     end
     locations = Location.search(params).compact
     @search = Search.new(locations, Ohanakapa.last_response, params)
