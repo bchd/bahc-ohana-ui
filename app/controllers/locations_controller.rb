@@ -40,8 +40,8 @@ class LocationsController < ApplicationController
   end
 
   def get_subcategories_by_category
-    permited = params.permit(:category_id)
-    category_id = permited["category_id"]
+    permitted = params.permit(:category_id)
+    category_id = permitted["category_id"]
 
     sub_cat_array = []
     sub_cat_array = helpers.subcategories_by_category(category_id)
