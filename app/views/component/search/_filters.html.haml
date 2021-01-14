@@ -19,10 +19,10 @@
       - subcategories_by_category(@main_category_selected_id).each do |category|
         %li.filter-category-item.hide
           - if params[:categories]
-            = check_box_tag( 'categories[]', category[1], params[:categories].include?(category[1].to_s) , id: "category_#{category[1]}")
+            = check_box_tag( 'categories[]', category, params[:categories].include?(category) , id: "category_#{category[1]}")
           - else
-            = check_box_tag( 'categories[]', category[1], false , id: "category_#{category[1]}")
-          = label_tag category[0]
+            = check_box_tag( 'categories[]', category, false , id: "category_#{category}")
+          = label_tag category
 
 
 %div.filter-actions-container

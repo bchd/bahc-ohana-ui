@@ -28,7 +28,7 @@ module FilterCategoriesHelper
 
   def subcategories_by_category(category_id)
     fetch_categories if @categories.nil?
-    @categories.select { |cat| cat[:depth] == 1  and cat[:type] == "service" and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| [cat.name, cat.id] }
+    @categories.select { |cat| cat[:depth] == 1  and cat[:type] == "service" and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| cat.name }
   end 
 
   def accessibility_filters

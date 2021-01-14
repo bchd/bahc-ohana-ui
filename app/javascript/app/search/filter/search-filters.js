@@ -104,10 +104,7 @@ function _updateSubCategories(){
   
         subcategoriesListContainerElement.innerHTML = "";
       
-        data.sub_cat_array.forEach(element => {
-
-          var subCategoryName = element[0];
-          var subCategoryID = element[1];
+        data.sub_cat_array.forEach(subCategoryName => {
   
           var li = document.createElement("li");
           li.classList.add("filter-category-item");
@@ -115,9 +112,9 @@ function _updateSubCategories(){
   
           var checkbox = document.createElement('input'); 
           checkbox.type = "checkbox";  
-          checkbox.id = subCategoryID;
+          checkbox.id = subCategoryName;
           checkbox.name = "categories[]";
-          checkbox.value = subCategoryID;
+          checkbox.value = subCategoryName;
 
   
           var subcategoryLabel = document.createElement('label');
