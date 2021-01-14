@@ -8,10 +8,15 @@ class LocationsController < ApplicationController
     # GOOGLE_TRANSLATE_API_KEY in config/application.example.yml.
     # translator = KeywordTranslator.new(params[:keyword], current_language, 'en')
     # params[:keyword] = translator.translated_keyword
-    @main_category_selected_name = params[:main_category]
-    @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
-    params[:main_category_id] = @main_category_selected_id
-    if params["categories"]
+    @main_category_selected_name = ""
+    @main_category_selected_id = ""
+
+    unless params[:main_category].nil? || params[:main_category].empty?
+      @main_category_selected_name = params[:main_category]
+      @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
+      params[:main_category_id] = @main_category_selected_id
+    end
+    if params["categories"] and @main_category_selected_id != ""
       params["categories_ids"] = helpers.get_subcategories_ids(params["categories"], @main_category_selected_id)
     end
     locations = Location.search(params).compact
