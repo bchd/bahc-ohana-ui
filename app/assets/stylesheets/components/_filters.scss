@@ -34,7 +34,7 @@
 
 .parent-category-label-container {
   font-family: $font_sans_serif;
-  font-size: $font-size_105;
+  font-size: $font-size_100;
   display: flex;
   //margin-bottom: .5em;
   padding: .25em .5em .25em .5em;
@@ -51,7 +51,7 @@
 
 .parent-category-label {
   font-family: $font_sans_serif;
-  font-size: $font-size_105;
+  font-size: $font-size_100;
   color: $purple;
   white-space: nowrap;
   overflow: hidden;
@@ -78,4 +78,8 @@
   display: inline-block;
   //text-align: right;
   margin-left: auto;
+}
+
+.hidden {
+  display: none;
 }

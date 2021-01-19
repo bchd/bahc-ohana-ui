@@ -25,5 +25,7 @@ Rails.application.routes.draw do
   post '/api/favorite' => 'favorites#create'
   delete '/api/favorite' => 'favorites#destroy'
   get 'favorites' => 'favorites#index'
+
+  post 'locations/get_subcategories_by_category' => 'locations#get_subcategories_by_category'
   resource :flag, only: [:new, :create]
 end

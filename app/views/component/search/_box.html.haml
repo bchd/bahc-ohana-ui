@@ -5,10 +5,10 @@
         = label_tag 'prompt', t('labels.homepage_prompt')
         %section#keyword-search-box.search-box.home-page-search-container
           %div
-            = select_tag :categories, options_for_select(categories_for_select), include_blank: 'All', class: "category_search_select"
+            = select_tag :main_category, options_for_select(categories_for_select), include_blank: 'All', class: "category_search_select"
           %div
             .input-search-big.keyword
-              = search_field_tag :keyword, params[:keyword], placeholder: t('placeholders.homepage_keyword_search'), class: 'search-input'
+              = search_field_tag :keyword, @keyword, placeholder: t('placeholders.homepage_keyword_search'), tabindex: 1, class: 'search-input'
           %div  
             = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', title: 'Search') do
               %span

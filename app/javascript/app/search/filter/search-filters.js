@@ -9,6 +9,8 @@ var _agency;
 // The form to submit.
 var _searchForm;
 
+var _categorySelect;
+
 // Main module initialization.
 function init() {
 
@@ -21,6 +23,10 @@ function init() {
 
   // Capture form submission.
   _searchForm = document.getElementById('form-search');
+
+  // Add on change function for category dropdown menu
+  _categorySelect = document.getElementById('main_category');
+  _categorySelect.addEventListener('change', _updateSubCategories, false);
 
   // Hook reset button on the page and listen for a click event.
   var resetButton = document.getElementById('button-reset');
@@ -56,6 +62,72 @@ function init() {
   }
 
   _openCheckedSections();
+}
+
+function _updateSubCategories(){
+  var selectedCategoryName = _categorySelect.value;
+  var subCategoriesFilterTitleElement = document.getElementById('subcategoriesFilterTitle');
+  var iconContainer = document.getElementById('iconContainer');
+  var filterDropdownContainer = document.getElementById('filterDropdownContainer');
+  var subcategoriesListContainerElement = document.getElementById('subcategoriesList');
+  var categoriesFiltersContainer = document.getElementById('categoryFiltersContainerDiv');
+  
+  if (selectedCategoryName == ""){
+
+    subCategoriesFilterTitleElement.textContent = "";
+    subcategoriesListContainerElement.innerHTML = "";
+    iconContainer.classList.remove("fa");
+    iconContainer.classList.remove("fa-chevron-down");
+    iconContainer.classList.remove("fa-chevron-right");
+
+    categoriesFiltersContainer.classList.add('hidden');
+
+  }else{
+
+    $.ajax({
+      type: 'POST',
+      url: '/locations/get_subcategories_by_category',
+      dataType: 'json',
+      data: {
+        category_name : selectedCategoryName,
+      },
+      success: function(data) {
+        
+        categoriesFiltersContainer.classList.remove("hidden");
+        subCategoriesFilterTitleElement.textContent = data.category_title;
+  
+        iconContainer.classList.add("fa");
+        iconContainer.classList.remove("fa-chevron-down");
+        iconContainer.classList.add("fa-chevron-right");
+  
+        filterDropdownContainer.classList.add("filter-dropdown-closed");
+  
+        subcategoriesListContainerElement.innerHTML = "";
+      
+        data.sub_cat_array.forEach(subCategoryName => {
+  
+          var li = document.createElement("li");
+          li.classList.add("filter-category-item");
+          li.classList.add("hide");
+  
+          var checkbox = document.createElement('input'); 
+          checkbox.type = "checkbox";  
+          checkbox.id = subCategoryName;
+          checkbox.name = "categories[]";
+          checkbox.value = subCategoryName;
+
+  
+          var subcategoryLabel = document.createElement('label');
+          subcategoryLabel.appendChild(document.createTextNode(subCategoryName));
+  
+          li.appendChild(checkbox);
+          li.appendChild(subcategoryLabel);
+  
+          subcategoriesListContainerElement.appendChild(li);
+        });
+      }
+    });
+  }
 }
 
 function _openCheckedSections() {
