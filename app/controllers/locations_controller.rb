@@ -8,11 +8,20 @@ class LocationsController < ApplicationController
     # GOOGLE_TRANSLATE_API_KEY in config/application.example.yml.
     # translator = KeywordTranslator.new(params[:keyword], current_language, 'en')
     # params[:keyword] = translator.translated_keyword
+    @main_category_selected_name = ""
+    @main_category_selected_id = ""
+
+    unless params[:main_category].nil? || params[:main_category].empty?
+      @main_category_selected_name = params[:main_category]
+      @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
+      params[:main_category_id] = @main_category_selected_id
+    end
+    if params["categories"] and @main_category_selected_id != ""
+      params["categories_ids"] = helpers.get_subcategories_ids(params["categories"], @main_category_selected_id)
+    end
     locations = Location.search(params).compact
-    @filters = [params[:categories], params[:accessibility]].flatten
     @search = Search.new(locations, Ohanakapa.last_response, params)
     @keyword = params[:keyword]
-    @main_category_selected = params[:main_category]
 
     # Populate the keyword search field with the original term
     # as typed by the user, not the translated word.
@@ -39,15 +48,17 @@ class LocationsController < ApplicationController
     @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
   end
 
+  # Ajax response to update the exanded div listing subcategories
   def get_subcategories_by_category
-    permitted = params.permit(:category_id)
-    category_id = permitted["category_id"]
+    permitted = params.permit(:category_name)
+    category_name = permitted["category_name"]
 
     sub_cat_array = []
+    category_id = helpers.get_category_id_by_name(category_name)
     sub_cat_array = helpers.subcategories_by_category(category_id)
 
     respond_to do |format|
-      format.js { render :json => {sub_cat_array: sub_cat_array, category_title: helpers.category_filters_title(category_id)}.to_json }
+      format.js { render :json => {sub_cat_array: sub_cat_array, category_title: helpers.category_filters_title(category_name)}.to_json }
     end
   end
 

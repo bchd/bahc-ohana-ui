@@ -4,30 +4,45 @@ module FilterCategoriesHelper
     @categories ||= Ohanakapa.categories
   end
 
-  def filter_categories
-    categories ||= Ohanakapa.categories.select(&:filter?).sort_by { |a| a[:taxonomy_id] }.map(&:to_h)
-    filters = categories << accessibility_filters
-    @filter_categories = filters.flatten
-  end
-
-  def categories_for_select
+  def main_categories_array
     fetch_categories if @categories.nil?
     @categories.select { |cat| cat[:depth] == 0  and cat[:type] == "service" }.flatten.uniq.map{ |cat| [cat.name, cat.id]}
   end
 
-  def category_name_by_id(category_id)
-    categories_for_select.select{ |x| x[1] == category_id.to_i }.first.first
+  def categories_for_select
+    fetch_categories if @categories.nil?
+    @categories.select { |cat| cat[:depth] == 0  and cat[:type] == "service" }.flatten.uniq.map{ |cat| [cat.name, cat.name]}
   end
 
-  def category_filters_title(category_id)
-    category_name = category_name_by_id(category_id)
+  def category_name_by_id(category_id)
+    main_categories_array.select{ |x| x[1] == category_id.to_i }.first.first
+  end
+
+  def get_category_id_by_name(main_category_selected_name)
+    main_categories_array.select{ |x| x[0] == main_category_selected_name }.first.second
+  end
+
+  def category_filters_title(category_name)
     "#{category_name} #{t('labels.filters.category_filter_title')}"
   end
 
   def subcategories_by_category(category_id)
     fetch_categories if @categories.nil?
-    @categories.select { |cat| cat[:depth] == 1  and cat[:type] == "service" and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| [cat.name, cat.id] }
+    @categories.select { |cat| cat[:depth] == 1  and cat[:type] == "service" and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| cat.name }
   end 
+
+  def subcategrory_id_by_name(subcategory_name, main_category_id)
+    fetch_categories if @categories.nil?
+    @categories.select { |sub_cat| sub_cat.name == subcategory_name and sub_cat.parent_id == main_category_id }.first.id
+  end
+
+  def get_subcategories_ids(sub_cat_array, main_category_id)
+    arr = []
+    sub_cat_array.each do |sub_cat|
+      arr << subcategrory_id_by_name(sub_cat, main_category_id)
+    end
+    arr
+  end
 
   def accessibility_filters
     [

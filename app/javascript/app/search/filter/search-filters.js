@@ -65,14 +65,14 @@ function init() {
 }
 
 function _updateSubCategories(){
-  var selectedCategoryId = _categorySelect.value;
+  var selectedCategoryName = _categorySelect.value;
   var subCategoriesFilterTitleElement = document.getElementById('subcategoriesFilterTitle');
   var iconContainer = document.getElementById('iconContainer');
   var filterDropdownContainer = document.getElementById('filterDropdownContainer');
   var subcategoriesListContainerElement = document.getElementById('subcategoriesList');
   var categoriesFiltersContainer = document.getElementById('categoryFiltersContainerDiv');
   
-  if (selectedCategoryId == ""){
+  if (selectedCategoryName == ""){
 
     subCategoriesFilterTitleElement.textContent = "";
     subcategoriesListContainerElement.innerHTML = "";
@@ -89,7 +89,7 @@ function _updateSubCategories(){
       url: '/locations/get_subcategories_by_category',
       dataType: 'json',
       data: {
-        category_id : selectedCategoryId,
+        category_name : selectedCategoryName,
       },
       success: function(data) {
         
@@ -104,10 +104,7 @@ function _updateSubCategories(){
   
         subcategoriesListContainerElement.innerHTML = "";
       
-        data.sub_cat_array.forEach(element => {
-
-          var subCategoryName = element[0];
-          var subCategoryID = element[1];
+        data.sub_cat_array.forEach(subCategoryName => {
   
           var li = document.createElement("li");
           li.classList.add("filter-category-item");
@@ -115,9 +112,9 @@ function _updateSubCategories(){
   
           var checkbox = document.createElement('input'); 
           checkbox.type = "checkbox";  
-          checkbox.id = subCategoryID;
+          checkbox.id = subCategoryName;
           checkbox.name = "categories[]";
-          checkbox.value = subCategoryID;
+          checkbox.value = subCategoryName;
 
   
           var subcategoryLabel = document.createElement('label');
