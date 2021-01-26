@@ -4,7 +4,8 @@
 - if @main_category_selected_name == ""
   %div#categoryFiltersContainerDiv.category-filters-container.hidden
     %div.parent-category-label-container
-      = label_tag "", "<span id='subcategoriesFilterTitle'></span>".html_safe, class: 'parent-category-label'
+      %legend
+        %span#subcategoriesFilterTitle.parent-category-label
       %div#filterDropdownContainer.filter-dropdown-closed
         %i#iconContainer.fa.fa-chevron-right
     %fieldset#subcategoriesList
@@ -12,7 +13,9 @@
 - else
   %div#categoryFiltersContainerDiv.category-filters-container
     %div.parent-category-label-container
-      = label_tag "", "<span id='subcategoriesFilterTitle'>#{category_filters_title(@main_category_selected_name)}</span>".html_safe, class: 'parent-category-label'
+      %legend
+        %span#subcategoriesFilterTitle.parent-category-label
+          = "#{category_filters_title(@main_category_selected_name)}"
       %div#filterDropdownContainer.filter-dropdown-closed
         %i#iconContainer.fa.fa-chevron-right
     %fieldset#subcategoriesList
