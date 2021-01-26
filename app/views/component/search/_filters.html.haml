@@ -20,7 +20,7 @@
         %i#iconContainer.fa.fa-chevron-right
     %fieldset#subcategoriesList
       - subcategories_by_category(@main_category_selected_id).each do |category|
-        - id_string = "category_#{category.delete(' ')}"
+        - id_string = "category_#{category.delete('&').delete(' ')}"
         %div.filter-category-item.hide
           - if params[:categories]
             = check_box_tag( 'categories[]', category, params[:categories].include?(category) , id: id_string)
