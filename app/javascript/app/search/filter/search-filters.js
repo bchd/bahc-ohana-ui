@@ -105,25 +105,28 @@ function _updateSubCategories(){
         subcategoriesListContainerElement.innerHTML = "";
       
         data.sub_cat_array.forEach(subCategoryName => {
+
+          var id_string = "category_"+subCategoryName.replace(/ /g,'')
   
-          var li = document.createElement("li");
-          li.classList.add("filter-category-item");
-          li.classList.add("hide");
+          var container = document.createElement("div");
+          container.classList.add("filter-category-item");
+          container.classList.add("hide");
   
           var checkbox = document.createElement('input'); 
           checkbox.type = "checkbox";  
-          checkbox.id = subCategoryName;
+          checkbox.id = id_string;
           checkbox.name = "categories[]";
           checkbox.value = subCategoryName;
 
   
           var subcategoryLabel = document.createElement('label');
           subcategoryLabel.appendChild(document.createTextNode(subCategoryName));
+          subcategoryLabel.setAttribute("for", id_string)
   
-          li.appendChild(checkbox);
-          li.appendChild(subcategoryLabel);
+          container.appendChild(checkbox);
+          container.appendChild(subcategoryLabel);
   
-          subcategoriesListContainerElement.appendChild(li);
+          subcategoriesListContainerElement.appendChild(container);
         });
       }
     });
