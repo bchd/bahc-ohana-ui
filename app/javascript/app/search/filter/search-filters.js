@@ -59,6 +59,7 @@ function init() {
   for (var l = 0; l < parentFilterHeaders.length; l += 1) {
     curr = parentFilterHeaders[l];
     curr.addEventListener('click', _handleHeaderClick, false);
+    curr.addEventListener('keydown', _handleHeaderClick, false);
   }
 
   _openCheckedSections();
@@ -141,8 +142,8 @@ function _updateSubCategories(){
 function _openCheckedSections() {
   var checkedBoxes = $('input:checkbox:checked');
   checkedBoxes.each(function() {
-    if (!($(this).closest('ul').siblings('div').hasClass('selected'))) {
-      _openSection($(this).closest('ul').siblings('div'));
+    if (!($(this).closest('fieldset').siblings('div').hasClass('selected'))) {
+      _openSection($(this).closest('fieldset').siblings('div'));
     }
   });
 }
@@ -173,7 +174,9 @@ function _collapseSection(element) {
 }
 
 function _handleHeaderClick(evt) {
-  _openSection($(evt.currentTarget));
+  if (evt.key === "Enter" || evt.type === 'click') {
+    _openSection($(evt.currentTarget));
+  }
 }
 
 function _linkClickedHandler(evt) {
