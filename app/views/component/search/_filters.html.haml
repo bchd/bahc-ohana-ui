@@ -3,7 +3,7 @@
 
 - if @main_category_selected_name == ""
   %div#categoryFiltersContainerDiv.category-filters-container.hidden
-    %div.parent-category-label-container{ tabindex: "0", role: "button"}
+    %div.parent-category-label-container{ tabindex: "0"}
       %legend
         %span#subcategoriesFilterTitle.parent-category-label
       %div#filterDropdownContainer.filter-dropdown-closed
@@ -12,7 +12,7 @@
   
 - else
   %div#categoryFiltersContainerDiv.category-filters-container
-    %div.parent-category-label-container{ tabindex: "0", role: "button"}
+    %div.parent-category-label-container{ tabindex: "0"}
       %legend
         %span#subcategoriesFilterTitle.parent-category-label
           = "#{category_filters_title(@main_category_selected_name)}"
