@@ -83,11 +83,15 @@ function _updateSubCategories(){
     categoriesFiltersContainer.classList.add('hidden');
 
   }else{
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     $.ajax({
       type: 'POST',
       url: '/locations/get_subcategories_by_category',
       dataType: 'json',
+      headers: {
+        'X-CSRF-Token': csrfToken,
+      },
       data: {
         category_name : selectedCategoryName,
       },
@@ -105,28 +109,25 @@ function _updateSubCategories(){
         subcategoriesListContainerElement.innerHTML = "";
       
         data.sub_cat_array.forEach(subCategoryName => {
-
-          var id_string = "category_"+subCategoryName.replace(/ /g,'')
   
-          var container = document.createElement("div");
-          container.classList.add("filter-category-item");
-          container.classList.add("hide");
+          var li = document.createElement("li");
+          li.classList.add("filter-category-item");
+          li.classList.add("hide");
   
           var checkbox = document.createElement('input'); 
           checkbox.type = "checkbox";  
-          checkbox.id = id_string;
+          checkbox.id = subCategoryName;
           checkbox.name = "categories[]";
           checkbox.value = subCategoryName;
 
   
           var subcategoryLabel = document.createElement('label');
           subcategoryLabel.appendChild(document.createTextNode(subCategoryName));
-          subcategoryLabel.setAttribute("for", id_string)
   
-          container.appendChild(checkbox);
-          container.appendChild(subcategoryLabel);
+          li.appendChild(checkbox);
+          li.appendChild(subcategoryLabel);
   
-          subcategoriesListContainerElement.appendChild(container);
+          subcategoriesListContainerElement.appendChild(li);
         });
       }
     });
