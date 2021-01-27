@@ -30,7 +30,5 @@
             = label_tag id_string, category
 
 %div.filter-actions-container
-  = label_tag(t('buttons.hide_filters'), nil, id: 'button-hide-filters')
-  = label_tag(t('buttons.show_filters'), nil, id: 'button-show-filters')
-  = label_tag(t('buttons.collapse_filters'), nil, id: 'button-collapse')
-  = label_tag(t('buttons.clear_filters'), nil, id: 'button-reset')
+  = label_tag(t('buttons.collapse_filters'), nil, id: 'button-collapse', tabindex: "0")
+  = label_tag(t('buttons.clear_filters'), nil, id: 'button-reset', tabindex: "0")

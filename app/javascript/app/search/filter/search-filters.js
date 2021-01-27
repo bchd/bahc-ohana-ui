@@ -31,15 +31,11 @@ function init() {
   // Hook reset button on the page and listen for a click event.
   var resetButton = document.getElementById('button-reset');
   resetButton.addEventListener('click', _resetClicked, false);
+  resetButton.addEventListener('keydown', _resetClicked, false);
 
   var collapseButton = document.getElementById('button-collapse');
   collapseButton.addEventListener('click', _collapseSections, false);
-
-  var hideFiltersButton = document.getElementById('button-hide-filters');
-  hideFiltersButton.addEventListener('click', _hideFilters, false);
-
-  var showFiltersButton = document.getElementById('button-show-filters');
-  showFiltersButton.addEventListener('click', _showFilters, false);
+  collapseButton.addEventListener('keydown', _collapseSections, false);
 
   var checkboxes = $('#categories input');
 
@@ -157,10 +153,12 @@ function _openSection(element) {
   $($(element).find('i')).toggleClass('fa fa-chevron-right fa fa-chevron-down');
 }
 
-function _collapseSections() {
-  var sections = document.getElementsByClassName('parent-category-label-container');
-  for (let section of sections) {
-    _collapseSection($(section));
+function _collapseSections(evt) {
+  if (evt.key === "Enter" || evt.type === 'click') {
+    var sections = document.getElementsByClassName('parent-category-label-container');
+    for (let section of sections) {
+      _collapseSection($(section));
+    }
   }
 }
 
@@ -194,32 +192,20 @@ function _geolocationClicked(address) {
 
 // The clear filters link was clicked.
 function _resetClicked(evt) {
-  _keyword.reset();
-  _agency.reset();
+  if (evt.key === "Enter" || evt.type === 'click') {
+    _keyword.reset();
+    _agency.reset();
 
-  $('input:checkbox:checked').each(function() {
-    $(this).removeAttr('checked');
-  });
+    $('input:checkbox:checked').each(function() {
+      $(this).removeAttr('checked');
+    });
 
-  evt.preventDefault();
-  evt.target.blur();
+    evt.preventDefault();
+    evt.target.blur();
+  }
 }
 
-function _hideFilters() {
-  $('.filters-container').hide();
-  $('#button-hide-filters').hide();
-  $('#button-show-filters').css('display', 'block');
-  $('#button-collapse').hide();
-  $('#button-reset').hide();
-}
 
-function _showFilters() {
-  $('.filters-container').show();
-  $('#button-hide-filters').css('display', 'block');
-  $('#button-show-filters').hide();
-  $('#button-collapse').css('display', 'block');
-  $('#button-reset').css('display', 'block');
-}
 
 function _checkState(prefix,depth,checkbox) {
   var item = $(checkbox).parent(); // parent li item
