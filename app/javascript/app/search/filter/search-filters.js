@@ -149,6 +149,10 @@ function _openSection(element) {
   filters.each(function() {
     $(this).children(0).toggleClass('hide');
   });
+  $(element).attr('aria-expanded', function (i, attr) {
+    return attr == 'true' ? 'false' : 'true'
+  });
+
   $(element).toggleClass('selected');
   $($(element).find('i')).toggleClass('fa fa-chevron-right fa fa-chevron-down');
 }
@@ -167,6 +171,7 @@ function _collapseSection(element) {
   filters.each(function() {
     $(this).children(0).addClass('hide');
   });
+  $(element).attr('aria-expanded', 'false');
   $(element).removeClass('selected');
   $($(element).find('i')).removeClass('fa-chevron-down').addClass('fa-chevron-right');
 }
