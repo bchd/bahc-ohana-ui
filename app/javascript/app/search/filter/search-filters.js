@@ -31,15 +31,11 @@ function init() {
   // Hook reset button on the page and listen for a click event.
   var resetButton = document.getElementById('button-reset');
   resetButton.addEventListener('click', _resetClicked, false);
+  resetButton.addEventListener('keydown', _resetClicked, false);
 
   var collapseButton = document.getElementById('button-collapse');
   collapseButton.addEventListener('click', _collapseSections, false);
-
-  var hideFiltersButton = document.getElementById('button-hide-filters');
-  hideFiltersButton.addEventListener('click', _hideFilters, false);
-
-  var showFiltersButton = document.getElementById('button-show-filters');
-  showFiltersButton.addEventListener('click', _showFilters, false);
+  collapseButton.addEventListener('keydown', _collapseSections, false);
 
   var checkboxes = $('#categories input');
 
@@ -59,6 +55,7 @@ function init() {
   for (var l = 0; l < parentFilterHeaders.length; l += 1) {
     curr = parentFilterHeaders[l];
     curr.addEventListener('click', _handleHeaderClick, false);
+    curr.addEventListener('keydown', _handleHeaderClick, false);
   }
 
   _openCheckedSections();
@@ -84,10 +81,15 @@ function _updateSubCategories(){
 
   }else{
 
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
     $.ajax({
       type: 'POST',
       url: '/locations/get_subcategories_by_category',
       dataType: 'json',
+      headers: {
+        'X-CSRF-Token': csrfToken,
+      },
       data: {
         category_name : selectedCategoryName,
       },
@@ -105,25 +107,28 @@ function _updateSubCategories(){
         subcategoriesListContainerElement.innerHTML = "";
       
         data.sub_cat_array.forEach(subCategoryName => {
+
+          var id_string = "category_"+subCategoryName.replace(/ /g,'')
   
-          var li = document.createElement("li");
-          li.classList.add("filter-category-item");
-          li.classList.add("hide");
+          var container = document.createElement("div");
+          container.classList.add("filter-category-item");
+          container.classList.add("hide");
   
           var checkbox = document.createElement('input'); 
           checkbox.type = "checkbox";  
-          checkbox.id = subCategoryName;
+          checkbox.id = id_string;
           checkbox.name = "categories[]";
           checkbox.value = subCategoryName;
 
   
           var subcategoryLabel = document.createElement('label');
           subcategoryLabel.appendChild(document.createTextNode(subCategoryName));
+          subcategoryLabel.setAttribute("for", id_string)
   
-          li.appendChild(checkbox);
-          li.appendChild(subcategoryLabel);
+          container.appendChild(checkbox);
+          container.appendChild(subcategoryLabel);
   
-          subcategoriesListContainerElement.appendChild(li);
+          subcategoriesListContainerElement.appendChild(container);
         });
       }
     });
@@ -133,8 +138,8 @@ function _updateSubCategories(){
 function _openCheckedSections() {
   var checkedBoxes = $('input:checkbox:checked');
   checkedBoxes.each(function() {
-    if (!($(this).closest('ul').siblings('div').hasClass('selected'))) {
-      _openSection($(this).closest('ul').siblings('div'));
+    if (!($(this).closest('fieldset').siblings('div').hasClass('selected'))) {
+      _openSection($(this).closest('fieldset').siblings('div'));
     }
   });
 }
@@ -144,14 +149,20 @@ function _openSection(element) {
   filters.each(function() {
     $(this).children(0).toggleClass('hide');
   });
+  $(element).attr('aria-expanded', function (i, attr) {
+    return attr == 'true' ? 'false' : 'true'
+  });
+
   $(element).toggleClass('selected');
   $($(element).find('i')).toggleClass('fa fa-chevron-right fa fa-chevron-down');
 }
 
-function _collapseSections() {
-  var sections = document.getElementsByClassName('parent-category-label-container');
-  for (let section of sections) {
-    _collapseSection($(section));
+function _collapseSections(evt) {
+  if (evt.key === "Enter" || evt.type === 'click') {
+    var sections = document.getElementsByClassName('parent-category-label-container');
+    for (let section of sections) {
+      _collapseSection($(section));
+    }
   }
 }
 
@@ -160,12 +171,15 @@ function _collapseSection(element) {
   filters.each(function() {
     $(this).children(0).addClass('hide');
   });
+  $(element).attr('aria-expanded', 'false');
   $(element).removeClass('selected');
   $($(element).find('i')).removeClass('fa-chevron-down').addClass('fa-chevron-right');
 }
 
 function _handleHeaderClick(evt) {
-  _openSection($(evt.currentTarget));
+  if (evt.key === "Enter" || evt.type === 'click') {
+    _openSection($(evt.currentTarget));
+  }
 }
 
 function _linkClickedHandler(evt) {
@@ -183,32 +197,20 @@ function _geolocationClicked(address) {
 
 // The clear filters link was clicked.
 function _resetClicked(evt) {
-  _keyword.reset();
-  _agency.reset();
+  if (evt.key === "Enter" || evt.type === 'click') {
+    _keyword.reset();
+    _agency.reset();
 
-  $('input:checkbox:checked').each(function() {
-    $(this).removeAttr('checked');
-  });
+    $('input:checkbox:checked').each(function() {
+      $(this).removeAttr('checked');
+    });
 
-  evt.preventDefault();
-  evt.target.blur();
+    evt.preventDefault();
+    evt.target.blur();
+  }
 }
 
-function _hideFilters() {
-  $('.filters-container').hide();
-  $('#button-hide-filters').hide();
-  $('#button-show-filters').css('display', 'block');
-  $('#button-collapse').hide();
-  $('#button-reset').hide();
-}
 
-function _showFilters() {
-  $('.filters-container').show();
-  $('#button-hide-filters').css('display', 'block');
-  $('#button-show-filters').hide();
-  $('#button-collapse').css('display', 'block');
-  $('#button-reset').css('display', 'block');
-}
 
 function _checkState(prefix,depth,checkbox) {
   var item = $(checkbox).parent(); // parent li item
