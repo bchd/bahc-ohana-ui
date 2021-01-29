@@ -1,4 +1,37 @@
 #geolocate-box
-  = button_tag(type: 'submit', name: nil, id: 'button-geolocate', class: "button-small #{context_class} hide", data: { wait_text: t('buttons.during_geolocation'), regular_text: t('buttons.services_near_me') }) do
+  = button_tag(type: 'submit', name: nil, id: 'button-geolocate', class: "button-small", data: { wait_text: t('buttons.during_geolocation'), regular_text: t('buttons.services_near_me') }) do
     %i.fa.fa-globe
     %span= t('buttons.services_near_me')
+
+:javascript
+  var options = {
+    enableHighAccuracy: false,
+    timeout: 20000,
+    maximumAge: 9999999
+  };
+
+  function success(pos) {
+    var crd = pos.coords;
+
+    console.log('Your current position is:');
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+
+    let params = new URLSearchParams(window.location.search);
+    
+    params.set('lat', crd.latitude)
+    params.set('long', crd.longitude)
+    console.log(params.toString())
+    window.location.href = `${location.pathname}?${params}`
+  };
+
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+
+  $('#button-geolocate').on('click', function(e){
+    e.preventDefault();
+    console.log('click')
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  })
