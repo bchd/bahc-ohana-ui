@@ -408,9 +408,21 @@ body {
   margin: 10px;
 }
 
+#button-geolocate {
+  color: $black;
+  height: 24px;
+  padding-right: 1rem;
+  width: 24px;
+  &:hover { 
+    color: $purple;
+    cursor: pointer;
+  }
+}
+
 #geolocate-box {
-  position: absolute;
   right: 0;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 .inside #geolocate-box {
