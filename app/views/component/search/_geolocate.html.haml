@@ -10,18 +10,10 @@
   };
 
   function success(pos) {
-    var crd = pos.coords;
-
-    console.log('Your current position is:');
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
-
+    let crd = pos.coords;
     let params = new URLSearchParams(window.location.search);
-    
     params.set('lat', crd.latitude)
     params.set('long', crd.longitude)
-    console.log(params.toString())
     window.location.href = `${location.pathname}?${params}`
   };
 
@@ -31,6 +23,5 @@
 
   $('#button-geolocate').on('click', function(e){
     e.preventDefault();
-    console.log('click')
     navigator.geolocation.getCurrentPosition(success, error, options);
   })
