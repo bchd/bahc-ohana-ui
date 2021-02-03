@@ -36,7 +36,7 @@ en:
     show_filters: 'Show filters'
     during_geolocation: 'Please wait...'
     homepage_search: 'Search'
-    services_near_me: 'Services near me'
+    services_near_me: 'Sort by distance'
     update_search_results: 'Search'
 
   date:

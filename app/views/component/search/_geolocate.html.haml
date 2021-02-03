@@ -1,4 +1,27 @@
 #geolocate-box
-  = button_tag(type: 'submit', name: nil, id: 'button-geolocate', class: "button-small #{context_class} hide", data: { wait_text: t('buttons.during_geolocation'), regular_text: t('buttons.services_near_me') }) do
-    %i.fa.fa-globe
-    %span= t('buttons.services_near_me')
+  %i.fa.fa-compass.fa-2x#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
+  %span= t('buttons.services_near_me')
+
+:javascript
+  var options = {
+    enableHighAccuracy: false,
+    timeout: 20000,
+    maximumAge: 9999999
+  };
+
+  function success(pos) {
+    let crd = pos.coords;
+    let params = new URLSearchParams(window.location.search);
+    params.set('lat', crd.latitude)
+    params.set('long', crd.longitude)
+    window.location.href = `${location.pathname}?${params}`
+  };
+
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+
+  $('#button-geolocate').on('click', function(e){
+    e.preventDefault();
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  })
