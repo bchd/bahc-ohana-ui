@@ -409,7 +409,6 @@ body {
 }
 
 #button-geolocate {
-  color: $black;
   height: 24px;
   padding-right: 1rem;
   width: 24px;
@@ -417,6 +416,10 @@ body {
     color: $purple;
     cursor: pointer;
   }
+}
+
+.geolocated {
+  color: $purple;
 }
 
 #geolocate-box {

@@ -1,4 +1,8 @@
 #geolocate-box
+- if @lat.present? && @long.present?
+  %i.fa.fa-compass.fa-2x.geolocated#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
+  %span= t('buttons.services_near_me')
+- else 
   %i.fa.fa-compass.fa-2x#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
   %span= t('buttons.services_near_me')
 
