@@ -12,6 +12,8 @@
   
 - else
   %div#categoryFiltersContainerDiv.category-filters-container
+    = label_tag :category_filters, 'Category Filters', id: 'category-filters-label'
+    %hr
     %div.parent-category-label-container{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'false'}}
       %legend
         %span#subcategoriesFilterTitle.parent-category-label
@@ -28,7 +30,3 @@
           - else
             = check_box_tag( 'categories[]', category, false , id: id_string)
             = label_tag id_string, category
-
-%div.filter-actions-container
-  = label_tag(t('buttons.collapse_filters'), nil, id: 'button-collapse', tabindex: "0")
-  = label_tag(t('buttons.clear_filters'), nil, id: 'button-reset', tabindex: "0")
