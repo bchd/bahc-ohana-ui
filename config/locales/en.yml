@@ -70,6 +70,7 @@ en:
 
   labels:
     category_search: 'Category'
+    distance_filter: 'Distance' 
     agency_search: 'Organization Name'
     homepage_prompt: 'What are you looking for today?'
     filters:

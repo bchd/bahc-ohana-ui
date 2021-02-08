@@ -24,6 +24,7 @@ class LocationsController < ApplicationController
     @keyword = params[:keyword]
     @lat = params[:lat]
     @long = params[:long]
+    @selected_distance_filter = params[:distance]
 
     # Populate the keyword search field with the original term
     # as typed by the user, not the translated word.

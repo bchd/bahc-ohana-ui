@@ -1,10 +1,18 @@
+= field_set_tag nil, id: 'distance-filter', class: 'input-search-filter input-search-filter-option' do
+  = label_tag 'distance', t('labels.distance_filter')
+  = select_tag :distance, options_for_select([1, 2, 10, 25], @selected_distance_filter), include_blank: 'All', class: "distance-search-select-left-menu"
+
 #geolocate-box
-- if @lat.present? && @long.present?
-  %i.fa.fa-compass.fa-2x.geolocated#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
-  %span= t('buttons.services_near_me')
-- else 
-  %i.fa.fa-compass.fa-2x#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
-  %span= t('buttons.services_near_me')
+  = hidden_field_tag :lat, @lat
+  = hidden_field_tag :long, @long
+  - if @lat.present? && @long.present?
+    %i.fa.fa-compass.fa-2x.geolocated#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
+    %span= t('buttons.services_near_me')
+  - else 
+    %i.fa.fa-compass.fa-2x#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
+    %span= t('buttons.services_near_me')
+
+= button_tag "Apply Filters"
 
 :javascript
   var options = {
