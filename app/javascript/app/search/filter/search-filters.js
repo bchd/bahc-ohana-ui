@@ -72,6 +72,8 @@ function _updateSubCategories(){
     iconContainer.classList.remove("fa-chevron-down");
     iconContainer.classList.remove("fa-chevron-right");
     parentCategoryDiv.classList.remove("hoverable");
+    parentCategoryDiv.setAttribute("aria-label", "Select a Category from above to display additional filters.");
+    parentCategoryDiv.setAttribute("aria-expanded", "false");
 
   }else{
 
@@ -99,6 +101,8 @@ function _updateSubCategories(){
         subcategoriesFilterTitle.classList.remove("filter-description-label");
 
         parentCategoryDiv.classList.add("hoverable");
+        parentCategoryDiv.setAttribute("aria-label", "Click enter to expand and collapse filters");
+        parentCategoryDiv.setAttribute("aria-expanded", "false");
   
         filterDropdownContainer.classList.add("filter-dropdown-closed");
   
