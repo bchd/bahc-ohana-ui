@@ -29,6 +29,7 @@
     let params = new URLSearchParams(window.location.search);
     params.set('lat', crd.latitude)
     params.set('long', crd.longitude)
+    move();
     window.location.href = `${location.pathname}?${params}`
   };
 
@@ -36,9 +37,29 @@
     console.warn(`ERROR(${err.code}): ${err.message}`);
   }
 
+  var i = 0;
+  function move() {
+    if (i == 0) {
+      i = 1;
+      var elem = document.getElementById("bar");
+      var width = 1;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          elem.style.width = width + "%";
+        }
+      }
+    }
+  }
+
   $('#button-geolocate').on('click', function(e){
     e.preventDefault();
     $('#address').val('Current Location');
     $(this).addClass('geolocated');
+    $('#bar').show();
     navigator.geolocation.getCurrentPosition(success, error, options);
   })

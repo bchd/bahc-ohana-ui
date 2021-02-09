@@ -17,6 +17,8 @@
     %section#content
       = render 'shared/alert'
       = render 'shared/header', user_agent: @user_agent
+      #progress
+        #bar
       %main.main= yield
       = render 'shared/footer'
 
