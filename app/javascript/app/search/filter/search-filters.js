@@ -28,15 +28,6 @@ function init() {
   _categorySelect = document.getElementById('main_category');
   _categorySelect.addEventListener('change', _updateSubCategories, false);
 
-  // Hook reset button on the page and listen for a click event.
-  var resetButton = document.getElementById('button-reset');
-  resetButton.addEventListener('click', _resetClicked, false);
-  resetButton.addEventListener('keydown', _resetClicked, false);
-
-  var collapseButton = document.getElementById('button-collapse');
-  collapseButton.addEventListener('click', _collapseSections, false);
-  collapseButton.addEventListener('keydown', _collapseSections, false);
-
   var checkboxes = $('#categories input');
 
   var currentCheckbox;
@@ -71,13 +62,11 @@ function _updateSubCategories(){
   
   if (selectedCategoryName == ""){
 
-    subCategoriesFilterTitleElement.textContent = "";
+    subCategoriesFilterTitleElement.textContent = "Select a Category from above to display additional filters.";
     subcategoriesListContainerElement.innerHTML = "";
     iconContainer.classList.remove("fa");
     iconContainer.classList.remove("fa-chevron-down");
     iconContainer.classList.remove("fa-chevron-right");
-
-    categoriesFiltersContainer.classList.add('hidden');
 
   }else{
 
@@ -95,7 +84,6 @@ function _updateSubCategories(){
       },
       success: function(data) {
         
-        categoriesFiltersContainer.classList.remove("hidden");
         subCategoriesFilterTitleElement.textContent = data.category_title;
   
         iconContainer.classList.add("fa");
@@ -145,10 +133,11 @@ function _openCheckedSections() {
 }
 
 function _openSection(element) {
-  var filters = element.nextUntil('depth0');
-  filters.each(function() {
-    $(this).children(0).toggleClass('hide');
+  
+  document.querySelectorAll('.filter-category-item').forEach(function(item) {
+    $(item).toggleClass('hide');
   });
+
   $(element).attr('aria-expanded', function (i, attr) {
     return attr == 'true' ? 'false' : 'true'
   });

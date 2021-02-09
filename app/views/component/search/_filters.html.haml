@@ -1,32 +1,33 @@
 %div.filter-label-container
   = label_tag :filters, t('labels.filters.filters_menu_title'), class: 'filter-header-label'
 
+%div#categoryFiltersContainerDiv.category-filters-container
+  = label_tag :category_filters, 'Category Filters', id: 'category-filters-label'
+  %hr
+
 - if @main_category_selected_name == ""
-  %div#categoryFiltersContainerDiv.category-filters-container.hidden
-    %div.parent-category-label-container{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'false'}}
-      %legend
-        %span#subcategoriesFilterTitle.parent-category-label
-      %div#filterDropdownContainer.filter-dropdown-closed
-        %i#iconContainer.fa.fa-chevron-right
-    %fieldset#subcategoriesList
+  %div.parent-category-label-container{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'false'}}
+    %legend
+      %span#subcategoriesFilterTitle.parent-category-label
+        = "Select a Category from above to display additional filters."
+    %div#filterDropdownContainer.filter-dropdown-closed
+      %i#iconContainer
+  %fieldset#subcategoriesList
   
 - else
-  %div#categoryFiltersContainerDiv.category-filters-container
-    = label_tag :category_filters, 'Category Filters', id: 'category-filters-label'
-    %hr
-    %div.parent-category-label-container{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'false'}}
-      %legend
-        %span#subcategoriesFilterTitle.parent-category-label
-          = "#{category_filters_title(@main_category_selected_name)}"
-      %div#filterDropdownContainer.filter-dropdown-closed
-        %i#iconContainer.fa.fa-chevron-right
-    %fieldset#subcategoriesList
-      - subcategories_by_category(@main_category_selected_id).each do |category|
-        - id_string = "category_#{category.delete('&').delete(' ')}"
-        %div.filter-category-item.hide
-          - if params[:categories]
-            = check_box_tag( 'categories[]', category, params[:categories].include?(category) , id: id_string)
-            = label_tag id_string, category
-          - else
-            = check_box_tag( 'categories[]', category, false , id: id_string)
-            = label_tag id_string, category
+  %div.parent-category-label-container{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'false'}}
+    %legend
+      %span#subcategoriesFilterTitle.parent-category-label
+        = "#{category_filters_title(@main_category_selected_name)}"
+    %div#filterDropdownContainer.filter-dropdown-closed
+      %i#iconContainer.fa.fa-chevron-right
+  %fieldset#subcategoriesList
+    - subcategories_by_category(@main_category_selected_id).each do |category|
+      - id_string = "category_#{category.delete('&').delete(' ')}"
+      %div.filter-category-item.hide
+        - if params[:categories]
+          = check_box_tag( 'categories[]', category, params[:categories].include?(category) , id: id_string)
+          = label_tag id_string, category
+        - else
+          = check_box_tag( 'categories[]', category, false , id: id_string)
+          = label_tag id_string, category
