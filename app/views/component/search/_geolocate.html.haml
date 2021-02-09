@@ -15,7 +15,7 @@
     - else 
       %i.fa.fa-crosshairs.fa-lg#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
 
-    = text_field_tag :address
+    = text_field_tag :address, @address
 
 :javascript
   var options = {
@@ -38,5 +38,7 @@
 
   $('#button-geolocate').on('click', function(e){
     e.preventDefault();
+    $('#address').val('Current Location');
+    $(this).addClass('geolocated');
     navigator.geolocation.getCurrentPosition(success, error, options);
   })
