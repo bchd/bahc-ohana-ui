@@ -59,14 +59,19 @@ function _updateSubCategories(){
   var filterDropdownContainer = document.getElementById('filterDropdownContainer');
   var subcategoriesListContainerElement = document.getElementById('subcategoriesList');
   var categoriesFiltersContainer = document.getElementById('categoryFiltersContainerDiv');
-  
+  var subcategoriesFilterTitle = document.getElementById('subcategoriesFilterTitle');
+  var parentCategoryDiv = document.getElementById('parent-category');
+
   if (selectedCategoryName == ""){
 
     subCategoriesFilterTitleElement.textContent = "Select a Category from above to display additional filters.";
+    subcategoriesFilterTitle.classList.remove("parent-category-label");
+    subcategoriesFilterTitle.classList.add("filter-description-label");
     subcategoriesListContainerElement.innerHTML = "";
     iconContainer.classList.remove("fa");
     iconContainer.classList.remove("fa-chevron-down");
     iconContainer.classList.remove("fa-chevron-right");
+    parentCategoryDiv.classList.remove("hoverable");
 
   }else{
 
@@ -89,6 +94,11 @@ function _updateSubCategories(){
         iconContainer.classList.add("fa");
         iconContainer.classList.remove("fa-chevron-down");
         iconContainer.classList.add("fa-chevron-right");
+
+        subcategoriesFilterTitle.classList.add("parent-category-label");
+        subcategoriesFilterTitle.classList.remove("filter-description-label");
+
+        parentCategoryDiv.classList.add("hoverable");
   
         filterDropdownContainer.classList.add("filter-dropdown-closed");
   
