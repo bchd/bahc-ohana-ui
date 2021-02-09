@@ -24,6 +24,12 @@ class LocationsController < ApplicationController
     @keyword = params[:keyword]
     @lat = params[:lat]
     @long = params[:long]
+    @address = params[:address]
+
+    if @address.nil? && @lat.present? && @long.present?
+      @address = 'Current Location'
+    end
+
     @selected_distance_filter = params[:distance]
 
     # Populate the keyword search field with the original term
