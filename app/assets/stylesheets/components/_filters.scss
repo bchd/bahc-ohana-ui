@@ -5,6 +5,7 @@
 .filter-label-container {
   margin-bottom: 1em;
   margin-left: .5em;
+  padding-top: 1rem;
 }
 
 .filter-header-label {
@@ -36,32 +37,36 @@
   padding: .25em .5em .25em .5em;
   margin-bottom: .2em;
 }
-.selected {
-  background-color: rgba($blue, .15);
-}
 
-.parent-category-label-container:hover{
+.hoverable:hover {
+
   cursor: pointer;
   background-color: rgba($blue, .15);
 }
+
 
 .parent-category-label {
   font-family: $font_sans_serif;
   font-size: $font-size_100;
   color: $purple;
-  white-space: nowrap;
-  overflow: hidden;
+  overflow-wrap: normal;
   text-overflow: ellipsis;
-}
-.parent-category-label:hover{
-  cursor: pointer;
 }
 
 .filter-category-item {
   padding: 0 .25em 0 .5em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  label {
+    overflow-wrap: normal;
+    text-overflow: ellipsis;
+  }
+}
+
+.filter-description-label {
+  font-family: $font_sans_serif;
+  font-size: $font-size_100;
+  max-width: 15em;
+  color: black;
+  font-style: italic;
 }
 
 .filter-category-label {
@@ -78,4 +83,9 @@
 
 .hidden {
   display: none;
+}
+
+.geolocate-of-word-container{ 
+  margin-left: 10px; 
+  margin-top: 10px;
 }

@@ -1,10 +1,24 @@
-#geolocate-box
-- if @lat.present? && @long.present?
-  %i.fa.fa-compass.fa-2x.geolocated#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
-  %span= t('buttons.services_near_me')
-- else 
-  %i.fa.fa-compass.fa-2x#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
-  %span= t('buttons.services_near_me')
+= field_set_tag nil, id: 'distance-filter', class: 'input-search-filter input-search-filter-option' do
+  = label_tag :distance, 'Distance', style: "font-size: 16px;"
+  %hr
+  = label_tag 'within', t('labels.distance_filter')
+  = select_tag :distance, options_for_select([1, 2, 10, 25], @selected_distance_filter), include_blank: 'All', class: "category-search-select-left-menu"
+
+%div.geolocate-of-word-container
+  = "Of"
+
+= field_set_tag nil, id: 'geolocation-filter', class: 'input-search-filter input-search-filter-option' do
+  = label_tag 'address', 'Address', id: 'address-label'
+  #geolocate-box
+    = hidden_field_tag :lat, @lat
+    = hidden_field_tag :long, @long
+    - if @lat.present? && @long.present?
+      = button_tag 'geolocate', id: 'geolocate' do
+        %i.fa.fa-crosshairs.fa-lg.geolocated#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
+    - else 
+      %i.fa.fa-crosshairs.fa-lg#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
+
+    = text_field_tag :address, @address
 
 :javascript
   var options = {
@@ -18,6 +32,7 @@
     let params = new URLSearchParams(window.location.search);
     params.set('lat', crd.latitude)
     params.set('long', crd.longitude)
+    move();
     window.location.href = `${location.pathname}?${params}`
   };
 
@@ -25,7 +40,29 @@
     console.warn(`ERROR(${err.code}): ${err.message}`);
   }
 
+  var i = 0;
+  function move() {
+    if (i == 0) {
+      i = 1;
+      var elem = document.getElementById("bar");
+      var width = 1;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          elem.style.width = width + "%";
+        }
+      }
+    }
+  }
+
   $('#button-geolocate').on('click', function(e){
     e.preventDefault();
+    $('#address').val('Current Location');
+    $(this).addClass('geolocated');
+    $('#bar').show();
     navigator.geolocation.getCurrentPosition(success, error, options);
   })

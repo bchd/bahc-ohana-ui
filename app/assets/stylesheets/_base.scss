@@ -355,7 +355,7 @@ body {
 .inside #search-container {
   float: left;
   vertical-align: top;
-  width: 240px;
+  width: 250px;
   min-height: 1000px;
   height: auto;
 
@@ -408,10 +408,14 @@ body {
   margin: 10px;
 }
 
+#geolocate {
+  border: 0;
+  background: 0;
+}
+
 #button-geolocate {
-  height: 24px;
-  padding-right: 1rem;
-  width: 24px;
+  padding-left: .24rem;
+  padding-right: .25rem;
   &:hover { 
     color: $purple;
     cursor: pointer;
@@ -423,17 +427,22 @@ body {
 }
 
 #geolocate-box {
+  align-items: center;
+  background-color: $white;
+  @include border-radius(4px);
+  border:1px solid rgba($input-border-color, 0.4);
+  display: flex;
+  height: 2.5rem;
   right: 0;
-  padding: 1rem;
-  margin-bottom: 2rem;
 }
 
-.inside #geolocate-box {
-  right: 10px;
-  // Fixed max-height and overflow adjustment needed to
-  // handle a 1-pixel layout difference between Chrome and Firefox.
-  @include box-sizing(border-box);
-  max-height: 23px;
+#address-label {
+  margin-top: .625rem;
+}
+
+#address {
+  border: 0;
+  width: 100%;
 }
 
 #search-options {
@@ -451,6 +460,10 @@ body {
       font-size: 14px;
     }
   }
+}
+
+#category-filters-label {
+  margin-left: .625rem;
 }
 
 #category-box {
@@ -1369,4 +1382,15 @@ body {
 
 .clearfix:after {
     clear: both;
+}
+
+#progress { 
+  width: 100%;
+}
+
+#bar {
+  display: none;
+  width: 1%;
+  height: 7px;
+  background-color: $purple;
 }
