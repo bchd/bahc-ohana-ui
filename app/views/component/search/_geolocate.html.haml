@@ -1,8 +1,11 @@
 = field_set_tag nil, id: 'distance-filter', class: 'input-search-filter input-search-filter-option' do
-  = label_tag :distance, 'Distance'
+  = label_tag :distance, 'Distance', style: "font-size: 16px;"
   %hr
   = label_tag 'within', t('labels.distance_filter')
   = select_tag :distance, options_for_select([1, 2, 10, 25], @selected_distance_filter), include_blank: 'All', class: "category-search-select-left-menu"
+
+%div{ :style => "margin-left: 10px; margin-top: 10px;" }
+  = "Of"
 
 = field_set_tag nil, id: 'geolocation-filter', class: 'input-search-filter input-search-filter-option' do
   = label_tag 'address', 'Address', id: 'address-label'
