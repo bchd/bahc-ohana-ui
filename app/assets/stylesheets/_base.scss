@@ -434,7 +434,11 @@ body {
   display: flex;
   height: 2.5rem;
   right: 0;
+  .fa-crosshairs {
+    padding: .75rem; 
+  }
 }
+
 
 #address-label {
   margin-top: .625rem;
