@@ -1,15 +1,14 @@
-%div.filter-label-container
-  = label_tag :filters, t('labels.filters.filters_menu_title'), class: 'filter-header-label'
+
 
 %div#categoryFiltersContainerDiv.category-filters-container
-  = label_tag :category_filters, 'Category Filters', id: 'category-filters-label'
+  = label_tag :category_filters, 'Topic Filters', id: 'category-filters-label'
   %hr
 
 - if @main_category_selected_name == ""
-  %div#parent-category.parent-category-label-container{ tabindex: "0", role: "button", aria: { label: 'Select a Category from above to display additional filters.', expanded: 'false'}}
+  %div#parent-category.parent-category-label-container{ tabindex: "0", role: "button", aria: { label: 'Select a Topic from above to display additional filters.', expanded: 'false'}}
     %legend
       %span#subcategoriesFilterTitle.filter-description-label
-        = "Select a Category from above to display additional filters."
+        = "Select a Topic from above to display additional filters."
     %div#filterDropdownContainer.filter-dropdown-closed
       %i#iconContainer
   %fieldset#subcategoriesList

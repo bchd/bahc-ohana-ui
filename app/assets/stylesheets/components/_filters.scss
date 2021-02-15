@@ -4,8 +4,7 @@
 
 .filter-label-container {
   margin-bottom: 1em;
-  margin-left: .5em;
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 
 .filter-header-label {
@@ -34,7 +33,7 @@
   font-size: $font-size_100;
   display: flex;
   //margin-bottom: .5em;
-  padding: .25em .5em .25em .5em;
+  padding: .25em 0em;
   margin-bottom: .2em;
 }
 
@@ -63,7 +62,7 @@
 
 .filter-description-label {
   font-family: $font_sans_serif;
-  font-size: $font-size_100;
+  font-size: $font-size_95;
   max-width: 15em;
   color: black;
   font-style: italic;
@@ -86,6 +85,10 @@
 }
 
 .geolocate-of-word-container{ 
-  margin-left: 10px; 
+  font-size: $font-size_95;
   margin-top: 10px;
+}
+
+.category-filters-container {
+  padding: .5rem 0rem 0rem 0rem;
 }

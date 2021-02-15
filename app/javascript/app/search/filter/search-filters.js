@@ -64,7 +64,7 @@ function _updateSubCategories(){
 
   if (selectedCategoryName == ""){
 
-    subCategoriesFilterTitleElement.textContent = "Select a Category from above to display additional filters.";
+    subCategoriesFilterTitleElement.textContent = "Select a Topic from above to display additional filters.";
     subcategoriesFilterTitle.classList.remove("parent-category-label");
     subcategoriesFilterTitle.classList.add("filter-description-label");
     subcategoriesListContainerElement.innerHTML = "";
@@ -72,7 +72,7 @@ function _updateSubCategories(){
     iconContainer.classList.remove("fa-chevron-down");
     iconContainer.classList.remove("fa-chevron-right");
     parentCategoryDiv.classList.remove("hoverable");
-    parentCategoryDiv.setAttribute("aria-label", "Select a Category from above to display additional filters.");
+    parentCategoryDiv.setAttribute("aria-label", "Select a Topic from above to display additional filters.");
     parentCategoryDiv.setAttribute("aria-expanded", "false");
 
   }else{
