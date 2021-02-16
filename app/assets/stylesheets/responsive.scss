@@ -152,6 +152,25 @@
       min-width: 100%;
     }
 
+    .home-page-search-container {
+      flex-direction: column;
+      align-items: center;
+
+      > div {
+        width: 100%;
+      }
+
+      .landing-button-icon {
+        width: 100%;
+        margin-left: auto;
+      }
+
+      .home-page-or {
+        justify-content: center;
+        margin: auto;
+      }
+    }
+
     #search-box {
       position: static;
       margin-left: 0;
@@ -175,7 +194,7 @@
       }
 
       label {
-        display: none;
+        font-size: 2rem;
       }
 
       .input-search-big {

@@ -202,6 +202,8 @@ input.search-input:-webkit-autofill {
   flex-direction: row;            /* default value; can be omitted */
   flex-wrap: nowrap;              /* default value; can be omitted */
   justify-content: space-between; /* switched from default (flex-start, see below) */
+  align-items: flex-end;
+  margin: 1.5rem auto auto auto;
 }
 
 .category_search_select{
@@ -233,6 +235,11 @@ input.search-input:-webkit-autofill {
   padding-left: 1rem;
   @include box-sizing(border-box);
   @include rounded-except(none);
+}
+
+.label_tag{
+  font-size: 35px;
+  color: orange;
 }
 
 .input-search-filter {
