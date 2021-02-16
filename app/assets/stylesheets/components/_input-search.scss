@@ -217,6 +217,7 @@ input.search-input:-webkit-autofill {
   font-size: $font_size_110;
   border-collapse: collapse;
   border: 1px solid rgba(0, 95, 128, 0.4);
+  padding-left: 1rem;
   @include box-sizing(border-box);
   @include rounded-except(none);
 }
