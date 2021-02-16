@@ -104,7 +104,7 @@ en:
   placeholders:
     agency_search: 'full or partial name'
     keyword_search: 'Search within topics'
-    homepage_keyword_search: 'Search for food, health, care and more'
+    homepage_keyword_search: 'Search for food, health, care, and more'
     results_page_keyword_search: 'search for...'
 
   service_fields:
