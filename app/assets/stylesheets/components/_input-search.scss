@@ -217,7 +217,6 @@ input.search-input:-webkit-autofill {
   font-size: $font_size_110;
   border-collapse: collapse;
   border: 1px solid rgba(0, 95, 128, 0.4);
-  padding-left: 10px;
   @include box-sizing(border-box);
   @include rounded-except(none);
 }
@@ -227,14 +226,13 @@ input.search-input:-webkit-autofill {
   color: $grey;
   width: 100%;
   min-width: 180px;
-  height: 40px;
+  min-height: 40px;
   vertical-align: middle;
   font-family: $font_sans_serif;
   font-size: 15px;
   border-collapse: collapse;
   border: 1px solid rgba(0, 95, 128, 0.4);
-  padding-left: 10px;
-  padding-right: 5px;
+  padding-left: 1rem;
   @include box-sizing(border-box);
   @include rounded-except(none);
 }
@@ -249,7 +247,7 @@ input.search-input:-webkit-autofill {
   position: relative;
 
   > label {
-    font-size: $font_size_95;
+    font-size: $font_size_100;
     color: $black;
   }
 
@@ -284,15 +282,12 @@ input.search-input:-webkit-autofill {
       color: $black;
     }
 
-    > input:focus {
-      outline: none;
-    }
   }
 }
 
 .input-search-filter.input-search-filter-option {
     .input-search-filter-option {
-    font-size: $font_size_95;
+    font-size: $font_size_100;
     border: none;
     margin: 0;
     padding: 3px;

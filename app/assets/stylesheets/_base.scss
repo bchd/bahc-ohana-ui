@@ -43,8 +43,8 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
+    border-top: 1px solid rgb(126, 126, 126);
+    margin: .5rem 0;
     padding: 0;
 }
 
@@ -362,7 +362,7 @@ body {
   width: 250px;
   min-height: 1000px;
   height: auto;
-
+  padding: 1rem;
 }
 
 .home-page-or {
@@ -469,7 +469,6 @@ body {
   font-family: $font_sans_serif;
 
   fieldset {
-    padding: 10px;
     margin-top: 0;
     margin-bottom: 0;
     padding-bottom: 0;
@@ -483,7 +482,7 @@ body {
 }
 
 #category-filters-label {
-  margin-left: .625rem;
+  font-size: $font-size_95;
 }
 
 #category-box {
