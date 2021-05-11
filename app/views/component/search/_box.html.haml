@@ -16,3 +16,7 @@
             = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', title: 'Search') do
               %span
                 = t('buttons.homepage_search')
+        %div.vaccination-link-container
+          %a.vaccination-link{ :href => "https://covax.baltimorecity.gov/", :title => t('labels.vaccination-link-text') }
+            %strong
+              = t('labels.vaccination-link-text')

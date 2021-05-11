@@ -7,6 +7,17 @@
   font-weight: bold;
 }
 
+.vaccination-link {
+  font-family: $font_sans_serif;
+  font-weight: bold;
+  font-size: $font_size_110;
+  color: $white;
+}
+
+.vaccination-link-container {
+  margin-top:7%;
+}
+
 .landing-button-icon {
   display: inline-block;
   z-index: $layer-8;
