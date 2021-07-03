@@ -114,7 +114,7 @@ function _updateSubCategories(){
   
           var container = document.createElement("div");
           container.classList.add("filter-category-item");
-          container.classList.add("hide");
+          // container.classList.add("hide");
   
           var checkbox = document.createElement('input'); 
           checkbox.type = "checkbox";  
