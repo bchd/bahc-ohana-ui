@@ -35,6 +35,7 @@ function MapDOM(mapContainerSelector, mapCanvasSelector) {
 
     var mapOptions = {
       zoom: 4,
+      zoomControl: true,
       gestureHandling: "cooperative",
       maxZoom: 16,
       scrollwheel: false,

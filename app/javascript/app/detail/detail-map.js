@@ -48,6 +48,7 @@ function _renderMap() {
 
     var mapOptions = {
       zoom: 4,
+      zoomControl: true,
       gestureHandling: "cooperative",
       maxZoom: 16,
       center: latLng,
