@@ -47,6 +47,8 @@ function _renderMap() {
     ];
 
     var mapOptions = {
+      zoom,
+      gestureHandling: "cooperative",
       maxZoom: 16,
       center: latLng,
       scrollwheel: false,
