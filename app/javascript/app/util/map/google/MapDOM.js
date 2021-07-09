@@ -34,7 +34,7 @@ function MapDOM(mapContainerSelector, mapCanvasSelector) {
     ];
 
     var mapOptions = {
-      zoom,
+      zoom: 4,
       gestureHandling: "cooperative",
       maxZoom: 16,
       scrollwheel: false,
