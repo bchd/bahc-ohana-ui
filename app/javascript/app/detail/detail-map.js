@@ -49,11 +49,14 @@ function _renderMap() {
     var mapOptions = {
       zoom: 4,
       zoomControl: true,
-      gestureHandling: "cooperative",
+      gestureHandling: "auto",
       maxZoom: 16,
       center: latLng,
-      scrollwheel: false,
+      scrollwheel: true,
       zoomControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_BOTTOM,
+      },
       panControl: false,
       streetViewControl: false,
       scaleControl: true,
