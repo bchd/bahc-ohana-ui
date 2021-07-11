@@ -1281,7 +1281,8 @@ body {
 }
 
 .gmnoprint img {
-  max-width: none;
+  max-width: none !important;
+  max-height: none !important;
 }
 
 @include site-link('#general-services', $white);
