@@ -52,7 +52,6 @@ function _renderMap() {
       gestureHandling: "auto",
       maxZoom: 16,
       center: latLng,
-      scrollwheel: true,
       zoomControl: true,
       zoomControlOptions: {
         position: google.maps.ControlPosition.RIGHT_BOTTOM,

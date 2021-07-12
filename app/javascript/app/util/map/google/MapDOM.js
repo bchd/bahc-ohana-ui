@@ -38,7 +38,6 @@ function MapDOM(mapContainerSelector, mapCanvasSelector) {
       zoomControl: true,
       gestureHandling: "auto",
       maxZoom: 16,
-      scrollwheel: true,
       zoomControl: true,
       zoomControlOptions: {
         position: google.maps.ControlPosition.RIGHT_BOTTOM,
