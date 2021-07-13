@@ -34,9 +34,14 @@ function MapDOM(mapContainerSelector, mapCanvasSelector) {
     ];
 
     var mapOptions = {
-      maxZoom: 16,
-      scrollwheel: false,
+      zoom: 4,
       zoomControl: true,
+      gestureHandling: "auto",
+      maxZoom: 16,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_BOTTOM,
+      },
       panControl: false,
       streetViewControl: false,
       scaleControl: true,

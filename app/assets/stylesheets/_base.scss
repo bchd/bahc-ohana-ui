@@ -1280,6 +1280,11 @@ body {
   bottom: 50px;
 }
 
+.gmnoprint img {
+  max-width: none !important;
+  max-height: none !important;
+}
+
 @include site-link('#general-services', $white);
 @include site-link('#emergency-services', $white);
 @include site-link('#detail-info header', rgba($white, 0));
