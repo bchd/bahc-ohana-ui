@@ -95,7 +95,7 @@ function _updateSubCategories(){
   
         iconContainer.classList.add("fa");
         iconContainer.classList.remove("fa-chevron-down");
-        iconContainer.classList.add("fa-chevron-right");
+        iconContainer.classList.add("fa-chevron-down");
 
         subcategoriesFilterTitle.classList.add("parent-category-label");
         subcategoriesFilterTitle.classList.remove("filter-description-label");
