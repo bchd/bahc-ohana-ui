@@ -65,7 +65,7 @@ function _updateSubCategories(){
   if (selectedCategoryName == ""){
 
     subCategoriesFilterTitleElement.textContent = "Select a Topic from above to display additional filters.";
-    subcategoriesFilterTitle.classList.remove("parent-category-label");
+    // subcategoriesFilterTitle.classList.remove("parent-category-label");
     subcategoriesFilterTitle.classList.add("filter-description-label");
     subcategoriesListContainerElement.innerHTML = "";
     iconContainer.classList.remove("fa");
