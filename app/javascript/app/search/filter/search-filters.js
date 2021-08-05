@@ -148,9 +148,9 @@ function _openCheckedSections() {
 
 function _openSection(element) {
   
-  document.querySelectorAll('.filter-category-item').forEach(function(item) {
-    $(item).toggleClass('hide');
-  });
+  // document.querySelectorAll('.filter-category-item').forEach(function(item) {
+  //   $(item).toggleClass('hide');
+  // });
 
   $(element).attr('aria-expanded', function (i, attr) {
     return attr == 'true' ? 'false' : 'true'
