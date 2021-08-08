@@ -19,11 +19,11 @@
       %span#subcategoriesFilterTitle.parent-category-label
         = "#{category_filters_title(@main_category_selected_name)}"
     %div#filterDropdownContainer.filter-dropdown-closed
-      %i#iconContainer.fa.fa-chevron-right
+      %i#iconContainer.fa.fa-chevron-down
   %fieldset#subcategoriesList
     - subcategories_by_category(@main_category_selected_id).each do |category|
       - id_string = "category_#{category.delete('&').delete(' ')}"
-      %div.filter-category-item.hide
+      %div.filter-category-item
         - if params[:categories]
           = check_box_tag( 'categories[]', category, params[:categories].include?(category) , id: id_string)
           = label_tag id_string, category

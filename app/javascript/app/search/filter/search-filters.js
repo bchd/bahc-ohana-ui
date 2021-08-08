@@ -65,7 +65,7 @@ function _updateSubCategories(){
   if (selectedCategoryName == ""){
 
     subCategoriesFilterTitleElement.textContent = "Select a Topic from above to display additional filters.";
-    // subcategoriesFilterTitle.classList.remove("parent-category-label");
+    subcategoriesFilterTitle.classList.remove("parent-category-label");
     subcategoriesFilterTitle.classList.add("filter-description-label");
     subcategoriesListContainerElement.innerHTML = "";
     iconContainer.classList.remove("fa");
@@ -121,7 +121,6 @@ function _updateSubCategories(){
           checkbox.id = id_string;
           checkbox.name = "categories[]";
           checkbox.value = subCategoryName;
-
   
           var subcategoryLabel = document.createElement('label');
           subcategoryLabel.appendChild(document.createTextNode(subCategoryName));
@@ -148,9 +147,9 @@ function _openCheckedSections() {
 
 function _openSection(element) {
   
-  // document.querySelectorAll('.filter-category-item').forEach(function(item) {
-  //   $(item).toggleClass('hide');
-  // });
+  document.querySelectorAll('.filter-category-item').forEach(function(item) {
+    $(item).toggleClass('hide');
+  });
 
   $(element).attr('aria-expanded', function (i, attr) {
     return attr == 'true' ? 'false' : 'true'
