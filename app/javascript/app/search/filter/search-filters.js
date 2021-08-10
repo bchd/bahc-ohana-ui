@@ -121,7 +121,6 @@ function _updateSubCategories(){
           checkbox.id = id_string;
           checkbox.name = "categories[]";
           checkbox.value = subCategoryName;
-
   
           var subcategoryLabel = document.createElement('label');
           subcategoryLabel.appendChild(document.createTextNode(subCategoryName));
