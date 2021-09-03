@@ -249,3 +249,30 @@
       }
     });
   });
+
+  var _printButton;
+
+  function initPrintButton() {
+    _printButton = document.querySelector('.button-print');
+    // Set event on print button and show the button.
+    _printButton.addEventListener('click', _clickPrintButton, false);
+    _printButton.classList.remove('hide');
+  }
+
+  // Issue print command when print button is clicked.
+  // @param evt [Object] The click event object.
+  function _clickPrintButton(evt) {
+    evt.preventDefault();
+
+    var printContents = document.querySelector('#detail-info').innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+    initPrintButton()
+  }
+
+  initPrintButton()

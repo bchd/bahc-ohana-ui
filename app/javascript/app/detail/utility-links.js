@@ -4,8 +4,8 @@
 var _printButton;
 
 function init() {
-  _printButton = document.querySelector('.button-print');
-  console.log("WOOF")
+  _printButton = document.querySelector('.utility-links .button-print');
+
   // Set event on print button and show the button.
   _printButton.addEventListener('click', _clickPrintButton, false);
   _printButton.classList.remove('hide');
