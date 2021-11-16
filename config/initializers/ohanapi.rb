@@ -1,3 +1,5 @@
+require 'ohanakapa-extensions'
+
 stack = Faraday::RackBuilder.new do |builder|
   builder.use Ohanakapa::Response::RaiseError
   builder.adapter Faraday.default_adapter
