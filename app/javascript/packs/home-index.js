@@ -10,3 +10,5 @@ function locateAction(address) {
 }
 // Parameters are: button ID, and callback function (see above).
 geo.init('button-geolocate', locateAction);
+
+import 'app/recommended_tags'

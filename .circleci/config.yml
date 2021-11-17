@@ -29,7 +29,7 @@ jobs:
           POSTGRES_HOST_AUTH_METHOD: trust
     environment:
       RAILS_ENV: test
-      OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
+      OHANA_API_ENDPOINT: http://localhost:8080/api
     steps:
       - checkout
       - run: cp .circleci/database.yml config/database.yml
