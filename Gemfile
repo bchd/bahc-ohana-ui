@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+ruby '2.6.8'
 gem 'ahoy_matey'
 gem 'compass-rails'
 gem 'dalli', '~> 2.7.1'
