@@ -264,8 +264,12 @@
   function _clickPrintButton(evt) {
     evt.preventDefault();
 
-    var printContents = document.querySelector('#detail-info').innerHTML;
     var originalContents = document.body.innerHTML;
+    document.querySelector('.favorite-toggle').remove();
+    document.querySelector('.button-edit').remove();
+    document.querySelector('.map-box').remove();
+
+    var printContents = document.querySelector('#detail-info').innerHTML;
 
     document.body.innerHTML = printContents;
 
