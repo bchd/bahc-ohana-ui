@@ -38,10 +38,17 @@ class LocationsController < ApplicationController
     cache_page(locations) if locations.present?
 
     respond_to do |format|
-      format.html
+      format.html {
+        if params[:layout] == "false"
+          render :template => 'component/locations/results/_body', :locals => { :search => @search }, :layout => false
+        else 
+          render 
+        end  
+      }
       # format.js { render :template => 'component/locations/results/_body', :locals => { :search => @search }, :layout => false }
       # format.js { render json: { html_data: (render_to_string :template => 'component/locations/results/_body', :locals => { :search => @search } ) } }
-      format.js { render :layout => false }
+      # format.js { render :layout => false }
+
 
     end
   end

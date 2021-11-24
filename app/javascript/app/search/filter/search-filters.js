@@ -1,6 +1,7 @@
 // Handles search filter functionality.
 import TextInput from 'app/search/filter/TextInput';
 import geo from 'app/util/geolocation/geolocate-action';
+import map from 'app/result/result-map';
 
 // The search filters.
 var _keyword;
@@ -74,17 +75,15 @@ function _getSearchResults(e){
     $.ajax({
       type: 'GET',
       url: '/locations',
-      dataType: 'json',
       headers: {
         'X-CSRF-Token': csrfToken,
+        'accept':"text/html"
       },
-      data: formData,
+      data: formData + "&layout=false",
       success: function(response) {
-        console.log("success");
-        console.log(response);
-        // console.log(response.html_data)
-        // $("#results-container").empty();
-        // $("#results-container").append(response.html_data);
+        $("#results-container").empty();
+        $("#results-container").append(response);
+        map.init();
       }
     });  
 }
