@@ -67,7 +67,13 @@ function _renderMap() {
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: poiStyles
     };
+
     var map = new google.maps.Map(mapCanvas, mapOptions);
+
+    const transitLayer = new google.maps.TransitLayer();
+
+    transitLayer.setMap(map);
+
 
     var markerProxy = markers.create(markers.GENERIC);
     markerProxy.turnOn(markerProxy.LARGE_ICON);

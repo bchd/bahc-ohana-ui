@@ -54,7 +54,12 @@ function MapDOM(mapContainerSelector, mapCanvasSelector) {
     };
 
     _mapContainer.classList.remove('hide');
-    var _map = new google.maps.Map(_mapCanvas, mapOptions);
+    const _map = new google.maps.Map(_mapCanvas, mapOptions);
+
+    const transitLayer = new google.maps.TransitLayer();
+
+    transitLayer.setMap(_map);
+
 
     _instance.container = _mapContainer;
     _instance.canvas = _mapCanvas;
