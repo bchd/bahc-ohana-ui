@@ -50,7 +50,47 @@ function init() {
   }
 
   _openCheckedSections();
+
+  ///submit form on filter change
+  $("#form-search").change(function(e) {
+    _getSearchResults(e);
+  });
+
 }
+
+function _getSearchResults(e){
+  if (e.target.id == "main_category"){
+    //clear subcategories before form submit
+    $( "input[name='categories[]']" ).prop('checked', false);
+  }
+
+
+
+  var formData = $("#form-search").serialize();
+  console.log(formData);
+  // _searchForm.submit();
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    $.ajax({
+      type: 'GET',
+      url: '/locations',
+      dataType: 'json',
+      headers: {
+        'X-CSRF-Token': csrfToken,
+      },
+      data: formData,
+      success: function(response) {
+        console.log("success");
+        console.log(response);
+        // console.log(response.html_data)
+        // $("#results-container").empty();
+        // $("#results-container").append(response.html_data);
+      }
+    });  
+}
+
+
+
 
 function _updateSubCategories(){
   var selectedCategoryName = _categorySelect.value;
@@ -139,7 +179,7 @@ function _updateSubCategories(){
 function _openCheckedSections() {
   var checkedBoxes = $('input:checkbox:checked');
   checkedBoxes.each(function() {
-    if (!($(this).closest('fieldset').siblings('div').hasClass('selected'))) {
+    if (($(this).closest('fieldset').siblings('div').hasClass('selected'))) {
       _openSection($(this).closest('fieldset').siblings('div'));
     }
   });

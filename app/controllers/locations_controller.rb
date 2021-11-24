@@ -36,6 +36,14 @@ class LocationsController < ApplicationController
     # as typed by the user, not the translated word.
     # params[:keyword] = translator.original_keyword
     cache_page(locations) if locations.present?
+
+    respond_to do |format|
+      format.html
+      # format.js { render :template => 'component/locations/results/_body', :locals => { :search => @search }, :layout => false }
+      # format.js { render json: { html_data: (render_to_string :template => 'component/locations/results/_body', :locals => { :search => @search } ) } }
+      format.js { render :layout => false }
+
+    end
   end
 
   def show

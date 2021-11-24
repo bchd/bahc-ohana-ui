@@ -10,6 +10,5 @@
         = render 'component/search/geolocate'
 
       .search-button-container
-        = button_tag(type: 'submit', name: nil, class: 'button-small update-button') do
-          = t('buttons.update_search_results')
+        %span#reset "reset"
 
