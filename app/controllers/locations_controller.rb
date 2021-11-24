@@ -40,7 +40,9 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html {
         if params[:layout] == "false"
-          render :template => 'component/locations/results/_body', :locals => { :search => @search }, :layout => false
+          if params[:page].nil?
+            render :template => 'component/locations/results/_body', :locals => { :search => @search }, :layout => false
+          end  
         else 
           render 
         end  

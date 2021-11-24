@@ -52,10 +52,14 @@ function init() {
 
   _openCheckedSections();
 
-  ///submit form on filter change
-  $("#form-search").change(function(e) {
+  
+  $("#reset-button").click(function(e){
+    e.preventDefault();
+    $("#form-search").trigger("reset");
     _getSearchResults(e);
-  });
+  })
+  ///submit form on filter change
+  $("#form-search").change(e => _getSearchResults(e));
 
 }
 
@@ -65,11 +69,8 @@ function _getSearchResults(e){
     $( "input[name='categories[]']" ).prop('checked', false);
   }
 
-
-
+  console.log(e.target.id);
   var formData = $("#form-search").serialize();
-  console.log(formData);
-  // _searchForm.submit();
   const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     $.ajax({
