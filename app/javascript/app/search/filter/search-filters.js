@@ -52,13 +52,29 @@ function init() {
 
   _openCheckedSections();
 
+
   
   $("#reset-button").click(function(e){
-    e.preventDefault();
+    // e.preventDefault();
+    console.log("BOOOOOO")
+    console.log(e);
     $("#form-search").trigger("reset");
     _getSearchResults(e);
   })
-  ///submit form on filter change
+
+   //disable default form submit
+  $('#form-search').submit(function(e){
+    console.log(e.target.id)
+  });
+
+  $('.search-input').keydown(function (e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        _getSearchResults(e);
+        return false;
+    }
+});
+    ///submit form on filter change
   $("#form-search").change(e => _getSearchResults(e));
 
 }
@@ -69,7 +85,6 @@ function _getSearchResults(e){
     $( "input[name='categories[]']" ).prop('checked', false);
   }
 
-  console.log(e.target.id);
   var formData = $("#form-search").serialize();
   const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -84,7 +99,11 @@ function _getSearchResults(e){
       success: function(response) {
         $("#results-container").empty();
         $("#results-container").append(response);
-        map.init();
+
+        if ( $("#map-view").length ){
+          map.init();
+        }
+        
       }
     });  
 }
