@@ -1,0 +1,4 @@
+= field_set_tag nil, id: 'language-filter', class: 'input-search-filter input-search-filter-option' do
+  = label_tag :language, 'By Langauge', style: "font-size: 16px;"
+  %hr
+  = select_tag :language, options_for_select(["English", "Spanish"], @selected_distance_filter), include_blank: 'All', class: "category-search-select-left-menu"
