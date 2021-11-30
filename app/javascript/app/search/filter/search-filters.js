@@ -55,17 +55,10 @@ function init() {
 
   
   $("#reset-button").click(function(e){
-    // e.preventDefault();
-    console.log("BOOOOOO")
-    console.log(e);
+    e.preventDefault();
     $("#form-search").trigger("reset");
     _getSearchResults(e);
   })
-
-   //disable default form submit
-  $('#form-search').submit(function(e){
-    console.log(e.target.id)
-  });
 
   $('.search-input').keydown(function (e) {
     if (e.keyCode == 13) {
@@ -73,13 +66,15 @@ function init() {
         _getSearchResults(e);
         return false;
     }
-});
+  });
+  
     ///submit form on filter change
   $("#form-search").change(e => _getSearchResults(e));
 
 }
 
 function _getSearchResults(e){
+
   if (e.target.id == "main_category"){
     //clear subcategories before form submit
     $( "input[name='categories[]']" ).prop('checked', false);
@@ -95,7 +90,7 @@ function _getSearchResults(e){
         'X-CSRF-Token': csrfToken,
         'accept':"text/html"
       },
-      data: formData + "&layout=false",
+      data: formData + "&layout=false&form=true",
       success: function(response) {
         $("#results-container").empty();
         $("#results-container").append(response);
