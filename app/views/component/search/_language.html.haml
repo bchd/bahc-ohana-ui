@@ -1,4 +1,6 @@
 = field_set_tag nil, id: 'language-filter', class: 'input-search-filter input-search-filter-option' do
-  = label_tag :language, 'By Langauge', style: "font-size: 16px;"
+  = label_tag :languages, 'By Langauge', style: "font-size: 16px;"
   %hr
-  = select_tag :language, options_for_select(["English", "Spanish"], @selected_distance_filter), include_blank: 'All', class: "category-search-select-left-menu"
+  -# select_tag :languages, options_for_select(["English", "Spanish"]), include_blank: 'All', class: "category-search-select-left-menu"
+  - ["English", "Spanish"].each do |card_id|
+    %input{ name: "languages[]", type: "hidden", value: card_id, id: "my_card_ids_#{card_id}" }
