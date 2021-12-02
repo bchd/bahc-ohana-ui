@@ -1,6 +1,6 @@
 %aside#search-container
   %section#search-box
-    = form_tag('/locations', method: :get, id: 'form-search') do
+    = form_tag('/locations', method: :get, id: 'form-search', return: false) do
 
       %section#search-options
 
@@ -10,6 +10,5 @@
         = render 'component/search/geolocate'
 
       .search-button-container
-        = button_tag(type: 'submit', name: nil, class: 'button-small update-button') do
-          = t('buttons.update_search_results')
+        %button#reset-button Clear Filters
 

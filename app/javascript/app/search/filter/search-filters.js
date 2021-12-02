@@ -1,6 +1,7 @@
 // Handles search filter functionality.
 import TextInput from 'app/search/filter/TextInput';
 import geo from 'app/util/geolocation/geolocate-action';
+import map from 'app/result/result-map';
 
 // The search filters.
 var _keyword;
@@ -50,7 +51,60 @@ function init() {
   }
 
   _openCheckedSections();
+
+
+  
+  $("#reset-button").click(function(e){
+    e.preventDefault();
+    $("#form-search").trigger("reset");
+    _getSearchResults(e);
+  })
+
+  $('.search-input').keydown(function (e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        _getSearchResults(e);
+        return false;
+    }
+  });
+  
+    ///submit form on filter change
+  $("#form-search").change(e => _getSearchResults(e));
+
 }
+
+function _getSearchResults(e){
+
+  if (e.target.id == "main_category"){
+    //clear subcategories before form submit
+    $( "input[name='categories[]']" ).prop('checked', false);
+  }
+
+  var formData = $("#form-search").serialize();
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    $.ajax({
+      type: 'GET',
+      url: '/locations',
+      headers: {
+        'X-CSRF-Token': csrfToken,
+        'accept':"text/html"
+      },
+      data: formData + "&layout=false&form=true",
+      success: function(response) {
+        $("#results-container").empty();
+        $("#results-container").append(response);
+
+        if ( $("#map-view").length ){
+          map.init();
+        }
+        
+      }
+    });  
+}
+
+
+
 
 function _updateSubCategories(){
   var selectedCategoryName = _categorySelect.value;
@@ -139,7 +193,7 @@ function _updateSubCategories(){
 function _openCheckedSections() {
   var checkedBoxes = $('input:checkbox:checked');
   checkedBoxes.each(function() {
-    if (!($(this).closest('fieldset').siblings('div').hasClass('selected'))) {
+    if (($(this).closest('fieldset').siblings('div').hasClass('selected'))) {
       _openSection($(this).closest('fieldset').siblings('div'));
     }
   });

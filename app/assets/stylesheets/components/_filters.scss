@@ -51,6 +51,19 @@
   text-overflow: ellipsis;
 }
 
+#reset-button {
+  font-family: $font_sans_serif;
+  font-size: $font-size_100;
+  color: $purple;
+  background: none;
+  border: none;
+}
+
+#reset-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .filter-category-item {
   padding: 0 .25em 0 .5em;
   label {
