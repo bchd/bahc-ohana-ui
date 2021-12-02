@@ -25,7 +25,10 @@ class LocationsController < ApplicationController
     @lat = params[:lat]
     @long = params[:long]
     @address = params[:address]
-    @languages = @search.locations
+    @languages = []
+    @search.locations.each do |location|
+      @languages.push(location)
+    end  
 
     if @address.nil? && @lat.present? && @long.present?
       @address = 'Current Location'
