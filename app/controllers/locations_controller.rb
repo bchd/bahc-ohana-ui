@@ -25,6 +25,7 @@ class LocationsController < ApplicationController
     @lat = params[:lat]
     @long = params[:long]
     @address = params[:address]
+    @languages = @search.locations
 
     if @address.nil? && @lat.present? && @long.present?
       @address = 'Current Location'
