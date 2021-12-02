@@ -16,7 +16,7 @@ var _categorySelect;
 function init() {
 
   // Set up geolocation button.
-  geo.init('button-geolocate', _geolocationClicked);
+  // geo.init('button-geolocate', _geolocationClicked);
 
   // Set up text input filters
   _keyword = TextInput.create('keyword-search-box');
@@ -54,11 +54,7 @@ function init() {
 
 
   
-  $("#reset-button").click(function(e){
-    e.preventDefault();
-    $("#form-search").trigger("reset");
-    _getSearchResults(e);
-  })
+  $("#reset-button").click(e => _resetFilters(e));
 
   $('.search-input').keydown(function (e) {
     if (e.keyCode == 13) {
@@ -71,6 +67,18 @@ function init() {
     ///submit form on filter change
   $("#form-search").change(e => _getSearchResults(e));
 
+}
+
+function _resetFilters(e){
+  e.preventDefault();
+  ["main_category", "distance", "address", "lat", "long", "keyword"].map(i => {
+    $(`#${i}`).val('');
+  });
+  $('input:checkbox:checked').each(function() {
+    $(this).removeAttr('checked');
+  });
+  _updateSubCategories();
+  _getSearchResults(e);
 }
 
 function _getSearchResults(e){
@@ -246,10 +254,10 @@ function _linkClickedHandler(evt) {
 }
 
 // The geolocation button was clicked in the location filter.
-function _geolocationClicked(address) {
-  document.getElementById('location').value = address;
-  _searchForm.submit();
-}
+// function _geolocationClicked(address) {
+//   document.getElementById('location').value = address;
+//   _searchForm.submit();
+// }
 
 // The clear filters link was clicked.
 function _resetClicked(evt) {
