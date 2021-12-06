@@ -25,10 +25,7 @@ class LocationsController < ApplicationController
     @lat = params[:lat]
     @long = params[:long]
     @address = params[:address]
-    @languages = []
-    @search.locations.each do |location|
-      @languages.push(location)
-    end  
+    @languages = @search.locations.map(&:languages).flatten.uniq
 
     if @address.nil? && @lat.present? && @long.present?
       @address = 'Current Location'

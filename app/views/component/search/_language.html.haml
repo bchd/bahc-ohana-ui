@@ -1,9 +1,8 @@
 = field_set_tag nil, id: 'language-filter', class: 'input-search-filter input-search-filter-option' do
   = label_tag :languages, 'By Langauge', style: "font-size: 16px;"
-  = @languages.inspect
   %hr
   %fieldset#subcategoriesList
-    - ["English", "Spanish"].each do |language|
+    - @languages.each do |language|
       - id_string = "language_#{language.delete('&').delete(' ')}"
       %div.filter-language-item
         - if params[:languages]
