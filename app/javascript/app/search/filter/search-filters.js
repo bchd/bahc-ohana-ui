@@ -50,13 +50,45 @@ function init() {
   
   $("#reset-button").click(e => _resetFilters(e));
   $("#button-geolocate").click(e => _getCurrentLocation(e));
-  $("#form-search").change(e => _getSearchResults(e));
+  $("#form-search").change(e => _handleFormChange(e));
+  $("#keyword").on('input', debounce(() => {_getSearchResults()}, 500));
+  $("#address").on('input', debounce(() => {_getSearchResults()}, 500));
+
+}
+
+var debounce = function (func, wait, immediate) {
+  var timeout;
+  return function() {
+      var context = this, args = arguments;
+      var later = function() {
+              timeout = null;
+              if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+  };
+};
+
+function _handleFormChange(e){
+
+  if (e.target.type == "text" || e.target.type == "search"){ return; } 
+
+  if (e.target.id == "main_category"){
+    //if main category was changed clear subcategories before form submit
+    $( "input[name='categories[]']" ).prop('checked', false);
+  };
+
+  if ($("#address").val() != "Current Location"){
+    $('#button-geolocate').removeClass('geolocated');
+  }
+
+  _getSearchResults(e);
 
 }
 
 function _getCurrentLocation(e){
-
-  if ($('#address').val() == "Current Location"){ return };
   
   var options = {
     enableHighAccuracy: false,
@@ -68,6 +100,7 @@ function _getCurrentLocation(e){
     let crd = pos.coords;
     $('#lat').val(crd.latitude);
     $('#long').val(crd.longitude);
+    $("#bar").hide();
     _getSearchResults(e)
   };
 
@@ -115,15 +148,6 @@ function _resetFilters(e){
 
 function _getSearchResults(e){
 
-  if (e.target.id == "main_category"){
-    //if main category was changed clear subcategories before form submit
-    $( "input[name='categories[]']" ).prop('checked', false);
-  };
-
-  if ($("#address").val() != "Current Location"){
-    $('#button-geolocate').removeClass('geolocated');
-  }
-
   var formData = $("#form-search").serialize();
   const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -138,7 +162,6 @@ function _getSearchResults(e){
       success: function(response) {
         $("#results-container").empty();
         $("#results-container").append(response);
-        $("#bar").hide();
 
         if ( $("#map-view").length ){
           map.init();
