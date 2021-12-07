@@ -238,6 +238,12 @@ input.search-input:-webkit-autofill {
   @include rounded-except(none);
 }
 
+@-moz-document url-prefix() {
+  select {
+      padding-top: 10px;
+  }
+}
+
 .label_tag{
   font-size: 35px;
   color: orange;
