@@ -1,13 +1,8 @@
 = field_set_tag nil, id: 'language-filter', class: 'input-search-filter input-search-filter-option' do
   = label_tag :languages, 'By Langauge', style: "font-size: 16px;"
   %hr
-  %fieldset#subcategoriesList
-    - @languages.each do |language|
-      - id_string = "language_#{language.delete('&').delete(' ')}"
-      %div.filter-language-item
-        - if params[:languages]
-          = check_box_tag( 'languages[]', language, params[:languages].include?(language) , id: id_string)
-          = label_tag id_string, language
-        - else
-          = check_box_tag( 'languages[]', language, false , id: id_string)
-          = label_tag id_string, language
+  = select_tag :languages, options_for_select(@languages, @selected_language), include_blank: 'All', class: "category-search-select-left-menu"
+
+
+
+
