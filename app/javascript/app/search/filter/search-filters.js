@@ -1,6 +1,6 @@
 // Handles search filter functionality.
 import TextInput from 'app/search/filter/TextInput';
-import geo from 'app/util/geolocation/geolocate-action';
+import map from 'app/result/result-map';
 
 // The search filters.
 var _keyword;
@@ -13,9 +13,6 @@ var _categorySelect;
 
 // Main module initialization.
 function init() {
-
-  // Set up geolocation button.
-  geo.init('button-geolocate', _geolocationClicked);
 
   // Set up text input filters
   _keyword = TextInput.create('keyword-search-box');
@@ -50,7 +47,132 @@ function init() {
   }
 
   _openCheckedSections();
+  
+  $("#reset-button").click(e => _resetFilters(e));
+  $("#button-geolocate").click(e => _getCurrentLocation(e));
+  $("#form-search").change(e => _handleFormChange(e));
+  $("#keyword").on('input', debounce(() => {_getSearchResults()}, 500));
+  $("#address").on('input', debounce(() => {_getSearchResults()}, 500));
+
 }
+
+var debounce = function (func, wait, immediate) {
+  var timeout;
+  return function() {
+      var context = this, args = arguments;
+      var later = function() {
+              timeout = null;
+              if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+  };
+};
+
+function _handleFormChange(e){
+
+  if (e.target.type == "text" || e.target.type == "search"){ return; } 
+
+  if (e.target.id == "main_category"){
+    //if main category was changed clear subcategories before form submit
+    $( "input[name='categories[]']" ).prop('checked', false);
+  };
+
+  if ($("#address").val() != "Current Location"){
+    $('#button-geolocate').removeClass('geolocated');
+  }
+
+  _getSearchResults(e);
+
+}
+
+function _getCurrentLocation(e){
+  
+  var options = {
+    enableHighAccuracy: false,
+    timeout: 20000,
+    maximumAge: 9999999
+  };
+
+  function success(pos) {
+    let crd = pos.coords;
+    $('#lat').val(crd.latitude);
+    $('#long').val(crd.longitude);
+    $("#bar").hide();
+    _getSearchResults(e)
+  };
+
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+
+  var i = 0;
+  function moveLoadingBar() {
+    if (i == 0) {
+      i = 1;
+      var elem = document.getElementById("bar");
+      var width = 1;
+      var id = setInterval(frame, 30);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          elem.style.width = width + "%";
+        }
+      }
+    }
+  }
+
+  
+  e.preventDefault();
+  $('#address').val('Current Location');
+  $('#button-geolocate').addClass('geolocated');
+  $('#bar').show();
+  moveLoadingBar();
+  navigator.geolocation.getCurrentPosition(success, error, options);
+
+}
+
+function _resetFilters(e){
+  e.preventDefault();
+  $(':input').each(function() {
+    $(this).val("");
+  });
+  _updateSubCategories();
+  _getSearchResults(e);
+}
+
+function _getSearchResults(e){
+
+  var formData = $("#form-search").serialize();
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    $.ajax({
+      type: 'GET',
+      url: '/locations',
+      headers: {
+        'X-CSRF-Token': csrfToken,
+        'accept':"text/html"
+      },
+      data: formData + "&layout=false&form=true",
+      success: function(response) {
+        $("#results-container").empty();
+        $("#results-container").append(response);
+
+        if ( $("#map-view").length ){
+          map.init();
+        }
+        
+      }
+    });  
+}
+
+
+
 
 function _updateSubCategories(){
   var selectedCategoryName = _categorySelect.value;
@@ -139,7 +261,7 @@ function _updateSubCategories(){
 function _openCheckedSections() {
   var checkedBoxes = $('input:checkbox:checked');
   checkedBoxes.each(function() {
-    if (!($(this).closest('fieldset').siblings('div').hasClass('selected'))) {
+    if (($(this).closest('fieldset').siblings('div').hasClass('selected'))) {
       _openSection($(this).closest('fieldset').siblings('div'));
     }
   });
@@ -190,29 +312,6 @@ function _linkClickedHandler(evt) {
     _checkState('depth', 0, el);
   }
 }
-
-// The geolocation button was clicked in the location filter.
-function _geolocationClicked(address) {
-  document.getElementById('location').value = address;
-  _searchForm.submit();
-}
-
-// The clear filters link was clicked.
-function _resetClicked(evt) {
-  if (evt.key === "Enter" || evt.type === 'click') {
-    _keyword.reset();
-    _agency.reset();
-
-    $('input:checkbox:checked').each(function() {
-      $(this).removeAttr('checked');
-    });
-
-    evt.preventDefault();
-    evt.target.blur();
-  }
-}
-
-
 
 function _checkState(prefix,depth,checkbox) {
   var item = $(checkbox).parent(); // parent li item
