@@ -166,6 +166,13 @@ function _getSearchResults(e){
         if ( $("#map-view").length ){
           map.init();
         }
+
+        //remove layout=false from pagination hrefs
+        $('a').each(function(){ 
+            var oldUrl = $(this).attr("href");
+            var newUrl = oldUrl.replace("&layout=false", ""); 
+            $(this).attr("href", newUrl); 
+        });
         
       }
     });  
