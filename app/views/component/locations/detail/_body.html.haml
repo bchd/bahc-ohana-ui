@@ -267,9 +267,13 @@
     document.querySelector('.favorite-toggle').remove();
     document.querySelector('.button-edit').remove();
     document.querySelector('.map-box').remove();
-    document.querySelector('.file_upload').parentElement.remove();
+
     [...document.querySelectorAll('.more')].map(e => e.click());
     [...document.querySelectorAll('.less')].map(e => e.parentElement.remove());
+
+    if (document.querySelectorAll('.file_upload').length > 0 ) {
+      document.querySelector('.file_upload').parentElement.remove();
+    };
 
     const printContents = document.querySelector('#detail-info').innerHTML;
 
