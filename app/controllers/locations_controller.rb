@@ -25,6 +25,10 @@ class LocationsController < ApplicationController
     @lat = params[:lat]
     @long = params[:long]
     @address = params[:address]
+    @languages = Ohanakapa.languages
+    unless params[:languages].nil? || params[:languages].empty?
+      @selected_language = params[:languages][0]
+    end  
 
     if @address.nil? && @lat.present? && @long.present?
       @address = 'Current Location'
