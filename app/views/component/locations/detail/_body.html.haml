@@ -248,7 +248,6 @@
         });
       }
     });
-  });
 
   var _printButton;
 
@@ -264,19 +263,26 @@
   function _clickPrintButton(evt) {
     evt.preventDefault();
 
-    var originalContents = document.body.innerHTML;
+    const originalContents = document.body.innerHTML;
     document.querySelector('.favorite-toggle').remove();
     document.querySelector('.button-edit').remove();
     document.querySelector('.map-box').remove();
 
-    var printContents = document.querySelector('#detail-info').innerHTML;
+    [...document.querySelectorAll('.more')].map(e => e.click());
+    [...document.querySelectorAll('.less')].map(e => e.parentElement.remove());
+
+    if (document.querySelectorAll('.file_upload').length > 0 ) {
+      document.querySelector('.file_upload').parentElement.remove();
+    };
+
+    const printContents = document.querySelector('#detail-info').innerHTML;
 
     document.body.innerHTML = printContents;
 
     window.print();
-
-    document.body.innerHTML = originalContents;
-    initPrintButton()
+    window.location.reload()
+    initPrintButton();
   }
 
-  initPrintButton()
+  initPrintButton();
+  });
