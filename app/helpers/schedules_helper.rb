@@ -71,10 +71,19 @@ module SchedulesHelper
   #   or range of weekdays.
   def holiday_schedule_content_for(schedule)
     content_tag :section do
+      holiday_label(schedule.label) +
       "#{date_range_for(schedule.start_date, schedule.end_date)}: "\
       "#{holiday_hours(
         schedule.closed, schedule.opens_at, schedule.closes_at
       )}".html_safe
+    end
+  end
+
+  def holiday_label(label)
+    unless label.nil?
+      content_tag :h3 do
+        label + ":"
+      end
     end
   end
 
