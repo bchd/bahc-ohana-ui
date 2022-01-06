@@ -2,14 +2,13 @@
   %ul
     - search.locations.each do |location|
 
-      %li{class: location.featured ? "search-result-highlight" : cycle('search-result-blue', 'search-result-white')}
+      %li{class: cycle('search-result-blue', 'search-result-white')}
         %section.results-entry{ itemscope: '', itemtype: 'http://schema.org/Organization' }
           %header
+            - if location.featured
+              = render 'component/locations/results/featured_location'
             %hgroup
               %h1.name
-                - if location.featured
-                  .featured_location_tag
-                    Featured Location </br>
                 %a{ href: location_link_for(location), name: location.id }
                   = superscript_ordinals(full_name_content_for(location))
 
