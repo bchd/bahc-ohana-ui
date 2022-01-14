@@ -1,38 +1,25 @@
-= render 'component/locations/detail/header', location: location
-
 %section#detail-info{ itemscope: '', itemtype: 'http://schema.org/Organization' }
-
-  %header
-    %hgroup
-      %h1.name
-        = superscript_ordinals(full_name_content_for(location))
-      - if location.organization.name && location.organization.name != location.name
-        %h2.agency
-          = link_to(locations_path(org_name: location.organization.name)) do
-            %span
-              = superscript_ordinals(location.organization.name)
-      = render 'shared/covid_disclaimer'
-      %p
-        Last Updated: #{@location.updated_at.strftime("%B %d, %Y at %I:%M %p") }
-      - if location.tags.present?
-        %p
-          Tags: #{location.tags.map{|tag| tag.name}.join(', ')}
 
   / detail sidebar content
   .location-sidebar-box
     %aside.location-sidebar
-      %button.button-plain.favorite-toggle
-      - if (location.fields & location_contact_fields).any?
-        %section.contact-box-general.location-sidebar-section
-          %h1 General Contact Info
-          %section.location-sidebar-content
-            = render 'component/detail/website', website: location.website
-            = render 'component/detail/email', email: location.email
 
-            - if location.phones.present?
-              %section.phones.location-sidebar-content-group
-                - location.phones.each do |phone|
-                  = render 'component/detail/phone', phone: phone, show_phone_type_and_department: true
+      - if location.coordinates.present?
+        %section.map-box
+          %div
+            %section.map#detail-map-view
+              #detail-map-canvas
+                %span.hide#detail-map-canvas-title
+                  = full_address_for(location.address)
+                %span.hide#detail-map-canvas-lat
+                  = location.latitude
+                %span.hide#detail-map-canvas-lng
+                  = location.longitude
+              %noscript
+                -# Hides map when JavaScript is disabled.
+                :sass
+                  #detail-map-view
+                    display: none
 
       - if location.contacts.present?
         - location.contacts.each do |contact|
@@ -53,18 +40,14 @@
                   - contact.phones.each do |phone|
                     = render 'component/detail/phone', phone: phone, show_phone_type_and_department: true
 
-      - if location.address.present?
-        %section.address-box.location-sidebar-section
-          %h1 Physical Address
-          %section.location-sidebar-content
-            %section.address.icon-text-block
-              %span
-                = render 'component/detail/address', location: location, lines: 2
-      - if location.regular_schedules.present?
-        %section.schedules-box.location-sidebar-section
-          %h1
-          %section.location-sidebar-content
-            = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
+
+
+      - if location[:transportation].present?
+        %section.transportation-availability
+          %h1 Public Transit:
+          %span
+            = location.transportation
+
       - if location.holiday_schedules.present?
         %section.schedules-box.location-sidebar-section
           %h1 Holiday Hours
@@ -80,6 +63,16 @@
         %section.address-box.location-sidebar-section
           %h1= t('location_fields.file_uploads')
           = render 'component/detail/file_uploads', location: location
+
+      - if location.tags.present?
+        %p
+        Tags: #{location.tags.map{|tag| tag.name}.join(', ')}        
+
+      Last Updated: #{@location.updated_at.strftime("%B %d, %Y at %I:%M %p") }      
+      %span><
+      %a.button-utility.button-flag-resource{ href: new_flag_path(resource_type: 'Location', resource_id: location.id) }
+        %i.fa.fa-flag
+        Report an issue with this resource
 
     - if false && @categories.present?
       %aside.location-sidebar
@@ -97,41 +90,53 @@
 
   / Main detail content.
   %section.details-content
-    %section.overview-box
-      %section
-        = render 'component/detail/location_short_desc', location: location
-        = render 'component/detail/location_description', location: location
 
-    - if location.coordinates.present? || location.transportation.present?
-      %section.map-box
-        %h1 Location
+    %span
+      %a.button-utility.button-back{ href: "#{locations_url(request.query_parameters)}##{location.id}", target: '_self' }
+        %i.fa.fa-arrow-circle-left
+        Back
 
-        %div
+    %span><
+      %a.button-utility.button-share-email{ href: mailto_url }
+        %i.fa.fa-share
+        Email    
 
-          - if location[:transportation].present?
-            %section.transportation-availability
-              %h1 Public Transit:
+    %button.button-plain.favorite-toggle    
+
+    %header
+      %hgroup
+        %h1.name
+          = superscript_ordinals(full_name_content_for(location))
+        - if location.organization.name && location.organization.name != location.name
+          %h2.agency
+            = link_to(locations_path(org_name: location.organization.name)) do
               %span
-                = location.transportation
+                = superscript_ordinals(location.organization.name)
+    
 
-          - if location.coordinates.present?
-            %section.map#detail-map-view
-              #detail-map-canvas
-                %span.hide#detail-map-canvas-title
-                  = full_address_for(location.address)
-                %span.hide#detail-map-canvas-lat
-                  = location.latitude
-                %span.hide#detail-map-canvas-lng
-                  = location.longitude
-              %noscript
-                -# Hides map when JavaScript is disabled.
-                :sass
-                  #detail-map-view
-                    display: none
+
+    %section.overview-box
+      = render 'component/detail/location_short_desc', location: location
+      .overview-flex-container
+        .flex-column
+          = render 'component/detail/website', website: location.website
+          = render 'component/detail/email', email: location.email
+          = render 'component/detail/address', location: location, lines: 2
+        .flex-column  
+          = render 'component/detail/phones', location: location
+          = render 'component/detail/audience', location: location
+          - if location.regular_schedules.present?
+            = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
+
+    %section.general-information
+      %h2 General Information
+      %hr    
+      = render 'component/detail/location_description', location: location    
 
     - if location.services.present?
       %section.services-box
-        %h1 Services
+        %h2 Services
+        %hr    
         - location.services.each do |service|
 
           %section.service{ itemscope: '', itemtype: 'http://schema.org/Service' }

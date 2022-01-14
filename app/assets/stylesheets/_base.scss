@@ -1041,15 +1041,16 @@ body {
 //=================================================================================
 // Location details view.
 #detail-info {
-  font-family: $font_sans_serif;
-  // Offset to accommodate the floating header height.
-  padding-top: 45px;
+  font-family: Lato;
+
+  h2 {
+    color: rgba(27, 27, 27, 0.75);
+    font-size: 1.5em;
+  }
 
   // Location header.
-  > header {
+  > section > header {
     padding: 10px;
-    background: $primary-lightest; // IE fallback
-    background: rgba($blue, .05);
     @include border-radius(4px 4px 0 0);
 
     .kind {
@@ -1063,7 +1064,7 @@ body {
     }
 
     > hgroup {
-      font-family: $font_sans_serif;
+    
       padding: 10px;
       padding-left: 20px;
 
@@ -1071,14 +1072,16 @@ body {
       h1 {
         @include type-size(large);
         color: $purple;
+        font-size: 3em;
       }
 
       // agency
       h2 {
         @include type-size(medium);
-        color: $blue;
+        color: rgba(27, 27, 27, 0.75);
+        font-size: 1.5em;
         a {
-          color: $blue;
+          color: rgba(27, 27, 27, 0.75);
           text-decoration: none;
         }
       }
@@ -1222,28 +1225,62 @@ body {
   // Adjust margin of main content to fit aside.
 
   // Section specific styles. Accommodate aside width.
-  .overview-box,
-  .map-box {
-    margin-right: 350px;
-  }
-
   .overview-box {
-    .description {
-       margin-top: 40px;
-    }
+    padding: 16px;
+    margin: 40px;
+    height: 378px;
+    position: static;
+    max-width: 688px;
+    left: 0px;
+    top: 0px;
+    
+    /* Teal */
+    
+    background-color: #007FAA;
+    border-radius: 8px;
 
-     // Stylize services summary.
     .short-desc {
-      color: $blue;
+      border-bottom: 1px solid white;
+      padding-bottom: 3px;
+    }
+  
+
+    .short-desc > * {
+      z-index: 1000;
       //background: $accentA-light;
       @include border-radius(5px);
       font-family: $font_sans_serif;
       font-size: $font_size_105;
-      padding-top: 40px;
       padding-bottom: 0;
       position: relative;
+      color: white;
     }
   }
+
+  .overview-flex-container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .general-information {
+    margin-left: 40px;
+  }
+
+
+
+  .flex-column {
+    width: 50%;
+  }
+
+  .flex-column > * {
+    margin-top: 10px;
+  }
+
+  .overview-flex-container span {
+    color: white;
+    font-size: 16px;
+  }
+
 
   .service-opt-box {
     > section > section
@@ -1255,6 +1292,16 @@ body {
 
   .services-box {
     margin-right: 350px;
+    margin-left: 40px;
+    margin-top: 40px;
+
+    .service {
+      width: 686px;
+      background: #F1F1F1;
+      border-radius: 8px;
+    
+    }
+
     .status {
       font-size: $font_size_95;
       color: $alert-error-base;
@@ -1280,9 +1327,8 @@ body {
       margin-bottom: 25px;
       padding-bottom: 0;
       margin-left: 0;
-      font-size: 24px;
-      color: $purple;
-      border-left: 20px solid $blue;
+      font-size: 18px;
+      color: #222222;
     }
     .schedules-box {
       @include inline-block();
@@ -1298,7 +1344,7 @@ body {
   }
 
   .map #detail-map-canvas {
-    height: 400px;
+    height: 250px;
     width: 100%;
     @include box-sizing(border-box);
     //border-top: 1px solid $primary-dark;
