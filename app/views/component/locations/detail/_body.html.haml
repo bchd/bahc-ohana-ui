@@ -91,17 +91,19 @@
   / Main detail content.
   %section.details-content
 
-    %span
-      %a.button-utility.button-back{ href: "#{locations_url(request.query_parameters)}##{location.id}", target: '_self' }
-        %i.fa.fa-arrow-circle-left
-        Back
+    = render 'component/locations/detail/header_summary', location: location
 
-    %span><
-      %a.button-utility.button-share-email{ href: mailto_url }
-        %i.fa.fa-share
-        Email    
+    -# %span
+    -#   %a.button-utility.button-back{ href: "#{locations_url(request.query_parameters)}##{location.id}", target: '_self' }
+    -#     %i.fa.fa-arrow-circle-left
+    -#     Back
 
-    %button.button-plain.favorite-toggle    
+    -# %span><
+    -#   %a.button-utility.button-share-email{ href: mailto_url }
+    -#     %i.fa.fa-share
+    -#     Email    
+
+    -# %button.button-plain.favorite-toggle    
 
     %header
       %hgroup
@@ -179,11 +181,11 @@
 
     // set favorite button to favorite or unfavorite
     function favoriteButton () {
-      $('.favorite-toggle').html('').html('Favorite').removeClass(unfavoriteText).addClass(favoriteText).data('favorite', false);
+      $('.favorite-toggle').removeClass("fa-heart").addClass("fa-heart-o").data('favorite', false);
     };
 
     function unfavoriteButton() {
-      $('.favorite-toggle').html('').html('Unfavorite').removeClass(favoriteText).addClass(unfavoriteText).data('favorite', true);
+      $('.favorite-toggle').removeClass("fa-heart-o").addClass("fa-heart").data('favorite', true);
     };
 
     var favorite = #{@favorite};
