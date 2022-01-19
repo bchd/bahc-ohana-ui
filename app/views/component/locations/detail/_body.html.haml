@@ -22,9 +22,11 @@
                     display: none
 
       - if location.contacts.present?
+        .sidebar-header
+          %h1 Specific Contact
+          %hr
         - location.contacts.each do |contact|
           %section.contact-box-specific.location-sidebar-section
-            %h1 Specific Contact
             %section.location-sidebar-content
               %section.contact-name-box.annotated-text-block
                 %section.contact-name
@@ -40,10 +42,11 @@
                   - contact.phones.each do |phone|
                     = render 'component/detail/phone', phone: phone, show_phone_type_and_department: true
 
-
-
+      .sidebar-header
+        %h1 Other Information
+        %hr
       - if location[:transportation].present?
-        %section.transportation-availability
+        %section.transportation-availability.location-sidebar-section
           %h1 Public Transit:
           %span
             = location.transportation
@@ -121,12 +124,12 @@
       = render 'component/detail/location_short_desc', location: location
       .overview-flex-container
         .flex-column
-          = render 'component/detail/website', website: location.website
-          = render 'component/detail/email', email: location.email
-          = render 'component/detail/address', location: location, lines: 2
-        .flex-column  
-          = render 'component/detail/phones', location: location
           = render 'component/detail/audience', location: location
+          = render 'component/detail/phones', location: location
+          = render 'component/detail/email', email: location.email
+        .flex-column  
+          = render 'component/detail/website', website: location.website
+          = render 'component/detail/address', location: location, lines: 2
           - if location.regular_schedules.present?
             = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
 
@@ -145,8 +148,6 @@
             %section.title-box
               = render 'component/detail/service_status', service: service
               = render 'component/detail/service_name', service: service
-
-
             = render 'component/detail/service_description', service: service
             = render 'component/detail/service_wait', service: service
             = render 'component/detail/service_phone', service: service
@@ -161,7 +162,6 @@
             = render 'component/detail/service_required_documents', service: service
             = render 'component/detail/service_accepted_payments', service: service
             = render 'component/detail/service_service_areas', service: service
-            = render 'component/detail/service_address_details', service: service
             = render 'component/detail/service_situations', service: service
             = render 'component/detail/service_categories', service: service
             = render 'component/detail/service_website', service: service

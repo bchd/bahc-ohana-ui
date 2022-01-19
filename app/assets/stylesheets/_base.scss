@@ -1042,6 +1042,7 @@ body {
 // Location details view.
 #detail-info {
   font-family: Lato;
+  
 
   h2 {
     color: rgba(27, 27, 27, 0.75);
@@ -1113,27 +1114,10 @@ body {
     > * > section {
       margin: 0;
       @include type-size(baseline);
-      margin-left: 20px;
       margin-right: 20px;
       color: shade($grey, 70);
-      padding: 5.5%;
-      padding-top: 0;
-      font-family: $font_sans_serif;
-
-      > h1 {
-        color: $blue;
-        @include type-size(baseline);
-        //font-weight: bold;
-        //background: $white; // IE fallback
-        //background: $main-header-bg;
-        padding-left: 5px;
-        padding-right: 5px;
-        //@include border-radius(5px);
-        @include inline-block();
-        // Overrides compass inline-block mixin setting - needed for correct font alignment.
-        vertical-align: baseline;
-        margin-left: -5px;
-      }
+      padding: 2%;
+      font-family: Lato;
     }
   }
 
@@ -1157,7 +1141,6 @@ body {
     width: 350px;
     z-index: $layer-9;
     margin-left: 20px;
-    height: 2100px;
 
     > .location-sidebar:first-child {
     }
@@ -1169,6 +1152,15 @@ body {
       word-break: break-all;
       // Non-standard for webkit.
       word-break: break-word;
+
+      .sidebar-header {
+        font-size: 18px;
+        line-height: 22px;
+        color: #222222;
+        margin-left: 20px;
+        width: 300px;
+        margin-top: 40px;
+      }
 
       .location-sidebar-section {
         margin-bottom: 20px;
@@ -1228,10 +1220,11 @@ body {
   // Section specific styles. Accommodate aside width.
   .overview-box {
     padding: 16px;
-    margin: 40px;
-    height: 378px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    max-height: 378px;
     position: static;
-    max-width: 688px;
+    max-width: 656px;
     left: 0px;
     top: 0px;
     
@@ -1256,6 +1249,14 @@ body {
       position: relative;
       color: white;
     }
+
+    a {
+      color: white;
+    }
+
+    h4 {
+      text-transform: uppercase;
+    }
   }
 
   .overview-flex-container{
@@ -1275,6 +1276,7 @@ body {
 
   .flex-column > * {
     margin-top: 10px;
+    word-wrap: break-word;
   }
 
   .overview-flex-container span {
@@ -1313,12 +1315,21 @@ body {
     margin-right: 350px;
     margin-left: 40px;
     margin-top: 40px;
+    
+
+    h1 {
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: uppercase;
+      color: #222222;
+      font-weight: 600;
+    }
 
     .service {
       width: 686px;
       background: #F1F1F1;
       border-radius: 8px;
-    
+      margin-top: 15px;
     }
 
     .status {
@@ -1342,8 +1353,6 @@ body {
       margin-bottom: 0;
     }
     .title-box {
-      margin-top: 10px;
-      margin-bottom: 25px;
       padding-bottom: 0;
       margin-left: 0;
       font-size: 18px;

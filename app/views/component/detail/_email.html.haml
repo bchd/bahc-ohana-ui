@@ -3,8 +3,9 @@
 
 - if email.present?
   %section.email.icon-text-block
-    %i.fa.fa-envelope-square
+    %i.fa.fa-envelope
     %span.annotated-text-block
-      %a{ href: "mailto:#{email}" }
-        %span{ itemprop: 'email' }
-          = email
+      %h4 Email
+  %a{ href: "mailto:#{email}" }
+    %span{ itemprop: 'email' }
+      = email
