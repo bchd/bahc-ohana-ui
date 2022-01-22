@@ -21,35 +21,43 @@
                   #detail-map-view
                     display: none
 
+      - if location.coordinates.present?
+        %span.directions.icon-text-block><
+          %a{ href: "https://maps.google.com/maps?saddr=current+location&daddr=#{full_address_for(location.address)}", target: '_blank' }
+            %i.fa.fa-map-marker.fa-lg
+            %span.annotated-text-block Get Directions              
+
       - if location.contacts.present?
         .sidebar-header
           %h1 Specific Contact
           %hr
         - location.contacts.each do |contact|
           %section.contact-box-specific.location-sidebar-section
-            %section.location-sidebar-content
-              %section.contact-name-box.annotated-text-block
-                %section.contact-name
-                  = contact.name
-                - if contact.title.present? || contact.department.present?
-                  %section.contact-details.annotation
-                    = contact_details_for(contact)
+            %section.icon-text-block
+              %i.fa.fa-id-card
+              %span.annotated-text-block
+                %h4 Name
+              %br  
+              %section.location-sidebar-content
+                %section.contact-name-box
+                  %section.contact-name
+                    = contact.name
+                  - if contact.title.present? || contact.department.present?
+                    %section.contact-details.annotation
+                      = contact_details_for(contact)
 
-              = render 'component/detail/email', email: contact.email
+                = render 'component/detail/email', email: contact.email
 
-              - if contact.phones.present?
-                %section.phones.location-sidebar-content-group
-                  - contact.phones.each do |phone|
-                    = render 'component/detail/phone', phone: phone, show_phone_type_and_department: true
+                - if contact.phones.present?
+                  %section.phones.location-sidebar-content-group
+                    = render 'component/detail/phones', phones: contact.phones
 
       .sidebar-header
         %h1 Other Information
         %hr
       - if location[:transportation].present?
         %section.transportation-availability.location-sidebar-section
-          %h1 Public Transit:
-          %span
-            = location.transportation
+          = render 'component/detail/location_transportation', location: location
 
       - if location.holiday_schedules.present?
         %section.schedules-box.location-sidebar-section
@@ -59,7 +67,6 @@
 
       - if location.accessibility.present?
         %section.address-box.location-sidebar-section
-          %h1= t('location_fields.accessibility')
           = render 'component/detail/accessibility', location: location
 
       - if location.file_uploads.present?
@@ -68,14 +75,14 @@
           = render 'component/detail/file_uploads', location: location
 
       - if location.tags.present?
-        %p
-        Tags: #{location.tags.map{|tag| tag.name}.join(', ')}        
+        %section.tag-box.location-sidebar-section
+          = render 'component/detail/tags', tags: location.tags
 
-      Last Updated: #{@location.updated_at.strftime("%B %d, %Y at %I:%M %p") }      
-      %span><
-      %a.button-utility.button-flag-resource{ href: new_flag_path(resource_type: 'Location', resource_id: location.id) }
-        %i.fa.fa-flag
-        Report an issue with this resource
+      %section.location-sidebar-footer
+        %span.location-sidebar-content
+        Last Updated: #{@location.updated_at.strftime("%B %d, %Y at %I:%M %p") }      
+        %a{ href: new_flag_path(resource_type: 'Location', resource_id: location.id) }
+          Report an issue with this resource
 
     - if false && @categories.present?
       %aside.location-sidebar
@@ -125,7 +132,7 @@
       .overview-flex-container
         .flex-column
           = render 'component/detail/audience', location: location
-          = render 'component/detail/phones', location: location
+          = render 'component/detail/phones', phones: location.phones
           = render 'component/detail/email', email: location.email
         .flex-column  
           = render 'component/detail/website', website: location.website
@@ -150,7 +157,7 @@
               = render 'component/detail/service_name', service: service
             = render 'component/detail/service_description', service: service
             = render 'component/detail/service_wait', service: service
-            = render 'component/detail/service_phone', service: service
+            = render 'component/detail/phones', phones: service.phones
             = render 'component/detail/service_hours', service: service
             = render 'component/detail/service_address_details', service: service
             = render 'component/detail/service_fees', service: service

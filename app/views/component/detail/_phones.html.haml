@@ -1,3 +1,8 @@
-- if location.phones.present?
-    - location.phones.each do |phone|
-        = render 'component/detail/phone', phone: phone, show_phone_type_and_department: true
+- if phones.present?
+    %section.phone.icon-text-block{ itemscope: '', itemtype: 'http://schema.org/ContactPoint' }
+        %i.fa.fa-phone
+        %span.annotated-text-block
+            %h4 Phone
+        %br  
+        - phones.each do |phone|
+            = render 'component/detail/phone', phone: phone, show_phone_type_and_department: true

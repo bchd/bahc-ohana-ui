@@ -1041,7 +1041,7 @@ body {
 //=================================================================================
 // Location details view.
 #detail-info {
-  font-family: Lato;
+  font-family: Lato !important;
   
 
   h2 {
@@ -1104,7 +1104,6 @@ body {
       margin-top: 0;
       margin-bottom: 10px;
       padding-left: 1em;
-      border-bottom: 1px solid $greyscale_midtone;
       font-family: $font_sans_serif;
       @include inline-block();
       // Overrides compass inline-block mixin setting - needed for correct font alignment.
@@ -1141,6 +1140,16 @@ body {
     width: 350px;
     z-index: $layer-9;
     margin-left: 20px;
+   
+
+    a {
+      Font-style: italic;
+      border: none !important;
+    }
+
+    .directions {
+      margin-left: 20px;
+    }
 
     > .location-sidebar:first-child {
     }
@@ -1153,6 +1162,29 @@ body {
       // Non-standard for webkit.
       word-break: break-word;
 
+      .tag {
+        color: #007FAA;
+        background: rgba(0, 127, 170, 0.05);
+        border: 1px solid #007FAA;
+        border-radius: 100px;
+        padding: 2px 8px;
+        text-transform: capitalize;
+        white-space: nowrap;
+        display: inline-block;
+        margin: 3px;
+      }
+
+      .location-sidebar-footer {
+        font-style: italic;
+        margin-left: 20px;
+        color: rgba(27, 27, 27, 0.75);
+        
+        > * {
+          margin-top: 10px;
+          display: block;
+        }
+      }
+
       .sidebar-header {
         font-size: 18px;
         line-height: 22px;
@@ -1164,27 +1196,24 @@ body {
 
       .location-sidebar-section {
         margin-bottom: 20px;
+        margin-left: 20px;
 
-        h1 {
-          font-size: $font_size_100;
-          color: $greyscale_midtone;
-          margin-top: 0;
-          margin-bottom: 10px;
-          padding: 5px;
-          border-bottom: 1px solid $greyscale_light; // IE fallback
-          border-bottom: 1px solid rgba($black,.1);
-          font-family: $font_sans_serif;
-          @include inline-block();
-          // Overrides compass inline-block mixin setting
-          // Needed for correct font alignment.
-          vertical-align: baseline;
+        h1, h4 {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 19px;
+          text-transform: uppercase;
+          color: #222222;
         }
 
         .location-sidebar-content {
-          margin-left: 20px;
-
+          color: rgba(27, 27, 27, 0.75);
+          font-size: 16px;
+          line-height: 19px;
           > section {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             margin-right: 20px;
           }
           .location-sidebar-content-group {
@@ -1232,11 +1261,6 @@ body {
     
     background-color: #007FAA;
     border-radius: 8px;
-
-    .short-desc {
-      border-bottom: 1px solid white;
-      padding-bottom: 3px;
-    }
   
 
     .short-desc > * {
@@ -1256,6 +1280,10 @@ body {
 
     h4 {
       text-transform: uppercase;
+    }
+
+    .phone-type {
+      color: white;
     }
   }
 
@@ -1317,7 +1345,7 @@ body {
     margin-top: 40px;
     
 
-    h1 {
+    h1, h4{
       font-size: 16px;
       line-height: 19px;
       text-transform: uppercase;
