@@ -1041,8 +1041,17 @@ body {
 //=================================================================================
 // Location details view.
 #detail-info {
-  font-family: Lato !important;
-  
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+
+  .details-content {
+    margin-left: 40px;
+    width: 100%;
+    margin-right: 24px;
+  }
 
   h2 {
     color: rgba(27, 27, 27, 0.75);
@@ -1051,9 +1060,9 @@ body {
 
   // Location header.
   > section > header {
-    padding: 10px;
+   
     @include border-radius(4px 4px 0 0);
-    margin-left: 10px;
+
 
     .kind {
       color: $primary-dark;
@@ -1066,9 +1075,6 @@ body {
     }
 
     > hgroup {
-    
-      padding: 10px;
-      padding-left: 20px;
 
       // name
       h1 {
@@ -1136,11 +1142,8 @@ body {
 
   // Details view sidebar.
   > .location-sidebar-box {
-    float: right;
-    width: 350px;
-    z-index: $layer-9;
-    margin-left: 20px;
    
+    z-index: $layer-9;
 
     a {
       Font-style: italic;
@@ -1156,11 +1159,11 @@ body {
     > .location-sidebar {
       //margin-bottom: 20px;
       background: rgba($purple, .1);
-      height: 2100px;
       -ms-word-break: break-all;
       word-break: break-all;
       // Non-standard for webkit.
       word-break: break-word;
+      height: 100%;
 
       .tag {
         color: #007FAA;
@@ -1190,7 +1193,7 @@ body {
         line-height: 22px;
         color: #222222;
         margin-left: 20px;
-        width: 300px;
+        width: 85%;
         margin-top: 40px;
       }
 
@@ -1199,9 +1202,6 @@ body {
         margin-left: 20px;
 
         h1, h4 {
-          font-family: Lato;
-          font-style: normal;
-          font-weight: 600;
           font-size: 16px;
           line-height: 19px;
           text-transform: uppercase;
@@ -1244,65 +1244,40 @@ body {
     }
   }
 
-  // Adjust margin of main content to fit aside.
 
   // Section specific styles. Accommodate aside width.
   .overview-box {
     padding: 16px;
-    margin-left: 40px;
     margin-bottom: 40px;
     max-height: 378px;
     position: static;
     max-width: 656px;
-    left: 0px;
-    top: 0px;
-    
-    /* Teal */
-    
     background-color: #007FAA;
     border-radius: 8px;
   
-
-    .short-desc > * {
-      z-index: 1000;
-      //background: $accentA-light;
-      @include border-radius(5px);
-      font-family: $font_sans_serif;
-      font-size: $font_size_105;
-      padding-bottom: 0;
-      position: relative;
+    .markdown-short-desc, .short-desc, a, .phone-type {
       color: white;
     }
 
-    a {
-      color: white;
+    hr {
+      background: white;
     }
 
     h4 {
       text-transform: uppercase;
     }
 
-    .phone-type {
-      color: white;
+    .overview-flex-container{
+      display: flex;
+      flex-wrap: wrap;
     }
   }
 
-  .overview-flex-container{
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .general-information {
-    margin-left: 40px;
-  }
-
-
-
   .flex-column {
-    width: 50%;
+    max-width: 50%;
   }
 
-  .flex-column > * {
+  .overview-flex-container > * {
     margin-top: 10px;
     word-wrap: break-word;
   }
@@ -1310,6 +1285,10 @@ body {
   .overview-flex-container span {
     color: white;
     font-size: 16px;
+  }
+
+  .general-information {
+    max-width: 696px;
   }
 
   .header-right {
@@ -1327,7 +1306,6 @@ body {
 
   .button-back > * {
     color: rgba(27, 27, 27, 0.75);
-    margin-left: 40px;
   }
 
 
@@ -1340,21 +1318,19 @@ body {
   }
 
   .services-box {
-    margin-right: 350px;
-    margin-left: 40px;
     margin-top: 40px;
-    
+    margin-bottom: 40px;
+    max-width: 696px;
 
     h1, h4{
       font-size: 16px;
       line-height: 19px;
       text-transform: uppercase;
       color: #222222;
-      font-weight: 600;
     }
 
     .service {
-      width: 686px;
+      max-width: 686px;
       background: #F1F1F1;
       border-radius: 8px;
       margin-top: 15px;

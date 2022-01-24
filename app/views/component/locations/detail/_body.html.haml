@@ -1,6 +1,70 @@
 %section#detail-info{ itemscope: '', itemtype: 'http://schema.org/Organization' }
 
-  / detail sidebar content
+  / Main detail content.
+  %section.details-content
+
+    = render 'component/locations/detail/header_summary', location: location
+
+    %header
+      %hgroup
+        %h1.name
+          = superscript_ordinals(full_name_content_for(location))
+        - if location.organization.name && location.organization.name != location.name
+          %h2.agency
+            = link_to(locations_path(org_name: location.organization.name)) do
+              %span
+                = superscript_ordinals(location.organization.name)
+    
+
+
+    %section.overview-box
+      = render 'component/detail/location_short_desc', location: location
+      %hr
+      .overview-flex-container
+        .flex-column
+          = render 'component/detail/audience', location: location
+          = render 'component/detail/phones', phones: location.phones
+          = render 'component/detail/email', email: location.email
+        .flex-column  
+          = render 'component/detail/website', website: location.website
+          = render 'component/detail/address', location: location, lines: 2
+          - if location.regular_schedules.present?
+            = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
+
+    %section.general-information
+      %h2 General Information
+      %hr    
+      = render 'component/detail/location_description', location: location    
+
+    - if location.services.present?
+      %section.services-box
+        %h2 Services
+        %hr    
+        - location.services.each do |service|
+
+          %section.service{ itemscope: '', itemtype: 'http://schema.org/Service' }
+            %section.title-box
+              = render 'component/detail/service_status', service: service
+              = render 'component/detail/service_name', service: service
+            = render 'component/detail/service_description', service: service
+            = render 'component/detail/service_wait', service: service
+            = render 'component/detail/phones', phones: service.phones
+            = render 'component/detail/service_hours', service: service
+            = render 'component/detail/service_address_details', service: service
+            = render 'component/detail/service_fees', service: service
+            = render 'component/detail/service_audience', service: service
+            = render 'component/detail/service_eligibility', service: service
+            = render 'component/detail/service_application_process', service: service
+            = render 'component/detail/languages', service: service
+            = render 'component/detail/service_interpretation_services', service: service
+            = render 'component/detail/service_required_documents', service: service
+            = render 'component/detail/service_accepted_payments', service: service
+            = render 'component/detail/service_service_areas', service: service
+            = render 'component/detail/service_situations', service: service
+            = render 'component/detail/service_categories', service: service
+            = render 'component/detail/service_website', service: service
+  //locations sidebar
+
   .location-sidebar-box
     %aside.location-sidebar
 
@@ -52,6 +116,8 @@
                   %section.phones.location-sidebar-content-group
                     = render 'component/detail/phones', phones: contact.phones
 
+  
+
       .sidebar-header
         %h1 Other Information
         %hr
@@ -83,106 +149,7 @@
         Last Updated: #{@location.updated_at.strftime("%B %d, %Y at %I:%M %p") }      
         %a{ href: new_flag_path(resource_type: 'Location', resource_id: location.id) }
           Report an issue with this resource
-
-    - if false && @categories.present?
-      %aside.location-sidebar
-        %section.location-sidebar-section.service-categories-box
-          %h1 Service Categories
-          %section.location-sidebar-content
-            %section.service-categories{ itemscope: '', itemtype: 'http://schema.org/Service' }
-              %ul{ itemscope: '', itemtype: 'http://schema.org/serviceType' }
-                - @categories.each do |category|
-                  %li{ class: "hierarchy-depth-#{category.depth}" }
-                    %span{ itemprop: 'serviceType' }
-                      = category.name
-
-      /= render 'component/detail/service_keywords'
-
-  / Main detail content.
-  %section.details-content
-
-    = render 'component/locations/detail/header_summary', location: location
-
-    -# %span
-    -#   %a.button-utility.button-back{ href: "#{locations_url(request.query_parameters)}##{location.id}", target: '_self' }
-    -#     %i.fa.fa-arrow-circle-left
-    -#     Back
-
-    -# %span><
-    -#   %a.button-utility.button-share-email{ href: mailto_url }
-    -#     %i.fa.fa-share
-    -#     Email    
-
-    -# %button.button-plain.favorite-toggle    
-
-    %header
-      %hgroup
-        %h1.name
-          = superscript_ordinals(full_name_content_for(location))
-        - if location.organization.name && location.organization.name != location.name
-          %h2.agency
-            = link_to(locations_path(org_name: location.organization.name)) do
-              %span
-                = superscript_ordinals(location.organization.name)
-    
-
-
-    %section.overview-box
-      = render 'component/detail/location_short_desc', location: location
-      .overview-flex-container
-        .flex-column
-          = render 'component/detail/audience', location: location
-          = render 'component/detail/phones', phones: location.phones
-          = render 'component/detail/email', email: location.email
-        .flex-column  
-          = render 'component/detail/website', website: location.website
-          = render 'component/detail/address', location: location, lines: 2
-          - if location.regular_schedules.present?
-            = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
-
-    %section.general-information
-      %h2 General Information
-      %hr    
-      = render 'component/detail/location_description', location: location    
-
-    - if location.services.present?
-      %section.services-box
-        %h2 Services
-        %hr    
-        - location.services.each do |service|
-
-          %section.service{ itemscope: '', itemtype: 'http://schema.org/Service' }
-            %section.title-box
-              = render 'component/detail/service_status', service: service
-              = render 'component/detail/service_name', service: service
-            = render 'component/detail/service_description', service: service
-            = render 'component/detail/service_wait', service: service
-            = render 'component/detail/phones', phones: service.phones
-            = render 'component/detail/service_hours', service: service
-            = render 'component/detail/service_address_details', service: service
-            = render 'component/detail/service_fees', service: service
-            = render 'component/detail/service_audience', service: service
-            = render 'component/detail/service_eligibility', service: service
-            = render 'component/detail/service_application_process', service: service
-            = render 'component/detail/languages', service: service
-            = render 'component/detail/service_interpretation_services', service: service
-            = render 'component/detail/service_required_documents', service: service
-            = render 'component/detail/service_accepted_payments', service: service
-            = render 'component/detail/service_service_areas', service: service
-            = render 'component/detail/service_situations', service: service
-            = render 'component/detail/service_categories', service: service
-            = render 'component/detail/service_website', service: service
-
-
-    / Detail footer content.
-    - if location.updated_at.present?
-
-      %footer.details-footer
-        %section.metadata
-          .button-edit
-            = link_to "#{ENV['OHANA_ADMIN_ENDPOINT']}/locations/#{location.slug}", rel: 'nofollow' do
-              %i.fa.fa-pencil
-              Edit
+            
 :javascript
   $(document).ready(function(){
 
