@@ -6,6 +6,8 @@
     = render 'component/locations/detail/header_summary', location: location
 
     %header
+      - if location.featured
+        = render 'component/detail/featured_location_badge'
       %hgroup
         %h1.name
           = superscript_ordinals(full_name_content_for(location))
@@ -24,10 +26,10 @@
         .flex-column
           = render 'component/detail/audience', location: location
           = render 'component/detail/phones', phones: location.phones
-          = render 'component/detail/email', email: location.email
+          = render 'component/detail/address', location: location, lines: 2
         .flex-column  
           = render 'component/detail/website', website: location.website
-          = render 'component/detail/address', location: location, lines: 2
+          = render 'component/detail/email', email: location.email
           - if location.regular_schedules.present?
             = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
 

@@ -67,6 +67,7 @@
         .location-sidebar {
           @include border-radius(0);
           height: auto;
+          width: 100%;
         }
       }
 
@@ -391,9 +392,21 @@
           font-size:1.2em;
         }
       }
+      
+      .featured-location-badge {
+        width: 83px;
+        height: 64px;
+        margin-right: 24px;
+        font-size: 12px;
+        padding-top: 3px;
+      }
 
-      .location-sidebar-box {
-        max-width: 100%;
+      .tooltiptext {
+        visibility: hidden;
+      }
+
+      .location-sidebar {
+        width: 100%;
       }
 
       .overview-box {
