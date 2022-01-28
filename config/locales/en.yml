@@ -111,8 +111,8 @@ en:
   service_fields:
     accepted_payments: 'Payment Methods Accepted:'
     audience: 'Audience:'
-    description: 'Service Description:'
-    address_details: 'Address Details:'
+    description: 'About'
+    address_details: 'Address'
     eligibility: 'Eligibility:'
     fees: 'Fees:'
     application_process: 'How to Apply:'

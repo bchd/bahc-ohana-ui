@@ -1,32 +1,16 @@
-%div
-  .right-column
-    .floating-content.hide><
-      %span
-        %a.button-utility.button-top{ href: '#' }
-          %i.fa.fa-chevron-up
-          Top
-    %span.utility-links
-      %span><
-        %a.button-utility.button-flag-resource{ href: new_flag_path(resource_type: 'Location', resource_id: location.id) }
-          %i.fa.fa-flag
-          Report an issue with this resource
-      %span><
-        %a.button-utility.button-share-email{ href: mailto_url }
-          %i.fa.fa-share
-          Email
-      %span.button-print-container><
-        %a.button-utility.button-print.hide{ href: '#' }
-          %i.fa.fa-print
-          Print
-      - if location.coordinates.present?
-        %span><
-          %a.button-utility.button-directions{ href: "https://maps.google.com/maps?saddr=current+location&daddr=#{full_address_for(location.address)}", target: '_blank' }
-            %i.fa.fa-external-link-square
-            %span Directions
-      %span
-        %a.button-utility.button-back{ href: "#{locations_url(request.query_parameters)}##{location.id}", target: '_self' }
-          %i.fa.fa-arrow-circle-left
-          Back
+%div.content-header
+  %span.utility-links
+    %span
+      %a.button-utility.button-back{ href: "#{locations_url(request.query_parameters)}##{location.id}", target: '_self' }
+        %i.fa.fa-arrow-left
+        Back
+    %span.header-right><
+      %a.button-utility.button-share-email{ href: mailto_url }
+        %i.fa.fa-share-square-o.fa-lg
+  
+ 
+      %span.fa.fa-heart-o.favorite-toggle.fa-lg
+        
 
   .left-column
     .floating-content.hide

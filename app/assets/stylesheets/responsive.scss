@@ -54,6 +54,9 @@
     }
 
     #detail-info {
+
+      flex-wrap: wrap;
+
       > .location-sidebar-box {
         float: none;
         margin-left: 0;
@@ -64,14 +67,14 @@
         .location-sidebar {
           @include border-radius(0);
           height: auto;
+          width: 100%;
         }
       }
 
       .overview-box,
-      .map-box,
       .services-box,
       footer {
-        margin-right: auto;
+        margin-right: 24px;
       }
     }
   }
@@ -378,6 +381,49 @@
       word-break: break-all;
       // Non standard for webkit
       word-break: break-word;
+      flex-wrap: wrap;
+
+      header {
+        h1 {
+          font-size: 1.5em;
+        }
+  
+        h2 {
+          font-size:1.2em;
+        }
+      }
+      
+      .featured-location-badge {
+        width: 83px;
+        height: 64px;
+        margin-right: 24px;
+        font-size: 12px;
+        padding-top: 3px;
+      }
+
+      .tooltiptext {
+        visibility: hidden;
+      }
+
+      .location-sidebar {
+        width: 100%;
+      }
+
+      .overview-box {
+        max-height: none;
+      }
+
+      .favorite-toggle {
+        margin-right: 24px;
+      }
+
+      .flex-column {
+        max-width: 100%;
+      }
+
+      .details-content {
+        margin-left: 24px;;
+      }
 
       > aside {
         float: clear;
