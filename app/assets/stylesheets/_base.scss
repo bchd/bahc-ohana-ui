@@ -1168,6 +1168,17 @@ body {
       margin-left: 20px;
     }
 
+    ul {
+      list-style-type: square;
+      margin-left: 20px;
+      li {
+        color: $main-list-mark-color; // IE fallback
+        > span {
+          color: shade($grey, 70);
+        }
+      }  
+    }
+
     > .location-sidebar:first-child {
     }
     > .location-sidebar {
