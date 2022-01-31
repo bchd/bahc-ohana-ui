@@ -1162,10 +1162,22 @@ body {
     a {
       Font-style: italic;
       border: none !important;
+      padding-bottom: 20px;
     }
 
     .directions {
       margin-left: 20px;
+    }
+
+    ul {
+      list-style-type: square;
+      margin-left: 20px;
+      li {
+        color: $main-list-mark-color; // IE fallback
+        > span {
+          color: shade($grey, 70);
+        }
+      }  
     }
 
     > .location-sidebar:first-child {
@@ -1221,6 +1233,7 @@ body {
           line-height: 19px;
           text-transform: uppercase;
           color: #222222;
+          margin-bottom: 4px;
         }
 
         .location-sidebar-content {
@@ -1267,11 +1280,10 @@ body {
     margin-top: 14px;
     max-height: 378px;
     position: static;
-    max-width: 656px;
     background-color: #007FAA;
     border-radius: 8px;
   
-    .markdown-short-desc, .short-desc, a, .phone-type {
+    .markdown-short-desc, .short-desc, a, .phone-type, section {
       color: white;
     }
 
@@ -1305,10 +1317,6 @@ body {
     font-size: 16px;
   }
 
-  .general-information {
-    max-width: 696px;
-  }
-
   .header-right {
     float: right;
   }
@@ -1338,7 +1346,6 @@ body {
   .services-box {
     margin-top: 40px;
     margin-bottom: 40px;
-    max-width: 696px;
 
     h1, h4{
       font-size: 16px;
@@ -1348,7 +1355,6 @@ body {
     }
 
     .service {
-      max-width: 686px;
       background: #F1F1F1;
       border-radius: 8px;
       margin-top: 15px;
