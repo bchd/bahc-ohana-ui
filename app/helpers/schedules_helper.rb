@@ -80,9 +80,11 @@ module SchedulesHelper
   end
 
   def holiday_label(label)
-    unless label.nil?
-      content_tag :h3 do
-        label + ":"
+    if label.nil?
+      return ""
+    else
+      content_tag :h4 do
+        label
       end
     end
   end
