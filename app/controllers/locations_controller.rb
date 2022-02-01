@@ -1,6 +1,5 @@
 class LocationsController < ApplicationController
   include Cacheable
-  
 
   def index
     # To enable Google Translation of keywords,
@@ -12,9 +11,11 @@ class LocationsController < ApplicationController
     @main_category_selected_id = ""
 
     unless params[:main_category].nil? || params[:main_category].empty?
-      @main_category_selected_name = params[:main_category]
-      @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
-      params[:main_category_id] = @main_category_selected_id
+      if validate_category
+        @main_category_selected_name = params[:main_category]
+        @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
+        params[:main_category_id] = @main_category_selected_id
+      end  
     end
     if params["categories"] and @main_category_selected_id != ""
       params["categories_ids"] = helpers.get_subcategories_ids(params["categories"], @main_category_selected_id)
@@ -83,6 +84,10 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.js { render :json => {sub_cat_array: sub_cat_array, category_title: helpers.category_filters_title(category_name)}.to_json }
     end
+  end
+
+  def validate_category
+    return helpers.main_categories_array.map{|row| row[0] }.include?(params[:main_category])
   end
 
 end
