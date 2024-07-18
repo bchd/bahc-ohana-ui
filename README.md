@@ -1,4 +1,8 @@
-# Ohana Web Search
+# Archived Repository
+
+This repository is archived. It is no longer used. It has been combined with https://github.com/bchd/bahc-ohana-api
+
+## Ohana Web Search
 
 [![CircleCI](https://circleci.com/gh/codeforamerica/ohana-web-search.svg?style=svg)](https://circleci.com/gh/codeforamerica/ohana-web-search) [![Test Coverage](https://api.codeclimate.com/v1/badges/c58dc90a578ae804273a/test_coverage)](https://codeclimate.com/github/codeforamerica/ohana-web-search/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/c58dc90a578ae804273a/maintainability)](https://codeclimate.com/github/codeforamerica/ohana-web-search/maintainability)
 
